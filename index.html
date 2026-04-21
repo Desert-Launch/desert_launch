@@ -72,10 +72,18 @@
         min-height: 100vh;
       }
 
+      body.menu-open {
+        overflow: hidden;
+      }
+
       img {
         display: block;
         max-width: 100%;
         height: auto;
+      }
+
+      figure {
+        margin: 0;
       }
 
       a {
@@ -137,6 +145,14 @@
         backdrop-filter: blur(20px);
         background: rgba(11, 15, 25, 0.72);
         border-bottom: 1px solid rgba(229, 231, 235, 0.08);
+        transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .site-header.is-scrolled,
+      .site-header.is-menu-open {
+        background: rgba(11, 15, 25, 0.92);
+        border-bottom-color: rgba(229, 231, 235, 0.12);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
       }
 
       .header-row {
@@ -145,6 +161,11 @@
         justify-content: space-between;
         gap: 1rem;
         padding: 1rem 0;
+        transition: padding 220ms ease;
+      }
+
+      .site-header.is-scrolled .header-row {
+        padding: 0.8rem 0;
       }
 
       .brand {
@@ -187,6 +208,8 @@
       }
 
       .nav a {
+        position: relative;
+        padding: 0.15rem 0;
         transition: color 180ms ease;
       }
 
@@ -195,13 +218,158 @@
         color: var(--text);
       }
 
+      .nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.35rem;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        opacity: 0;
+        transform: scaleX(0.5);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .nav a.is-active {
+        color: var(--text);
+      }
+
+      .nav a.is-active::after,
+      .nav a:hover::after,
+      .nav a:focus-visible::after {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
       .header-actions {
         display: flex;
         align-items: center;
         gap: 0.75rem;
       }
 
+      .menu-toggle,
+      .mobile-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        width: 3rem;
+        height: 3rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(229, 231, 235, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .menu-toggle:hover,
+      .menu-toggle:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(212, 175, 55, 0.32);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .menu-toggle-box {
+        position: relative;
+        width: 1.15rem;
+        height: 0.9rem;
+      }
+
+      .menu-toggle-line {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 180ms ease, opacity 180ms ease, top 180ms ease;
+      }
+
+      .menu-toggle-line:nth-child(1) {
+        top: 0;
+      }
+
+      .menu-toggle-line:nth-child(2) {
+        top: calc(50% - 1px);
+      }
+
+      .menu-toggle-line:nth-child(3) {
+        top: calc(100% - 2px);
+      }
+
+      .site-header.is-menu-open .menu-toggle-line:nth-child(1) {
+        top: calc(50% - 1px);
+        transform: rotate(45deg);
+      }
+
+      .site-header.is-menu-open .menu-toggle-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .site-header.is-menu-open .menu-toggle-line:nth-child(3) {
+        top: calc(50% - 1px);
+        transform: rotate(-45deg);
+      }
+
+      .mobile-nav {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 260ms ease, opacity 200ms ease;
+      }
+
+      .site-header.is-menu-open .mobile-nav {
+        opacity: 1;
+        max-height: 26rem;
+      }
+
+      .mobile-nav-inner {
+        display: grid;
+        gap: 0.8rem;
+        padding: 0 0 1rem;
+      }
+
+      .mobile-nav-links {
+        display: grid;
+        gap: 0.4rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid rgba(229, 231, 235, 0.08);
+      }
+
+      .mobile-nav-links a,
+      .mobile-nav-actions a {
+        border-radius: var(--radius-md);
+      }
+
+      .mobile-nav-links a {
+        padding: 0.9rem 1rem;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .mobile-nav-links a.is-active,
+      .mobile-nav-links a:hover,
+      .mobile-nav-links a:focus-visible {
+        color: var(--text);
+        border-color: rgba(212, 175, 55, 0.2);
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      .mobile-nav-actions {
+        display: grid;
+        gap: 0.7rem;
+      }
+
       .button {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -223,6 +391,24 @@
       .button:hover,
       .button:focus-visible {
         transform: translateY(-1px);
+      }
+
+      .button::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.26) 50%, transparent 100%);
+        opacity: 0;
+        transform: translateX(-140%);
+        pointer-events: none;
+        mix-blend-mode: screen;
+        transition: transform 420ms ease, opacity 220ms ease;
+      }
+
+      .button:hover::after,
+      .button:focus-visible::after {
+        opacity: 0.8;
+        transform: translateX(140%);
       }
 
       .button-primary {
@@ -262,7 +448,17 @@
         display: grid;
         grid-template-columns: minmax(420px, 1.1fr) minmax(0, 0.9fr);
         gap: 2rem;
-        align-items: center;
+        align-items: start;
+      }
+
+      .hero-visual-column {
+        display: grid;
+        gap: 1rem;
+        align-self: start;
+      }
+
+      .hero-copy {
+        position: relative;
       }
 
       .eyebrow {
@@ -302,6 +498,39 @@
         margin-top: 2rem;
       }
 
+      .hero-intro {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.25rem;
+      }
+
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.55rem 0.85rem;
+        border-radius: 999px;
+        border: 1px solid rgba(229, 231, 235, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: #E5E7EB;
+        font-size: 0.86rem;
+      }
+
+      .hero-tag::before {
+        content: "";
+        width: 0.48rem;
+        height: 0.48rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #C8A951);
+        box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.08);
+      }
+
       .hero-proof {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -331,8 +560,18 @@
         background: linear-gradient(180deg, rgba(17, 24, 39, 0.8), rgba(11, 15, 25, 0.92));
       }
 
+      .stat-card small {
+        display: inline-block;
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
       .stat-card strong {
         display: block;
+        margin-top: 0.45rem;
         font-size: 1.35rem;
         color: #ffffff;
       }
@@ -414,6 +653,7 @@
       .image-slot {
         position: relative;
         overflow: hidden;
+        width: 100%;
         border-radius: calc(var(--radius-lg) + 2px);
         border: 1px solid rgba(212, 175, 55, 0.2);
         background:
@@ -449,6 +689,95 @@
         min-height: 440px;
       }
 
+      .hero-image-slot::before {
+        content: "";
+        position: absolute;
+        inset: 1rem;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .image-slot img {
+        animation: driftImage 16s ease-in-out infinite alternate;
+      }
+
+      .image-caption {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 2;
+        display: inline-flex;
+        width: fit-content;
+        max-width: calc(100% - 2rem);
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.8rem 0.95rem;
+        border-radius: 999px;
+        background: rgba(11, 15, 25, 0.78);
+        border: 1px solid rgba(229, 231, 235, 0.14);
+        backdrop-filter: blur(16px);
+        color: #F8FAFC;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .image-caption::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #F5C542, #D4AF37);
+        box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.12);
+      }
+
+      .hero-side-panel {
+        width: 100%;
+        padding: 1.2rem 1.25rem;
+        background:
+          linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0)),
+          rgba(11, 15, 25, 0.78);
+      }
+
+      .hero-side-panel h2 {
+        margin: 0;
+        font-size: 1.15rem;
+        line-height: 1.25;
+      }
+
+      .hero-side-panel p {
+        margin: 0.65rem 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-side-points {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .hero-side-point {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        color: #E5E7EB;
+        line-height: 1.6;
+      }
+
+      .hero-side-point::before {
+        content: "";
+        width: 0.65rem;
+        height: 0.65rem;
+        margin-top: 0.42rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #C8A951);
+        box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
+        flex: none;
+      }
+
       .trust-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -463,6 +792,14 @@
 
       .contact-image-slot {
         margin-top: 1.2rem;
+        width: calc(100% + 3rem);
+        margin-right: -1.5rem;
+        margin-left: -1.5rem;
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
         min-height: 260px;
       }
 
@@ -521,7 +858,24 @@
       }
 
       section {
+        position: relative;
         padding: 3.75rem 0;
+        scroll-margin-top: 6.5rem;
+      }
+
+      #services,
+      #process {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+      }
+
+      #work {
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 30%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+      }
+
+      #contact {
+        padding-top: 4.5rem;
       }
 
       .section-head {
@@ -574,10 +928,14 @@
       .capability-card,
       .process-step {
         padding: 1.4rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+          var(--panel);
         transition:
           transform 220ms ease,
           border-color 220ms ease,
-          background-color 220ms ease;
+          background-color 220ms ease,
+          box-shadow 220ms ease;
       }
 
       .service-card:hover,
@@ -588,6 +946,20 @@
       .contact-card:hover {
         transform: translateY(-4px);
         border-color: rgba(212, 175, 55, 0.28);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.46);
+      }
+
+      .service-card:nth-child(4n + 1),
+      .capability-card:nth-child(4n + 1) {
+        background:
+          linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0)),
+          var(--panel);
+      }
+
+      .feature-card {
+        background:
+          linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+          rgba(11, 15, 25, 0.72);
       }
 
       .card-icon {
@@ -629,6 +1001,9 @@
 
       .capability-aside {
         padding: 1.5rem;
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 28%),
+          rgba(17, 24, 39, 0.84);
       }
 
       .capability-list {
@@ -664,6 +1039,9 @@
         display: flex;
         flex-direction: column;
         min-height: 100%;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+          rgba(11, 15, 25, 0.82);
       }
 
       .portfolio-media {
@@ -687,6 +1065,9 @@
       }
 
       .portfolio-body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
         padding: 1.2rem 1.15rem 1.25rem;
       }
 
@@ -703,6 +1084,13 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .portfolio-summary {
+        margin-top: 0.25rem;
+        color: #E5E7EB;
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
       .portfolio-points {
@@ -729,8 +1117,37 @@
         flex: none;
       }
 
+      .portfolio-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: auto;
+        padding-top: 1.2rem;
+      }
+
+      .portfolio-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
       .process-grid {
+        position: relative;
         grid-template-columns: repeat(5, minmax(0, 1fr));
+        padding-top: 0.7rem;
+      }
+
+      .process-grid::before {
+        content: "";
+        position: absolute;
+        top: 1.7rem;
+        left: 2rem;
+        right: 2rem;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.45), rgba(212, 175, 55, 0.05));
+        pointer-events: none;
       }
 
       .process-step small {
@@ -746,10 +1163,17 @@
         margin-bottom: 0.9rem;
       }
 
+      .process-step {
+        background:
+          linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0)),
+          rgba(17, 24, 39, 0.76);
+      }
+
       .cta-band {
         padding: 1.75rem;
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: space-between;
         gap: 1rem;
         margin-top: 2rem;
@@ -759,8 +1183,41 @@
         max-width: 56ch;
       }
 
+      .cta-band .button {
+        flex: none;
+        align-self: center;
+      }
+
+      .proof-points {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      .proof-point {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.65rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(229, 231, 235, 0.12);
+        color: #E5E7EB;
+        font-size: 0.85rem;
+      }
+
+      .proof-point::before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
       .contact-grid {
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        align-items: start;
       }
 
       .contact-card,
@@ -772,6 +1229,31 @@
         display: grid;
         gap: 1rem;
         margin-top: 1.25rem;
+      }
+
+      .contact-highlights {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1.3rem;
+      }
+
+      .contact-highlight {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        color: #E5E7EB;
+        line-height: 1.6;
+      }
+
+      .contact-highlight::before {
+        content: "";
+        width: 0.65rem;
+        height: 0.65rem;
+        margin-top: 0.45rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #C8A951);
+        box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
+        flex: none;
       }
 
       .contact-link {
@@ -807,6 +1289,75 @@
         font-size: 0.88rem;
       }
 
+      .intake-form {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1.5rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .field {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .field label {
+        color: #E5E7EB;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        color: var(--text);
+        border: 1px solid rgba(229, 231, 235, 0.12);
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.03);
+        transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: rgba(212, 175, 55, 0.38);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.08);
+      }
+
+      .field select {
+        appearance: none;
+      }
+
+      .field textarea {
+        min-height: 8rem;
+        resize: vertical;
+      }
+
+      .field-full {
+        grid-column: 1 / -1;
+      }
+
+      .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .form-note {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
       .footer {
         padding: 0 0 2.5rem;
       }
@@ -835,8 +1386,9 @@
         opacity: 0;
         transform: translateY(18px);
         transition:
-          opacity 600ms ease,
-          transform 600ms ease;
+          opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
       }
 
       .reveal.is-visible {
@@ -859,6 +1411,7 @@
         box-shadow: 0 20px 40px rgba(212, 175, 55, 0.32);
         font-weight: 700;
         letter-spacing: 0.01em;
+        animation: pulseFloat 3.8s ease-in-out infinite;
       }
 
       .floating-whatsapp svg {
@@ -877,6 +1430,27 @@
         border: 0;
       }
 
+      @keyframes driftImage {
+        0% {
+          transform: scale(1.02) translate3d(0, 0, 0);
+        }
+        100% {
+          transform: scale(1.08) translate3d(0, -10px, 0);
+        }
+      }
+
+      @keyframes pulseFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+          box-shadow: 0 20px 40px rgba(212, 175, 55, 0.32);
+        }
+        50% {
+          transform: translateY(-3px);
+          box-shadow: 0 24px 44px rgba(212, 175, 55, 0.4);
+        }
+      }
+
       @media (max-width: 1100px) {
         .services-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -889,11 +1463,25 @@
         .process-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .process-grid::before {
+          display: none;
+        }
       }
 
       @media (max-width: 900px) {
-        .nav {
+        .nav,
+        .header-actions {
           display: none;
+        }
+
+        .menu-toggle,
+        .mobile-nav {
+          display: inline-flex;
+        }
+
+        .mobile-nav {
+          display: block;
         }
 
         .hero-grid,
@@ -914,6 +1502,10 @@
           padding-top: 4rem;
         }
 
+        .hero-copy {
+          order: -1;
+        }
+
         .hero h1 {
           max-width: none;
         }
@@ -921,19 +1513,15 @@
         .hero-proof {
           grid-template-columns: 1fr;
         }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
         .header-row {
-          flex-wrap: wrap;
-        }
-
-        .header-actions {
-          width: 100%;
-        }
-
-        .header-actions .button {
-          flex: 1 1 0;
+          padding-block: 0.9rem;
         }
 
         .services-grid,
@@ -953,8 +1541,14 @@
         .hero-actions .button,
         .services-cta .button,
         .cta-band .button,
-        .contact-card .button {
+        .contact-card .button,
+        .form-actions .button {
           width: 100%;
+        }
+
+        .hero-tags,
+        .proof-points {
+          gap: 0.55rem;
         }
 
         .floating-whatsapp span:last-child {
@@ -1019,6 +1613,13 @@
             <a href="#process">Process</a>
             <a href="#contact">Contact</a>
           </nav>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+            <span class="menu-toggle-box" aria-hidden="true">
+              <span class="menu-toggle-line"></span>
+              <span class="menu-toggle-line"></span>
+              <span class="menu-toggle-line"></span>
+            </span>
+          </button>
           <div class="header-actions">
             <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">Email Us</a>
             <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
@@ -1026,41 +1627,84 @@
             </a>
           </div>
         </div>
+        <div class="container mobile-nav" id="mobile-nav">
+          <div class="mobile-nav-inner">
+            <nav class="mobile-nav-links" aria-label="Mobile primary">
+              <a href="#services">Services</a>
+              <a href="#why-us">Why Us</a>
+              <a href="#work">Selected Work</a>
+              <a href="#process">Process</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <div class="mobile-nav-actions">
+              <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+                Start Your Project
+              </a>
+              <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">Email Us</a>
+            </div>
+          </div>
+        </div>
       </header>
 
       <main id="top">
         <section class="hero">
           <div class="container hero-grid">
-            <figure class="image-slot hero-image-slot reveal" aria-label="Hero image placeholder">
-              <img src="./assets/image_slot1.png" alt="" loading="lazy" />
-            </figure>
+            <div class="hero-visual-column">
+              <figure class="image-slot hero-image-slot reveal" aria-label="Hero section visual">
+                <img src="./assets/image_slot1.jpg" alt="A premium product presentation used to represent modern software delivery." fetchpriority="high" />
+                <figcaption class="image-caption">Web platforms, mobile products, and internal systems built for momentum.</figcaption>
+              </figure>
+
+              <article class="hero-side-panel panel reveal" aria-label="Hero delivery notes">
+                <span class="section-kicker">What You Get</span>
+                <h2>A sharper build plan before the heavy development starts.</h2>
+                <p>
+                  Every engagement is framed around product clarity, technical practicality, and the fastest route to a
+                  reliable launch.
+                </p>
+                <div class="hero-side-points">
+                  <div class="hero-side-point">Clear scope definition before implementation expands unnecessarily.</div>
+                  <div class="hero-side-point">UX, architecture, and business goals shaped together instead of in isolation.</div>
+                  <div class="hero-side-point">A launch path that stays usable for both founders and growing teams.</div>
+                </div>
+              </article>
+            </div>
 
             <div class="hero-copy reveal">
-              <div class="eyebrow">Business-first software delivery</div>
-              <h1>Software built to move your business forward.</h1>
-              <p class="hero-lead">
-                Desert Launch is a software house that designs and engineers custom web platforms, mobile apps, MVPs,
-                and internal systems for companies that need reliable execution, scalable architecture, and clear
-                communication.
-              </p>
-              <div class="hero-actions">
-                <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
-                  Contact Us on WhatsApp
-                </a>
-                <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">
-                  Send Us Your Requirements
-                </a>
+              <div class="hero-intro">
+                <div class="eyebrow">Business-first software delivery</div>
+                <h1>Software built to move your business forward.</h1>
+                <p class="hero-lead">
+                  Desert Launch designs and engineers custom web platforms, mobile apps, MVPs, and internal systems
+                  for companies that need reliable execution, scalable architecture, and direct communication.
+                </p>
+                <div class="hero-tags" aria-label="What Desert Launch builds">
+                  <span class="hero-tag">Lead-generation products</span>
+                  <span class="hero-tag">Mobile-first customer experiences</span>
+                  <span class="hero-tag">Operations and admin systems</span>
+                </div>
+                <div class="hero-actions">
+                  <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+                    Start Your Project on WhatsApp
+                  </a>
+                  <a class="button button-secondary" href="#contact">
+                    Send a Project Brief
+                  </a>
+                </div>
               </div>
               <div class="hero-proof" aria-label="Key proof points">
                 <div class="stat-card">
+                  <small>Approach</small>
                   <strong>Custom build</strong>
                   <span>Tailored software instead of generic tools that limit growth.</span>
                 </div>
                 <div class="stat-card">
+                  <small>Delivery</small>
                   <strong>Launch-focused</strong>
                   <span>Structured delivery from discovery and planning to release and support.</span>
                 </div>
                 <div class="stat-card">
+                  <small>Communication</small>
                   <strong>Direct access</strong>
                   <span>Fast conversations on WhatsApp and email without a slow agency process.</span>
                 </div>
@@ -1234,18 +1878,23 @@
                 </article>
               </div>
 
-              <figure class="image-slot trust-image-slot reveal" aria-label="Why Desert Launch image placeholder">
-                <img src="./assets/image_slot2.png" alt="" loading="lazy" />
+              <figure class="image-slot trust-image-slot reveal" aria-label="Why Desert Launch visual">
+                <img src="./assets/image_slot2.jpg" alt="Abstract product boards and system architecture visuals representing planning and delivery." loading="lazy" />
               </figure>
             </div>
 
             <div class="cta-band panel reveal">
               <div>
-                <span class="section-kicker">Trust signals</span>
+                <span class="section-kicker">How Engagements Start</span>
                 <p>
-                  The layout is ready for future proof points such as project counts, client logos, delivery metrics,
-                  testimonials, or industry-specific case studies as the company expands.
+                  Most projects begin with a short scope review, a recommendation on the clearest build path, and a
+                  practical next step for delivery.
                 </p>
+                <div class="proof-points" aria-label="Engagement proof points">
+                  <span class="proof-point">Scope and feature prioritization</span>
+                  <span class="proof-point">UX and architecture aligned together</span>
+                  <span class="proof-point">Launch planning from the start</span>
+                </div>
               </div>
               <a class="button button-secondary" href="#contact">Plan a Project Discussion</a>
             </div>
@@ -1258,8 +1907,8 @@
               <span class="section-kicker">Selected Work</span>
               <h2 id="work-heading">Recent product capabilities that show the kind of systems Desert Launch builds.</h2>
               <p>
-                Existing work has been reframed to highlight technical capability, UX quality, and business use cases.
-                This section can later expand into full case studies with metrics and testimonials.
+                The work below highlights product thinking, UX quality, and system depth across lead generation,
+                consumer mobile, and engagement-focused experiences.
               </p>
             </div>
 
@@ -1336,7 +1985,7 @@
                 <div class="portfolio-body">
                   <span class="portfolio-tag">Lead generation product</span>
                   <h3>FasTap</h3>
-                  <p>
+                  <p class="portfolio-summary">
                     A smart NFC-powered profile experience that combines mobile management with a polished digital profile
                     page for faster business introductions.
                   </p>
@@ -1345,6 +1994,9 @@
                     <li>Web experience opened directly after NFC scan.</li>
                     <li>Cloud data handling and deployment setup.</li>
                   </ul>
+                  <div class="portfolio-actions">
+                    <a class="portfolio-link" href="#contact">Build a similar product</a>
+                  </div>
                 </div>
               </article>
 
@@ -1357,7 +2009,7 @@
                 <div class="portfolio-body">
                   <span class="portfolio-tag">Consumer mobile app</span>
                   <h3>Al-Muslim</h3>
-                  <p>
+                  <p class="portfolio-summary">
                     A daily-use mobile experience focused on retention, consistency, notifications, and a clean content-led
                     interface.
                   </p>
@@ -1366,6 +2018,9 @@
                     <li>Reminder systems and daily habit support.</li>
                     <li>Polished mobile UX across key flows.</li>
                   </ul>
+                  <div class="portfolio-actions">
+                    <a class="portfolio-link" href="#contact">Discuss a mobile product</a>
+                  </div>
                 </div>
               </article>
 
@@ -1378,7 +2033,7 @@
                 <div class="portfolio-body">
                   <span class="portfolio-tag">Interactive app experience</span>
                   <h3>Jaweb</h3>
-                  <p>
+                  <p class="portfolio-summary">
                     A multiplayer quiz product combining gameplay logic, purchases, and a smooth interface for repeated use.
                   </p>
                   <ul class="portfolio-points">
@@ -1386,6 +2041,9 @@
                     <li>Monetization support through in-app purchases.</li>
                     <li>Engagement-oriented UX across gameplay screens.</li>
                   </ul>
+                  <div class="portfolio-actions">
+                    <a class="portfolio-link" href="#contact">Plan an interactive product</a>
+                  </div>
                 </div>
               </article>
             </div>
@@ -1443,6 +2101,11 @@
                   Share your product idea, current system, or business requirement. WhatsApp is the fastest route for a
                   direct conversation. Email works well for detailed briefs, documents, and longer project outlines.
                 </p>
+                <div class="contact-highlights" aria-label="Why send a brief">
+                  <div class="contact-highlight">Get a clearer recommendation on product scope, structure, and launch path.</div>
+                  <div class="contact-highlight">Use the form to send the essentials without writing a long email from scratch.</div>
+                  <div class="contact-highlight">Move directly from idea to a practical next step and channel for discussion.</div>
+                </div>
                 <div class="hero-actions">
                   <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
                     Start on WhatsApp
@@ -1451,14 +2114,15 @@
                     Request a Consultation by Email
                   </a>
                 </div>
-                <figure class="image-slot contact-image-slot" aria-label="Contact section image placeholder">
-                  <img src="./assets/image_slot3.png" alt="" loading="lazy" />
+                <figure class="image-slot contact-image-slot" aria-label="Contact section visual">
+                  <img src="./assets/image_slot3.jpg" alt="A premium desk setup representing project planning and communication." loading="lazy" />
+                  <figcaption class="image-caption">Send the brief once. Continue on WhatsApp or email.</figcaption>
                 </figure>
               </article>
 
               <aside class="contact-card reveal">
-                <h3>Contact channels</h3>
-                <p>Reach out with your scope, timeline, or existing product details.</p>
+                <h3>Share a Project Brief</h3>
+                <p>Send the core details here and open the brief directly in WhatsApp or email.</p>
                 <div class="contact-list">
                   <a class="contact-link" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
                     <div>
@@ -1475,6 +2139,49 @@
                     <span aria-hidden="true">Send</span>
                   </a>
                 </div>
+                <form class="intake-form" id="project-brief-form">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="brief-name">Your name</label>
+                      <input id="brief-name" name="name" type="text" placeholder="Name" />
+                    </div>
+                    <div class="field">
+                      <label for="brief-company">Company or brand</label>
+                      <input id="brief-company" name="company" type="text" placeholder="Company or brand" />
+                    </div>
+                    <div class="field">
+                      <label for="brief-type">Project type</label>
+                      <select id="brief-type" name="project_type">
+                        <option value="">Select a type</option>
+                        <option>Business website</option>
+                        <option>Web platform</option>
+                        <option>Mobile app</option>
+                        <option>MVP</option>
+                        <option>Internal system</option>
+                        <option>Product redesign</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="brief-timeline">Timeline</label>
+                      <select id="brief-timeline" name="timeline">
+                        <option value="">Select a timeline</option>
+                        <option>ASAP</option>
+                        <option>Within 1 month</option>
+                        <option>1 to 3 months</option>
+                        <option>3+ months</option>
+                      </select>
+                    </div>
+                    <div class="field field-full">
+                      <label for="brief-summary">Project summary</label>
+                      <textarea id="brief-summary" name="summary" placeholder="What are you building, who is it for, and what do you need help with?"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <button class="button button-primary" type="submit">Open Brief in WhatsApp</button>
+                    <button class="button button-secondary" type="button" id="project-brief-email">Open Brief in Email</button>
+                  </div>
+                  <p class="form-note">No backend is needed here. The form prepares your brief and opens it in your preferred contact channel.</p>
+                </form>
               </aside>
             </div>
           </div>
@@ -1518,7 +2225,7 @@
                 <span>Best for detailed briefs and requirements</span>
               </a>
             </div>
-            <p class="footer-note">Built to present Desert Launch as a premium lead-generation software house.</p>
+            <p class="footer-note">Use the contact section above to send a structured brief and continue the conversation in the channel that suits you.</p>
           </section>
         </div>
       </footer>
@@ -1534,11 +2241,97 @@
 
     <script>
       (function () {
+        var header = document.querySelector(".site-header");
+        var menuToggle = document.querySelector(".menu-toggle");
+        var mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
+        var navLinks = document.querySelectorAll(".nav a, .mobile-nav-links a");
         var revealItems = document.querySelectorAll(".reveal");
+        var sections = Array.prototype.slice.call(document.querySelectorAll("main section[id]"));
+        var briefForm = document.getElementById("project-brief-form");
+        var emailBriefButton = document.getElementById("project-brief-email");
+        var ticking = false;
+
+        function setHeaderState() {
+          if (!header) {
+            return;
+          }
+
+          header.classList.toggle("is-scrolled", window.scrollY > 18);
+        }
+
+        function setActiveNav(sectionId) {
+          navLinks.forEach(function (link) {
+            link.classList.toggle("is-active", link.getAttribute("href") === "#" + sectionId);
+          });
+        }
+
+        function updateActiveSection() {
+          if (!sections.length) {
+            return;
+          }
+
+          var headerOffset = header ? header.offsetHeight + 32 : 120;
+          var currentSection = sections[0];
+
+          sections.forEach(function (section) {
+            if (window.scrollY + headerOffset >= section.offsetTop) {
+              currentSection = section;
+            }
+          });
+
+          setActiveNav(currentSection.id);
+        }
+
+        function handleScroll() {
+          setHeaderState();
+
+          if (ticking) {
+            return;
+          }
+
+          ticking = true;
+          window.requestAnimationFrame(function () {
+            updateActiveSection();
+            ticking = false;
+          });
+        }
+
+        function setMenuState(isOpen) {
+          if (!header || !menuToggle) {
+            return;
+          }
+
+          header.classList.toggle("is-menu-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          document.body.classList.toggle("menu-open", isOpen);
+        }
+
+        if (menuToggle) {
+          menuToggle.addEventListener("click", function () {
+            setMenuState(!header.classList.contains("is-menu-open"));
+          });
+        }
+
+        mobileNavLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            setMenuState(false);
+          });
+        });
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", updateActiveSection);
+        setHeaderState();
+        updateActiveSection();
+
+        revealItems.forEach(function (item, index) {
+          item.style.setProperty("--reveal-delay", (index % 4) * 70 + "ms");
+        });
+
         if (!("IntersectionObserver" in window)) {
           revealItems.forEach(function (item) {
             item.classList.add("is-visible");
           });
+          setActiveNav(sections[0].id);
           return;
         }
 
@@ -1560,6 +2353,49 @@
         revealItems.forEach(function (item) {
           observer.observe(item);
         });
+
+        function buildBriefMessage() {
+          if (!briefForm) {
+            return "";
+          }
+
+          var name = document.getElementById("brief-name").value.trim();
+          var company = document.getElementById("brief-company").value.trim();
+          var projectType = document.getElementById("brief-type").value.trim();
+          var timeline = document.getElementById("brief-timeline").value.trim();
+          var summary = document.getElementById("brief-summary").value.trim();
+
+          var lines = [
+            "Hello Desert Launch,",
+            "",
+            "I want to discuss a project brief.",
+            name ? "Name: " + name : "",
+            company ? "Company: " + company : "",
+            projectType ? "Project type: " + projectType : "",
+            timeline ? "Timeline: " + timeline : "",
+            summary ? "Project summary: " + summary : ""
+          ].filter(Boolean);
+
+          return lines.join("\n");
+        }
+
+        if (briefForm) {
+          briefForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            window.open("https://wa.me/201022838534?text=" + encodeURIComponent(buildBriefMessage()), "_blank", "noopener");
+          });
+        }
+
+        if (emailBriefButton) {
+          emailBriefButton.addEventListener("click", function () {
+            var subject = "Project brief for Desert Launch";
+            window.location.href =
+              "mailto:abdullah.mohamed102001@gmail.com?subject=" +
+              encodeURIComponent(subject) +
+              "&body=" +
+              encodeURIComponent(buildBriefMessage());
+          });
+        }
       })();
     </script>
   </body>
