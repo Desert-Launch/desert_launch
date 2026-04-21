@@ -1,0 +1,19 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="48" fill="#0B0F19"/>
+  <rect x="28" y="28" width="1544" height="944" rx="28" stroke="#D4AF37" stroke-opacity="0.35" stroke-width="4" stroke-dasharray="14 14"/>
+  <circle cx="1260" cy="220" r="180" fill="#D4AF37" fill-opacity="0.12"/>
+  <circle cx="320" cy="760" r="240" fill="#F5C542" fill-opacity="0.08"/>
+  <rect x="220" y="212" width="1160" height="576" rx="32" fill="#111827" fill-opacity="0.9" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="284" y="304" width="488" height="28" rx="14" fill="#D4AF37" fill-opacity="0.25"/>
+  <rect x="284" y="360" width="640" height="24" rx="12" fill="white" fill-opacity="0.1"/>
+  <rect x="284" y="406" width="520" height="24" rx="12" fill="white" fill-opacity="0.08"/>
+  <rect x="284" y="500" width="308" height="168" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="624" y="500" width="220" height="168" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="876" y="304" width="220" height="364" rx="24" fill="#D4AF37" fill-opacity="0.08" stroke="#D4AF37" stroke-opacity="0.16" stroke-width="2"/>
+  <rect x="1128" y="304" width="188" height="168" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="1128" y="500" width="188" height="168" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M770 794H830" stroke="#D4AF37" stroke-width="8" stroke-linecap="round"/>
+  <path d="M800 760V828" stroke="#D4AF37" stroke-width="8" stroke-linecap="round"/>
+  <text x="800" y="874" fill="#F8FAFC" fill-opacity="0.85" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" text-anchor="middle">AI IMAGE PLACEHOLDER</text>
+  <text x="800" y="922" fill="#A1A1AA" font-family="Arial, Helvetica, sans-serif" font-size="28" text-anchor="middle">Replace this file path with your generated image</text>
+</svg>

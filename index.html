@@ -260,7 +260,7 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        grid-template-columns: minmax(420px, 1.1fr) minmax(0, 0.9fr);
         gap: 2rem;
         align-items: center;
       }
@@ -409,6 +409,61 @@
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 1rem;
+      }
+
+      .image-slot {
+        position: relative;
+        overflow: hidden;
+        border-radius: calc(var(--radius-lg) + 2px);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        background:
+          radial-gradient(circle at top right, rgba(245, 197, 66, 0.1), transparent 34%),
+          rgba(11, 15, 25, 0.25);
+        min-height: 320px;
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.24),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .image-slot img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.92;
+        transform: scale(1.01);
+      }
+
+      .image-slot::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(11, 15, 25, 0.08), rgba(11, 15, 25, 0.22)),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.04), transparent 35%);
+        pointer-events: none;
+      }
+
+      .hero-image-slot {
+        min-height: 440px;
+      }
+
+      .trust-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        gap: 1.1rem;
+        margin-top: 2rem;
+        align-items: stretch;
+      }
+
+      .trust-image-slot {
+        min-height: 100%;
+      }
+
+      .contact-image-slot {
+        margin-top: 1.2rem;
+        min-height: 260px;
       }
 
       .visual-card {
@@ -843,6 +898,7 @@
 
         .hero-grid,
         .capabilities-layout,
+        .trust-layout,
         .contact-grid,
         .footer-grid {
           grid-template-columns: 1fr;
@@ -975,6 +1031,10 @@
       <main id="top">
         <section class="hero">
           <div class="container hero-grid">
+            <figure class="image-slot hero-image-slot reveal" aria-label="Hero image placeholder">
+              <img src="./assets/image_slot1.png" alt="" loading="lazy" />
+            </figure>
+
             <div class="hero-copy reveal">
               <div class="eyebrow">Business-first software delivery</div>
               <h1>Software built to move your business forward.</h1>
@@ -1003,48 +1063,6 @@
                 <div class="stat-card">
                   <strong>Direct access</strong>
                   <span>Fast conversations on WhatsApp and email without a slow agency process.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-visual reveal">
-              <div class="hero-stack">
-                <div class="signal-bar">
-                  <div>
-                    <strong>Built for founders and growing businesses</strong>
-                    <span>Web products, mobile apps, admin systems, and modernized platforms.</span>
-                  </div>
-                  <div class="signal-pill">Ready to build</div>
-                </div>
-
-                <div class="visual-grid">
-                  <article class="visual-card">
-                    <div class="card-icon" aria-hidden="true">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 7h16M7 4v6M17 4v6M5 11h14v8H5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <h3>Execution that stays aligned with business goals</h3>
-                    <p>
-                      From conversion-oriented websites to operations platforms, every project is planned around speed,
-                      usability, and measurable business value.
-                    </p>
-                  </article>
-
-                  <div class="visual-metrics">
-                    <div class="metric">
-                      <strong>MVPs</strong>
-                      <span>Fast product launches with strong technical foundations.</span>
-                    </div>
-                    <div class="metric">
-                      <strong>Systems</strong>
-                      <span>Dashboards, workflows, and tools that reduce manual work.</span>
-                    </div>
-                    <div class="metric">
-                      <strong>Support</strong>
-                      <span>Iterative improvements after launch when growth demands it.</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1171,48 +1189,54 @@
               </p>
             </div>
 
-            <div class="features-grid">
-              <article class="feature-card reveal">
-                <div class="card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3l7 4v5c0 4.2-2.8 7.9-7 9-4.2-1.1-7-4.8-7-9V7l7-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                    <path d="M9.5 12l1.7 1.7 3.3-3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3>Built for reliability</h3>
-                <p>Clean implementation, scalable structure, and engineering decisions that support long-term growth.</p>
-              </article>
+            <div class="trust-layout">
+              <div class="features-grid">
+                <article class="feature-card reveal">
+                  <div class="card-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 3l7 4v5c0 4.2-2.8 7.9-7 9-4.2-1.1-7-4.8-7-9V7l7-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                      <path d="M9.5 12l1.7 1.7 3.3-3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3>Built for reliability</h3>
+                  <p>Clean implementation, scalable structure, and engineering decisions that support long-term growth.</p>
+                </article>
 
-              <article class="feature-card reveal">
-                <div class="card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 19l4.5-10 3 6 2-4 4.5 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6 5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <h3>Business-oriented execution</h3>
-                <p>Every screen, workflow, and integration is evaluated against clarity, efficiency, and conversion.</p>
-              </article>
+                <article class="feature-card reveal">
+                  <div class="card-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 19l4.5-10 3 6 2-4 4.5 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3>Business-oriented execution</h3>
+                  <p>Every screen, workflow, and integration is evaluated against clarity, efficiency, and conversion.</p>
+                </article>
 
-              <article class="feature-card reveal">
-                <div class="card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 8h16M8 4v8M16 12v8M4 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <h3>Tailored, not templated</h3>
-                <p>Solutions are shaped around your business model, workflows, audience, and growth stage.</p>
-              </article>
+                <article class="feature-card reveal">
+                  <div class="card-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 8h16M8 4v8M16 12v8M4 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3>Tailored, not templated</h3>
+                  <p>Solutions are shaped around your business model, workflows, audience, and growth stage.</p>
+                </article>
 
-              <article class="feature-card reveal">
-                <div class="card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 7h12M6 12h12M6 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <h3>Clear communication</h3>
-                <p>Direct conversations, fast responses, practical planning, and steady progress from kickoff to launch.</p>
-              </article>
+                <article class="feature-card reveal">
+                  <div class="card-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M6 7h12M6 12h12M6 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3>Clear communication</h3>
+                  <p>Direct conversations, fast responses, practical planning, and steady progress from kickoff to launch.</p>
+                </article>
+              </div>
+
+              <figure class="image-slot trust-image-slot reveal" aria-label="Why Desert Launch image placeholder">
+                <img src="./assets/image_slot2.png" alt="" loading="lazy" />
+              </figure>
             </div>
 
             <div class="cta-band panel reveal">
@@ -1427,6 +1451,9 @@
                     Request a Consultation by Email
                   </a>
                 </div>
+                <figure class="image-slot contact-image-slot" aria-label="Contact section image placeholder">
+                  <img src="./assets/image_slot3.png" alt="" loading="lazy" />
+                </figure>
               </article>
 
               <aside class="contact-card reveal">
