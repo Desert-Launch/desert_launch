@@ -3,33 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Desert Launch | Software House for Web, Mobile, and Product Engineering</title>
+    <title>Desert Launch | Software House for Web, Mobile &amp; MVP Development</title>
     <meta
       name="description"
-      content="Desert Launch is a software house that designs and builds scalable web platforms, mobile apps, MVPs, and business systems for companies that want to launch faster and grow with confidence."
-    />
-    <meta
-      name="keywords"
-      content="Desert Launch, software house, web development, mobile app development, MVP development, product engineering, UI UX design, technical consulting"
+      content="Desert Launch builds the web platforms, mobile apps, and MVPs that replace manual work, Excel sheets, and scattered tools. Free consultation on WhatsApp."
     />
     <meta name="theme-color" content="#0B0F19" />
-    <link rel="canonical" href="https://desertlaunch.com/" />
+    <link rel="canonical" href="https://desertlaunch.dev/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Desert Launch | Software House for Web, Mobile, and Product Engineering" />
+    <meta property="og:url" content="https://desertlaunch.dev/" />
+    <meta property="og:site_name" content="Desert Launch" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Desert Launch | Software House for Web, Mobile & MVP Development" />
     <meta
       property="og:description"
-      content="Professional software delivery for businesses that need high-quality digital products, clear execution, and direct communication."
+      content="Desert Launch builds the web platforms, mobile apps, and MVPs that replace manual work, Excel sheets, and scattered tools. Free consultation on WhatsApp."
     />
-    <meta property="og:image" content="./assets/logo_with_name.png" />
+    <meta property="og:image" content="https://desertlaunch.dev/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Desert Launch — software built to move your business forward" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Desert Launch | Software House for Web, Mobile, and Product Engineering" />
+    <meta name="twitter:title" content="Desert Launch | Software House for Web, Mobile & MVP Development" />
     <meta
       name="twitter:description"
-      content="Web platforms, mobile apps, MVPs, architecture, and technical execution focused on lead generation, operations, and growth."
+      content="Desert Launch builds the web platforms, mobile apps, and MVPs that replace manual work, Excel sheets, and scattered tools. Free consultation on WhatsApp."
     />
-    <meta name="twitter:image" content="./assets/logo_with_name.png" />
-    <link rel="icon" href="./assets/logo.png" />
-    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <meta name="twitter:image" content="https://desertlaunch.dev/assets/og-image.png" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" href="./assets/logo-96.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    />
+    <link rel="preload" as="image" href="./assets/image_slot1.webp" fetchpriority="high" />
     <style>
       :root {
         --bg: #0B0F19;
@@ -41,6 +51,7 @@
         --line: rgba(229, 231, 235, 0.12);
         --line-strong: rgba(229, 231, 235, 0.22);
         --text: #F8FAFC;
+        --text-soft: #E5E7EB;
         --muted: #A1A1AA;
         --accent: #F5C542;
         --accent-strong: #D4AF37;
@@ -393,6 +404,11 @@
         transform: translateY(-1px);
       }
 
+      .button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
       .button::after {
         content: "";
         position: absolute;
@@ -412,8 +428,8 @@
       }
 
       .button-primary {
-        color: #0B0F19;
-        background: linear-gradient(135deg, #D4AF37 0%, #C8A951 50%, #F5C542 100%);
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--accent-strong) 0%, var(--success) 50%, var(--accent) 100%);
         box-shadow: 0 18px 36px rgba(212, 175, 55, 0.24);
       }
 
@@ -446,7 +462,7 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(420px, 1.1fr) minmax(0, 0.9fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
         gap: 2rem;
         align-items: start;
       }
@@ -478,15 +494,15 @@
 
       .hero h1 {
         margin: 1.25rem 0 1rem;
-        max-width: 12ch;
+        max-width: 14ch;
         font-size: clamp(2.75rem, 5.4vw, 5.2rem);
-        line-height: 0.95;
+        line-height: 1.02;
         letter-spacing: -0.045em;
       }
 
       .hero-lead {
         max-width: 60ch;
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: clamp(1.05rem, 1.6vw, 1.2rem);
         line-height: 1.75;
       }
@@ -518,7 +534,7 @@
         border-radius: 999px;
         border: 1px solid rgba(229, 231, 235, 0.12);
         background: rgba(255, 255, 255, 0.04);
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: 0.86rem;
       }
 
@@ -527,7 +543,7 @@
         width: 0.48rem;
         height: 0.48rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), #C8A951);
+        background: linear-gradient(135deg, var(--accent), var(--success));
         box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.08);
       }
 
@@ -599,7 +615,7 @@
         content: "";
         position: absolute;
         inset: 1rem;
-        border-radius: 24px;
+        border-radius: var(--radius-lg);
         border: 1px solid rgba(255, 255, 255, 0.06);
         pointer-events: none;
       }
@@ -729,7 +745,7 @@
         width: 0.55rem;
         height: 0.55rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, #F5C542, #D4AF37);
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
         box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.12);
       }
 
@@ -741,16 +757,17 @@
           rgba(11, 15, 25, 0.78);
       }
 
-      .hero-side-panel h2 {
-        margin: 0;
-        font-size: 1.15rem;
-        line-height: 1.25;
-      }
-
       .hero-side-panel p {
         margin: 0.65rem 0 0;
         color: var(--muted);
         line-height: 1.7;
+      }
+
+      .hero-side-panel .hero-side-heading {
+        margin: 0.65rem 0 0;
+        color: var(--text);
+        font-size: 1.15rem;
+        line-height: 1.25;
       }
 
       .hero-side-points {
@@ -763,7 +780,7 @@
         display: flex;
         gap: 0.75rem;
         align-items: flex-start;
-        color: #E5E7EB;
+        color: var(--text-soft);
         line-height: 1.6;
       }
 
@@ -773,7 +790,7 @@
         height: 0.65rem;
         margin-top: 0.42rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), #C8A951);
+        background: linear-gradient(135deg, var(--accent), var(--success));
         box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
         flex: none;
       }
@@ -968,7 +985,7 @@
         justify-content: center;
         width: 2.85rem;
         height: 2.85rem;
-        border-radius: 14px;
+        border-radius: var(--radius-sm);
         border: 1px solid rgba(212, 175, 55, 0.18);
         background: rgba(212, 175, 55, 0.1);
         color: var(--accent);
@@ -1016,7 +1033,7 @@
         display: flex;
         gap: 0.75rem;
         align-items: flex-start;
-        color: #E5E7EB;
+        color: var(--text-soft);
         line-height: 1.65;
       }
 
@@ -1027,7 +1044,7 @@
         flex: none;
         margin-top: 0.42rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), #C8A951);
+        background: linear-gradient(135deg, var(--accent), var(--success));
         box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
       }
 
@@ -1060,6 +1077,14 @@
         transition: transform 220ms ease;
       }
 
+      .portfolio-media--contain img {
+        object-fit: contain;
+        padding: 0.45rem;
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 55%),
+          rgba(11, 15, 25, 0.55);
+      }
+
       .portfolio-card:hover .portfolio-media img {
         transform: scale(1.02);
       }
@@ -1088,7 +1113,7 @@
 
       .portfolio-summary {
         margin-top: 0.25rem;
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: 1rem;
         line-height: 1.65;
       }
@@ -1102,7 +1127,7 @@
       .portfolio-points li {
         display: flex;
         gap: 0.6rem;
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: 0.95rem;
         line-height: 1.55;
       }
@@ -1131,6 +1156,15 @@
         gap: 0.45rem;
         color: var(--accent);
         font-weight: 600;
+        transition: color 180ms ease;
+      }
+
+      .portfolio-link:hover,
+      .portfolio-link:focus-visible {
+        color: var(--text);
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 4px;
       }
 
       .process-grid {
@@ -1157,8 +1191,8 @@
         width: 2rem;
         height: 2rem;
         border-radius: 999px;
-        color: #0B0F19;
-        background: linear-gradient(135deg, #F5C542, #D4AF37);
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
         font-weight: 800;
         margin-bottom: 0.9rem;
       }
@@ -1167,6 +1201,124 @@
         background:
           linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0)),
           rgba(17, 24, 39, 0.76);
+      }
+
+      .stack-row {
+        margin-top: 1.8rem;
+      }
+
+      .stack-row .hero-tags {
+        margin-top: 0.8rem;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 2rem;
+        max-width: 860px;
+      }
+
+      .faq-item {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--panel);
+      }
+
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        font-weight: 600;
+        transition: color 180ms ease;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: "+";
+        flex: none;
+        color: var(--accent);
+        font-size: 1.35rem;
+        line-height: 1;
+        transition: transform 180ms ease;
+      }
+
+      .faq-item[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-item summary:hover,
+      .faq-item summary:focus-visible {
+        color: var(--accent);
+      }
+
+      .faq-item p {
+        margin: 0;
+        padding: 0 1.25rem 1.15rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .engagement-grid {
+        display: grid;
+        gap: 1.1rem;
+        margin-top: 2rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .engagement-note {
+        display: inline-block;
+        margin-bottom: 0.9rem;
+        padding: 0.42rem 0.72rem;
+        border-radius: 999px;
+        border: 1px solid rgba(212, 175, 55, 0.14);
+        background: rgba(212, 175, 55, 0.09);
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .founder-card {
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+        padding: 1.5rem;
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 32%),
+          rgba(17, 24, 39, 0.84);
+      }
+
+      .founder-photo {
+        width: 6.5rem;
+        height: 6.5rem;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 2px solid rgba(212, 175, 55, 0.4);
+        box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
+      }
+
+      .founder-role {
+        margin: 0.25rem 0 0;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .arabic-note {
+        margin: 1.1rem 0 0;
+        color: var(--text-soft);
+        line-height: 1.8;
       }
 
       .cta-band {
@@ -1203,7 +1355,7 @@
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(229, 231, 235, 0.12);
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: 0.85rem;
       }
 
@@ -1241,7 +1393,7 @@
         display: flex;
         gap: 0.75rem;
         align-items: flex-start;
-        color: #E5E7EB;
+        color: var(--text-soft);
         line-height: 1.6;
       }
 
@@ -1251,7 +1403,7 @@
         height: 0.65rem;
         margin-top: 0.45rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), #C8A951);
+        background: linear-gradient(135deg, var(--accent), var(--success));
         box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.08);
         flex: none;
       }
@@ -1307,7 +1459,7 @@
       }
 
       .field label {
-        color: #E5E7EB;
+        color: var(--text-soft);
         font-size: 0.88rem;
         font-weight: 600;
       }
@@ -1374,6 +1526,12 @@
 
       .footer-link {
         display: block;
+        transition: color 180ms ease;
+      }
+
+      .footer-link:hover strong,
+      .footer-link:focus-visible strong {
+        color: var(--accent);
       }
 
       .footer-note {
@@ -1406,8 +1564,8 @@
         gap: 0.7rem;
         padding: 0.9rem 1rem;
         border-radius: 999px;
-        color: #0B0F19;
-        background: linear-gradient(135deg, #F5C542 0%, #D4AF37 100%);
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
         box-shadow: 0 20px 40px rgba(212, 175, 55, 0.32);
         font-weight: 700;
         letter-spacing: 0.01em;
@@ -1416,6 +1574,16 @@
 
       .floating-whatsapp svg {
         flex: none;
+      }
+
+      .floating-whatsapp:hover,
+      .floating-whatsapp:focus-visible {
+        filter: brightness(1.08);
+      }
+
+      .floating-whatsapp:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 3px;
       }
 
       .sr-only {
@@ -1457,10 +1625,11 @@
         }
 
         .portfolio-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .process-grid {
+        .process-grid,
+        .engagement-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -1502,10 +1671,6 @@
           padding-top: 4rem;
         }
 
-        .hero-copy {
-          order: -1;
-        }
-
         .hero h1 {
           max-width: none;
         }
@@ -1525,7 +1690,9 @@
         }
 
         .services-grid,
-        .process-grid {
+        .process-grid,
+        .portfolio-grid,
+        .engagement-grid {
           grid-template-columns: 1fr;
         }
 
@@ -1579,8 +1746,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Desert Launch",
-        "url": "https://desertlaunch.com/",
-        "logo": "https://desertlaunch.com/assets/logo.png",
+        "url": "https://desertlaunch.dev/",
+        "logo": "https://desertlaunch.dev/assets/logo.png",
         "description": "Software house focused on web development, mobile apps, MVP delivery, system architecture, and technical consulting.",
         "contactPoint": [
           {
@@ -1591,7 +1758,83 @@
             "availableLanguage": ["English", "Arabic"]
           }
         ],
-        "sameAs": []
+        "sameAs": ["https://www.linkedin.com/company/desert-launch"],
+        "knowsAbout": [
+          "Web development",
+          "Mobile app development",
+          "UI/UX design",
+          "System architecture",
+          "MVP development",
+          "Business websites",
+          "Product modernization",
+          "Technical consulting"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Web Development",
+              "description": "Business websites, client portals, dashboards, and web apps built for performance and conversion."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile App Development",
+              "description": "Cross-platform and native-feeling mobile products with polished UX and reliable integrations."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "UI/UX Design",
+              "description": "Interfaces that make products easier to understand, easier to use, and easier to convert from."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "System Architecture",
+              "description": "Solid technical foundations, modular systems, API strategy, and scalable delivery planning."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "MVP Development",
+              "description": "Focused first versions that prove the concept quickly without compromising future maintainability."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Website Development",
+              "description": "Professional company websites built to explain value quickly and turn traffic into qualified leads."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Product Modernization",
+              "description": "Redesign and rebuild outdated products to improve performance, clarity, and business impact."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical Consulting",
+              "description": "Clear technical direction for product decisions, delivery planning, architecture, and next steps."
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -1600,7 +1843,7 @@
       <header class="site-header">
         <div class="container header-row">
           <a class="brand" href="#top" aria-label="Desert Launch home">
-            <img src="./assets/logo.png" alt="Desert Launch logo" width="44" height="44" />
+            <img src="./assets/logo-96.png" alt="Desert Launch logo" width="44" height="44" />
             <div class="brand-copy">
               <strong>Desert Launch</strong>
               <span>Software House for Web, Mobile, and Product Engineering</span>
@@ -1611,6 +1854,7 @@
             <a href="#why-us">Why Us</a>
             <a href="#work">Selected Work</a>
             <a href="#process">Process</a>
+            <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </nav>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
@@ -1622,7 +1866,7 @@
           </button>
           <div class="header-actions">
             <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">Email Us</a>
-            <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+            <a class="button button-primary" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
               Start Your Project
             </a>
           </div>
@@ -1634,10 +1878,11 @@
               <a href="#why-us">Why Us</a>
               <a href="#work">Selected Work</a>
               <a href="#process">Process</a>
+              <a href="#faq">FAQ</a>
               <a href="#contact">Contact</a>
             </nav>
             <div class="mobile-nav-actions">
-              <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+              <a class="button button-primary" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
                 Start Your Project
               </a>
               <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">Email Us</a>
@@ -1649,27 +1894,6 @@
       <main id="top">
         <section class="hero">
           <div class="container hero-grid">
-            <div class="hero-visual-column">
-              <figure class="image-slot hero-image-slot reveal" aria-label="Hero section visual">
-                <img src="./assets/image_slot1.jpg" alt="A premium product presentation used to represent modern software delivery." fetchpriority="high" />
-                <figcaption class="image-caption">Web platforms, mobile products, and internal systems built for momentum.</figcaption>
-              </figure>
-
-              <article class="hero-side-panel panel reveal" aria-label="Hero delivery notes">
-                <span class="section-kicker">What You Get</span>
-                <h2>A sharper build plan before the heavy development starts.</h2>
-                <p>
-                  Every engagement is framed around product clarity, technical practicality, and the fastest route to a
-                  reliable launch.
-                </p>
-                <div class="hero-side-points">
-                  <div class="hero-side-point">Clear scope definition before implementation expands unnecessarily.</div>
-                  <div class="hero-side-point">UX, architecture, and business goals shaped together instead of in isolation.</div>
-                  <div class="hero-side-point">A launch path that stays usable for both founders and growing teams.</div>
-                </div>
-              </article>
-            </div>
-
             <div class="hero-copy reveal">
               <div class="hero-intro">
                 <div class="eyebrow">Business-first software delivery</div>
@@ -1684,7 +1908,7 @@
                   <span class="hero-tag">Operations and admin systems</span>
                 </div>
                 <div class="hero-actions">
-                  <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+                  <a class="button button-primary" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
                     Start Your Project on WhatsApp
                   </a>
                   <a class="button button-secondary" href="#contact">
@@ -1694,21 +1918,42 @@
               </div>
               <div class="hero-proof" aria-label="Key proof points">
                 <div class="stat-card">
-                  <small>Approach</small>
-                  <strong>Custom build</strong>
-                  <span>Tailored software instead of generic tools that limit growth.</span>
+                  <small>Experience</small>
+                  <strong>5+ years</strong>
+                  <span>Senior engineering across Egypt, the Gulf, Europe, and the US.</span>
                 </div>
                 <div class="stat-card">
-                  <small>Delivery</small>
-                  <strong>Launch-focused</strong>
-                  <span>Structured delivery from discovery and planning to release and support.</span>
+                  <small>Shipped</small>
+                  <strong>10+ products</strong>
+                  <span>Web platforms and mobile apps running in production.</span>
                 </div>
                 <div class="stat-card">
-                  <small>Communication</small>
-                  <strong>Direct access</strong>
-                  <span>Fast conversations on WhatsApp and email without a slow agency process.</span>
+                  <small>Response time</small>
+                  <strong>Within 12 hours</strong>
+                  <span>Direct replies on WhatsApp — no account managers, no slow agency loop.</span>
                 </div>
               </div>
+            </div>
+
+            <div class="hero-visual-column">
+              <figure class="image-slot hero-image-slot reveal" aria-label="Hero section visual">
+                <img src="./assets/image_slot1.webp" alt="A premium product presentation used to represent modern software delivery." fetchpriority="high" />
+                <figcaption class="image-caption">Web platforms, mobile products, and internal systems built for momentum.</figcaption>
+              </figure>
+
+              <article class="hero-side-panel panel reveal" aria-label="Hero delivery notes">
+                <span class="section-kicker">What You Get</span>
+                <p class="hero-side-heading"><strong>A sharper build plan before the heavy development starts.</strong></p>
+                <p>
+                  Every engagement is framed around product clarity, technical practicality, and the fastest route to a
+                  reliable launch.
+                </p>
+                <div class="hero-side-points">
+                  <div class="hero-side-point">Clear scope definition before implementation expands unnecessarily.</div>
+                  <div class="hero-side-point">UX, architecture, and business goals shaped together instead of in isolation.</div>
+                  <div class="hero-side-point">A launch path that stays usable for both founders and growing teams.</div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -1764,7 +2009,7 @@
                   </svg>
                 </div>
                 <h3>System Architecture</h3>
-                <p>Solid technical foundations, modular systems, API strategy, and scalable delivery planning.</p>
+                <p>The technical foundation that keeps your software fast and cheap to extend — so adding a feature next year doesn't mean rebuilding.</p>
               </article>
 
               <article class="service-card reveal">
@@ -1811,9 +2056,23 @@
               </article>
             </div>
 
+            <div class="stack-row reveal" aria-label="Core technology stack">
+              <span class="section-kicker">Core Stack</span>
+              <div class="hero-tags">
+                <span class="hero-tag">Flutter</span>
+                <span class="hero-tag">Flutter Web</span>
+                <span class="hero-tag">Node.js</span>
+                <span class="hero-tag">GraphQL &amp; REST APIs</span>
+                <span class="hero-tag">PostgreSQL</span>
+                <span class="hero-tag">Firebase</span>
+                <span class="hero-tag">AWS &amp; Docker</span>
+                <span class="hero-tag">Stripe, MyFatoorah &amp; PayTabs</span>
+              </div>
+            </div>
+
             <div class="services-cta reveal">
-              <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
-                Get a Free Consultation
+              <a class="button button-primary" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
+                Get a Free Consultation on WhatsApp
               </a>
               <a class="button button-ghost" href="mailto:abdullah.mohamed102001@gmail.com">
                 Email Your Requirements
@@ -1878,9 +2137,24 @@
                 </article>
               </div>
 
-              <figure class="image-slot trust-image-slot reveal" aria-label="Why Desert Launch visual">
-                <img src="./assets/image_slot2.jpg" alt="Abstract product boards and system architecture visuals representing planning and delivery." loading="lazy" />
-              </figure>
+              <aside class="panel founder-card reveal" aria-label="Who you're working with">
+                <span class="section-kicker">Who You're Working With</span>
+                <img class="founder-photo" src="./assets/founder.webp" alt="Abdullah Mohamed, founder of Desert Launch" loading="lazy" width="104" height="104" />
+                <div>
+                  <h3>Abdullah Mohamed</h3>
+                  <p class="founder-role">Founder &amp; Lead Engineer</p>
+                </div>
+                <p>
+                  Senior software engineer with 5+ years shipping production web and mobile products for clients across
+                  Egypt, the Gulf, Europe, and the US. Based in Cairo — when you message Desert Launch, you talk directly
+                  to the person building your product.
+                </p>
+                <div class="hero-tags" aria-label="Founder facts">
+                  <span class="hero-tag">Cairo, Egypt</span>
+                  <span class="hero-tag">5+ years experience</span>
+                  <span class="hero-tag">10+ apps shipped</span>
+                </div>
+              </aside>
             </div>
 
             <div class="cta-band panel reveal">
@@ -1891,12 +2165,12 @@
                   practical next step for delivery.
                 </p>
                 <div class="proof-points" aria-label="Engagement proof points">
-                  <span class="proof-point">Scope and feature prioritization</span>
-                  <span class="proof-point">UX and architecture aligned together</span>
+                  <span class="proof-point">You own the code and infrastructure</span>
+                  <span class="proof-point">Fixed scope quoted before any commitment</span>
                   <span class="proof-point">Launch planning from the start</span>
                 </div>
               </div>
-              <a class="button button-secondary" href="#contact">Plan a Project Discussion</a>
+              <a class="button button-secondary" href="#contact">Get a Free Scope Review</a>
             </div>
           </div>
         </section>
@@ -1977,7 +2251,7 @@
 
             <div class="portfolio-grid">
               <article class="portfolio-card reveal">
-                <div class="portfolio-media">
+                <div class="portfolio-media portfolio-media--contain">
                   <img src="./assets/fastab1.png" alt="FasTap app interface preview 1" loading="lazy" />
                   <img src="./assets/fastab2.png" alt="FasTap app interface preview 2" loading="lazy" />
                   <img src="./assets/fastab3.png" alt="FasTap app interface preview 3" loading="lazy" />
@@ -2002,9 +2276,9 @@
 
               <article class="portfolio-card reveal">
                 <div class="portfolio-media">
-                  <img src="./assets/almuslim2.png" alt="Al-Muslim app interface preview 1" loading="lazy" />
-                  <img src="./assets/almuslim3.png" alt="Al-Muslim app interface preview 2" loading="lazy" />
-                  <img src="./assets/almuslim4.png" alt="Al-Muslim app interface preview 3" loading="lazy" />
+                  <img src="./assets/almuslim2.webp" alt="Al-Muslim app interface preview 1" loading="lazy" />
+                  <img src="./assets/almuslim3.webp" alt="Al-Muslim app interface preview 2" loading="lazy" />
+                  <img src="./assets/almuslim4.webp" alt="Al-Muslim app interface preview 3" loading="lazy" />
                 </div>
                 <div class="portfolio-body">
                   <span class="portfolio-tag">Consumer mobile app</span>
@@ -2014,18 +2288,20 @@
                     interface.
                   </p>
                   <ul class="portfolio-points">
-                    <li>Structured content experience with progress tracking.</li>
-                    <li>Reminder systems and daily habit support.</li>
+                    <li>Live on the App Store and Google Play.</li>
+                    <li>Quran, adhkar, prayer times, qibla, and smart reminders.</li>
                     <li>Polished mobile UX across key flows.</li>
                   </ul>
                   <div class="portfolio-actions">
-                    <a class="portfolio-link" href="#contact">Discuss a mobile product</a>
+                    <a class="portfolio-link" href="https://apps.apple.com/us/app/al-muslim-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D9%85/id6757352101" target="_blank" rel="noreferrer">App Store</a>
+                    <a class="portfolio-link" href="https://play.google.com/store/apps/details?id=com.elmuslim.app" target="_blank" rel="noreferrer">Google Play</a>
+                    <a class="portfolio-link" href="#contact">Build a mobile app like this</a>
                   </div>
                 </div>
               </article>
 
               <article class="portfolio-card reveal">
-                <div class="portfolio-media">
+                <div class="portfolio-media portfolio-media--contain">
                   <img src="./assets/jaweb1.png" alt="Jaweb app interface preview 1" loading="lazy" />
                   <img src="./assets/jaweb2.png" alt="Jaweb app interface preview 2" loading="lazy" />
                   <img src="./assets/jaweb3.png" alt="Jaweb app interface preview 3" loading="lazy" />
@@ -2085,7 +2361,180 @@
               <article class="process-step reveal">
                 <small>5</small>
                 <h3>Support</h3>
-                <p>Improve, optimize, and expand based on feedback, usage, and business priorities.</p>
+                <p>We don't disappear after launch — every project includes a full year of free support and maintenance.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="faq-heading" id="faq">
+          <div class="container">
+            <div class="section-head reveal">
+              <span class="section-kicker">FAQ</span>
+              <h2 id="faq-heading">Straight answers to the questions every first-time software buyer has.</h2>
+              <p>
+                If your question isn't here, ask it on WhatsApp — you'll get a direct answer, not a sales pitch.
+              </p>
+            </div>
+
+            <div class="faq-list">
+              <details class="faq-item reveal">
+                <summary>How much does a project cost?</summary>
+                <p>
+                  Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise
+                  invoices. The price depends on scope and complexity, and we'll tell you honestly if a smaller build
+                  can reach your goal.
+                </p>
+              </details>
+              <details class="faq-item reveal">
+                <summary>How long will my project take?</summary>
+                <p>
+                  It depends on scope and complexity: a business website is usually measured in weeks, an MVP in one to
+                  two months, and a larger mobile product in two to four months. You get a concrete timeline with
+                  milestones before we start — and you see working software at every milestone.
+                </p>
+              </details>
+              <details class="faq-item reveal">
+                <summary>What happens after launch?</summary>
+                <p>
+                  You get a full year of free support and maintenance, plus three months of free small adjustments and
+                  updates. After that, an ongoing retainer is available if you want us to keep improving the product —
+                  but nothing breaks if you don't take it.
+                </p>
+              </details>
+              <details class="faq-item reveal">
+                <summary>Who owns the code?</summary>
+                <p>
+                  You do. Full ownership of the code, the intellectual property, and the infrastructure accounts —
+                  everything is delivered in your name, so you are never locked in to us.
+                </p>
+              </details>
+              <details class="faq-item reveal">
+                <summary>How do payments work?</summary>
+                <p>
+                  Projects are split into three or four milestones. You pay 30% upfront and the rest per delivered
+                  milestone — you always see working software before the next payment is due.
+                </p>
+              </details>
+              <details class="faq-item reveal">
+                <summary>We're not technical. Is that a problem?</summary>
+                <p>
+                  Not at all — most of our clients aren't. We explain decisions in plain business language, handle the
+                  technical choices for you, and communicate in English or Arabic on WhatsApp.
+                </p>
+              </details>
+            </div>
+          </div>
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How much does a project cost?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise invoices. The price depends on scope and complexity."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long will my project take?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on scope and complexity: a business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before the project starts."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What happens after launch?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every project includes a full year of free support and maintenance, plus three months of free small adjustments and updates. An ongoing retainer is available afterwards."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Who owns the code?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The client owns everything: the code, the intellectual property, and the infrastructure accounts, all delivered in the client's name."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do payments work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Projects are split into three or four milestones, with 30% paid upfront and the rest per delivered milestone."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "We're not technical. Is that a problem?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No — Desert Launch explains decisions in plain business language, handles the technical choices, and communicates in English or Arabic on WhatsApp."
+                  }
+                }
+              ]
+            }
+          </script>
+        </section>
+
+        <section aria-labelledby="engagement-heading" id="engagement">
+          <div class="container">
+            <div class="section-head reveal">
+              <span class="section-kicker">Ways to Work Together</span>
+              <h2 id="engagement-heading">Three clear ways to engage — pick the one that fits where your business is today.</h2>
+              <p>
+                Every engagement starts with a free scope call and a fixed quote, and every build ships with a year of
+                free support and maintenance.
+              </p>
+            </div>
+
+            <div class="engagement-grid">
+              <article class="feature-card reveal">
+                <span class="engagement-note">Most popular</span>
+                <h3>Fixed-Scope Build</h3>
+                <p>
+                  A defined product — business website, web platform, mobile app, or internal system — delivered for a
+                  fixed USD quote on a milestone schedule.
+                </p>
+                <ul class="portfolio-points">
+                  <li>Scope, timeline, and price agreed before work starts.</li>
+                  <li>30% upfront, the rest per delivered milestone.</li>
+                  <li>Design, build, launch, and a year of free support included.</li>
+                </ul>
+              </article>
+
+              <article class="feature-card reveal">
+                <span class="engagement-note">For new ideas</span>
+                <h3>MVP Sprint</h3>
+                <p>
+                  A focused first version of your product that proves the concept with real users — without spending a
+                  full product budget to find out.
+                </p>
+                <ul class="portfolio-points">
+                  <li>Ruthless feature prioritization around one core outcome.</li>
+                  <li>A launch-ready core, typically within one to two months.</li>
+                  <li>An architecture that grows into the full product later.</li>
+                </ul>
+              </article>
+
+              <article class="feature-card reveal">
+                <span class="engagement-note">For growing products</span>
+                <h3>Ongoing Product Partner</h3>
+                <p>
+                  A monthly retainer for businesses whose software is live and needs to keep improving — new features,
+                  optimization, and priority support.
+                </p>
+                <ul class="portfolio-points">
+                  <li>Reserved monthly engineering capacity.</li>
+                  <li>Continuous improvements driven by real usage.</li>
+                  <li>Priority response on WhatsApp when something matters.</li>
+                </ul>
               </article>
             </div>
           </div>
@@ -2095,8 +2544,8 @@
           <div class="container">
             <div class="contact-grid">
               <article class="contact-card reveal">
-                <span class="section-kicker">Final CTA</span>
-                <h2 id="contact-heading">If you need a software team that can build and communicate clearly, contact Desert Launch.</h2>
+                <span class="section-kicker">Get Started</span>
+                <h2 id="contact-heading">Tell us how your business runs today. We'll show you what a system could replace.</h2>
                 <p>
                   Share your product idea, current system, or business requirement. WhatsApp is the fastest route for a
                   direct conversation. Email works well for detailed briefs, documents, and longer project outlines.
@@ -2107,15 +2556,16 @@
                   <div class="contact-highlight">Move directly from idea to a practical next step and channel for discussion.</div>
                 </div>
                 <div class="hero-actions">
-                  <a class="button button-primary" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+                  <a class="button button-primary" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
                     Start on WhatsApp
                   </a>
                   <a class="button button-secondary" href="mailto:abdullah.mohamed102001@gmail.com">
                     Request a Consultation by Email
                   </a>
                 </div>
+                <p class="arabic-note" dir="rtl" lang="ar">نتحدث العربية — راسلنا على واتساب بالعربية أو الإنجليزية.</p>
                 <figure class="image-slot contact-image-slot" aria-label="Contact section visual">
-                  <img src="./assets/image_slot3.jpg" alt="A premium desk setup representing project planning and communication." loading="lazy" />
+                  <img src="./assets/image_slot3.webp" alt="A premium desk setup representing project planning and communication." loading="lazy" />
                   <figcaption class="image-caption">Send the brief once. Continue on WhatsApp or email.</figcaption>
                 </figure>
               </article>
@@ -2124,7 +2574,7 @@
                 <h3>Share a Project Brief</h3>
                 <p>Send the core details here and open the brief directly in WhatsApp or email.</p>
                 <div class="contact-list">
-                  <a class="contact-link" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+                  <a class="contact-link" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
                     <div>
                       <strong>WhatsApp</strong>
                       <span>+20 102 283 8534</span>
@@ -2143,7 +2593,7 @@
                   <div class="form-grid">
                     <div class="field">
                       <label for="brief-name">Your name</label>
-                      <input id="brief-name" name="name" type="text" placeholder="Name" />
+                      <input id="brief-name" name="name" type="text" placeholder="Name" required />
                     </div>
                     <div class="field">
                       <label for="brief-company">Company or brand</label>
@@ -2173,14 +2623,14 @@
                     </div>
                     <div class="field field-full">
                       <label for="brief-summary">Project summary</label>
-                      <textarea id="brief-summary" name="summary" placeholder="What are you building, who is it for, and what do you need help with?"></textarea>
+                      <textarea id="brief-summary" name="summary" placeholder="What are you building, who is it for, and what do you need help with?" required></textarea>
                     </div>
                   </div>
                   <div class="form-actions">
                     <button class="button button-primary" type="submit">Open Brief in WhatsApp</button>
                     <button class="button button-secondary" type="button" id="project-brief-email">Open Brief in Email</button>
                   </div>
-                  <p class="form-note">No backend is needed here. The form prepares your brief and opens it in your preferred contact channel.</p>
+                  <p class="form-note">Nothing is stored or sent until you hit send — the form just drafts your message and opens it in WhatsApp or email.</p>
                 </form>
               </aside>
             </div>
@@ -2192,7 +2642,7 @@
         <div class="container footer-grid">
           <section class="footer-card reveal" aria-label="Company summary">
             <a class="brand" href="#top">
-              <img src="./assets/logo.png" alt="Desert Launch mark" width="44" height="44" />
+              <img src="./assets/logo-96.png" alt="Desert Launch mark" width="44" height="44" />
               <div class="brand-copy">
                 <strong>Desert Launch</strong>
                 <span>Software house for serious digital products</span>
@@ -2202,13 +2652,14 @@
               Desert Launch helps businesses launch websites, platforms, mobile apps, and internal systems with a clear
               delivery process and direct communication.
             </p>
+            <p class="footer-note">© 2026 Desert Launch. All rights reserved.</p>
           </section>
 
           <section class="footer-card reveal" aria-label="Quick navigation">
             <h3>Navigate</h3>
             <div class="footer-links">
               <a class="footer-link" href="#services"><strong>Services</strong><span>What Desert Launch builds</span></a>
-              <a class="footer-link" href="#why-us"><strong>Why Us</strong><span>How trust and delivery are positioned</span></a>
+              <a class="footer-link" href="#why-us"><strong>Why Us</strong><span>How we work and why clients stay</span></a>
               <a class="footer-link" href="#work"><strong>Selected Work</strong><span>Current capability showcase</span></a>
             </div>
           </section>
@@ -2216,7 +2667,7 @@
           <section class="footer-card reveal" aria-label="Direct contact">
             <h3>Contact</h3>
             <div class="footer-links">
-              <a class="footer-link" href="https://wa.me/201022838534" target="_blank" rel="noreferrer">
+              <a class="footer-link" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer">
                 <strong>WhatsApp</strong>
                 <span>Fastest way to discuss a new project</span>
               </a>
@@ -2230,7 +2681,7 @@
         </div>
       </footer>
 
-      <a class="floating-whatsapp" href="https://wa.me/201022838534" target="_blank" rel="noreferrer" aria-label="Contact Desert Launch on WhatsApp">
+      <a class="floating-whatsapp" href="https://wa.me/201022838534?text=Hi%20Desert%20Launch%2C%20I%20want%20to%20discuss%20building%20a%20system%20for%20my%20business." target="_blank" rel="noreferrer" aria-label="Contact Desert Launch on WhatsApp">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 4a8 8 0 0 0-6.9 12.05L4 20l4.11-1.07A8 8 0 1 0 12 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
           <path d="M9.4 9.4c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.4l.5 1.2c.1.2.1.4 0 .5l-.4.6c-.1.2-.1.4 0 .5.4.8 1 1.4 1.8 1.8.2.1.4.1.5 0l.6-.4c.1-.1.3-.1.5 0l1.2.5c.3.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.4.2-1 .3-1.5.2-2-.5-4.1-2.6-4.6-4.6-.1-.5 0-1.1.2-1.5Z" fill="currentColor"/>
@@ -2316,6 +2767,15 @@
           link.addEventListener("click", function () {
             setMenuState(false);
           });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && header && header.classList.contains("is-menu-open")) {
+            setMenuState(false);
+            if (menuToggle) {
+              menuToggle.focus();
+            }
+          }
         });
 
         window.addEventListener("scroll", handleScroll, { passive: true });

@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://desertlaunch.com/sitemap.xml
+Sitemap: https://desertlaunch.dev/sitemap.xml
