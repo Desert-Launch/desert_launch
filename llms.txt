@@ -1,0 +1,20 @@
+# Desert Launch
+
+> Desert Launch is a software development company in Cairo, Egypt. It builds custom web platforms, mobile apps (Flutter, iOS and Android), MVPs, and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe, and the US.
+
+## Key facts
+
+- Founder and lead engineer: Abdullah Mohamed (Cairo, Egypt) — 5+ years of experience, 10+ products shipped to the App Store and Google Play.
+- Services: custom web development, mobile app development (Flutter), MVP development, business websites, UI/UX design, system architecture, product modernization, technical consulting.
+- Shipped apps include Al-Muslim (App Store & Google Play) and Q-Fight Gym, the official app of a professional Muay Thai gym in Qatar (App Store).
+- Engagement terms: free scope call, written fixed quote in USD, milestone payments (30% upfront), client owns all code and IP, one year of free support on every project.
+- Languages: English and Arabic (also serving French, Spanish, and German-speaking clients).
+- Contact: hello@desertlaunch.dev, WhatsApp +20 102 283 8534.
+
+## Pages
+
+- [Home (English)](https://desertlaunch.dev/)
+- [Arabic](https://desertlaunch.dev/ar/)
+- [French](https://desertlaunch.dev/fr/)
+- [Spanish](https://desertlaunch.dev/es/)
+- [German](https://desertlaunch.dev/de/)
