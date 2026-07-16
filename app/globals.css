@@ -28,7 +28,7 @@
 
   --shadow-brand: 0 24px 80px rgba(0, 0, 0, 0.4);
 
-  --container: 1180px;
+  --container: 1320px;
 }
 
 /* ---------------------------------------------------------------------------
@@ -98,9 +98,10 @@
    Reusable brand surfaces & controls
 --------------------------------------------------------------------------- */
 @layer components {
-  /* Centered content column */
+  /* Centered content column. Small side gutter so content sits close to the
+     screen edges; widens with --container on large screens. */
   .shell {
-    width: min(var(--container), calc(100% - 2rem));
+    width: min(var(--container), calc(100% - 1.5rem));
     margin-inline: auto;
   }
 
