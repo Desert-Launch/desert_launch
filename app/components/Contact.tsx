@@ -32,7 +32,7 @@ export function Contact({ t }: { t: Dictionary }) {
           <p dir="rtl" lang="ar" className="text-[0.9rem] text-muted">
             {c.arabicNote}
           </p>
-          <figure className="mt-1 overflow-hidden rounded-[18px] border border-line">
+          <figure className="media-zoom mt-1 rounded-[18px] border border-line">
             <img src={c.image.src} alt={c.image.alt} loading="lazy" className="w-full object-cover" />
             <figcaption className="px-4 py-3 text-[0.82rem] text-muted">{c.imageCaption}</figcaption>
           </figure>

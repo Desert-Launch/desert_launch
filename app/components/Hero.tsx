@@ -52,7 +52,7 @@ export function Hero({ t }: { t: Dictionary }) {
 
         {/* Visual */}
         <div className="flex flex-col gap-5">
-          <figure className="reveal panel overflow-hidden">
+          <figure className="reveal panel media-zoom">
             <img src={h.image.src} alt={h.image.alt} className="w-full object-cover" />
             <figcaption className="px-4 py-3 text-[0.82rem] text-muted">
               {h.imageCaption}
