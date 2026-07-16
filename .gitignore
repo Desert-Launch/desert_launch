@@ -1,2 +1,13 @@
+# Working docs (CHANGES-FOR-ME, AGENT-TASKS, PENDING-ITEMS, CLAUDE) — never deploy
 *.md
 .DS_Store
+
+# Dependencies / build output
+/node_modules
+/.next
+/out
+*.tsbuildinfo
+next-env.d.ts
+
+# Env
+.env*.local
