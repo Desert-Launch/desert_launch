@@ -19,7 +19,7 @@ import { ScrollReveal } from "./ScrollReveal";
 export function Site({ lang }: { lang: Lang }) {
   const t = dict(lang);
   return (
-    <div className="relative overflow-clip">
+    <div className="page-shell">
       <Header t={t} lang={lang} />
       <main id="top">
         <Hero t={t} />

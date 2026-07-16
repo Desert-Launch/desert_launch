@@ -44,13 +44,27 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
   const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 18);
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main section[id]"));
+    const onScroll = () => {
+      setScrolled(window.scrollY > 18);
+      const offset = 120;
+      let current = sections[0]?.id ?? "";
+      for (const s of sections) {
+        if (window.scrollY + offset >= s.offsetTop) current = s.id;
+      }
+      setActive(current);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,12 +118,12 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-[0.95rem] text-[0.92rem] text-muted min-[901px]:flex xl:gap-5">
+        <nav className="hidden items-center gap-[0.95rem] text-[0.92rem] min-[901px]:flex xl:gap-5">
           {t.nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap transition-colors hover:text-ink"
+              className={`nav-link ${active === item.href.slice(1) ? "is-active" : ""}`}
             >
               {item.label}
             </a>

@@ -101,8 +101,79 @@
   /* Centered content column. Small side gutter so content sits close to the
      screen edges; widens with --container on large screens. */
   .shell {
+    position: relative;
+    z-index: 1;
     width: min(var(--container), calc(100% - 1.5rem));
     margin-inline: auto;
+  }
+
+  /* Ambient gold blur blobs behind the whole page (old-theme atmosphere). */
+  .page-shell {
+    position: relative;
+    overflow: clip;
+  }
+
+  .page-shell::before,
+  .page-shell::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  .page-shell::before {
+    top: 6rem;
+    left: -8rem;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(212, 175, 55, 0.12);
+    filter: blur(80px);
+  }
+
+  .page-shell::after {
+    right: -6rem;
+    bottom: 10rem;
+    width: 22rem;
+    height: 22rem;
+    background: rgba(200, 169, 81, 0.14);
+    filter: blur(90px);
+  }
+
+  /* Header nav link with the animated gold underline (old theme). */
+  .nav-link {
+    position: relative;
+    padding: 0.15rem 0;
+    white-space: nowrap;
+    color: var(--color-muted);
+    transition: color 180ms ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible,
+  .nav-link.is-active {
+    color: var(--color-ink);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    opacity: 0;
+    transform: scaleX(0.5);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after,
+  .nav-link.is-active::after {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
   /* Section eyebrow */
@@ -199,6 +270,8 @@
   /* Buttons */
   .btn {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -217,6 +290,25 @@
 
   .btn:hover {
     transform: translateY(-1px);
+  }
+
+  /* Sliding sheen sweep on hover/focus (old theme). */
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.26) 50%, transparent 100%);
+    opacity: 0;
+    transform: translateX(-140%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transition: transform 420ms ease, opacity 220ms ease;
+  }
+
+  .btn:hover::after,
+  .btn:focus-visible::after {
+    opacity: 0.8;
+    transform: translateX(140%);
   }
 
   .btn-primary {
@@ -403,5 +495,11 @@
   }
   .floating-wa {
     animation: none;
+  }
+  .btn::after {
+    display: none;
+  }
+  .btn:hover {
+    transform: none;
   }
 }
