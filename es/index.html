@@ -178,12 +178,12 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 1rem 0;
+        padding: 0.6rem 0;
         transition: padding 220ms ease;
       }
 
       .site-header.is-scrolled .header-row {
-        padding: 0.8rem 0;
+        padding: 0.45rem 0;
       }
 
       .brand {
@@ -228,6 +228,7 @@
       .nav a {
         position: relative;
         padding: 0.15rem 0;
+        white-space: nowrap;
         transition: color 180ms ease;
       }
 
@@ -265,6 +266,131 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
+      }
+
+      .header-actions .button {
+        min-height: 2.6rem;
+        padding: 0.6rem 1.1rem;
+      }
+
+      .lang-switch {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-height: 2.6rem;
+        padding: 0.55rem 0.85rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .lang-toggle:hover,
+      .lang-toggle:focus-visible {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(229, 231, 235, 0.28);
+        transform: translateY(-1px);
+      }
+
+      .lang-toggle:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .lang-globe {
+        width: 1.15rem;
+        height: 1.15rem;
+        flex: none;
+        color: var(--accent);
+      }
+
+      .lang-caret {
+        width: 0.7rem;
+        height: 0.7rem;
+        flex: none;
+        color: var(--muted);
+        transition: transform 200ms ease;
+      }
+
+      .lang-switch.is-open .lang-caret {
+        transform: rotate(180deg);
+      }
+
+      .lang-menu {
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        right: 0;
+        min-width: 13rem;
+        margin: 0;
+        padding: 0.4rem;
+        list-style: none;
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        opacity: 0;
+        transform: translateY(-6px);
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+        z-index: 30;
+      }
+
+      .lang-switch.is-open .lang-menu {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .lang-menu a {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 10px;
+        color: var(--text-soft);
+        font-size: 0.9rem;
+        transition: background-color 150ms ease, color 150ms ease;
+      }
+
+      .lang-menu a:hover,
+      .lang-menu a:focus-visible {
+        background: var(--surface-strong);
+        color: var(--text);
+        outline: none;
+      }
+
+      .lang-menu a[aria-current="true"] {
+        color: var(--accent);
+      }
+
+      .lang-menu a[aria-current="true"] .lang-check {
+        opacity: 1;
+      }
+
+      .lang-native {
+        font-weight: 600;
+      }
+
+      .lang-check {
+        width: 0.95rem;
+        height: 0.95rem;
+        flex: none;
+        margin-inline-start: auto;
+        color: var(--accent);
+        opacity: 0;
       }
 
       .menu-toggle,
@@ -384,6 +510,48 @@
         gap: 0.7rem;
       }
 
+      .mobile-lang {
+        margin-top: 0.9rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(229, 231, 235, 0.08);
+      }
+
+      .mobile-lang-label {
+        display: block;
+        margin-bottom: 0.65rem;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+      }
+
+      .mobile-lang-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .mobile-lang-links a {
+        padding: 0.5rem 0.85rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        font-size: 0.88rem;
+        color: var(--text-soft);
+        transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+      }
+
+      .mobile-lang-links a:hover,
+      .mobile-lang-links a:focus-visible {
+        color: var(--text);
+        border-color: rgba(229, 231, 235, 0.28);
+      }
+
+      .mobile-lang-links a[aria-current="true"] {
+        color: var(--accent);
+        border-color: rgba(212, 175, 55, 0.4);
+        background: var(--accent-soft);
+      }
+
       .button {
         position: relative;
         isolation: isolate;
@@ -464,7 +632,7 @@
       }
 
       .hero {
-        padding: 5rem 0 3.5rem;
+        padding: 2.5rem 0 1.75rem;
       }
 
       .hero-grid {
@@ -518,7 +686,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.9rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
       }
 
       .hero-intro {
@@ -558,7 +726,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
       }
 
       .stat-card,
@@ -806,7 +974,7 @@
         display: grid;
         grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
         gap: 1.1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
         align-items: stretch;
       }
 
@@ -883,8 +1051,8 @@
 
       section {
         position: relative;
-        padding: 3.75rem 0;
-        scroll-margin-top: 6.5rem;
+        padding: 1.5rem 0;
+        scroll-margin-top: 5.5rem;
       }
 
       #services,
@@ -940,7 +1108,7 @@
       .footer-grid {
         display: grid;
         gap: 1.1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
       }
 
       .services-grid {
@@ -1015,7 +1183,7 @@
         grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
         gap: 1.2rem;
         align-items: start;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
       }
 
       .capabilities-grid {
@@ -1119,6 +1287,51 @@
 
       .portfolio-card:hover .portfolio-media img {
         transform: scale(1.02);
+      }
+
+      .portfolio-media--stack {
+        display: block;
+        padding: 1.15rem 1.15rem 0;
+      }
+
+      .portfolio-showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.75rem 1.25rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 55%),
+          radial-gradient(circle at bottom left, rgba(200, 169, 81, 0.1), transparent 50%),
+          rgba(11, 15, 25, 0.6);
+      }
+
+      .portfolio-showcase img {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(229, 231, 235, 0.14);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      }
+
+      .portfolio-stack {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.45rem;
+      }
+
+      .portfolio-stack span {
+        padding: 0.34rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(229, 231, 235, 0.12);
+        color: var(--text-soft);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
       }
 
       .portfolio-body {
@@ -1246,7 +1459,7 @@
       .faq-list {
         display: grid;
         gap: 0.9rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
         max-width: 860px;
       }
 
@@ -1301,7 +1514,7 @@
       .engagement-grid {
         display: grid;
         gap: 1.1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
@@ -1336,7 +1549,7 @@
       .testimonial-grid {
         display: grid;
         gap: 1.1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
@@ -1452,7 +1665,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 1.1rem;
       }
 
       .cta-band p {
@@ -1743,6 +1956,29 @@
         }
       }
 
+      @media (min-width: 901px) and (max-width: 1180px) {
+        .header-row {
+          gap: 0.75rem;
+        }
+
+        .nav {
+          gap: 0.95rem;
+          font-size: 0.9rem;
+        }
+
+        .brand-copy span {
+          display: none;
+        }
+
+        .header-actions {
+          gap: 0.55rem;
+        }
+
+        .header-actions .button {
+          padding: 0.6rem 0.9rem;
+        }
+      }
+
       @media (max-width: 1100px) {
         .services-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1793,7 +2029,7 @@
         }
 
         .hero {
-          padding-top: 4rem;
+          padding-top: 2rem;
         }
 
         .hero h1 {
@@ -1823,7 +2059,7 @@
         }
 
         section {
-          padding: 3rem 0;
+          padding: 1.1rem 0;
         }
 
         .hero-actions,
@@ -2074,7 +2310,51 @@
             </span>
           </button>
           <div class="header-actions">
-            <a class="button button-secondary" href="/" lang="en" hreflang="en" title="English version">English</a>
+            <div class="lang-switch">
+              <button class="lang-toggle" type="button" id="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Elegir idioma">
+                <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M3 12h18"></path>
+                  <path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9s1.3-6.5 3.8-9z"></path>
+                </svg>
+                <span class="lang-current">ES</span>
+                <svg class="lang-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <ul class="lang-menu" id="lang-menu" role="menu" aria-label="Elegir idioma">
+                <li role="none">
+                  <a role="menuitem" href="/" hreflang="en">
+                    <span class="lang-native">English</span>
+                    <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="/ar/" lang="ar" hreflang="ar">
+                    <span class="lang-native" dir="rtl">العربية</span>
+                    <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="/fr/" lang="fr" hreflang="fr">
+                    <span class="lang-native">Français</span>
+                    <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="/es/" lang="es" hreflang="es" aria-current="true">
+                    <span class="lang-native">Español</span>
+                    <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="/de/" lang="de" hreflang="de">
+                    <span class="lang-native">Deutsch</span>
+                    <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"></path></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a class="button button-secondary" href="mailto:hello@desertlaunch.dev">Escríbanos</a>
             <a class="button button-primary" href="https://wa.me/201022838534?text=Hola%20Desert%20Launch%2C%20quiero%20hablar%20sobre%20la%20creaci%C3%B3n%20de%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noreferrer">
               Inicie su proyecto
@@ -2097,7 +2377,16 @@
                 Inicie su proyecto
               </a>
               <a class="button button-secondary" href="mailto:hello@desertlaunch.dev">Escríbanos</a>
-              <a class="button button-secondary" href="/" lang="en" hreflang="en">English</a>
+            </div>
+            <div class="mobile-lang" aria-label="Elegir idioma">
+              <span class="mobile-lang-label">Idioma</span>
+              <div class="mobile-lang-links">
+                <a href="/" hreflang="en">English</a>
+                <a href="/ar/" lang="ar" hreflang="ar" dir="rtl">العربية</a>
+                <a href="/fr/" lang="fr" hreflang="fr">Français</a>
+                <a href="/es/" lang="es" hreflang="es" aria-current="true">Español</a>
+                <a href="/de/" lang="de" hreflang="de">Deutsch</a>
+              </div>
             </div>
           </div>
         </div>
@@ -2370,6 +2659,42 @@
                   <div class="portfolio-actions">
                     <a class="portfolio-link" href="https://apps.apple.com/us/app/q-fight-gym/id6759147399" target="_blank" rel="noreferrer">App Store</a>
                     <a class="portfolio-link" href="#contact">Crear una app para su negocio</a>
+                  </div>
+                </div>
+              </article>
+              <article class="portfolio-card reveal">
+                <div class="portfolio-media portfolio-media--stack">
+                  <div class="portfolio-showcase">
+                    <img src="/assets/logo-xeralab.webp" alt="Icono de la plataforma Xera Lab" loading="lazy" width="58" height="58" />
+                    <div class="portfolio-stack" aria-label="Stack tecnológico">
+                      <span>Flutter Web</span>
+                      <span>Node.js</span>
+                      <span>PostgreSQL</span>
+                      <span>Docker</span>
+                      <span>AWS</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-body">
+                  <div class="portfolio-head">
+                    <img class="portfolio-applogo" src="/assets/logo-xeralab.webp" alt="Icono de la app Xera Lab" loading="lazy" width="46" height="46" />
+                    <div>
+                      <h3>Xera Lab</h3>
+                      <span class="portfolio-tag">Plataforma de gestión de casos dentales</span>
+                    </div>
+                  </div>
+                  <p class="portfolio-summary">
+                    Una plataforma full-stack de gestión de casos dentales — un portal de clientes y un panel de
+                    administración sobre una API en Node.js — desarrollada y entregada al cliente como sistema privado
+                    en producción.
+                  </p>
+                  <ul class="portfolio-points">
+                    <li>Portal de clientes más panel de administración en una plataforma compartida.</li>
+                    <li>API en Node.js y PostgreSQL con acceso por roles basado en JWT.</li>
+                    <li>Subidas a AWS S3, Docker Compose y despliegue con Nginx.</li>
+                  </ul>
+                  <div class="portfolio-actions">
+                    <a class="portfolio-link" href="#contact">Crear una plataforma como esta</a>
                   </div>
                 </div>
               </article>
@@ -3153,8 +3478,44 @@
           });
         });
 
+        var langSwitch = document.querySelector(".lang-switch");
+        var langToggle = document.getElementById("lang-toggle");
+
+        function setLangState(isOpen) {
+          if (!langSwitch || !langToggle) {
+            return;
+          }
+
+          langSwitch.classList.toggle("is-open", isOpen);
+          langToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        }
+
+        if (langToggle && langSwitch) {
+          langToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            setLangState(!langSwitch.classList.contains("is-open"));
+          });
+
+          document.addEventListener("click", function (event) {
+            if (langSwitch.classList.contains("is-open") && !langSwitch.contains(event.target)) {
+              setLangState(false);
+            }
+          });
+        }
+
         document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape" && header && header.classList.contains("is-menu-open")) {
+          if (event.key !== "Escape") {
+            return;
+          }
+
+          if (langSwitch && langSwitch.classList.contains("is-open")) {
+            setLangState(false);
+            if (langToggle) {
+              langToggle.focus();
+            }
+          }
+
+          if (header && header.classList.contains("is-menu-open")) {
             setMenuState(false);
             if (menuToggle) {
               menuToggle.focus();
