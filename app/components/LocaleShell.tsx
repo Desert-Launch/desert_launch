@@ -12,7 +12,7 @@ export function LocaleShell({ lang, children }: { lang: Lang; children: React.Re
   const t = dict(lang);
   const loc = localeByCode(lang);
   return (
-    <html lang={loc.hreflang} dir={loc.dir} className={fontVars}>
+    <html lang={loc.hreflang} dir={loc.dir} className={fontVars} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -23,7 +23,7 @@ export function LocaleShell({ lang, children }: { lang: Lang; children: React.Re
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(t)) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a href="#top" className="skip-link">
           {t.skipToContent}
         </a>
