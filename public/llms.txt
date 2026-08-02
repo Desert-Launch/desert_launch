@@ -13,8 +13,8 @@
 
 ## Pages
 
-- [Home (English)](https://desertlaunch.dev/)
-- [Arabic](https://desertlaunch.dev/ar/)
-- [French](https://desertlaunch.dev/fr/)
-- [Spanish](https://desertlaunch.dev/es/)
-- [German](https://desertlaunch.dev/de/)
+- [Home (English)](https://www.desertlaunch.dev/)
+- [Arabic](https://www.desertlaunch.dev/ar/)
+- [French](https://www.desertlaunch.dev/fr/)
+- [Spanish](https://www.desertlaunch.dev/es/)
+- [German](https://www.desertlaunch.dev/de/)

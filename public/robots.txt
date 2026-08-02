@@ -51,4 +51,4 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://desertlaunch.dev/sitemap.xml
+Sitemap: https://www.desertlaunch.dev/sitemap.xml

@@ -1,7 +1,9 @@
 import type { Dir, Lang } from "./types";
 
-/** Canonical origin (apex domain, GitHub Pages custom domain). */
-export const SITE_URL = "https://desertlaunch.dev";
+/** Canonical origin (www host, served by Vercel).
+ *  The apex still resolves to the old GitHub Pages IPs and 404s, so `www` is
+ *  the canonical host until the apex DNS is repointed at Vercel. */
+export const SITE_URL = "https://www.desertlaunch.dev";
 
 export const WHATSAPP_NUMBER = "201022838534";
 export const PHONE_INTL = "+20-102-283-8534";
