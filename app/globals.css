@@ -473,6 +473,15 @@
     transition: transform 500ms var(--ease-out);
   }
 
+  /* One landscape shot (website redesign concepts) instead of a 3-up phone grid. */
+  .pf-media--single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-media--single img {
+    aspect-ratio: 16 / 10;
+  }
+
   .pf-media--contain img {
     object-fit: contain;
     padding: 0.45rem;

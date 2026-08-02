@@ -6,7 +6,7 @@ export const SITE_URL = "https://desertlaunch.dev";
 export const WHATSAPP_NUMBER = "201022838534";
 export const PHONE_INTL = "+20-102-283-8534";
 export const PHONE_DISPLAY = "+20 102 283 8534";
-export const EMAIL = "hello@desertlaunch.dev";
+export const EMAIL = "abdullah@desertlaunch.dev";
 export const MAILTO = `mailto:${EMAIL}`;
 
 /** Build a WhatsApp click-to-chat link with a pre-filled (already localized) message. */

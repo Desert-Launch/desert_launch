@@ -94,6 +94,16 @@ export interface Project {
   links: Cta[];
 }
 
+/** A website redesign concept: one landscape shot, no app logo or store links. */
+export interface RedesignCard {
+  /** Sector + city label shown as the card tag, e.g. "Real Estate — Ajman". */
+  label: string;
+  title: string;
+  summary: string;
+  points: string[];
+  image: Shot;
+}
+
 export interface WorkCopy {
   kicker: string;
   title: string;
@@ -106,6 +116,11 @@ export interface WorkCopy {
   };
   capabilityCards: IconCard[];
   projects: Project[];
+  redesigns: {
+    title: string;
+    intro: string;
+    cards: RedesignCard[];
+  };
 }
 
 export interface ServicesCopy {

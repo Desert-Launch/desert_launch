@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Dictionary, Lang } from "@/app/data/types";
-import { LOCALES } from "@/app/data/shared";
+import { LOCALES, MAILTO } from "@/app/data/shared";
 
 function Globe() {
   return (
@@ -208,7 +208,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
             </ul>
           </div>
 
-          <a href={`mailto:hello@desertlaunch.dev`} className="btn btn-secondary text-[0.9rem]">
+          <a href={MAILTO} className="btn btn-secondary text-[0.9rem]">
             {t.header.emailUs}
           </a>
           <a
@@ -247,7 +247,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
               >
                 {t.header.startProject.label}
               </a>
-              <a href="mailto:hello@desertlaunch.dev" className="btn btn-secondary w-full">
+              <a href={MAILTO} className="btn btn-secondary w-full">
                 {t.header.emailUs}
               </a>
             </div>

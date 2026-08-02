@@ -1,4 +1,4 @@
-import type { Dictionary, Project } from "@/app/data/types";
+import type { Dictionary, Project, RedesignCard as RedesignCardCopy } from "@/app/data/types";
 import { Icon } from "@/app/data/icons";
 import { SectionHead } from "./SectionHead";
 
@@ -74,6 +74,29 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
+function RedesignCard({ card }: { card: RedesignCardCopy }) {
+  return (
+    <article className="pf-card reveal flex flex-col overflow-hidden rounded-[24px] border border-line bg-[rgba(11,15,25,0.82)]">
+      <div className="pf-media pf-media--single">
+        <img src={card.image.src} alt={card.image.alt} loading="lazy" />
+      </div>
+      <div className="flex flex-1 flex-col p-[1.15rem]">
+        <h3 className="text-[1.18rem] font-bold">{card.title}</h3>
+        <span className="pf-tag mt-[0.35rem] self-start">{card.label}</span>
+        <p className="mt-4 text-[0.94rem] leading-relaxed text-muted">{card.summary}</p>
+        <ul className="mt-3 grid gap-2 text-[0.9rem] text-ink-soft">
+          {card.points.map((point) => (
+            <li key={point} className="flex gap-2">
+              <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
 export function Work({ t }: { t: Dictionary }) {
   const w = t.work;
   return (
@@ -115,6 +138,19 @@ export function Work({ t }: { t: Dictionary }) {
           {w.projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
+        </div>
+
+        {/* Website redesign concepts */}
+        <div className="flex flex-col gap-5">
+          <div className="reveal flex flex-col gap-2">
+            <h3 className="text-xl font-bold sm:text-2xl">{w.redesigns.title}</h3>
+            <p className="max-w-3xl text-[0.94rem] leading-relaxed text-muted">{w.redesigns.intro}</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            {w.redesigns.cards.map((card) => (
+              <RedesignCard key={card.title} card={card} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

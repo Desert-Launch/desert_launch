@@ -252,6 +252,43 @@ export const es: Dictionary = {
         links: [{ label: "Crear una plataforma como esta", href: "#contact" }],
       },
     ],
+    redesigns: {
+      title: "Conceptos de rediseño web",
+      intro:
+        "Rediseños modernos, pensados primero para móvil, preparados para empresas reales: el antes y el después de un sitio más rápido y más claro.",
+      cards: [
+        {
+          label: "Inmobiliaria — Ajman",
+          title: "Landmark Properties — Concepto de rediseño",
+          summary:
+            "Un sitio inmobiliario pensado primero para móvil que sustituye listados de demostración obsoletos por propiedades locales reales y buscables, con carga rápida y consulta por WhatsApp en cada propiedad.",
+          points: [
+            "Diseño móvil primero y de carga rápida",
+            "Listados de propiedades buscables",
+            "Llamadas a la acción claras de consulta y WhatsApp",
+          ],
+          image: {
+            src: "/assets/redesign-landmark.jpg",
+            alt: "Concepto de rediseño del sitio de Landmark Properties",
+          },
+        },
+        {
+          label: "Interiorismo / Reformas — Ajman",
+          title: "Ayyath Interiors — Concepto de rediseño",
+          summary:
+            "Un sitio de portafolio limpio para reformas, con una galería de proyectos real, datos de contacto que funcionan y una ruta clara para «Pedir presupuesto», en lugar de una plantilla obsoleta y rota.",
+          points: [
+            "Una galería de proyectos que vende el trabajo",
+            "Llamada directa y WhatsApp que funcionan",
+            "Llamada a la acción clara de «Pedir presupuesto»",
+          ],
+          image: {
+            src: "/assets/redesign-ayyath.jpg",
+            alt: "Concepto de rediseño del sitio de Ayyath Interiors",
+          },
+        },
+      ],
+    },
   },
   services: {
     kicker: "Servicios",
@@ -602,7 +639,7 @@ export const es: Dictionary = {
       heading: "Envíe un brief de proyecto",
       body: "Envíe aquí los datos clave y abra el brief directamente en WhatsApp o en su email.",
       whatsapp: { label: "WhatsApp", value: "+20 102 283 8534" },
-      email: { label: "Email", value: "hello@desertlaunch.dev" },
+      email: { label: "Email", value: "abdullah@desertlaunch.dev" },
     },
     form: {
       name: "Su nombre",

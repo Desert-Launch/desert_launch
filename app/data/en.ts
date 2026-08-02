@@ -23,7 +23,7 @@ export const en: Dictionary = {
     { label: "Contact", href: "#contact" },
   ],
   header: {
-    tagline: "Software House for Web, Mobile, and Product Engineering",
+    tagline: "Software House for Web, Mobile & Product Engineering",
     emailUs: "Email Us",
     startProject: { label: "Start Your Project", href: wa(GENERIC), external: true },
     langCode: "EN",
@@ -249,6 +249,43 @@ export const en: Dictionary = {
         links: [{ label: "Build a platform like this", href: "#contact" }],
       },
     ],
+    redesigns: {
+      title: "Website Redesign Concepts",
+      intro:
+        "Modern, mobile-first redesigns we've prepared for real businesses — showing the before/after of a faster, clearer site.",
+      cards: [
+        {
+          label: "Real Estate — Ajman",
+          title: "Landmark Properties — Redesign Concept",
+          summary:
+            "A mobile-first property site replacing outdated demo listings with real, searchable local listings, fast load, and WhatsApp enquiry on every property.",
+          points: [
+            "Mobile-first, fast-loading layout",
+            "Searchable property listings",
+            "Clear enquiry + WhatsApp CTAs",
+          ],
+          image: {
+            src: "/assets/redesign-landmark.jpg",
+            alt: "Landmark Properties website redesign concept",
+          },
+        },
+        {
+          label: "Interior / Fit-Out — Ajman",
+          title: "Ayyath Interiors — Redesign Concept",
+          summary:
+            "A clean fit-out portfolio site with a real projects gallery, working contact details, and a clear 'Get a quote' path — replacing an outdated, broken template.",
+          points: [
+            "Projects gallery that sells the work",
+            "Working click-to-call + WhatsApp",
+            "Clear 'Get a quote' CTA",
+          ],
+          image: {
+            src: "/assets/redesign-ayyath.jpg",
+            alt: "Ayyath Interiors website redesign concept",
+          },
+        },
+      ],
+    },
   },
   services: {
     kicker: "Services",
@@ -581,7 +618,7 @@ export const en: Dictionary = {
       heading: "Share a Project Brief",
       body: "Send the core details here and open the brief directly in WhatsApp or email.",
       whatsapp: { label: "WhatsApp", value: "+20 102 283 8534" },
-      email: { label: "Email", value: "hello@desertlaunch.dev" },
+      email: { label: "Email", value: "abdullah@desertlaunch.dev" },
     },
     form: {
       name: "Your name",

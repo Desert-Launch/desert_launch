@@ -249,6 +249,43 @@ export const de: Dictionary = {
         links: [{ label: "Eine Plattform wie diese entwickeln lassen", href: "#contact" }],
       },
     ],
+    redesigns: {
+      title: "Konzepte für Website-Relaunches",
+      intro:
+        "Moderne, mobile-first gedachte Relaunches, die wir für reale Unternehmen vorbereitet haben — das Vorher/Nachher einer schnelleren, klareren Website.",
+      cards: [
+        {
+          label: "Immobilien — Ajman",
+          title: "Landmark Properties — Relaunch-Konzept",
+          summary:
+            "Eine mobile-first Immobilien-Website, die veraltete Demo-Anzeigen durch echte, durchsuchbare lokale Angebote ersetzt — mit schnellen Ladezeiten und WhatsApp-Anfrage bei jeder Immobilie.",
+          points: [
+            "Mobile-first Layout mit schnellen Ladezeiten",
+            "Durchsuchbare Immobilienangebote",
+            "Klare Anfrage- und WhatsApp-CTAs",
+          ],
+          image: {
+            src: "/assets/redesign-landmark.jpg",
+            alt: "Relaunch-Konzept für die Website von Landmark Properties",
+          },
+        },
+        {
+          label: "Innenausbau — Ajman",
+          title: "Ayyath Interiors — Relaunch-Konzept",
+          summary:
+            "Eine aufgeräumte Portfolio-Website für den Innenausbau mit echter Projektgalerie, funktionierenden Kontaktdaten und einem klaren Weg zum Angebot — statt einer veralteten, fehlerhaften Vorlage.",
+          points: [
+            "Projektgalerie, die die Arbeit verkauft",
+            "Funktionierender Klick-zum-Anrufen und WhatsApp",
+            "Klarer CTA „Angebot anfordern“",
+          ],
+          image: {
+            src: "/assets/redesign-ayyath.jpg",
+            alt: "Relaunch-Konzept für die Website von Ayyath Interiors",
+          },
+        },
+      ],
+    },
   },
   services: {
     kicker: "Leistungen",
@@ -595,7 +632,7 @@ export const de: Dictionary = {
       heading: "Projekt-Briefing senden",
       body: "Senden Sie hier die Eckdaten und öffnen Sie das Briefing direkt in WhatsApp oder per E-Mail.",
       whatsapp: { label: "WhatsApp", value: "+20 102 283 8534" },
-      email: { label: "E-Mail", value: "hello@desertlaunch.dev" },
+      email: { label: "E-Mail", value: "abdullah@desertlaunch.dev" },
     },
     form: {
       name: "Ihr Name",
