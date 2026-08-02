@@ -99,7 +99,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
           : "border-line bg-[rgba(11,15,25,0.72)]"
       }`}
     >
-      <div className="shell flex items-center justify-between gap-4 py-[0.6rem]">
+      <div className="shell flex items-center justify-between gap-4 py-2.5">
         {/* Brand */}
         <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="Desert Launch home">
           <img
@@ -110,15 +110,15 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
             className="h-11 w-11 rounded-[0.9rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
           />
           <span className="min-w-0">
-            <strong className="block text-[0.98rem] tracking-[0.02em]">Desert Launch</strong>
-            <span className="mt-[0.15rem] hidden text-[0.78rem] text-muted min-[1181px]:block">
+            <strong className="block text-body tracking-[0.02em]">Desert Launch</strong>
+            <span className="mt-0.5 hidden text-micro text-muted min-[1181px]:block">
               {t.header.tagline}
             </span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-[0.95rem] text-[0.92rem] min-[901px]:flex xl:gap-5">
+        <nav className="hidden items-center gap-4 text-body min-[901px]:flex xl:gap-5">
           {t.nav.map((item) => (
             <a
               key={item.href}
@@ -148,7 +148,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
         </button>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-[0.6rem] min-[901px]:flex">
+        <div className="hidden items-center gap-2.5 min-[901px]:flex">
           {/* Language dropdown */}
           <div className="relative inline-flex" ref={langRef}>
             <button
@@ -160,7 +160,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
               aria-haspopup="true"
               aria-expanded={langOpen}
               aria-label={t.header.langAria}
-              className="inline-flex min-h-[2.6rem] items-center gap-[0.4rem] rounded-full border border-line-strong bg-white/[0.02] px-[0.85rem] py-[0.55rem] text-[0.88rem] font-semibold tracking-[0.03em] text-ink transition-colors hover:border-[rgba(229,231,235,0.28)] hover:bg-white/[0.05]"
+              className="inline-flex min-h-[2.6rem] items-center gap-1.5 rounded-full border border-line-strong bg-white/[0.02] px-3.5 py-2 text-meta font-semibold tracking-[0.03em] text-ink transition-colors hover:border-[rgba(229,231,235,0.28)] hover:bg-white/[0.05]"
             >
               <Globe />
               <span>{t.header.langCode}</span>
@@ -180,7 +180,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
             <ul
               role="menu"
               aria-label={t.header.langAria}
-              className={`absolute end-0 top-[calc(100%+0.55rem)] z-30 min-w-[13rem] list-none rounded-[14px] border border-line bg-[rgba(17,24,39,0.95)] p-[0.4rem] shadow-brand backdrop-blur-xl transition-all ${
+              className={`absolute end-0 top-[calc(100%+0.55rem)] z-30 min-w-[13rem] list-none rounded-[14px] border border-line bg-[rgba(17,24,39,0.95)] p-1.5 shadow-e3 backdrop-blur-xl transition-all ${
                 langOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1.5 opacity-0"
               }`}
             >
@@ -195,7 +195,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
                       hrefLang={l.hreflang}
                       aria-current={current ? "true" : undefined}
                       dir={l.dir}
-                      className={`flex items-center gap-3 rounded-[10px] px-3 py-[0.6rem] text-[0.9rem] transition-colors hover:bg-white/[0.07] ${
+                      className={`flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-body transition-colors hover:bg-white/[0.07] ${
                         current ? "text-gold" : "text-ink-soft hover:text-ink"
                       }`}
                     >
@@ -208,14 +208,14 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
             </ul>
           </div>
 
-          <a href={MAILTO} className="btn btn-secondary text-[0.9rem]">
+          <a href={MAILTO} className="btn btn-secondary text-body">
             {t.header.emailUs}
           </a>
           <a
             href={t.header.startProject.href}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-primary text-[0.9rem]"
+            className="btn btn-primary text-body"
           >
             {t.header.startProject.label}
           </a>
@@ -232,13 +232,13 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-[18px] border border-transparent bg-white/[0.02] px-4 py-[0.85rem] text-muted transition-colors hover:border-gold/20 hover:bg-gold/[0.08] hover:text-ink"
+                  className="rounded-[18px] border border-transparent bg-white/[0.02] px-4 py-3 text-muted transition-colors hover:border-gold/20 hover:bg-gold/[0.08] hover:text-ink"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
-            <div className="grid gap-[0.6rem]">
+            <div className="grid gap-2.5">
               <a
                 href={t.header.startProject.href}
                 target="_blank"
@@ -252,7 +252,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
               </a>
             </div>
             <div className="border-t border-line pt-4">
-              <span className="mb-[0.65rem] block text-[0.72rem] uppercase tracking-[0.14em] text-muted">
+              <span className="mb-[0.65rem] block text-micro uppercase tracking-[0.14em] text-muted">
                 {t.header.mobileLangLabel}
               </span>
               <div className="flex flex-wrap gap-2">
@@ -266,7 +266,7 @@ export function Header({ t, lang }: { t: Dictionary; lang: Lang }) {
                       hrefLang={l.hreflang}
                       dir={l.dir}
                       aria-current={current ? "true" : undefined}
-                      className={`rounded-full border px-[0.85rem] py-2 text-[0.88rem] transition-colors ${
+                      className={`rounded-full border px-3.5 py-2 text-meta transition-colors ${
                         current
                           ? "border-gold/40 bg-gold/[0.12] text-gold"
                           : "border-line-strong text-ink-soft hover:text-ink"

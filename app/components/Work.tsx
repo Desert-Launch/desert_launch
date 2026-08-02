@@ -7,11 +7,11 @@ function ProjectMedia({ project }: { project: Project }) {
     return (
       <div className="pf-showcase">
         <img src={project.logo} alt={project.logoAlt} width={58} height={58} loading="lazy" />
-        <div className="flex flex-wrap justify-center gap-[0.45rem]" aria-label="Technology stack">
+        <div className="flex flex-wrap justify-center gap-2" aria-label="Technology stack">
           {project.media.stack.map((s) => (
             <span
               key={s}
-              className="rounded-full border border-line bg-white/[0.04] px-[0.7rem] py-[0.34rem] text-[0.74rem] font-semibold text-ink-soft"
+              className="rounded-full border border-line bg-white/[0.04] px-3 py-1.5 text-micro font-semibold text-ink-soft"
             >
               {s}
             </span>
@@ -29,12 +29,14 @@ function ProjectMedia({ project }: { project: Project }) {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, className = "" }: { project: Project; className?: string }) {
   return (
-    <article className="pf-card reveal flex flex-col overflow-hidden rounded-[24px] border border-line bg-[rgba(11,15,25,0.82)]">
+    <article
+      className={`pf-card reveal flex flex-col overflow-hidden rounded-lg border border-line bg-[rgba(11,15,25,0.82)] ${className}`}
+    >
       <ProjectMedia project={project} />
-      <div className="flex flex-1 flex-col p-[1.15rem]">
-        <div className="flex items-center gap-[0.85rem]">
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex items-center gap-3">
           <img
             src={project.logo}
             alt={project.logoAlt}
@@ -44,15 +46,15 @@ function ProjectCard({ project }: { project: Project }) {
             className="pf-applogo"
           />
           <div>
-            <h3 className="text-[1.18rem] font-bold">{project.title}</h3>
-            <span className="pf-tag mt-[0.35rem]">{project.tag}</span>
+            <h3 className="text-lg font-bold">{project.title}</h3>
+            <span className="pf-tag mt-1.5">{project.tag}</span>
           </div>
         </div>
-        <p className="mt-4 text-[0.94rem] leading-relaxed text-muted">{project.summary}</p>
-        <ul className="mt-3 grid gap-2 text-[0.9rem] text-ink-soft">
+        <p className="mt-4 text-body leading-relaxed text-muted">{project.summary}</p>
+        <ul className="mt-3 grid gap-2 text-body text-ink-soft">
           {project.points.map((point) => (
             <li key={point} className="flex gap-2">
-              <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+              <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
               <span>{point}</span>
             </li>
           ))}
@@ -80,14 +82,14 @@ function RedesignCard({ card }: { card: RedesignCardCopy }) {
       <div className="pf-media pf-media--single">
         <img src={card.image.src} alt={card.image.alt} loading="lazy" />
       </div>
-      <div className="flex flex-1 flex-col p-[1.15rem]">
-        <h3 className="text-[1.18rem] font-bold">{card.title}</h3>
-        <span className="pf-tag mt-[0.35rem] self-start">{card.label}</span>
-        <p className="mt-4 text-[0.94rem] leading-relaxed text-muted">{card.summary}</p>
-        <ul className="mt-3 grid gap-2 text-[0.9rem] text-ink-soft">
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="text-lg font-bold">{card.title}</h3>
+        <span className="pf-tag mt-1.5 self-start">{card.label}</span>
+        <p className="mt-4 text-body leading-relaxed text-muted">{card.summary}</p>
+        <ul className="mt-3 grid gap-2 text-body text-ink-soft">
           {card.points.map((point) => (
             <li key={point} className="flex gap-2">
-              <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+              <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
               <span>{point}</span>
             </li>
           ))}
@@ -106,14 +108,22 @@ const SHOW_REDESIGNS = false;
 export function Work({ t }: { t: Dictionary }) {
   const w = t.work;
   return (
-    <section id="work" aria-labelledby="work-heading" className="scroll-mt-24 py-7">
-      <div className="shell flex flex-col gap-8">
+    <section id="work" aria-labelledby="work-heading" className="section scroll-mt-24">
+      <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="work-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
-        {/* Projects */}
-        <div className="grid gap-5 md:grid-cols-2">
-          {w.projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+        {/* Projects. An odd count leaves the last card orphaned beside an empty
+            half-row, so it spans the full width instead — a deliberate wide
+            card reads as composition, a gap reads as a mistake. */}
+        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+          {w.projects.map((project, i) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              className={
+                w.projects.length % 2 === 1 && i === w.projects.length - 1 ? "md:col-span-2" : ""
+              }
+            />
           ))}
         </div>
 
@@ -122,7 +132,7 @@ export function Work({ t }: { t: Dictionary }) {
           <div className="flex flex-col gap-5">
             <div className="reveal flex flex-col gap-2">
               <h3 className="text-xl font-bold sm:text-2xl">{w.redesigns.title}</h3>
-              <p className="max-w-3xl text-[0.94rem] leading-relaxed text-muted">
+              <p className="max-w-3xl text-body leading-relaxed text-muted">
                 {w.redesigns.intro}
               </p>
             </div>
@@ -139,11 +149,11 @@ export function Work({ t }: { t: Dictionary }) {
           <aside className="panel reveal flex flex-col gap-3 p-6">
             <span className="kicker">{w.capabilities.kicker}</span>
             <h3 className="text-lg font-bold">{w.capabilities.title}</h3>
-            <p className="text-[0.94rem] leading-relaxed text-muted">{w.capabilities.body}</p>
-            <ul className="mt-1 grid gap-2 text-[0.9rem] text-ink-soft">
+            <p className="text-body leading-relaxed text-muted">{w.capabilities.body}</p>
+            <ul className="mt-1 grid gap-2 text-body text-ink-soft">
               {w.capabilities.points.map((point) => (
                 <li key={point} className="flex gap-2">
-                  <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+                  <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
                   <span>{point}</span>
                 </li>
               ))}

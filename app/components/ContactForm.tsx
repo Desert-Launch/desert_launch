@@ -40,9 +40,9 @@ export function ContactForm({ form }: { form: Form }) {
   }
 
   const field = "flex flex-col gap-1.5";
-  const label = "text-[0.82rem] text-muted";
+  const label = "text-meta text-muted";
   const input =
-    "rounded-[12px] border border-line-strong bg-white/[0.02] px-3.5 py-2.5 text-[0.94rem] text-ink placeholder:text-muted/70 focus:border-gold focus:outline-none";
+    "rounded-[12px] border border-line-strong bg-white/[0.02] px-3.5 py-2.5 text-body text-ink placeholder:text-muted/70 focus:border-gold focus:outline-none";
 
   return (
     <form className="flex flex-col gap-4" onSubmit={onWhatsApp}>
@@ -118,7 +118,7 @@ export function ContactForm({ form }: { form: Form }) {
           {form.submitEmail}
         </button>
       </div>
-      <p className="text-[0.82rem] text-muted">{form.note}</p>
+      <p className="text-meta text-muted">{form.note}</p>
     </form>
   );
 }

@@ -8,9 +8,9 @@ export function Services({ t }: { t: Dictionary }) {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="scroll-mt-24 bg-gradient-to-b from-white/[0.01] to-transparent py-7"
+      className="scroll-mt-24 bg-gradient-to-b from-white/[0.01] to-transparent section"
     >
-      <div className="shell flex flex-col gap-8">
+      <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="services-heading" kicker={s.kicker} title={s.title} intro={s.intro} />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -27,7 +27,7 @@ export function Services({ t }: { t: Dictionary }) {
 
         <div className="reveal flex flex-col gap-3" aria-label="Core technology stack">
           <span className="kicker">{s.stackLabel}</span>
-          <div className="flex flex-wrap gap-[0.55rem]">
+          <div className="flex flex-wrap gap-2">
             {s.stack.map((tech) => (
               <span key={tech} className="chip">
                 {tech}

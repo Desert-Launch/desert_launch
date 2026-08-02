@@ -11,12 +11,14 @@ export function SectionHead({
   id?: string;
 }) {
   return (
-    <div className="reveal flex max-w-[760px] flex-col gap-3">
+    // Capped near 60ch so intros never run the full container width — long
+    // measure is the fastest way to make a page tiring to read.
+    <div className="reveal flex max-w-[46rem] flex-col gap-4">
       <span className="kicker">{kicker}</span>
       <h2 id={id} className="text-2xl font-extrabold leading-tight sm:text-3xl">
         {title}
       </h2>
-      {intro ? <p className="text-[0.98rem] leading-relaxed text-muted">{intro}</p> : null}
+      {intro ? <p className="max-w-[58ch] text-lead text-muted">{intro}</p> : null}
     </div>
   );
 }

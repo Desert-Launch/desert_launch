@@ -7,9 +7,9 @@ export function Faq({ t }: { t: Dictionary }) {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="scroll-mt-24 bg-gradient-to-b from-white/[0.01] to-transparent py-7"
+      className="scroll-mt-24 bg-gradient-to-b from-white/[0.01] to-transparent section"
     >
-      <div className="shell flex flex-col gap-8">
+      <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="faq-heading" kicker={f.kicker} title={f.title} intro={f.intro} />
 
         <div className="grid max-w-[900px] gap-2">
@@ -32,7 +32,7 @@ export function Faq({ t }: { t: Dictionary }) {
                   <path d="M12 5v14M5 12h14" />
                 </svg>
               </summary>
-              <p className="mt-3 text-[0.94rem] leading-relaxed text-muted">{item.a}</p>
+              <p className="mt-3 text-body leading-relaxed text-muted">{item.a}</p>
             </details>
           ))}
         </div>

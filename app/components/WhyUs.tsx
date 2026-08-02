@@ -5,8 +5,8 @@ import { SectionHead } from "./SectionHead";
 export function WhyUs({ t }: { t: Dictionary }) {
   const w = t.why;
   return (
-    <section id="why-us" aria-labelledby="why-heading" className="scroll-mt-24 py-7">
-      <div className="shell flex flex-col gap-8">
+    <section id="why-us" aria-labelledby="why-heading" className="section scroll-mt-24">
+      <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="why-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
         <div className="grid gap-4 lg:grid-cols-[1.4fr_0.9fr]">
@@ -34,9 +34,9 @@ export function WhyUs({ t }: { t: Dictionary }) {
             />
             <div>
               <h3 className="text-lg font-bold">{w.founder.name}</h3>
-              <p className="text-[0.9rem] text-gold">{w.founder.role}</p>
+              <p className="text-body text-gold">{w.founder.role}</p>
             </div>
-            <p className="text-[0.92rem] leading-relaxed text-muted">{w.founder.body}</p>
+            <p className="text-body leading-relaxed text-muted">{w.founder.body}</p>
             <div className="flex flex-wrap gap-2" aria-label="Founder facts">
               {w.founder.facts.map((fact) => (
                 <span key={fact} className="chip">
@@ -52,14 +52,14 @@ export function WhyUs({ t }: { t: Dictionary }) {
           <div className="flex flex-col gap-2">
             <span className="kicker">{w.buildPlan.kicker}</span>
             <h3 className="max-w-[46ch] text-lg font-bold">{w.buildPlan.heading}</h3>
-            <p className="max-w-[70ch] text-[0.94rem] leading-relaxed text-muted">
+            <p className="max-w-[70ch] text-body leading-relaxed text-muted">
               {w.buildPlan.body}
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             {w.buildPlan.points.map((point) => (
-              <div key={point} className="flex gap-2 text-[0.9rem] text-ink-soft">
-                <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+              <div key={point} className="flex gap-2 text-body text-ink-soft">
+                <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
                 <span>{point}</span>
               </div>
             ))}
@@ -69,7 +69,7 @@ export function WhyUs({ t }: { t: Dictionary }) {
         <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-3">
             <span className="kicker">{w.band.kicker}</span>
-            <p className="max-w-[60ch] text-[0.96rem] leading-relaxed text-ink-soft">{w.band.body}</p>
+            <p className="max-w-[60ch] text-body leading-relaxed text-ink-soft">{w.band.body}</p>
             <div className="flex flex-wrap gap-2" aria-label="Engagement proof points">
               {w.band.points.map((p) => (
                 <span key={p} className="chip">
