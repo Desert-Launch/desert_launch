@@ -70,7 +70,12 @@ export const ORG = {
     "Europe",
     "United States",
   ],
-  sameAs: ["https://www.linkedin.com/company/desert-launch"],
+  knowsLanguage: ["en", "ar"],
+  /** Verified public profiles for the company, emitted as schema.org sameAs.
+   *  Empty on purpose — a sameAs pointing at a dead URL hurts more than it
+   *  helps, so add entries here only once the profile is live. The JSON-LD
+   *  omits the property entirely while this is empty. */
+  sameAs: [] as string[],
   knowsAbout: [
     "Web development",
     "Mobile app development",

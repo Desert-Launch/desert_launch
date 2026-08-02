@@ -97,6 +97,12 @@ function RedesignCard({ card }: { card: RedesignCardCopy }) {
   );
 }
 
+/** The redesign concepts are hidden until their screenshots exist —
+ *  `public/assets/redesign-landmark.jpg` and `redesign-ayyath.jpg` are still
+ *  missing, so the cards render as empty frames. Flip back to `true` once the
+ *  images are added; the copy for all five locales is already in place. */
+const SHOW_REDESIGNS = false;
+
 export function Work({ t }: { t: Dictionary }) {
   const w = t.work;
   return (
@@ -104,7 +110,31 @@ export function Work({ t }: { t: Dictionary }) {
       <div className="shell flex flex-col gap-8">
         <SectionHead id="work-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
-        {/* Capabilities */}
+        {/* Projects */}
+        <div className="grid gap-5 md:grid-cols-2">
+          {w.projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+
+        {/* Website redesign concepts */}
+        {SHOW_REDESIGNS && (
+          <div className="flex flex-col gap-5">
+            <div className="reveal flex flex-col gap-2">
+              <h3 className="text-xl font-bold sm:text-2xl">{w.redesigns.title}</h3>
+              <p className="max-w-3xl text-[0.94rem] leading-relaxed text-muted">
+                {w.redesigns.intro}
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {w.redesigns.cards.map((card) => (
+                <RedesignCard key={card.title} card={card} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Capabilities — kept after the work itself so visitors hit proof first */}
         <div className="grid gap-4 lg:grid-cols-[0.9fr_1.4fr]">
           <aside className="panel reveal flex flex-col gap-3 p-6">
             <span className="kicker">{w.capabilities.kicker}</span>
@@ -129,26 +159,6 @@ export function Work({ t }: { t: Dictionary }) {
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
               </article>
-            ))}
-          </div>
-        </div>
-
-        {/* Projects */}
-        <div className="grid gap-5 md:grid-cols-2">
-          {w.projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </div>
-
-        {/* Website redesign concepts */}
-        <div className="flex flex-col gap-5">
-          <div className="reveal flex flex-col gap-2">
-            <h3 className="text-xl font-bold sm:text-2xl">{w.redesigns.title}</h3>
-            <p className="max-w-3xl text-[0.94rem] leading-relaxed text-muted">{w.redesigns.intro}</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {w.redesigns.cards.map((card) => (
-              <RedesignCard key={card.title} card={card} />
             ))}
           </div>
         </div>

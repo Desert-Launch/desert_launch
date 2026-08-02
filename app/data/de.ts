@@ -10,7 +10,7 @@ export const de: Dictionary = {
   meta: {
     title: "Desert Launch | App Agentur & Softwareentwicklung — Kairo, Ägypten",
     description:
-      "Desert Launch ist eine App Agentur und ein Unternehmen für individuelle Softwareentwicklung in Kairo, Ägypten. Wir entwickeln die Webplattformen, mobilen Apps und MVPs, die manuelle Arbeit, Excel-Tabellen und verstreute Tools ersetzen. App entwickeln lassen mit Festpreisangebot, Zahlung nach Meilensteinen und einem Jahr kostenlosem Support. Kostenlose Beratung per WhatsApp.",
+      "App Agentur & Softwareentwicklung in Kairo, Ägypten. Mobile Apps, Webplattformen und MVPs — Festpreis, ein Jahr Gratis-Support. Kostenlose WhatsApp-Beratung.",
     ogLocale: "de_DE",
   },
   nav: [
@@ -55,16 +55,6 @@ export const de: Dictionary = {
     },
     imageCaption:
       "Webplattformen, mobile Produkte und interne Systeme, die Ihr Unternehmen voranbringen.",
-    sidePanel: {
-      kicker: "Was Sie bekommen",
-      heading: "Ein klarer Umsetzungsplan, bevor die eigentliche Entwicklung startet.",
-      body: "Jedes Projekt ist auf Produktklarheit, technische Praxistauglichkeit und den schnellsten Weg zu einem zuverlässigen Launch ausgerichtet.",
-      points: [
-        "Klar definierter Umfang, bevor die Umsetzung unnötig ausufert.",
-        "UX, Architektur und Geschäftsziele werden gemeinsam gedacht statt isoliert.",
-        "Ein Launch-Pfad, der für Gründer wie für wachsende Teams praktikabel bleibt.",
-      ],
-    },
     proof: [
       {
         label: "Erfahrung",
@@ -131,9 +121,9 @@ export const de: Dictionary = {
         media: {
           kind: "contain",
           shots: [
-            { src: "/assets/fastab1.png", alt: "Vorschau der FasTap App-Oberfläche 1" },
-            { src: "/assets/fastab2.png", alt: "Vorschau der FasTap App-Oberfläche 2" },
-            { src: "/assets/fastab3.png", alt: "Vorschau der FasTap App-Oberfläche 3" },
+            { src: "/assets/fastab1.webp", alt: "Vorschau der FasTap App-Oberfläche 1" },
+            { src: "/assets/fastab2.webp", alt: "Vorschau der FasTap App-Oberfläche 2" },
+            { src: "/assets/fastab3.webp", alt: "Vorschau der FasTap App-Oberfläche 3" },
           ],
         },
         summary:
@@ -148,7 +138,7 @@ export const de: Dictionary = {
       {
         title: "Al-Muslim",
         tag: "In beiden Stores live",
-        logo: "/assets/logo-almuslim.png",
+        logo: "/assets/logo-almuslim.webp",
         logoAlt: "Al-Muslim App-Icon",
         media: {
           kind: "cover",
@@ -204,7 +194,7 @@ export const de: Dictionary = {
       {
         title: "Q-Fight Gym",
         tag: "Im App Store live · Katar",
-        logo: "/assets/logo-qfightgym.png",
+        logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Q-Fight Gym App-Icon",
         media: {
           kind: "cover",
@@ -389,6 +379,16 @@ export const de: Dictionary = {
       photoAlt: "Abdullah Mohamed, Gründer von Desert Launch",
       facts: ["Kairo, Ägypten", "5+ Jahre Erfahrung", "10+ veröffentlichte Apps"],
     },
+    buildPlan: {
+      kicker: "Was Sie bekommen",
+      heading: "Ein klarer Umsetzungsplan, bevor die eigentliche Entwicklung startet.",
+      body: "Jedes Projekt ist auf Produktklarheit, technische Praxistauglichkeit und den schnellsten Weg zu einem zuverlässigen Launch ausgerichtet.",
+      points: [
+        "Klar definierter Umfang, bevor die Umsetzung unnötig ausufert.",
+        "UX, Architektur und Geschäftsziele werden gemeinsam gedacht statt isoliert.",
+        "Ein Launch-Pfad, der für Gründer wie für wachsende Teams praktikabel bleibt.",
+      ],
+    },
     band: {
       kicker: "So starten Projekte",
       body: "Die meisten Projekte beginnen mit einem kurzen Scope-Review, einer Empfehlung für den klarsten Umsetzungsweg und einem konkreten nächsten Schritt.",
@@ -562,50 +562,34 @@ export const de: Dictionary = {
       {
         q: "Was kostet ein Projekt?",
         a: "Jedes Projekt erhält nach einem kostenlosen Scope-Gespräch ein Festpreisangebot in USD — keine Stundenabrechnung und keine überraschenden Rechnungen. Der Preis hängt von Umfang und Komplexität ab, und wir sagen Ihnen ehrlich, wenn ein kleinerer Umfang Ihr Ziel bereits erreicht.",
-        schema:
-          "Jedes Projekt erhält nach einem kostenlosen Scope-Gespräch ein Festpreisangebot in USD — keine Stundenabrechnung und keine überraschenden Rechnungen. Der Preis hängt von Umfang und Komplexität ab.",
       },
       {
         q: "Wie lange dauert mein Projekt?",
         a: "Das hängt von Umfang und Komplexität ab: Eine Unternehmenswebsite dauert in der Regel Wochen, ein MVP ein bis zwei Monate und ein größeres mobiles Produkt zwei bis vier Monate. Sie erhalten vor dem Start einen konkreten Zeitplan mit Meilensteinen — und sehen bei jedem Meilenstein funktionierende Software.",
-        schema:
-          "Das hängt von Umfang und Komplexität ab: Eine Unternehmenswebsite dauert in der Regel Wochen, ein MVP ein bis zwei Monate und ein größeres mobiles Produkt zwei bis vier Monate. Vor Projektstart gibt es einen konkreten Zeitplan mit Meilensteinen.",
       },
       {
         q: "Was passiert nach dem Launch?",
         a: "Sie erhalten ein volles Jahr kostenlosen Support und Wartung sowie drei Monate kostenlose kleine Anpassungen und Updates. Danach ist optional ein laufender Retainer möglich, wenn wir das Produkt weiterentwickeln sollen — es geht aber nichts kaputt, wenn Sie darauf verzichten.",
-        schema:
-          "Jedes Projekt enthält ein volles Jahr kostenlosen Support und Wartung sowie drei Monate kostenlose kleine Anpassungen und Updates. Danach ist optional ein laufender Retainer verfügbar.",
       },
       {
         q: "Wem gehört der Code?",
         a: "Ihnen. Volles Eigentum am Code, am geistigen Eigentum und an den Infrastruktur-Accounts — alles wird auf Ihren Namen geliefert, und Ihre Daten und Ihre Infrastruktur bleiben in Ihren eigenen Accounts. Sie sind zu keinem Zeitpunkt an uns gebunden.",
-        schema:
-          "Dem Kunden gehört alles: der Code, das geistige Eigentum und die Infrastruktur-Accounts — alles wird auf den Namen des Kunden geliefert, und Daten wie Infrastruktur bleiben in den eigenen Accounts des Kunden.",
       },
       {
         q: "Wie funktioniert die Bezahlung?",
         a: "Projekte werden in drei oder vier Meilensteine aufgeteilt. Sie zahlen 30 % zu Beginn und den Rest je geliefertem Meilenstein — Sie sehen immer funktionierende Software, bevor die nächste Zahlung fällig wird.",
-        schema:
-          "Projekte werden in drei oder vier Meilensteine aufgeteilt: 30 % zu Beginn, der Rest je geliefertem Meilenstein.",
       },
       {
         q: "Wir sind nicht technisch. Ist das ein Problem?",
         a: "Überhaupt nicht — die meisten unserer Kunden sind es nicht. Wir erklären Entscheidungen in klarer Geschäftssprache, übernehmen die technischen Entscheidungen für Sie und kommunizieren per WhatsApp auf Deutsch, Englisch oder Arabisch.",
-        schema:
-          "Nein — Desert Launch erklärt Entscheidungen in klarer Geschäftssprache, übernimmt die technischen Entscheidungen und kommuniziert per WhatsApp auf Deutsch, Englisch oder Arabisch.",
       },
       {
         q: "Arbeiten Sie mit Kunden in Saudi-Arabien, den VAE und den Golfstaaten?",
         a: "Ja — Desert Launch arbeitet mit Kunden in Ägypten, Saudi-Arabien, den VAE, Katar und Kuwait sowie in Europa und den USA. Wir arbeiten in Ihrer Zeitzone (Kairo, GMT+2 — nur eine Stunde von den Golfstaaten entfernt), kommunizieren per WhatsApp auf Deutsch, Englisch oder Arabisch und haben Apps für Unternehmen am Golf veröffentlicht — darunter ein im App Store verfügbares Produkt für ein Gym in Katar.",
-        schema:
-          "Ja — Desert Launch arbeitet mit Kunden in Ägypten, Saudi-Arabien, den VAE, Katar und Kuwait sowie in Europa und den USA. Die Kommunikation läuft per WhatsApp auf Deutsch, Englisch oder Arabisch, in einer Zeitzone nur eine Stunde von den Golfstaaten entfernt — mit veröffentlichten Apps für Unternehmen am Golf, darunter ein im App Store verfügbares Produkt für ein Gym in Katar.",
       },
       {
         q: "Warum ein Softwareunternehmen in Ägypten beauftragen?",
         a: "Sie erhalten Senior-Engineering zu ägyptischen Konditionen — in der Regel deutlich unter westeuropäischen und US-Agenturpreisen für denselben Umfang — ohne die typischen Offshore-Nachteile: gleiche oder nahezu gleiche Zeitzone wie die Golfstaaten und Europa, Arabisch als Muttersprache plus fließendes Englisch und ein direkter Draht zum Entwickler Ihres Produkts statt eines vielschichtigen Account-Teams.",
-        schema:
-          "Senior-Engineering zu ägyptischen Konditionen — in der Regel deutlich unter westeuropäischen und US-Agenturpreisen für denselben Umfang — mit gleicher oder nahezu gleicher Zeitzone für die Golfstaaten und Europa, Arabisch als Muttersprache plus fließendem Englisch und einem direkten Draht zum Entwickler des Produkts.",
       },
     ],
   },

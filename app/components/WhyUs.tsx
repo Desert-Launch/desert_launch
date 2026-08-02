@@ -47,6 +47,25 @@ export function WhyUs({ t }: { t: Dictionary }) {
           </aside>
         </div>
 
+        {/* "What You Get" — build-plan framing, kept below the proof sections */}
+        <article className="panel reveal flex flex-col gap-4 p-6" aria-label="What you get">
+          <div className="flex flex-col gap-2">
+            <span className="kicker">{w.buildPlan.kicker}</span>
+            <h3 className="max-w-[46ch] text-lg font-bold">{w.buildPlan.heading}</h3>
+            <p className="max-w-[70ch] text-[0.94rem] leading-relaxed text-muted">
+              {w.buildPlan.body}
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {w.buildPlan.points.map((point) => (
+              <div key={point} className="flex gap-2 text-[0.9rem] text-ink-soft">
+                <span aria-hidden="true" className="mt-[0.5rem] h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+
         <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-3">
             <span className="kicker">{w.band.kicker}</span>

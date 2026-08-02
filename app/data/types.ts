@@ -65,12 +65,6 @@ export interface HeroCopy {
   responseNote: string;
   image: Shot;
   imageCaption: string;
-  sidePanel: {
-    kicker: string;
-    heading: string;
-    body: string;
-    points: string[];
-  };
   proof: ProofStat[];
 }
 
@@ -148,6 +142,14 @@ export interface WhyCopy {
     photoAlt: string;
     facts: string[];
   };
+  /** "What You Get" — the build-plan framing. Lives here (below the proof in
+   *  Selected Work) rather than in the hero, so visitors hit real work first. */
+  buildPlan: {
+    kicker: string;
+    heading: string;
+    body: string;
+    points: string[];
+  };
   band: {
     kicker: string;
     body: string;
@@ -202,8 +204,6 @@ export interface PlansCopy {
 export interface FaqItem {
   q: string;
   a: string;
-  /** Shorter answer used only for the FAQPage JSON-LD (falls back to `a`). */
-  schema?: string;
 }
 
 export interface FaqCopy {

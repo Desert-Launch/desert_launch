@@ -11,7 +11,7 @@ export const es: Dictionary = {
     title:
       "Desert Launch | Empresa de desarrollo de aplicaciones y software — El Cairo, Egipto",
     description:
-      "Desert Launch es una empresa de desarrollo de aplicaciones y software en El Cairo, Egipto: desarrollo de aplicaciones móviles, plataformas web, MVP y desarrollo de software a medida que sustituyen el trabajo manual, las hojas de Excel y las herramientas dispersas. Presupuesto cerrado, pagos por hitos y un año de soporte gratuito. Consulta gratuita por WhatsApp.",
+      "Empresa de desarrollo de aplicaciones y software en El Cairo, Egipto. Apps móviles, plataformas web y MVP — presupuesto cerrado, un año de soporte gratis.",
     ogLocale: "es_ES",
   },
   nav: [
@@ -57,17 +57,6 @@ export const es: Dictionary = {
     },
     imageCaption:
       "Plataformas web, productos móviles y sistemas internos creados para ganar impulso.",
-    sidePanel: {
-      kicker: "Qué obtiene",
-      heading:
-        "Un plan de desarrollo más claro antes de que empiece el trabajo pesado.",
-      body: "Cada proyecto se plantea en torno a la claridad del producto, la viabilidad técnica y la ruta más rápida hacia un lanzamiento fiable.",
-      points: [
-        "Un alcance definido con claridad antes de que la implementación crezca innecesariamente.",
-        "UX, arquitectura y objetivos de negocio diseñados en conjunto, no por separado.",
-        "Una ruta de lanzamiento útil tanto para fundadores como para equipos en crecimiento.",
-      ],
-    },
     proof: [
       {
         label: "Experiencia",
@@ -134,9 +123,9 @@ export const es: Dictionary = {
         media: {
           kind: "contain",
           shots: [
-            { src: "/assets/fastab1.png", alt: "Vista previa 1 de la interfaz de la app FasTap" },
-            { src: "/assets/fastab2.png", alt: "Vista previa 2 de la interfaz de la app FasTap" },
-            { src: "/assets/fastab3.png", alt: "Vista previa 3 de la interfaz de la app FasTap" },
+            { src: "/assets/fastab1.webp", alt: "Vista previa 1 de la interfaz de la app FasTap" },
+            { src: "/assets/fastab2.webp", alt: "Vista previa 2 de la interfaz de la app FasTap" },
+            { src: "/assets/fastab3.webp", alt: "Vista previa 3 de la interfaz de la app FasTap" },
           ],
         },
         summary:
@@ -151,7 +140,7 @@ export const es: Dictionary = {
       {
         title: "Al-Muslim",
         tag: "Disponible en ambas tiendas",
-        logo: "/assets/logo-almuslim.png",
+        logo: "/assets/logo-almuslim.webp",
         logoAlt: "Icono de la app Al-Muslim",
         media: {
           kind: "cover",
@@ -207,7 +196,7 @@ export const es: Dictionary = {
       {
         title: "Q-Fight Gym",
         tag: "Disponible en el App Store · Catar",
-        logo: "/assets/logo-qfightgym.png",
+        logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Icono de la app Q-Fight Gym",
         media: {
           kind: "cover",
@@ -393,6 +382,17 @@ export const es: Dictionary = {
       photoAlt: "Abdullah Mohamed, fundador de Desert Launch",
       facts: ["El Cairo, Egipto", "Más de 5 años de experiencia", "Más de 10 apps publicadas"],
     },
+    buildPlan: {
+      kicker: "Qué obtiene",
+      heading:
+        "Un plan de desarrollo más claro antes de que empiece el trabajo pesado.",
+      body: "Cada proyecto se plantea en torno a la claridad del producto, la viabilidad técnica y la ruta más rápida hacia un lanzamiento fiable.",
+      points: [
+        "Un alcance definido con claridad antes de que la implementación crezca innecesariamente.",
+        "UX, arquitectura y objetivos de negocio diseñados en conjunto, no por separado.",
+        "Una ruta de lanzamiento útil tanto para fundadores como para equipos en crecimiento.",
+      ],
+    },
     band: {
       kicker: "Cómo empiezan los proyectos",
       body: "La mayoría de los proyectos comienzan con una breve revisión del alcance, una recomendación sobre la ruta de desarrollo más clara y un siguiente paso práctico para la entrega.",
@@ -569,50 +569,34 @@ export const es: Dictionary = {
       {
         q: "¿Cuánto cuesta un proyecto?",
         a: "Cada proyecto recibe un presupuesto cerrado en USD tras una llamada gratuita de alcance — sin facturación por horas ni facturas sorpresa. El precio depende del alcance y de la complejidad, y le diremos con honestidad si un desarrollo más pequeño puede alcanzar su objetivo.",
-        schema:
-          "Cada proyecto recibe un presupuesto cerrado en USD tras una llamada gratuita de alcance — sin facturación por horas ni facturas sorpresa. El precio depende del alcance y de la complejidad.",
       },
       {
         q: "¿Cuánto tardará mi proyecto?",
         a: "Depende del alcance y de la complejidad: una web corporativa suele medirse en semanas, un MVP en uno o dos meses y un producto móvil más grande en dos a cuatro meses. Recibirá un calendario concreto con hitos antes de empezar — y verá software funcionando en cada hito.",
-        schema:
-          "Depende del alcance y de la complejidad: una web corporativa suele medirse en semanas, un MVP en uno o dos meses y un producto móvil más grande en dos a cuatro meses. El cliente recibe un calendario concreto con hitos antes de que empiece el proyecto.",
       },
       {
         q: "¿Qué ocurre después del lanzamiento?",
         a: "Recibe un año completo de soporte y mantenimiento gratuitos, más tres meses de pequeños ajustes y actualizaciones sin coste. Después, puede contratar un retainer continuo si quiere que sigamos mejorando el producto — pero nada deja de funcionar si no lo hace.",
-        schema:
-          "Cada proyecto incluye un año completo de soporte y mantenimiento gratuitos, más tres meses de pequeños ajustes y actualizaciones sin coste. Después hay disponible un retainer continuo.",
       },
       {
         q: "¿De quién es el código?",
         a: "Suyo. Propiedad total del código, de la propiedad intelectual y de las cuentas de infraestructura — todo se entrega a su nombre, así que nunca queda atado a nosotros.",
-        schema:
-          "El cliente es dueño de todo: el código, la propiedad intelectual y las cuentas de infraestructura, todo entregado a su nombre.",
       },
       {
         q: "¿Cómo funcionan los pagos?",
         a: "Los proyectos se dividen en tres o cuatro hitos. Paga el 30% al inicio y el resto por hito entregado — siempre ve software funcionando antes de que venza el siguiente pago.",
-        schema:
-          "Los proyectos se dividen en tres o cuatro hitos, con un 30% pagado al inicio y el resto por hito entregado.",
       },
       {
         q: "No somos técnicos. ¿Es un problema?",
         a: "En absoluto — la mayoría de nuestros clientes no lo son. Explicamos las decisiones en lenguaje de negocio, nos ocupamos de las decisiones técnicas por usted y nos comunicamos por WhatsApp en español, inglés o árabe.",
-        schema:
-          "No — Desert Launch explica las decisiones en lenguaje de negocio, se ocupa de las decisiones técnicas y se comunica por WhatsApp en español, inglés o árabe.",
       },
       {
         q: "¿Trabajan con clientes de Arabia Saudí, EAU y el Golfo?",
         a: "Sí — Desert Launch trabaja con clientes de Egipto, Arabia Saudí, EAU, Catar y Kuwait, además de Europa y EE. UU. Trabajamos en su zona horaria (El Cairo, GMT+2 — a una hora del Golfo), nos comunicamos por WhatsApp en árabe, inglés o español y hemos publicado apps para empresas del Golfo, incluida una app disponible en el App Store para un gimnasio de Catar.",
-        schema:
-          "Sí — Desert Launch trabaja con clientes de Egipto, Arabia Saudí, EAU, Catar y Kuwait, además de Europa y EE. UU. La comunicación es por WhatsApp en árabe, inglés o español, en una zona horaria a una hora del Golfo, con apps publicadas para empresas del Golfo, incluida una app disponible en el App Store para un gimnasio de Catar.",
       },
       {
         q: "¿Por qué contratar una empresa de software en Egipto?",
         a: "Obtiene ingeniería sénior a tarifas egipcias — normalmente muy por debajo de los precios de las agencias de Europa Occidental y EE. UU. para el mismo alcance — sin los inconvenientes del offshore: la misma zona horaria o casi para el Golfo y Europa, árabe nativo e inglés fluido, y una línea directa con el ingeniero que desarrolla su producto en lugar de un equipo de cuentas con varias capas.",
-        schema:
-          "Ingeniería sénior a tarifas egipcias — normalmente muy por debajo de los precios de las agencias de Europa Occidental y EE. UU. para el mismo alcance — con la misma zona horaria o casi para el Golfo y Europa, árabe nativo e inglés fluido, y una línea directa con el ingeniero que desarrolla el producto.",
       },
     ],
   },

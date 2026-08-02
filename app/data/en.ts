@@ -10,7 +10,7 @@ export const en: Dictionary = {
   meta: {
     title: "Desert Launch | Software & App Development Company in Cairo, Egypt",
     description:
-      "Desert Launch is a software development company in Cairo, Egypt building the web platforms, mobile apps, and MVPs that replace manual work, Excel sheets, and scattered tools. Fixed quotes, milestone payments, a year of free support. Free consultation on WhatsApp.",
+      "Software & app development company in Cairo, Egypt. Custom web platforms, mobile apps & MVPs — fixed quotes, a year of free support. Free WhatsApp consult.",
     ogLocale: "en_US",
   },
   nav: [
@@ -55,16 +55,6 @@ export const en: Dictionary = {
     },
     imageCaption:
       "Web platforms, mobile products, and internal systems built for momentum.",
-    sidePanel: {
-      kicker: "What You Get",
-      heading: "A sharper build plan before the heavy development starts.",
-      body: "Every engagement is framed around product clarity, technical practicality, and the fastest route to a reliable launch.",
-      points: [
-        "Clear scope definition before implementation expands unnecessarily.",
-        "UX, architecture, and business goals shaped together instead of in isolation.",
-        "A launch path that stays usable for both founders and growing teams.",
-      ],
-    },
     proof: [
       {
         label: "Experience",
@@ -131,9 +121,9 @@ export const en: Dictionary = {
         media: {
           kind: "contain",
           shots: [
-            { src: "/assets/fastab1.png", alt: "FasTap app interface preview 1" },
-            { src: "/assets/fastab2.png", alt: "FasTap app interface preview 2" },
-            { src: "/assets/fastab3.png", alt: "FasTap app interface preview 3" },
+            { src: "/assets/fastab1.webp", alt: "FasTap app interface preview 1" },
+            { src: "/assets/fastab2.webp", alt: "FasTap app interface preview 2" },
+            { src: "/assets/fastab3.webp", alt: "FasTap app interface preview 3" },
           ],
         },
         summary:
@@ -148,7 +138,7 @@ export const en: Dictionary = {
       {
         title: "Al-Muslim",
         tag: "Live on both stores",
-        logo: "/assets/logo-almuslim.png",
+        logo: "/assets/logo-almuslim.webp",
         logoAlt: "Al-Muslim app icon",
         media: {
           kind: "cover",
@@ -204,7 +194,7 @@ export const en: Dictionary = {
       {
         title: "Q-Fight Gym",
         tag: "Live on the App Store · Qatar",
-        logo: "/assets/logo-qfightgym.png",
+        logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Q-Fight Gym app icon",
         media: {
           kind: "cover",
@@ -389,6 +379,16 @@ export const en: Dictionary = {
       photoAlt: "Abdullah Mohamed, founder of Desert Launch",
       facts: ["Cairo, Egypt", "5+ years experience", "10+ apps shipped"],
     },
+    buildPlan: {
+      kicker: "What You Get",
+      heading: "A sharper build plan before the heavy development starts.",
+      body: "Every engagement is framed around product clarity, technical practicality, and the fastest route to a reliable launch.",
+      points: [
+        "Clear scope definition before implementation expands unnecessarily.",
+        "UX, architecture, and business goals shaped together instead of in isolation.",
+        "A launch path that stays usable for both founders and growing teams.",
+      ],
+    },
     band: {
       kicker: "How Engagements Start",
       body: "Most projects begin with a short scope review, a recommendation on the clearest build path, and a practical next step for delivery.",
@@ -548,50 +548,34 @@ export const en: Dictionary = {
       {
         q: "How much does a project cost?",
         a: "Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise invoices. The price depends on scope and complexity, and we'll tell you honestly if a smaller build can reach your goal.",
-        schema:
-          "Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise invoices. The price depends on scope and complexity.",
       },
       {
         q: "How long will my project take?",
         a: "It depends on scope and complexity: a business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before we start — and you see working software at every milestone.",
-        schema:
-          "It depends on scope and complexity: a business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before the project starts.",
       },
       {
         q: "What happens after launch?",
         a: "You get a full year of free support and maintenance, plus three months of free small adjustments and updates. After that, an ongoing retainer is available if you want us to keep improving the product — but nothing breaks if you don't take it.",
-        schema:
-          "Every project includes a full year of free support and maintenance, plus three months of free small adjustments and updates. An ongoing retainer is available afterwards.",
       },
       {
         q: "Who owns the code?",
         a: "You do. Full ownership of the code, the intellectual property, and the infrastructure accounts — everything is delivered in your name, so you are never locked in to us.",
-        schema:
-          "The client owns everything: the code, the intellectual property, and the infrastructure accounts, all delivered in the client's name.",
       },
       {
         q: "How do payments work?",
         a: "Projects are split into three or four milestones. You pay 30% upfront and the rest per delivered milestone — you always see working software before the next payment is due.",
-        schema:
-          "Projects are split into three or four milestones, with 30% paid upfront and the rest per delivered milestone.",
       },
       {
         q: "We're not technical. Is that a problem?",
         a: "Not at all — most of our clients aren't. We explain decisions in plain business language, handle the technical choices for you, and communicate in English or Arabic on WhatsApp.",
-        schema:
-          "No — Desert Launch explains decisions in plain business language, handles the technical choices, and communicates in English or Arabic on WhatsApp.",
       },
       {
         q: "Do you work with clients in Saudi Arabia, the UAE, and the Gulf?",
         a: "Yes — Desert Launch works with clients across Egypt, Saudi Arabia, the UAE, Qatar, and Kuwait, as well as Europe and the US. We work in your timezone (Cairo, GMT+2 — one hour from the Gulf), communicate in Arabic or English on WhatsApp, and have shipped apps for Gulf businesses, including a live App Store product for a gym in Qatar.",
-        schema:
-          "Yes — Desert Launch works with clients across Egypt, Saudi Arabia, the UAE, Qatar, and Kuwait, as well as Europe and the US. Communication is in Arabic or English on WhatsApp, in a timezone one hour from the Gulf, with shipped apps for Gulf businesses including a live App Store product for a gym in Qatar.",
       },
       {
         q: "Why hire a software company in Egypt?",
         a: "You get senior engineering at Egyptian rates — typically well below Western European and US agency prices for the same scope — without the offshore downsides: same or near timezone for the Gulf and Europe, native Arabic plus fluent English, and a direct line to the engineer building your product instead of a layered account team.",
-        schema:
-          "Senior engineering at Egyptian rates — typically well below Western European and US agency prices for the same scope — with the same or near timezone for the Gulf and Europe, native Arabic plus fluent English, and a direct line to the engineer building the product.",
       },
     ],
   },

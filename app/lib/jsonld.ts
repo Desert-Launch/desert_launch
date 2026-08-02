@@ -19,7 +19,9 @@ export function entityGraph() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "LocalBusiness"],
+        // ProfessionalService ⊂ LocalBusiness ⊂ Organization — all three are
+        // declared so tools that key on the literal broader types still match.
+        "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
         "@id": ORG_ID,
         name: ORG.name,
         url: `${SITE_URL}/`,
@@ -35,6 +37,7 @@ export function entityGraph() {
           addressCountry: ORG.addressCountry,
         },
         areaServed: ORG.areaServed,
+        knowsLanguage: ORG.knowsLanguage,
         founder: { "@id": FOUNDER_ID },
         contactPoint: [
           {
@@ -45,7 +48,7 @@ export function entityGraph() {
             availableLanguage: ["English", "Arabic"],
           },
         ],
-        sameAs: ORG.sameAs,
+        ...(ORG.sameAs.length ? { sameAs: ORG.sameAs } : {}),
         knowsAbout: ORG.knowsAbout,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -91,7 +94,9 @@ export function entityGraph() {
 }
 
 /** Per-locale FAQPage schema built from the page's own FAQ so the localized Q&A
- *  and the structured data never drift apart. */
+ *  and the structured data never drift apart. The answer text is `item.a`
+ *  verbatim — Google requires the structured data to carry the complete
+ *  question and answer as shown on the page, so no shortened variant is used. */
 export function faqSchema(t: Dictionary) {
   return {
     "@context": "https://schema.org",
@@ -99,7 +104,7 @@ export function faqSchema(t: Dictionary) {
     mainEntity: t.faq.items.map((item) => ({
       "@type": "Question",
       name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.schema ?? item.a },
+      acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   };
 }
