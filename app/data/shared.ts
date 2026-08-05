@@ -109,8 +109,8 @@ export const STORE_APPS = [
   },
   {
     name: "Q-Fight Gym",
-    os: "iOS",
+    os: "iOS, Android",
     appStore: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
-    googlePlay: null,
+    googlePlay: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
   },
 ];

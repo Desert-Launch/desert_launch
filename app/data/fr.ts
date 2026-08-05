@@ -113,6 +113,7 @@ export const fr: Dictionary = {
         body: "Des fondations qui laissent la place à de nouvelles fonctionnalités, intégrations et besoins opérationnels à mesure que l'entreprise grandit.",
       },
     ],
+    logosLabel: "Produits conçus et livrés par Desert Launch",
     projects: [
       {
         title: "FasTap",
@@ -194,7 +195,7 @@ export const fr: Dictionary = {
       },
       {
         title: "Q-Fight Gym",
-        tag: "Disponible sur l'App Store · Qatar",
+        tag: "Disponible sur les deux stores · Qatar",
         logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Icône de l'application Q-Fight Gym",
         media: {
@@ -208,14 +209,19 @@ export const fr: Dictionary = {
         summary:
           "L'application officielle d'une salle professionnelle de Muay Thai au Qatar, qui relie les membres à un programme d'entraînement mené par des champions du monde thaïlandais.",
         points: [
-          "Disponible sur l'App Store pour une entreprise réellement en activité.",
-          "Abonnements, programmes d'entraînement et planning des cours.",
+          "Disponible sur l'App Store et Google Play pour une entreprise réellement en activité.",
+          "Consultation des formules, réservation de séances individuelles ou collectives avec un coach précis, et planning des cours dans l'app.",
           "Flutter et Firebase avec intégration des paiements.",
         ],
         links: [
           {
             label: "App Store",
             href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
+            external: true,
+          },
+          {
+            label: "Google Play",
+            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
             external: true,
           },
           { label: "Créer une application pour votre entreprise", href: "#contact" },
@@ -238,6 +244,70 @@ export const fr: Dictionary = {
           "Téléversements AWS S3, Docker Compose et déploiement Nginx.",
         ],
         links: [{ label: "Créer une plateforme comme celle-ci", href: "#contact" }],
+      },
+      {
+        title: "Ezhal",
+        tag: "Plateforme de services auto multi-rôles",
+        logo: "/assets/logo-ezhal.webp",
+        logoAlt: "Icône de l'application Ezhal",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/ezhal1.webp", alt: "Aperçu de l'interface de la plateforme Ezhal" },
+          ],
+        },
+        summary:
+          "Une plateforme de services automobiles au service de trois publics — clients, techniciens de terrain et responsables — chacun avec son application, issue d'une seule base de code.",
+        points: [
+          "Trois applications par rôle : réservation pour les clients, interventions pour les techniciens, pilotage pour les responsables.",
+          "Suivi des techniciens en direct, abonnements, portefeuille, points, tampons et cartes Apple Wallet.",
+          "Flutter et Riverpod avec MyFatoorah, Stripe et Firebase.",
+        ],
+        links: [{ label: "Concevoir une plateforme multi-applications", href: "#contact" }],
+      },
+      {
+        title: "ICCD Hub",
+        tag: "Application communautaire et de productivité",
+        logo: "/assets/logo-iccd.webp",
+        logoAlt: "Icône de l'application ICCD Hub",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/iccd1.webp", alt: "Aperçu de l'interface ICCD Hub 1" },
+            { src: "/assets/iccd2.webp", alt: "Aperçu de l'interface ICCD Hub 2" },
+            { src: "/assets/iccd3.webp", alt: "Aperçu de l'interface ICCD Hub 3" },
+          ],
+        },
+        summary:
+          "Une application bilingue destinée aux membres de la Société islamique pour le développement du secteur privé, associant contenus institutionnels et suite de productivité personnelle.",
+        points: [
+          "Événements, pays membres, filiales et centre de connaissances réunis au même endroit.",
+          "Tâches, notes, calendrier et rappels, avec horaires de prière, qibla et calendrier hégirien.",
+          "Connexion Google et Apple, notifications Firebase, liens profonds et prise en charge RTL complète (EN/AR).",
+        ],
+        links: [{ label: "Créer une application pour votre organisation", href: "#contact" }],
+      },
+      {
+        title: "Voicers",
+        tag: "Plateforme audio sociale · produit interne",
+        logo: "/assets/logo-voicers.webp",
+        logoAlt: "Icône de l'application Voicers",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/voicers1.webp", alt: "Aperçu de l'interface Voicers 1" },
+            { src: "/assets/voicers2.webp", alt: "Aperçu de l'interface Voicers 2" },
+            { src: "/assets/voicers3.webp", alt: "Aperçu de l'interface Voicers 3" },
+          ],
+        },
+        summary:
+          "Une plateforme audio sociale bilingue pour créateurs — notes vocales, playlists et scènes en direct, avec un fil de découverte qui transforme les auditeurs en audience.",
+        points: [
+          "Notes vocales (VNotes), playlists et scènes audio en direct.",
+          "Concours, classements et fil de découverte pensés pour l'engagement.",
+          "Flutter en architecture propre — notre propre produit, pas encore publié.",
+        ],
+        links: [{ label: "Concevoir un produit de ce type", href: "#contact" }],
       },
     ],
     redesigns: {

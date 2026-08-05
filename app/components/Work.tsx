@@ -1,5 +1,6 @@
 import type { Dictionary, Project, RedesignCard as RedesignCardCopy } from "@/app/data/types";
 import { Icon } from "@/app/data/icons";
+import { LogoMarquee } from "./LogoMarquee";
 import { SectionHead } from "./SectionHead";
 
 function ProjectMedia({ project }: { project: Project }) {
@@ -20,8 +21,18 @@ function ProjectMedia({ project }: { project: Project }) {
       </div>
     );
   }
+  // The strip is a 3-up grid of portrait phone shots. A project with a single
+  // landscape capture (Ezhal) would be squeezed into a third of the width, so
+  // it falls back to the one-wide frame the redesign cards use.
+  const modifiers = [
+    project.media.kind === "contain" ? "pf-media--contain" : "",
+    project.media.shots.length === 1 ? "pf-media--single" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={`pf-media ${project.media.kind === "contain" ? "pf-media--contain" : ""}`}>
+    <div className={`pf-media ${modifiers}`}>
       {project.media.shots.map((shot) => (
         <img key={shot.src} src={shot.src} alt={shot.alt} loading="lazy" />
       ))}
@@ -111,6 +122,8 @@ export function Work({ t }: { t: Dictionary }) {
     <section id="work" aria-labelledby="work-heading" className="section scroll-mt-24">
       <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="work-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
+
+        <LogoMarquee projects={w.projects} label={w.logosLabel} />
 
         {/* Projects. An odd count leaves the last card orphaned beside an empty
             half-row, so it spans the full width instead — a deliberate wide

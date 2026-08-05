@@ -112,6 +112,7 @@ export const de: Dictionary = {
         body: "Fundamente, die Raum für neue Features, Integrationen und wachsende betriebliche Anforderungen lassen.",
       },
     ],
+    logosLabel: "Von Desert Launch entwickelte und ausgelieferte Produkte",
     projects: [
       {
         title: "FasTap",
@@ -193,7 +194,7 @@ export const de: Dictionary = {
       },
       {
         title: "Q-Fight Gym",
-        tag: "Im App Store live · Katar",
+        tag: "In beiden Stores live · Katar",
         logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Q-Fight Gym App-Icon",
         media: {
@@ -207,14 +208,19 @@ export const de: Dictionary = {
         summary:
           "Die offizielle App eines professionellen Muay-Thai-Gyms in Katar — sie verbindet Mitglieder mit einem Trainingsprogramm unter Leitung thailändischer Weltmeister.",
         points: [
-          "Im App Store live für ein real operierendes Unternehmen.",
-          "Mitgliedschaften, Trainingsprogramme und Kursplanung.",
+          "In App Store und Google Play live für ein real operierendes Unternehmen.",
+          "Tarife ansehen, Einzel- und Gruppenstunden bei einem bestimmten Trainer buchen und Kurse in der App planen.",
           "Flutter und Firebase mit Zahlungsintegration.",
         ],
         links: [
           {
             label: "App Store",
             href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
+            external: true,
+          },
+          {
+            label: "Google Play",
+            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
             external: true,
           },
           { label: "Eine App für Ihr Unternehmen entwickeln lassen", href: "#contact" },
@@ -237,6 +243,68 @@ export const de: Dictionary = {
           "Uploads über AWS S3, Docker Compose und Deployment mit Nginx.",
         ],
         links: [{ label: "Eine Plattform wie diese entwickeln lassen", href: "#contact" }],
+      },
+      {
+        title: "Ezhal",
+        tag: "Mandantenfähige Plattform für Autoservices",
+        logo: "/assets/logo-ezhal.webp",
+        logoAlt: "Ezhal App-Icon",
+        media: {
+          kind: "contain",
+          shots: [{ src: "/assets/ezhal1.webp", alt: "Vorschau der Ezhal-Plattformoberfläche" }],
+        },
+        summary:
+          "Eine Autoservice-Plattform für drei Zielgruppen — Kundschaft, Technikerteams im Einsatz und Management — jeweils mit eigener App, entwickelt aus einer einzigen Codebasis.",
+        points: [
+          "Drei rollenspezifische Apps: Buchung für Kunden, Aufträge für Techniker, Steuerung fürs Management.",
+          "Live-Technikertracking, Abos, Wallet, Punkte, Stempel und Apple-Wallet-Pässe.",
+          "Flutter und Riverpod mit MyFatoorah, Stripe und Firebase.",
+        ],
+        links: [{ label: "Eine Multi-App-Plattform planen", href: "#contact" }],
+      },
+      {
+        title: "ICCD Hub",
+        tag: "Community- und Produktivitäts-App",
+        logo: "/assets/logo-iccd.webp",
+        logoAlt: "ICCD Hub App-Icon",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/iccd1.webp", alt: "Vorschau der ICCD-Hub-Oberfläche 1" },
+            { src: "/assets/iccd2.webp", alt: "Vorschau der ICCD-Hub-Oberfläche 2" },
+            { src: "/assets/iccd3.webp", alt: "Vorschau der ICCD-Hub-Oberfläche 3" },
+          ],
+        },
+        summary:
+          "Eine zweisprachige Begleit-App für Mitglieder der Islamischen Gesellschaft zur Entwicklung des Privatsektors, die Organisationsinhalte mit einer persönlichen Produktivitäts-Suite verbindet.",
+        points: [
+          "Veranstaltungen, Mitgliedsländer, Tochtergesellschaften und Wissenszentrum an einem Ort.",
+          "Aufgaben, Notizen, Kalender und Erinnerungen sowie Gebetszeiten, Qibla und Hidschri-Kalender.",
+          "Anmeldung über Google und Apple, Firebase-Push, Deep Links und vollständige RTL-Unterstützung (EN/AR).",
+        ],
+        links: [{ label: "Eine App für Ihre Organisation entwickeln lassen", href: "#contact" }],
+      },
+      {
+        title: "Voicers",
+        tag: "Social-Audio-Plattform · eigenes Produkt",
+        logo: "/assets/logo-voicers.webp",
+        logoAlt: "Voicers App-Icon",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/voicers1.webp", alt: "Vorschau der Voicers-Oberfläche 1" },
+            { src: "/assets/voicers2.webp", alt: "Vorschau der Voicers-Oberfläche 2" },
+            { src: "/assets/voicers3.webp", alt: "Vorschau der Voicers-Oberfläche 3" },
+          ],
+        },
+        summary:
+          "Eine zweisprachige Social-Audio-Plattform für Creator — Sprachnotizen, Playlists und Live-Bühnen, mit einem Discovery-Feed, der aus Zuhörern ein Publikum macht.",
+        points: [
+          "Sprachnotizen (VNotes), Playlists und Live-Audio-Bühnen.",
+          "Wettbewerbe, Ranglisten und ein auf Interaktion ausgelegter Discovery-Feed.",
+          "Flutter mit Clean Architecture — unser eigenes Produkt, noch nicht veröffentlicht.",
+        ],
+        links: [{ label: "Ein Produkt wie dieses planen", href: "#contact" }],
       },
     ],
     redesigns: {

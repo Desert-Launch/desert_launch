@@ -109,6 +109,10 @@ export interface WorkCopy {
     points: string[];
   };
   capabilityCards: IconCard[];
+  /** Accessible name for the auto-scrolling logo strip above the project grid.
+   *  The logos themselves are derived from `projects`, so the strip and the
+   *  cards can never drift apart. */
+  logosLabel: string;
   projects: Project[];
   redesigns: {
     title: string;

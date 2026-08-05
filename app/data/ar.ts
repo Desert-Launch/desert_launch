@@ -111,6 +111,7 @@ export const ar: Dictionary = {
         body: "أساسات تترك مساحة لمزايا جديدة وتكاملات واحتياجات تشغيلية أكبر مع نمو عملك.",
       },
     ],
+    logosLabel: "منتجات بنتها وأطلقتها Desert Launch",
     projects: [
       {
         title: "FasTap",
@@ -192,7 +193,7 @@ export const ar: Dictionary = {
       },
       {
         title: "Q-Fight Gym",
-        tag: "متاح على App Store · قطر",
+        tag: "متاح على المتجرين · قطر",
         logo: "/assets/logo-qfightgym.webp",
         logoAlt: "أيقونة تطبيق Q-Fight Gym",
         media: {
@@ -206,14 +207,19 @@ export const ar: Dictionary = {
         summary:
           "التطبيق الرسمي لصالة مواي تاي احترافية في قطر، يربط الأعضاء ببرنامج تدريبي يقوده أبطال عالم تايلانديون.",
         points: [
-          "متاح على App Store لنشاط تجاري يعمل فعليًا.",
-          "عضويات وبرامج تدريبية وجدولة حصص.",
+          "متاح على App Store وGoogle Play لنشاط تجاري يعمل فعليًا.",
+          "تصفّح الباقات، وحجز حصص فردية وجماعية مع مدرب محدد، وجدولة الحصص داخل التطبيق.",
           "مبني بـ Flutter وFirebase مع تكامل مدفوعات.",
         ],
         links: [
           {
             label: "App Store",
             href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
+            external: true,
+          },
+          {
+            label: "Google Play",
+            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
             external: true,
           },
           { label: "ابنِ تطبيقًا لنشاطك التجاري", href: "#contact" },
@@ -236,6 +242,68 @@ export const ar: Dictionary = {
           "رفع الملفات على AWS S3، ونشر عبر Docker Compose وNginx.",
         ],
         links: [{ label: "ابنِ منصة مثل هذه", href: "#contact" }],
+      },
+      {
+        title: "Ezhal",
+        tag: "منصة خدمات سيارات متعددة الأدوار",
+        logo: "/assets/logo-ezhal.webp",
+        logoAlt: "أيقونة تطبيق Ezhal",
+        media: {
+          kind: "contain",
+          shots: [{ src: "/assets/ezhal1.webp", alt: "معاينة واجهة منصة Ezhal" }],
+        },
+        summary:
+          "منصة واحدة لخدمات السيارات تخدم ثلاث فئات — العملاء وفنيي الميدان والمديرين — لكل منها تطبيقه الخاص، مبنية من قاعدة كود واحدة.",
+        points: [
+          "ثلاثة تطبيقات حسب الدور: الحجز للعملاء، والمهام للفنيين، والإشراف للمديرين.",
+          "تتبع مباشر للفنيين، واشتراكات، ومحفظة، ونقاط، وأختام، وبطاقات Apple Wallet.",
+          "مبني بـ Flutter وRiverpod مع MyFatoorah وStripe وFirebase.",
+        ],
+        links: [{ label: "خطط لمنصة متعددة التطبيقات", href: "#contact" }],
+      },
+      {
+        title: "ICCD Hub",
+        tag: "تطبيق مجتمعي وإنتاجية",
+        logo: "/assets/logo-iccd.webp",
+        logoAlt: "أيقونة تطبيق ICCD Hub",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/iccd1.webp", alt: "معاينة واجهة تطبيق ICCD Hub ١" },
+            { src: "/assets/iccd2.webp", alt: "معاينة واجهة تطبيق ICCD Hub ٢" },
+            { src: "/assets/iccd3.webp", alt: "معاينة واجهة تطبيق ICCD Hub ٣" },
+          ],
+        },
+        summary:
+          "تطبيق ثنائي اللغة مرافق لأعضاء المؤسسة الإسلامية لتنمية القطاع الخاص، يجمع بين محتوى المؤسسة وحزمة إنتاجية شخصية.",
+        points: [
+          "الفعاليات والدول الأعضاء والشركات التابعة ومركز المعرفة في مكان واحد.",
+          "مهام وملاحظات وتقويم وتذكيرات، إلى جانب مواقيت الصلاة والقبلة والتقويم الهجري.",
+          "تسجيل دخول عبر Google وApple، وإشعارات Firebase، وروابط عميقة، ودعم كامل للعربية والإنجليزية.",
+        ],
+        links: [{ label: "ابنِ تطبيقًا لمؤسستك", href: "#contact" }],
+      },
+      {
+        title: "Voicers",
+        tag: "منصة صوتية اجتماعية · منتج داخلي",
+        logo: "/assets/logo-voicers.webp",
+        logoAlt: "أيقونة تطبيق Voicers",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/voicers1.webp", alt: "معاينة واجهة تطبيق Voicers ١" },
+            { src: "/assets/voicers2.webp", alt: "معاينة واجهة تطبيق Voicers ٢" },
+            { src: "/assets/voicers3.webp", alt: "معاينة واجهة تطبيق Voicers ٣" },
+          ],
+        },
+        summary:
+          "منصة صوتية اجتماعية ثنائية اللغة لصنّاع المحتوى — ملاحظات صوتية وقوائم تشغيل ومنصات بث حي، مع تغذية استكشاف تحوّل المستمعين إلى جمهور.",
+        points: [
+          "ملاحظات صوتية (VNotes) وقوائم تشغيل ومنصات صوتية مباشرة.",
+          "مسابقات ولوحات صدارة وتغذية استكشاف مصممة للتفاعل.",
+          "مبني بـ Flutter ببنية نظيفة — منتجنا الخاص، لم يُنشر بعد.",
+        ],
+        links: [{ label: "خطط لمنتج مثل هذا", href: "#contact" }],
       },
     ],
     redesigns: {

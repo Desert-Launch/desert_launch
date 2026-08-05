@@ -112,6 +112,7 @@ export const en: Dictionary = {
         body: "Foundations that leave room for new features, integrations, and larger operational needs as businesses grow.",
       },
     ],
+    logosLabel: "Products built and shipped by Desert Launch",
     projects: [
       {
         title: "FasTap",
@@ -193,7 +194,7 @@ export const en: Dictionary = {
       },
       {
         title: "Q-Fight Gym",
-        tag: "Live on the App Store · Qatar",
+        tag: "Live on both stores · Qatar",
         logo: "/assets/logo-qfightgym.webp",
         logoAlt: "Q-Fight Gym app icon",
         media: {
@@ -207,14 +208,19 @@ export const en: Dictionary = {
         summary:
           "The official app for a professional Muay Thai gym in Qatar, connecting members with a training program led by Thai world-title fighters.",
         points: [
-          "Live on the App Store for a real operating business.",
-          "Memberships, training programs, and class scheduling.",
+          "Live on the App Store and Google Play for a real operating business.",
+          "Plan browsing, personal and group session booking with a chosen trainer, and in-app class scheduling.",
           "Flutter and Firebase with payment integration.",
         ],
         links: [
           {
             label: "App Store",
             href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
+            external: true,
+          },
+          {
+            label: "Google Play",
+            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
             external: true,
           },
           { label: "Build an app for your business", href: "#contact" },
@@ -237,6 +243,68 @@ export const en: Dictionary = {
           "AWS S3 uploads, Docker Compose, and Nginx deployment.",
         ],
         links: [{ label: "Build a platform like this", href: "#contact" }],
+      },
+      {
+        title: "Ezhal",
+        tag: "Multi-tenant car-service platform",
+        logo: "/assets/logo-ezhal.webp",
+        logoAlt: "Ezhal app icon",
+        media: {
+          kind: "contain",
+          shots: [{ src: "/assets/ezhal1.webp", alt: "Ezhal platform interface preview" }],
+        },
+        summary:
+          "One car-service platform serving three audiences — customers, field employees, and managers — each with its own app, built from a single codebase.",
+        points: [
+          "Three role-specific apps: booking for customers, jobs for technicians, oversight for managers.",
+          "Live technician tracking, subscriptions, wallet, points, stamps, and Apple Wallet passes.",
+          "Flutter and Riverpod with MyFatoorah, Stripe, and Firebase.",
+        ],
+        links: [{ label: "Plan a multi-app platform", href: "#contact" }],
+      },
+      {
+        title: "ICCD Hub",
+        tag: "Community & productivity app",
+        logo: "/assets/logo-iccd.webp",
+        logoAlt: "ICCD Hub app icon",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/iccd1.webp", alt: "ICCD Hub app interface preview 1" },
+            { src: "/assets/iccd2.webp", alt: "ICCD Hub app interface preview 2" },
+            { src: "/assets/iccd3.webp", alt: "ICCD Hub app interface preview 3" },
+          ],
+        },
+        summary:
+          "A bilingual members' companion app for the Islamic Corporation for the Development of the Private Sector, pairing organizational content with a personal productivity suite.",
+        points: [
+          "Events, member countries, subsidiaries, and a knowledge center in one place.",
+          "Tasks, notes, calendar, and reminders alongside prayer times, qibla, and a Hijri calendar.",
+          "Google and Apple sign-in, Firebase push, deep linking, and full EN/AR RTL support.",
+        ],
+        links: [{ label: "Build an app for your organization", href: "#contact" }],
+      },
+      {
+        title: "Voicers",
+        tag: "Social audio platform · in-house build",
+        logo: "/assets/logo-voicers.webp",
+        logoAlt: "Voicers app icon",
+        media: {
+          kind: "contain",
+          shots: [
+            { src: "/assets/voicers1.webp", alt: "Voicers app interface preview 1" },
+            { src: "/assets/voicers2.webp", alt: "Voicers app interface preview 2" },
+            { src: "/assets/voicers3.webp", alt: "Voicers app interface preview 3" },
+          ],
+        },
+        summary:
+          "A bilingual social audio platform for creators — voice notes, playlists, and live stages, with a discovery feed that turns listeners into an audience.",
+        points: [
+          "Voice notes (VNotes), playlists, and live audio stages.",
+          "Competitions, leaderboards, and a discovery feed built for engagement.",
+          "Flutter on clean architecture — our own product, not yet published.",
+        ],
+        links: [{ label: "Plan a product like this", href: "#contact" }],
       },
     ],
     redesigns: {

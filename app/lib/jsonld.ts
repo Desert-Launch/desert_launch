@@ -80,15 +80,21 @@ export function entityGraph() {
         publisher: { "@id": ORG_ID },
         inLanguage: ["en", "ar", "fr", "es", "de"],
       },
-      ...STORE_APPS.map((app) => ({
-        "@type": "SoftwareApplication",
-        name: app.name,
-        operatingSystem: app.os,
-        applicationCategory: "MobileApplication",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        publisher: { "@id": ORG_ID },
-        ...(app.appStore ? { downloadUrl: app.appStore } : {}),
-      })),
+      ...STORE_APPS.map((app) => {
+        // An app on both stores has two download URLs; JSON-LD takes a list.
+        // Emitting a bare string for the single-store case keeps the shape a
+        // consumer expects when there is nothing to choose between.
+        const stores = [app.appStore, app.googlePlay].filter(Boolean);
+        return {
+          "@type": "SoftwareApplication",
+          name: app.name,
+          operatingSystem: app.os,
+          applicationCategory: "MobileApplication",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          publisher: { "@id": ORG_ID },
+          ...(stores.length ? { downloadUrl: stores.length === 1 ? stores[0] : stores } : {}),
+        };
+      }),
     ],
   };
 }

@@ -490,6 +490,82 @@
     background: rgba(245, 197, 66, 0.12);
   }
 
+  /* Auto-scrolling logo strip (Work). The track holds three identical rows and
+     travels exactly one row width, so the next copy lands where the first
+     started and the loop has no visible seam. The copy count lives in
+     LogoMarquee.tsx (COPIES) and must match the divisor in the keyframe below. */
+  .logo-marquee {
+    position: relative;
+    overflow: hidden;
+    padding-block: 0.25rem;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .logo-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: logo-marquee 34s linear infinite;
+  }
+
+  /* Arabic reads right-to-left, so the strip should travel the other way. */
+  [dir="rtl"] .logo-marquee__track {
+    animation-direction: reverse;
+  }
+
+  .logo-marquee:hover .logo-marquee__track,
+  .logo-marquee:focus-within .logo-marquee__track {
+    animation-play-state: paused;
+  }
+
+  .logo-marquee__row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* Matches the in-row gap so the seam between the two copies is even. */
+    padding-inline-end: 0.75rem;
+  }
+
+  .logo-marquee__item {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.625rem;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--color-ink-soft);
+    font-size: var(--text-body);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .logo-marquee__item img {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 1px solid var(--color-line);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  @keyframes logo-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+
   /* Portfolio media strips */
   .pf-media {
     display: grid;
@@ -705,6 +781,27 @@
   .floating-wa,
   .btn-primary {
     animation: none;
+  }
+  /* The logo strip stops scrolling and becomes a static wrapped row: one copy
+     of the list, no edge fade (nothing is moving out of view to soften). */
+  .logo-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .logo-marquee__track {
+    animation: none;
+    width: 100%;
+    /* The row is content-sized, so centering has to happen on the track —
+       centering inside the row itself would have nothing to distribute. */
+    justify-content: center;
+  }
+  .logo-marquee__row {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline-end: 0;
+  }
+  .logo-marquee__row[aria-hidden="true"] {
+    display: none;
   }
   .btn::after {
     display: none;
