@@ -4,6 +4,7 @@ import { dict } from "@/app/data/copy";
 import { localeByCode } from "@/app/data/shared";
 import { fontVars } from "@/app/lib/fonts";
 import { entityGraph, faqSchema } from "@/app/lib/jsonld";
+import { Analytics } from "@vercel/analytics/next";
 
 // Renders the per-locale document shell. Each locale is a separate Next "root
 // layout" (via route groups) so its static HTML carries the correct
@@ -28,6 +29,7 @@ export function LocaleShell({ lang, children }: { lang: Lang; children: React.Re
           {t.skipToContent}
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
