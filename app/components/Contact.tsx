@@ -130,11 +130,11 @@ export function Contact({ t }: { t: Dictionary }) {
             WhatsApp or a mail client in JavaScript; without it the controls
             would look functional and do nothing. The direct WhatsApp, email and
             phone links in the other column carry the section on their own. */}
-        <aside className="panel js-only reveal flex-col gap-4 p-6 lg:sticky lg:top-24">
+        <div className="panel js-only reveal flex-col gap-4 p-6 lg:sticky lg:top-24">
           <h3 className="h-card">{c.form.heading}</h3>
           <p className="text-body text-muted">{c.form.body}</p>
           <ContactForm form={c.form} lang={t.lang} />
-        </aside>
+        </div>
       </div>
     </section>
   );

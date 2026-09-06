@@ -13,8 +13,6 @@ const PHONE_SIZES = "(max-width: 425px) 136px, (min-width: 675px) 216px, 32vw";
  */
 export function HeroShowcase({ t }: { t: Dictionary }) {
   const s = t.hero.showcase;
-  const alMuslim = t.work.projects["al-muslim"];
-  const qFight = t.work.projects["q-fight-gym"];
 
   return (
     <figure className="hero-showcase reveal" aria-label={s.label}>
@@ -27,7 +25,7 @@ export function HeroShowcase({ t }: { t: Dictionary }) {
             src="/assets/hero-almuslim.webp"
             srcSet="/assets/hero-almuslim-250.webp 250w, /assets/hero-almuslim.webp 440w"
             sizes={PHONE_SIZES}
-            alt={alMuslim.shotAlts[0]}
+            alt={s.alts[0]}
             width={440}
             height={954}
             decoding="async"
@@ -38,7 +36,7 @@ export function HeroShowcase({ t }: { t: Dictionary }) {
             src="/assets/hero-qfightgym.webp"
             srcSet="/assets/hero-qfightgym-250.webp 250w, /assets/hero-qfightgym.webp 440w"
             sizes={PHONE_SIZES}
-            alt={qFight.shotAlts[0]}
+            alt={s.alts[1]}
             width={440}
             height={952}
             fetchPriority="high"

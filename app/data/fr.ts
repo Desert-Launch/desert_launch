@@ -54,12 +54,16 @@ export const fr: Dictionary = {
       badge: "En ligne sur l'App Store et Google Play",
       caption: "Q-Fight Gym (Doha) et Al-Muslim — deux produits que vous pouvez ouvrir maintenant.",
       label: "Deux applications Desert Launch affichées sur des écrans de téléphone",
+      alts: [
+        "Application Al-Muslim sur un téléphone — horaires de prière du jour et compte à rebours avant le prochain adhan",
+        "Application Q-Fight Gym sur un téléphone — liste des séances d'entraînement réservées par un membre",
+      ],
     },
     proof: [
       {
         label: "Produits livrés",
-        value: "10+",
-        note: "Applications mobiles, plateformes web et systèmes internes en production.",
+        value: "8",
+        note: "Tous figurent sur cette page — applications mobiles, plateformes multi-rôles et systèmes métier privés.",
       },
       {
         label: "Publiés sur les deux stores",
@@ -104,9 +108,9 @@ export const fr: Dictionary = {
           "Flutter et Firebase avec une passerelle de paiement intégrée.",
         ],
         shotAlts: [
-          "Application Q-Fight Gym — écran du programme d'entraînement de Muay Thai",
-          "Application Q-Fight Gym — planning hebdomadaire et créneaux disponibles",
-          "Application Q-Fight Gym — formules d'abonnement et écran de réservation",
+          "Application Q-Fight Gym — les réservations d'un membre, chaque carte indiquant le coach, les séances utilisées et la date de fin",
+          "Application Q-Fight Gym — choix de la formule, d'une séance individuelle à un forfait collectif de trois mois, en riyals qataris",
+          "Application Q-Fight Gym — recherche des disponibilités d'un coach sur une plage de dates, avec l'horaire, le type de séance et les places libres",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu l'application Q-Fight Gym sur votre site et je souhaite une application similaire.",
@@ -122,9 +126,9 @@ export const fr: Dictionary = {
           "Bilingue arabe et anglais, avec une mise en page RTL complète.",
         ],
         shotAlts: [
-          "Application Al-Muslim — horaires de prière et compte à rebours de la prochaine prière",
-          "Application Al-Muslim — accueil avec adhkar, douas et raccourci qibla",
-          "Application Al-Muslim — écran de lecture du Coran en arabe",
+          "Application Al-Muslim — horaires de prière du jour pour la ville courante, compte à rebours avant le prochain adhan, dates hégirienne et grégorienne",
+          "Application Al-Muslim — catégories d'adhkar : matin, soir, coucher, réveil, mosquée et après la prière",
+          "Application Al-Muslim — le lecteur de Coran, ouvert sur la sourate Al-Imran",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu Al-Muslim sur votre site et je souhaite une application mobile de ce type.",
@@ -140,7 +144,7 @@ export const fr: Dictionary = {
           "Flutter et Riverpod avec MyFatoorah, Stripe et Firebase.",
         ],
         shotAlts: [
-          "Plateforme Ezhal — une couche de pilotage unique pour clients, responsables et employés",
+          "Site Ezhal — la page d'accueil de la plateforme, avec un instantané en direct des réservations, clients, responsables et employés issu du système en production",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu Ezhal sur votre site et je souhaite concevoir une plateforme multi-applications.",
@@ -170,9 +174,9 @@ export const fr: Dictionary = {
           "Déployé avec Firebase et Nginx.",
         ],
         shotAlts: [
-          "Application FasTap — carte de visite numérique telle que la voit le destinataire",
-          "Application FasTap — éditeur de profil avec liens, médias et coordonnées",
-          "Application FasTap — profil web ouvert après une lecture NFC",
+          "FasTap — une carte de visite partagée telle que la voit le destinataire : photo, fonction, bouton d'enregistrement du contact, liens sociaux et lignes d'appel, e-mail et adresse",
+          "FasTap — sélection des réseaux sociaux et moyens de contact qui apparaissent sur la carte",
+          "FasTap — l'éditeur de profil, avec un interrupteur à côté de chaque adresse, e-mail, téléphone et site pour l'afficher ou le masquer",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu FasTap sur votre site et je souhaite un produit similaire.",
@@ -188,7 +192,7 @@ export const fr: Dictionary = {
           "Flutter avec une architecture propre, conçue pour des parties répétées.",
         ],
         shotAlts: [
-          "Application Jaweb — écran de configuration avec noms d'équipes et catégories",
+          "Application Jaweb — l'écran d'accueil en arabe, avec les parties du joueur, les packs de jeux proposés et les options d'aide",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu Jaweb sur votre site et je souhaite concevoir un produit interactif.",
@@ -204,9 +208,8 @@ export const fr: Dictionary = {
           "Connexion Google et Apple, notifications Firebase, liens profonds et prise en charge RTL complète (EN/AR).",
         ],
         shotAlts: [
-          "Application ICCD Hub — écran des événements et de la mise en relation",
-          "Application ICCD Hub — bibliothèque de ressources professionnelles",
-          "Application ICCD Hub — écran d'engagement communautaire",
+          "ICCD Hub — visuel de la fiche store pour les ressources professionnelles, montrant la liste de tâches et de notes de l'application",
+          "ICCD Hub — visuel de la fiche store pour les événements de la communauté, montrant le calendrier et les événements à venir",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu ICCD Hub sur votre site et je souhaite une application pour mon organisation.",
@@ -222,9 +225,9 @@ export const fr: Dictionary = {
           "Flutter en architecture propre. Notre produit, présentable lors d'un appel.",
         ],
         shotAlts: [
-          "Application Voicers — fil de découverte des notes vocales des créateurs",
-          "Application Voicers — scène audio en direct avec intervenants et auditeurs",
-          "Application Voicers — profil de créateur et playlists de notes vocales",
+          "Application Voicers — un profil de créateur avec le nombre d'abonnés, d'écoutes et de mentions j'aime, un classement des meilleures notes vocales et une liste des tendances",
+          "Application Voicers — le fil de découverte, lisant la publication d'un créateur avec les boutons cadeau, j'aime, commentaire et partage",
+          "Application Voicers — le vote sur les notes vocales, filtré par les mieux notées, les plus récentes et celles déjà votées",
         ],
         waMessage:
           "Bonjour Desert Launch, j'ai vu Voicers sur votre site et je souhaite concevoir un produit de ce type.",
@@ -560,6 +563,7 @@ export const fr: Dictionary = {
         heading: "Vérifiez ces champs avant l'envoi :",
         name: "Merci d'indiquer votre nom.",
         reply: "Merci d'indiquer un e-mail ou un téléphone.",
+        replyInvalid: "Cela ne ressemble ni à un e-mail ni à un numéro de téléphone.",
         summary: "Merci de décrire en une ou deux phrases ce que vous voulez construire.",
       },
       note: "Rien n'est enregistré ni envoyé tant que vous n'appuyez pas sur envoyer dans WhatsApp ou votre messagerie.",

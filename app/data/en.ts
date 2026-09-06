@@ -54,12 +54,16 @@ export const en: Dictionary = {
       badge: "Live on the App Store and Google Play",
       caption: "Q-Fight Gym (Doha) and Al-Muslim — two products you can open right now.",
       label: "Two Desert Launch apps shown on phone screens",
+      alts: [
+        "Al-Muslim app on a phone — prayer times for the day, counting down to the next adhan",
+        "Q-Fight Gym app on a phone — a member's list of booked training sessions",
+      ],
     },
     proof: [
       {
         label: "Products shipped",
-        value: "10+",
-        note: "Mobile apps, web platforms and internal systems running in production.",
+        value: "8",
+        note: "Every one of them is on this page — mobile apps, multi-role platforms and private business systems.",
       },
       {
         label: "Published to both stores",
@@ -104,9 +108,9 @@ export const en: Dictionary = {
           "Flutter and Firebase with a payment gateway integrated.",
         ],
         shotAlts: [
-          "Q-Fight Gym app — training programme screen listing Muay Thai classes",
-          "Q-Fight Gym app — weekly class schedule with available booking slots",
-          "Q-Fight Gym app — membership plans and booking screen",
+          "Q-Fight Gym app — a member's bookings, each card showing the trainer, sessions used and end date",
+          "Q-Fight Gym app — choosing a membership plan, from a single personal session to a three-month group plan, priced in Qatari riyal",
+          "Q-Fight Gym app — searching a trainer's availability over a date range, with the time, session type and free seats for each slot",
         ],
         waMessage:
           "Hi Desert Launch, I saw the Q-Fight Gym app on your site and want something similar for my business.",
@@ -122,9 +126,9 @@ export const en: Dictionary = {
           "Bilingual Arabic and English with full right-to-left layout.",
         ],
         shotAlts: [
-          "Al-Muslim app — prayer times screen with the next prayer countdown",
-          "Al-Muslim app — home screen with adhkar, duas and qibla shortcuts",
-          "Al-Muslim app — Quran reader screen in Arabic",
+          "Al-Muslim app — the day's prayer times for the current city, counting down to the next adhan, with the Hijri and Gregorian date",
+          "Al-Muslim app — adhkar categories for morning, evening, sleep, waking, the mosque and after prayer",
+          "Al-Muslim app — the Quran reader, open at Surat Aal-Imran",
         ],
         waMessage:
           "Hi Desert Launch, I saw Al-Muslim on your site and want to build a mobile app like it.",
@@ -140,7 +144,7 @@ export const en: Dictionary = {
           "Flutter and Riverpod with MyFatoorah, Stripe and Firebase.",
         ],
         shotAlts: [
-          "Ezhal platform — one control layer for customers, managers and employees",
+          "Ezhal website — the platform's home page, with a live snapshot of bookings, customers, managers and employees drawn from the running system",
         ],
         waMessage:
           "Hi Desert Launch, I saw Ezhal on your site and want to plan a multi-app platform.",
@@ -170,9 +174,9 @@ export const en: Dictionary = {
           "Deployed with Firebase and Nginx.",
         ],
         shotAlts: [
-          "FasTap app — digital business card profile as a recipient sees it",
-          "FasTap app — profile editor with links, media and contact details",
-          "FasTap app — shared web profile opened from an NFC tap",
+          "FasTap — a shared business card as the recipient sees it: photo, role, a save-contact button, social links and direct call, email and address rows",
+          "FasTap — choosing which social networks and contact methods appear on a card",
+          "FasTap — the profile editor, with a switch beside each address, email, phone and website entry to show or hide it",
         ],
         waMessage:
           "Hi Desert Launch, I saw FasTap on your site and want to build a similar product.",
@@ -188,7 +192,7 @@ export const en: Dictionary = {
           "Flutter with clean architecture for repeated play.",
         ],
         shotAlts: [
-          "Jaweb app — game setup screen with team names and question categories",
+          "Jaweb app — the Arabic home screen, showing the player's games, the game packs on offer and the help options",
         ],
         waMessage:
           "Hi Desert Launch, I saw Jaweb on your site and want to plan an interactive product.",
@@ -204,9 +208,8 @@ export const en: Dictionary = {
           "Google and Apple sign-in, Firebase push, deep linking and full EN/AR right-to-left support.",
         ],
         shotAlts: [
-          "ICCD Hub app — events and networking screen",
-          "ICCD Hub app — business resources library",
-          "ICCD Hub app — community engagement screen",
+          "ICCD Hub — store listing for the business resources feature, showing the app's tasks and notes list",
+          "ICCD Hub — store listing for community events, showing the app's calendar and upcoming events",
         ],
         waMessage:
           "Hi Desert Launch, I saw ICCD Hub on your site and want an app for my organisation.",
@@ -222,9 +225,9 @@ export const en: Dictionary = {
           "Flutter on clean architecture. Our own product, available to demo on a call.",
         ],
         shotAlts: [
-          "Voicers app — discovery feed of voice notes from creators",
-          "Voicers app — live audio stage with speakers and listeners",
-          "Voicers app — creator profile with voice-note playlists",
+          "Voicers app — a creator profile with subscriber, listen and like counts, a leaderboard of winning voice notes and a trending list",
+          "Voicers app — the discovery feed, playing a creator's post with gift, like, comment and share controls",
+          "Voicers app — voting on voice notes, filtered by top rated, newest and already voted",
         ],
         waMessage:
           "Hi Desert Launch, I saw Voicers on your site and want to plan a product like it.",
@@ -560,6 +563,7 @@ export const en: Dictionary = {
         heading: "Check these fields before sending:",
         name: "Please add your name.",
         reply: "Please add an email address or a phone number.",
+        replyInvalid: "That does not look like an email address or a phone number.",
         summary: "Please describe what you are building, in a sentence or two.",
       },
       note: "Nothing is stored or sent until you hit send in WhatsApp or your email app.",

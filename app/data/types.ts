@@ -119,6 +119,11 @@ export interface HeroCopy {
     caption: string;
     /** Accessible name for the whole composition. */
     label: string;
+    /** Alt text for each phone, in DOM order: Al-Muslim behind, Q-Fight Gym in
+     *  front. The hero uses tighter crops than the project cards do, so it
+     *  describes what the crop shows rather than reusing a project's
+     *  `shotAlts` — which described a different screen. */
+    alts: [string, string];
   };
   proof: ProofStat[];
 }
@@ -312,7 +317,12 @@ export interface ContactCopy {
     errors: {
       heading: string;
       name: string;
+      /** Shown when the field is empty. */
       reply: string;
+      /** Shown when the field has a value that is neither an email address nor
+       *  a usable phone number — without it, a typo produced a lead we could
+       *  never reply to. */
+      replyInvalid: string;
       summary: string;
     };
     note: string;

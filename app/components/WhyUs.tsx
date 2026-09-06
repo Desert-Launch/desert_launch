@@ -26,7 +26,9 @@ export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
             ))}
           </div>
 
-          <aside className="panel reveal flex flex-col gap-3 p-6" aria-label={t.a11y.founderPanel}>
+          {/* A named `region`, not an `aside`: this sits inside <main>, and a
+              complementary landmark is meant to be top level. */}
+          <section className="panel reveal flex flex-col gap-3 p-6" aria-label={t.a11y.founderPanel}>
             <span className="kicker">{w.founder.kicker}</span>
             <img
               src={w.founder.photo}
@@ -54,7 +56,7 @@ export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
                 {w.founder.moreLabel}
               </a>
             ) : null}
-          </aside>
+          </section>
         </div>
 
         <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">

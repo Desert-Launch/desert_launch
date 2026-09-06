@@ -43,10 +43,13 @@ export function entityGraph() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        // ProfessionalService already inherits LocalBusiness and Organization;
-        // listing it alongside Organization keeps tools that key on the broader
-        // type matching, without the redundant third entry.
-        "@type": ["Organization", "ProfessionalService"],
+        // Organization only. ProfessionalService is a LocalBusiness subtype,
+        // and a LocalBusiness asserts a physical place customers can visit —
+        // which means a street address, opening hours and, in Google's own
+        // guidance, a verifiable location. This site publishes a city and
+        // country, not a street, so claiming the narrower type asserted more
+        // than the page can back up.
+        "@type": "Organization",
         "@id": ORG_ID,
         name: ORG.name,
         alternateName: ORG.alternateName,
@@ -146,10 +149,15 @@ export function entityGraph() {
         const stores = [app.store?.appStore, app.store?.googlePlay].filter(Boolean) as string[];
         return {
           "@type": "MobileApplication",
+          // A stable @id so the case-study page can reference the same app node
+          // instead of describing a second, duplicate entity.
+          "@id": `${SITE_URL}/#app-${app.id}`,
           name: app.name,
           operatingSystem: "iOS, Android",
           applicationCategory: APP_CATEGORY[app.id] ?? "BusinessApplication",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          // No `offers`. We do not set these apps' store pricing and have not
+          // verified it stays free of in-app purchases, so asserting a price is
+          // a claim about someone else's listing that we cannot stand behind.
           creator: { "@id": ORG_ID },
           ...(stores.length
             ? { downloadUrl: stores.length === 1 ? stores[0] : stores }

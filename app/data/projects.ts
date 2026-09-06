@@ -149,7 +149,9 @@ export const PROJECTS: ProjectMeta[] = [
     logo: "/assets/logo-iccd.webp",
     media: {
       kind: "contain",
-      shots: ["/assets/iccd1.webp", "/assets/iccd2.webp", "/assets/iccd3.webp"],
+      // iccd1 is deliberately absent: its device mockup showed placeholder
+      // Lorem Ipsum body text, which reads as unfinished work on a portfolio.
+      shots: ["/assets/iccd2.webp", "/assets/iccd3.webp"],
     },
     stack: [
       "Flutter",
@@ -189,10 +191,3 @@ export const CASE_STUDIES = PROJECTS.filter((p) => p.caseStudy);
  *  visitor can verify in one tap, and the source for the SoftwareApplication
  *  JSON-LD nodes. */
 export const STORE_PROJECTS = PROJECTS.filter((p) => p.store);
-
-/** Screenshots used by the hero device composition, most-verifiable first. */
-export const HERO_SHOWCASE: { projectId: ProjectId; src: string }[] = [
-  { projectId: "al-muslim", src: "/assets/almuslim2.webp" },
-  { projectId: "q-fight-gym", src: "/assets/qfightgym1.webp" },
-  { projectId: "voicers", src: "/assets/voicers2.webp" },
-];

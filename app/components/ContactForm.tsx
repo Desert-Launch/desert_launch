@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { ContactCopy } from "@/app/data/types";
 import { wa, EMAIL } from "@/app/data/shared";
 import { track } from "@/app/lib/analytics";
@@ -8,6 +8,26 @@ import { track } from "@/app/lib/analytics";
 type Form = ContactCopy["form"];
 type FieldKey = "name" | "reply" | "projectType" | "budget" | "timeline" | "summary";
 type Status = "idle" | "opening" | "opened" | "blocked";
+
+/** Deliberately permissive: one "@", something before it, and a dotted domain
+ *  after. Anything stricter starts rejecting real addresses, and this field's
+ *  only job is to catch a value we could never reply to — "you@company" with
+ *  the TLD missing being by far the most common one. */
+const EMAIL_RE = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
+
+/** Phone numbers arrive with spaces, brackets, dashes and a leading "+", and
+ *  visitors typing on an Arabic keyboard produce Arabic-Indic digits. Count the
+ *  digits in any script and require seven, the shortest subscriber number in
+ *  real use. */
+const DIGIT_RE = /[0-9\u0660-\u0669\u06F0-\u06F9]/g;
+
+/** True when we could actually reply to this value. */
+function isUsableReply(value: string): boolean {
+  const v = value.trim();
+  if (!v) return false;
+  if (EMAIL_RE.test(v)) return true;
+  return (v.match(DIGIT_RE)?.length ?? 0) >= 7;
+}
 
 const EMPTY: Record<FieldKey, string> = {
   name: "",
@@ -33,24 +53,51 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [fallbackHref, setFallbackHref] = useState("");
   const errorRef = useRef<HTMLDivElement>(null);
+  /** Set when a submit is rejected, cleared once focus has actually moved. */
+  const wantsErrorFocus = useRef(false);
+  /** When the last accepted submit happened, for the double-tap gate below. */
+  const lastSubmit = useRef(0);
   const uid = useId();
 
+  // The error summary does not exist in the DOM at the moment a submit is
+  // rejected — it renders in the same commit. Focusing from a
+  // `requestAnimationFrame` inside the handler therefore raced React, and lost
+  // often enough that Arabic and German never moved focus at all while English
+  // happened to win. An effect runs after the commit, so the node is always
+  // there.
+  useEffect(() => {
+    if (!wantsErrorFocus.current || !errorRef.current) return;
+    wantsErrorFocus.current = false;
+    errorRef.current.focus();
+  });
+
   const id = (key: string) => `${uid}-${key}`;
+
+  /** The same rule the submit check uses, so a message clears exactly when the
+   *  field would now pass — not merely when it stops being empty, which used to
+   *  hide the "that is not an address we can reply to" message mid-typo. */
+  function passes(key: FieldKey, value: string): boolean {
+    if (key === "reply") return isUsableReply(value);
+    if (key === "summary") return value.trim().length >= 10;
+    return value.trim().length > 0;
+  }
 
   const set = (key: FieldKey) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const value = e.target.value;
     setValues((v) => ({ ...v, [key]: value }));
-    // Clear the error as soon as the field stops being empty, so the message
-    // does not linger while the visitor is fixing it.
-    setErrors((prev) => (prev[key] && value.trim() ? { ...prev, [key]: undefined } : prev));
+    setErrors((prev) => (prev[key] && passes(key, value) ? { ...prev, [key]: undefined } : prev));
   };
 
   function validate(): Partial<Record<FieldKey, string>> {
     const next: Partial<Record<FieldKey, string>> = {};
     if (!values.name.trim()) next.name = form.errors.name;
+    // Two distinct messages: one for a field left blank, one for a value that
+    // is filled in but unreachable. A single message for both told a visitor
+    // who had typed something that they had typed nothing.
     if (!values.reply.trim()) next.reply = form.errors.reply;
+    else if (!isUsableReply(values.reply)) next.reply = form.errors.replyInvalid;
     if (values.summary.trim().length < 10) next.summary = form.errors.summary;
     return next;
   }
@@ -68,15 +115,26 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   }
 
   function guard(): boolean {
-    if (status === "opening") return false; // duplicate submit
+    if (status === "opening") return false;
+
     const found = validate();
     setErrors(found);
     if (Object.keys(found).length > 0) {
       setStatus("idle");
-      // Move focus to the summary so a screen-reader user hears what is wrong.
-      requestAnimationFrame(() => errorRef.current?.focus());
+      // Announce the problem to a screen-reader user; the effect above does the
+      // focusing once the summary has rendered.
+      wantsErrorFocus.current = true;
       return false;
     }
+
+    // The status check above cannot catch a real double-tap: the handoff is
+    // synchronous, so "opening" is replaced by "opened" inside the same event
+    // and is never observed by a second click. A short time gate does catch it,
+    // while still letting someone deliberately re-open the handoff a moment
+    // later if the first window never appeared.
+    const now = Date.now();
+    if (now - lastSubmit.current < 1500) return false;
+    lastSubmit.current = now;
     return true;
   }
 
