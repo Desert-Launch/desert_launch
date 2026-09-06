@@ -1,20 +1,74 @@
 # Desert Launch
 
-> Desert Launch is a software development company in Cairo, Egypt. It builds custom web platforms, mobile apps (Flutter, iOS and Android), MVPs, and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe, and the US.
+> Desert Launch is a software development company in Cairo, Egypt. It builds custom mobile apps (Flutter, iOS and Android), web platforms, MVPs and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe and the United States.
+
+Last updated: 2026-09-06
 
 ## Key facts
 
-- Founder and lead engineer: Abdullah Mohamed (Cairo, Egypt) — 5+ years of experience, 10+ products shipped to the App Store and Google Play.
-- Services: custom web development, mobile app development (Flutter), MVP development, business websites, UI/UX design, system architecture, product modernization, technical consulting.
-- Shipped apps include Al-Muslim (App Store & Google Play) and Q-Fight Gym, the official app of a professional Muay Thai gym in Qatar (App Store & Google Play).
-- Engagement terms: free scope call, written fixed quote in USD, milestone payments (30% upfront), client owns all code and IP, one year of free support on every project.
-- Languages: English and Arabic (also serving French, Spanish, and German-speaking clients).
+- Founder and lead engineer: Abdullah Mohamed, based in Cairo, Egypt. More than 5 years shipping production web and mobile products. He designs and builds every project personally.
+- Structure: an independent software studio, not an agency. There are no account managers between the client and the engineer.
+- Project languages: English and Arabic. The website is translated into French, Spanish and German for discovery, but project work is conducted in English or Arabic only.
+- Time zone: Cairo, UTC+2 in winter and UTC+3 in summer — within one hour of every Gulf capital.
+- First reply to an enquiry: within 12 hours, usually faster.
 - Contact: abdullah@desertlaunch.dev, WhatsApp +20 102 283 8534.
+
+## Services
+
+1. Mobile app development — one Flutter codebase published to the App Store and Google Play. Typical duration 2–4 months. https://www.desertlaunch.dev/services/mobile-app-development/
+2. Web development — business websites, client portals, admin dashboards and full web platforms. Typical duration 2 weeks to 3 months. https://www.desertlaunch.dev/services/web-development/
+3. MVP development — the smallest version that proves an idea with real users. Typical duration 1–2 months. https://www.desertlaunch.dev/services/mvp-development/
+4. UI/UX design — screens and flows agreed before development. Typical duration 1–3 weeks.
+5. Rebuilds and modernization — taking over a slow, broken or abandoned product, starting with a written verdict on the existing code. From 2 weeks.
+6. Technical consulting and architecture — a second opinion, an architecture review or a delivery plan. 2–5 days.
+
+## Commercial terms
+
+- Free scope call first, with no obligation.
+- A fixed price quoted in USD, in writing, before any commitment. Never hourly billing.
+- Payment across three or four milestones: 30% upfront, the remainder per delivered milestone. A milestone is working software the client can open, and is not invoiced until accepted.
+- The client owns the source code, the intellectual property, and the hosting, domain, storage and app store developer accounts. These are created in the client's name from the start.
+- Twelve months of free support and maintenance after launch. Small changes and updates are also free for the first three months.
+- Running costs (hosting or Firebase, plus the Apple Developer Program at 99 USD/year and Google Play's one-time 25 USD registration) are billed to the client's own accounts and estimated in the quote.
+- NDAs are signed on request, before the scope call.
+
+## Technology
+
+Flutter and Flutter Web; Node.js; PostgreSQL; Firebase; GraphQL and REST APIs; AWS and Docker; Nginx; Riverpod; JWT role-based access; Stripe, MyFatoorah and PayTabs payment gateways; full Arabic and right-to-left interface support with Hijri dates.
+
+## Products built and shipped
+
+Every product below was designed and built by Abdullah Mohamed — across Desert Launch client work and earlier senior engineering roles. Voicers is an in-house product and is not published.
+
+- Q-Fight Gym — booking app for a professional Muay Thai gym in Doha, Qatar. Flutter and Firebase with payments. Live on the App Store (https://apps.apple.com/us/app/q-fight-gym/id6759147399) and Google Play (https://play.google.com/store/apps/details?id=com.qfightgym.app). Case study: https://www.desertlaunch.dev/work/q-fight-gym/
+- Al-Muslim — daily companion app: Quran, adhkar and duas, location-based prayer times and qibla. Bilingual Arabic/English. Live on the App Store (https://apps.apple.com/us/app/al-muslim-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D9%85/id6757352101) and Google Play (https://play.google.com/store/apps/details?id=com.elmuslim.app). Case study: https://www.desertlaunch.dev/work/al-muslim/
+- Ezhal — multi-role car-service platform: three role-specific apps (customer, field technician, manager) from one Flutter codebase, with live tracking, subscriptions, wallet, points and Apple Wallet passes. Delivered to the client. Case study: https://www.desertlaunch.dev/work/ezhal/
+- Xera Lab — dental case management platform: a customer portal and admin dashboard on a Node.js and PostgreSQL API with JWT role-based access and AWS S3 storage. Delivered to the client as a private production system. Case study: https://www.desertlaunch.dev/work/xera-lab/
+- FasTap — NFC digital business card. A Flutter app writes profiles to NFC cards and a Flutter Web page opens from every tap-to-share link. Delivered to the client.
+- Jaweb — competitive trivia game with team scoring, referee logic and MyFatoorah payments. Delivered to the client.
+- ICCD Hub — bilingual members' app for the Islamic Corporation for the Development of the Private Sector, pairing organisational content with a personal productivity suite. Delivered to the client.
+- Voicers — bilingual social audio platform: voice notes, playlists and live stages. Built in-house; not published.
+
+Two of these eight are published on public app stores; the store links above are the verifiable ones.
+
+## Process
+
+1. Scope call — a free call about how the business runs today. Output: a written scope summary and an honest go or no-go.
+2. Quote — a fixed price in USD, a milestone plan and a date. Nothing starts before written approval and the 30% deposit.
+3. Build — working software at every milestone, with updates on WhatsApp and same-day answers.
+4. Launch — store submission, hosting, domains and analytics set up in the client's own accounts.
+5. Support — twelve months free, with small changes free for the first three.
 
 ## Pages
 
-- [Home (English)](https://www.desertlaunch.dev/)
-- [Arabic](https://www.desertlaunch.dev/ar/)
-- [French](https://www.desertlaunch.dev/fr/)
-- [Spanish](https://www.desertlaunch.dev/es/)
-- [German](https://www.desertlaunch.dev/de/)
+- Home (English): https://www.desertlaunch.dev/
+- Home (Arabic): https://www.desertlaunch.dev/ar/
+- Home (French): https://www.desertlaunch.dev/fr/
+- Home (Spanish): https://www.desertlaunch.dev/es/
+- Home (German): https://www.desertlaunch.dev/de/
+- About: https://www.desertlaunch.dev/about/
+- Engagement terms: https://www.desertlaunch.dev/terms/
+- Privacy: https://www.desertlaunch.dev/privacy/
+- Sitemap: https://www.desertlaunch.dev/sitemap.xml
+
+Arabic versions of every service page, case study and the about, terms and privacy pages exist under the /ar/ prefix.

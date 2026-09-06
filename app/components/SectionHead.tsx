@@ -15,7 +15,7 @@ export function SectionHead({
     // measure is the fastest way to make a page tiring to read.
     <div className="reveal flex max-w-[46rem] flex-col gap-4">
       <span className="kicker">{kicker}</span>
-      <h2 id={id} className="text-2xl font-extrabold leading-tight sm:text-3xl">
+      <h2 id={id} className="h-section">
         {title}
       </h2>
       {intro ? <p className="max-w-[58ch] text-lead text-muted">{intro}</p> : null}

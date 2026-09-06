@@ -1,89 +1,139 @@
 import type { Dictionary } from "@/app/data/types";
+import { MAILTO, PHONE_HREF } from "@/app/data/shared";
 import { ContactForm } from "./ContactForm";
 
-/** The brief-drafting form is hidden for now; the direct WhatsApp and email
- *  links above it still carry the section. Flip back to `true` to restore it —
- *  the form copy for all five locales is untouched in the dictionaries. */
-const SHOW_CONTACT_FORM = false;
+function Row({
+  href,
+  label,
+  value,
+  external,
+  evt,
+  ltr = true,
+}: {
+  href?: string;
+  label: string;
+  value: string;
+  external?: boolean;
+  evt?: string;
+  ltr?: boolean;
+}) {
+  const inner = (
+    <>
+      <span className="flex min-w-0 flex-col">
+        <strong className="text-body">{label}</strong>
+        <span className="text-meta text-muted" {...(ltr ? { dir: "ltr" as const } : {})}>
+          {value}
+        </span>
+      </span>
+      {href ? (
+        <span aria-hidden="true" className="contact-row__arrow">
+          →
+        </span>
+      ) : null}
+    </>
+  );
+
+  if (!href) return <div className="contact-row">{inner}</div>;
+
+  return (
+    <a
+      href={href}
+      className="contact-row contact-row--link"
+      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      {...(evt ? { "data-evt": evt, "data-evt-placement": "contact" } : {})}
+    >
+      {inner}
+    </a>
+  );
+}
 
 export function Contact({ t }: { t: Dictionary }) {
   const c = t.contact;
   return (
     <section id="contact" aria-labelledby="contact-heading" className="section scroll-mt-24">
-      {/* items-start so the shorter column sizes to its content instead of
-          stretching into a tall panel with a void at the bottom. */}
       <div className="shell grid items-start gap-4 lg:grid-cols-2 lg:gap-6">
-        {/* Info */}
+        {/* Info + direct channels */}
         <article className="panel reveal flex flex-col gap-4 p-6">
           <span className="kicker">{c.kicker}</span>
-          <h2 id="contact-heading" className="text-2xl font-extrabold leading-tight sm:text-3xl">
+          <h2 id="contact-heading" className="h-section">
             {c.title}
           </h2>
           <p className="text-body leading-relaxed text-muted">{c.intro}</p>
-          <div className="grid gap-2" aria-label="Why send a brief">
-            {c.highlights.map((h) => (
-              <div key={h} className="flex gap-2 text-body text-ink-soft">
-                <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
-                <span>{h}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a href={c.primary.href} target="_blank" rel="noreferrer" className="btn btn-primary">
-              {c.primary.label}
-            </a>
-            <a href={c.secondary.href} className="btn btn-secondary">
-              {c.secondary.label}
-            </a>
-          </div>
-          <p dir="rtl" lang="ar" className="text-body text-muted">
-            {c.arabicNote}
-          </p>
-          <figure className="media-zoom mt-1 rounded-[18px] border border-line">
-            <img src={c.image.src} alt={c.image.alt} loading="lazy" className="w-full object-cover" />
-            <figcaption className="px-4 py-3 text-meta text-muted">{c.imageCaption}</figcaption>
-          </figure>
-        </article>
 
-        {/* Direct channels. Sticky on large screens: without the form this
-            column is far shorter than the info panel, so it rides along
-            instead of leaving a tall empty gutter beside it. */}
-        <aside className="panel reveal flex flex-col gap-4 p-6 lg:sticky lg:top-28">
-          <h3 className="text-lg font-bold">{c.direct.heading}</h3>
-          <p className="text-body text-muted">{c.direct.body}</p>
-          <div className="grid gap-2">
+          <ul className="grid list-none gap-2" aria-label={t.a11y.briefBenefits}>
+            {c.highlights.map((h) => (
+              <li key={h} className="flex gap-2 text-body text-ink-soft">
+                <span aria-hidden="true" className="bullet-dot" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href={c.primary.href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-between rounded-[14px] border border-line bg-white/[0.02] px-4 py-3 transition-colors hover:border-line-strong"
+              className="btn btn-primary"
+              data-evt="whatsapp_click"
+              data-evt-placement="contact"
             >
-              <span className="flex flex-col">
-                <strong>{c.direct.whatsapp.label}</strong>
-                <span className="text-meta text-muted" dir="ltr">
-                  {c.direct.whatsapp.value}
-                </span>
-              </span>
-              <span aria-hidden="true" className="text-meta text-gold">
-                →
-              </span>
+              {c.primary.label}
             </a>
             <a
               href={c.secondary.href}
-              className="flex items-center justify-between rounded-[14px] border border-line bg-white/[0.02] px-4 py-3 transition-colors hover:border-line-strong"
+              className="btn btn-secondary"
+              data-evt="email_click"
+              data-evt-placement="contact"
             >
-              <span className="flex flex-col">
-                <strong>{c.direct.email.label}</strong>
-                <span className="text-meta text-muted" dir="ltr">
-                  {c.direct.email.value}
-                </span>
-              </span>
-              <span aria-hidden="true" className="text-meta text-gold">
-                →
-              </span>
+              {c.secondary.label}
             </a>
           </div>
-          {SHOW_CONTACT_FORM ? <ContactForm form={c.form} /> : null}
+
+          <p dir="rtl" lang="ar" className="text-body text-muted">
+            {c.arabicNote}
+          </p>
+
+          <div className="mt-2 flex flex-col gap-3 border-t border-line pt-5">
+            <h3 className="h-card">{c.direct.heading}</h3>
+            <p className="text-body text-muted">{c.direct.body}</p>
+            {/* Real contact details in a semantic <address>, which is also
+                what a crawler and an answer engine look for. */}
+            <address className="contact-list" aria-label={t.a11y.directContact}>
+              <Row
+                href={c.primary.href}
+                external
+                evt="whatsapp_click"
+                label={c.direct.whatsapp.label}
+                value={c.direct.whatsapp.value}
+              />
+              <Row
+                href={MAILTO}
+                evt="email_click"
+                label={c.direct.email.label}
+                value={c.direct.email.value}
+              />
+              <Row
+                href={PHONE_HREF}
+                evt="tel_click"
+                label={c.direct.phone.label}
+                value={c.direct.phone.value}
+              />
+              <Row label={c.direct.location.label} value={c.direct.location.value} ltr={false} />
+              <Row label={c.direct.hours.label} value={c.direct.hours.value} ltr={false} />
+            </address>
+          </div>
+        </article>
+
+        {/* Qualification form.
+            `js-only` because the form composes a message and hands it to
+            WhatsApp or a mail client in JavaScript; without it the controls
+            would look functional and do nothing. The direct WhatsApp, email and
+            phone links in the other column carry the section on their own. */}
+        <aside className="panel js-only reveal flex-col gap-4 p-6 lg:sticky lg:top-24">
+          <h3 className="h-card">{c.form.heading}</h3>
+          <p className="text-body text-muted">{c.form.body}</p>
+          <ContactForm form={c.form} lang={t.lang} />
         </aside>
       </div>
     </section>

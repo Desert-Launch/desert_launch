@@ -1,19 +1,18 @@
 import type { Dictionary } from "@/app/data/types";
+import { HeroShowcase } from "./HeroShowcase";
 
 export function Hero({ t }: { t: Dictionary }) {
   const h = t.hero;
   return (
-    <section className="pt-10 pb-12 sm:pt-14 md:pb-18">
+    <section className="hero pt-8 pb-12 sm:pt-12 md:pb-16">
       <div className="shell flex flex-col gap-10 md:gap-12">
-        <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Copy */}
           <div className="reveal flex flex-col gap-5">
             <span className="kicker">{h.eyebrow}</span>
-            <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl">
-              {h.title}
-            </h1>
-            <p className="max-w-[46ch] text-lead leading-relaxed text-ink-soft">{h.lead}</p>
-            <div className="flex flex-wrap gap-2" aria-label="What Desert Launch builds">
+            <h1 className="h-display">{h.title}</h1>
+            <p className="max-w-[48ch] text-lead leading-relaxed text-ink-soft">{h.lead}</p>
+            <div className="flex flex-wrap gap-2" aria-label={t.a11y.heroTags}>
               {h.tags.map((tag) => (
                 <span key={tag} className="chip">
                   {tag}
@@ -26,6 +25,8 @@ export function Hero({ t }: { t: Dictionary }) {
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary"
+                data-evt="primary_cta_click"
+                data-evt-placement="hero"
               >
                 {h.primary.label}
               </a>
@@ -36,24 +37,17 @@ export function Hero({ t }: { t: Dictionary }) {
             <p className="text-meta text-muted">{h.responseNote}</p>
           </div>
 
-          {/* Visual */}
-          <figure className="reveal panel media-zoom">
-            <img src={h.image.src} alt={h.image.alt} className="w-full object-cover" />
-            <figcaption className="px-4 py-3 text-meta text-muted">
-              {h.imageCaption}
-            </figcaption>
-          </figure>
+          {/* Real product proof, not a stock render */}
+          <HeroShowcase t={t} />
         </div>
 
         {/* Proof — full width under both columns */}
-        <div className="reveal grid gap-3 sm:grid-cols-3" aria-label="Key proof points">
+        <div className="reveal grid gap-3 sm:grid-cols-3" aria-label={t.a11y.proofPoints}>
           {h.proof.map((p) => (
-            <div key={p.label} className="panel flex flex-col gap-1 p-4">
-              <small className="text-micro uppercase tracking-[0.12em] text-muted">
-                {p.label}
-              </small>
-              <strong className="text-lg text-gold">{p.value}</strong>
-              <span className="text-meta leading-snug text-muted">{p.note}</span>
+            <div key={p.label} className="panel stat">
+              <small className="stat__label">{p.label}</small>
+              <strong className="stat__value">{p.value}</strong>
+              <span className="stat__note">{p.note}</span>
             </div>
           ))}
         </div>

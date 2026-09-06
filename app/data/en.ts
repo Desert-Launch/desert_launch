@@ -1,31 +1,32 @@
 import type { Dictionary } from "./types";
-import { wa, MAILTO } from "./shared";
+import { wa, MAILTO, PHONE_DISPLAY, EMAIL, CONTENT_UPDATED } from "./shared";
 
 const GENERIC =
-  "Hi Desert Launch, I want to discuss building a system for my business.";
+  "Hi Desert Launch, I'd like a free quote for a software project.";
 
 export const en: Dictionary = {
   lang: "en",
   dir: "ltr",
   meta: {
-    title: "Desert Launch | Software & App Development Company in Cairo, Egypt",
+    title: "App & Software Development Company in Cairo | Desert Launch",
     description:
-      "Software & app development company in Cairo, Egypt. Custom web platforms, mobile apps & MVPs — fixed quotes, a year of free support. Free WhatsApp consult.",
+      "Desert Launch builds mobile apps, web platforms and MVPs for businesses in Egypt and the Gulf. Fixed quote, you own the code, one year of free support.",
     ogLocale: "en_US",
+    ogImageAlt:
+      "Desert Launch — mobile app and software development company in Cairo, Egypt",
   },
   nav: [
-    { label: "Our Work", href: "#work" },
+    { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
-    { label: "Why Us", href: "#why-us" },
+    { label: "Why us", href: "#why-us" },
     { label: "Process", href: "#process" },
-    { label: "Pricing", href: "#plans" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ],
   header: {
-    tagline: "Software House for Web, Mobile & Product Engineering",
-    emailUs: "Email Us",
-    startProject: { label: "Start Your Project", href: wa(GENERIC), external: true },
+    tagline: "Mobile, web and product engineering — Cairo, Egypt",
+    emailUs: "Email us",
+    startProject: { label: "Get a Free Quote", href: wa(GENERIC), external: true },
     langCode: "EN",
     langAria: "Choose language",
     menuOpen: "Open navigation menu",
@@ -33,100 +34,134 @@ export const en: Dictionary = {
     mobileLangLabel: "Language",
   },
   hero: {
-    eyebrow: "Business-first software delivery",
-    title: "Replace manual work with a system that runs your business.",
-    lead: "Still running on Excel sheets, paper records, and scattered tools? Desert Launch designs and engineers the custom web platforms, mobile apps, MVPs, and internal systems that replace them — with reliable execution, scalable architecture, and direct communication.",
+    eyebrow: "Software development company · Egypt, the Gulf, Europe & the US",
+    title: "Mobile apps and web platforms, engineered in Cairo.",
+    lead: "Still running on spreadsheets, paper records and disconnected tools? Desert Launch designs and builds the mobile apps, web platforms, MVPs and internal systems that replace them — with a fixed quote before you commit, full code ownership, and a year of support after launch.",
     tags: [
-      "Lead-generation products",
-      "Mobile-first customer experiences",
-      "Operations and admin systems",
+      "iOS & Android apps",
+      "Web platforms & portals",
+      "Internal business systems",
     ],
     primary: {
-      label: "Start Your Project on WhatsApp",
+      label: "Get a Free Quote on WhatsApp",
       href: wa(GENERIC),
       external: true,
     },
-    secondary: { label: "See Our Work", href: "#work" },
+    secondary: { label: "See our work", href: "#work" },
     responseNote:
-      "We reply within 12 hours — usually much faster. Cairo time (GMT+2), English or Arabic.",
-    image: {
-      src: "/assets/image_slot1.webp",
-      alt: "A premium product presentation used to represent modern software delivery.",
+      "Replies within 12 hours, usually much faster. Cairo time (UTC+2/+3). English or Arabic.",
+    showcase: {
+      badge: "Live on the App Store and Google Play",
+      caption: "Q-Fight Gym (Doha) and Al-Muslim — two products you can open right now.",
+      label: "Two Desert Launch apps shown on phone screens",
     },
-    imageCaption:
-      "Web platforms, mobile products, and internal systems built for momentum.",
     proof: [
       {
-        label: "Experience",
-        value: "5+ years",
-        note: "Senior engineering across Egypt, the Gulf, Europe, and the US.",
+        label: "Products shipped",
+        value: "10+",
+        note: "Mobile apps, web platforms and internal systems running in production.",
       },
       {
-        label: "Shipped",
-        value: "10+ products",
-        note: "Web platforms and mobile apps running in production.",
+        label: "Published to both stores",
+        value: "2 apps",
+        note: "Al-Muslim and Q-Fight Gym — store links are on their cards below.",
       },
       {
-        label: "Response time",
-        value: "Within 12 hours",
-        note: "Direct replies on WhatsApp — no account managers, no slow agency loop.",
+        label: "First reply",
+        value: "Under 12h",
+        note: "Direct from the engineer who would build it. No account managers.",
       },
     ],
   },
   work: {
-    kicker: "Selected Work",
-    title:
-      "Recent product capabilities that show the kind of systems Desert Launch builds.",
+    kicker: "Selected work",
+    title: "Mobile apps, platforms and internal systems we have shipped",
     intro:
-      "The work below highlights product thinking, UX quality, and system depth across lead generation, consumer mobile, and engagement-focused experiences.",
-    capabilities: {
-      kicker: "Capabilities",
-      title: "What clients can expect from the build process",
-      body: "Desert Launch handles the practical layers required to ship a serious product, not just the visible interface.",
-      points: [
-        "Product scoping, feature prioritization, and MVP definition.",
-        "Responsive interfaces for web and mobile with conversion-conscious UX.",
-        "Admin dashboards, permissions, workflows, APIs, and integrations.",
-        "Deployment planning, infrastructure setup, launch support, and iteration.",
-      ],
+      "Eight products across consumer mobile, multi-role platforms and private business systems. Where an app is public, the store link is on the card.",
+    attribution:
+      "Every product here was designed and built by our founder, Abdullah Mohamed — across Desert Launch client work and earlier senior engineering roles. Voicers is our own in-house product and is not published yet.",
+    logosLabel: "Products built and shipped by our founder",
+    logosPause: "Pause the product strip",
+    logosPlay: "Play the product strip",
+    moreLabel: "More work — 4 further projects",
+    caseStudyCta: "Read the case study",
+    similarCta: "Build something like this",
+    storeLabels: { appStore: "App Store", googlePlay: "Google Play" },
+    statusLabels: {
+      live: "Live on both stores",
+      delivered: "Delivered to client",
+      inHouse: "In-house · pre-launch",
     },
-    capabilityCards: [
-      {
-        icon: "dashboard",
-        title: "Operational dashboards",
-        body: "Admin systems that help teams manage users, workflows, data, and business operations more efficiently.",
+    projects: {
+      "q-fight-gym": {
+        tag: "Gym booking app · Qatar",
+        logoAlt: "Q-Fight Gym app icon",
+        summary:
+          "The official app for a professional Muay Thai gym in Doha, connecting members to a training programme led by Thai world-title fighters. Members browse plans, pick a trainer and book personal or group sessions without phoning the front desk.",
+        points: [
+          "Published on the App Store and Google Play for a business that runs on it daily.",
+          "Plan browsing, trainer selection, and personal or group session booking in-app.",
+          "Flutter and Firebase with a payment gateway integrated.",
+        ],
+        shotAlts: [
+          "Q-Fight Gym app — training programme screen listing Muay Thai classes",
+          "Q-Fight Gym app — weekly class schedule with available booking slots",
+          "Q-Fight Gym app — membership plans and booking screen",
+        ],
+        waMessage:
+          "Hi Desert Launch, I saw the Q-Fight Gym app on your site and want something similar for my business.",
       },
-      {
-        icon: "productized",
-        title: "Productized mobile experiences",
-        body: "Apps that combine UX clarity, account flows, content delivery, and monetization or engagement systems.",
+      "al-muslim": {
+        tag: "Daily companion app",
+        logoAlt: "Al-Muslim app icon",
+        summary:
+          "A daily Muslim companion: Quran, adhkar and duas, accurate prayer times and qibla direction, with smart reminders that keep it part of the user's day. Built for retention rather than a one-time install.",
+        points: [
+          "Published on the App Store and Google Play.",
+          "Flutter with push notifications and geolocation for accurate prayer times.",
+          "Bilingual Arabic and English with full right-to-left layout.",
+        ],
+        shotAlts: [
+          "Al-Muslim app — prayer times screen with the next prayer countdown",
+          "Al-Muslim app — home screen with adhkar, duas and qibla shortcuts",
+          "Al-Muslim app — Quran reader screen in Arabic",
+        ],
+        waMessage:
+          "Hi Desert Launch, I saw Al-Muslim on your site and want to build a mobile app like it.",
       },
-      {
-        icon: "flows",
-        title: "Integrated business flows",
-        body: "Software that connects customer-facing experiences with internal teams, status tracking, and process visibility.",
+      ezhal: {
+        tag: "Multi-role car-service platform",
+        logoAlt: "Ezhal app icon",
+        summary:
+          "One car-service platform serving three audiences — customers, field technicians and managers — each with its own app, built from a single codebase. Customers book, technicians work the job queue, managers watch it happen.",
+        points: [
+          "Three role-specific apps from one codebase: booking, field jobs and oversight.",
+          "Live technician tracking, subscriptions, wallet, points, stamps and Apple Wallet passes.",
+          "Flutter and Riverpod with MyFatoorah, Stripe and Firebase.",
+        ],
+        shotAlts: [
+          "Ezhal platform — one control layer for customers, managers and employees",
+        ],
+        waMessage:
+          "Hi Desert Launch, I saw Ezhal on your site and want to plan a multi-app platform.",
       },
-      {
-        icon: "scalable",
-        title: "Scalable architecture",
-        body: "Foundations that leave room for new features, integrations, and larger operational needs as businesses grow.",
+      "xera-lab": {
+        tag: "Dental case management platform",
+        logoAlt: "Xera Lab app icon",
+        summary:
+          "A full-stack dental case management platform — a customer portal and an admin dashboard on a Node.js API — built and delivered to the client as a private production system.",
+        points: [
+          "Customer portal plus admin dashboard on one shared platform.",
+          "Node.js and PostgreSQL API with JWT role-based access.",
+          "AWS S3 uploads, Docker Compose and Nginx deployment.",
+        ],
+        shotAlts: [],
+        waMessage:
+          "Hi Desert Launch, I saw Xera Lab on your site and want to build a platform like it.",
       },
-    ],
-    logosLabel: "Products built and shipped by Desert Launch",
-    projects: [
-      {
-        title: "FasTap",
+      fastap: {
         tag: "NFC digital business card",
-        logo: "/assets/logo-fastap.webp",
         logoAlt: "FasTap app icon",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/fastab1.webp", alt: "FasTap app interface preview 1" },
-            { src: "/assets/fastab2.webp", alt: "FasTap app interface preview 2" },
-            { src: "/assets/fastab3.webp", alt: "FasTap app interface preview 3" },
-          ],
-        },
         summary:
           "Tap an NFC card to share a full business profile — it opens on any phone, no install needed. A Flutter app writes profiles to the cards, and a Flutter Web page opens from every tap-to-share link.",
         points: [
@@ -134,265 +169,114 @@ export const en: Dictionary = {
           "Web profile opened directly after an NFC scan.",
           "Deployed with Firebase and Nginx.",
         ],
-        links: [{ label: "Build a similar product", href: "#contact" }],
-      },
-      {
-        title: "Al-Muslim",
-        tag: "Live on both stores",
-        logo: "/assets/logo-almuslim.webp",
-        logoAlt: "Al-Muslim app icon",
-        media: {
-          kind: "cover",
-          shots: [
-            { src: "/assets/almuslim2.webp", alt: "Al-Muslim app interface preview 1" },
-            { src: "/assets/almuslim3.webp", alt: "Al-Muslim app interface preview 2" },
-            { src: "/assets/almuslim4.webp", alt: "Al-Muslim app interface preview 3" },
-          ],
-        },
-        summary:
-          "A daily Muslim companion: Quran, adhkar & duas, accurate prayer times, and qibla direction — with smart reminders that keep it part of the user's day.",
-        points: [
-          "Live on the App Store and Google Play.",
-          "Flutter with notifications and geolocation.",
-          "Built for daily retention and a clean, content-led UX.",
+        shotAlts: [
+          "FasTap app — digital business card profile as a recipient sees it",
+          "FasTap app — profile editor with links, media and contact details",
+          "FasTap app — shared web profile opened from an NFC tap",
         ],
-        links: [
-          {
-            label: "App Store",
-            href: "https://apps.apple.com/us/app/al-muslim-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D9%85/id6757352101",
-            external: true,
-          },
-          {
-            label: "Google Play",
-            href: "https://play.google.com/store/apps/details?id=com.elmuslim.app",
-            external: true,
-          },
-          { label: "Build a mobile app like this", href: "#contact" },
-        ],
+        waMessage:
+          "Hi Desert Launch, I saw FasTap on your site and want to build a similar product.",
       },
-      {
-        title: "Jaweb",
+      jaweb: {
         tag: "Competitive trivia game",
-        logo: "/assets/logo-jaweb.webp",
         logoAlt: "Jaweb app icon",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/jaweb1.png", alt: "Jaweb app interface preview 1" },
-            { src: "/assets/jaweb2.png", alt: "Jaweb app interface preview 2" },
-            { src: "/assets/jaweb3.png", alt: "Jaweb app interface preview 3" },
-          ],
-        },
         summary:
-          "A living-room trivia night turned into a fair, automated product — two teams, six categories, three difficulty levels, referee logic, and automatic scoring.",
+          "A living-room trivia night turned into a fair, automated product — two teams, six categories, three difficulty levels, referee logic and automatic scoring.",
         points: [
           "Full game flow with team-based scoring and referee logic.",
           "Monetization through MyFatoorah payments.",
           "Flutter with clean architecture for repeated play.",
         ],
-        links: [{ label: "Plan an interactive product", href: "#contact" }],
-      },
-      {
-        title: "Q-Fight Gym",
-        tag: "Live on both stores · Qatar",
-        logo: "/assets/logo-qfightgym.webp",
-        logoAlt: "Q-Fight Gym app icon",
-        media: {
-          kind: "cover",
-          shots: [
-            { src: "/assets/qfightgym1.webp", alt: "Q-Fight Gym app — training program screen" },
-            { src: "/assets/qfightgym2.webp", alt: "Q-Fight Gym app — class schedule screen" },
-            { src: "/assets/qfightgym3.webp", alt: "Q-Fight Gym app — membership screen" },
-          ],
-        },
-        summary:
-          "The official app for a professional Muay Thai gym in Qatar, connecting members with a training program led by Thai world-title fighters.",
-        points: [
-          "Live on the App Store and Google Play for a real operating business.",
-          "Plan browsing, personal and group session booking with a chosen trainer, and in-app class scheduling.",
-          "Flutter and Firebase with payment integration.",
+        shotAlts: [
+          "Jaweb app — game setup screen with team names and question categories",
         ],
-        links: [
-          {
-            label: "App Store",
-            href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
-            external: true,
-          },
-          {
-            label: "Google Play",
-            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
-            external: true,
-          },
-          { label: "Build an app for your business", href: "#contact" },
-        ],
+        waMessage:
+          "Hi Desert Launch, I saw Jaweb on your site and want to plan an interactive product.",
       },
-      {
-        title: "Xera Lab",
-        tag: "Dental case management platform",
-        logo: "/assets/logo-xeralab.webp",
-        logoAlt: "Xera Lab app icon",
-        media: {
-          kind: "stack",
-          stack: ["Flutter Web", "Node.js", "PostgreSQL", "Docker", "AWS"],
-        },
-        summary:
-          "A full-stack dental case management platform — a customer portal and admin dashboard on a Node.js API — built and delivered to the client as a private production system.",
-        points: [
-          "Customer portal plus admin dashboard on a shared platform.",
-          "Node.js and PostgreSQL API with JWT role-based access.",
-          "AWS S3 uploads, Docker Compose, and Nginx deployment.",
-        ],
-        links: [{ label: "Build a platform like this", href: "#contact" }],
-      },
-      {
-        title: "Ezhal",
-        tag: "Multi-tenant car-service platform",
-        logo: "/assets/logo-ezhal.webp",
-        logoAlt: "Ezhal app icon",
-        media: {
-          kind: "contain",
-          shots: [{ src: "/assets/ezhal1.webp", alt: "Ezhal platform interface preview" }],
-        },
-        summary:
-          "One car-service platform serving three audiences — customers, field employees, and managers — each with its own app, built from a single codebase.",
-        points: [
-          "Three role-specific apps: booking for customers, jobs for technicians, oversight for managers.",
-          "Live technician tracking, subscriptions, wallet, points, stamps, and Apple Wallet passes.",
-          "Flutter and Riverpod with MyFatoorah, Stripe, and Firebase.",
-        ],
-        links: [{ label: "Plan a multi-app platform", href: "#contact" }],
-      },
-      {
-        title: "ICCD Hub",
-        tag: "Community & productivity app",
-        logo: "/assets/logo-iccd.webp",
+      "iccd-hub": {
+        tag: "Members' app for an international organisation",
         logoAlt: "ICCD Hub app icon",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/iccd1.webp", alt: "ICCD Hub app interface preview 1" },
-            { src: "/assets/iccd2.webp", alt: "ICCD Hub app interface preview 2" },
-            { src: "/assets/iccd3.webp", alt: "ICCD Hub app interface preview 3" },
-          ],
-        },
         summary:
-          "A bilingual members' companion app for the Islamic Corporation for the Development of the Private Sector, pairing organizational content with a personal productivity suite.",
+          "A bilingual members' companion app for the Islamic Corporation for the Development of the Private Sector, pairing organisational content with a personal productivity suite.",
         points: [
-          "Events, member countries, subsidiaries, and a knowledge center in one place.",
-          "Tasks, notes, calendar, and reminders alongside prayer times, qibla, and a Hijri calendar.",
-          "Google and Apple sign-in, Firebase push, deep linking, and full EN/AR RTL support.",
+          "Events, member countries, subsidiaries and a knowledge centre in one place.",
+          "Tasks, notes, calendar and reminders alongside prayer times, qibla and a Hijri calendar.",
+          "Google and Apple sign-in, Firebase push, deep linking and full EN/AR right-to-left support.",
         ],
-        links: [{ label: "Build an app for your organization", href: "#contact" }],
+        shotAlts: [
+          "ICCD Hub app — events and networking screen",
+          "ICCD Hub app — business resources library",
+          "ICCD Hub app — community engagement screen",
+        ],
+        waMessage:
+          "Hi Desert Launch, I saw ICCD Hub on your site and want an app for my organisation.",
       },
-      {
-        title: "Voicers",
-        tag: "Social audio platform · in-house build",
-        logo: "/assets/logo-voicers.webp",
+      voicers: {
+        tag: "Social audio platform",
         logoAlt: "Voicers app icon",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/voicers1.webp", alt: "Voicers app interface preview 1" },
-            { src: "/assets/voicers2.webp", alt: "Voicers app interface preview 2" },
-            { src: "/assets/voicers3.webp", alt: "Voicers app interface preview 3" },
-          ],
-        },
         summary:
-          "A bilingual social audio platform for creators — voice notes, playlists, and live stages, with a discovery feed that turns listeners into an audience.",
+          "A bilingual social audio platform for creators — voice notes, playlists and live stages, with a discovery feed that turns listeners into an audience. Built in-house as our own product; not published.",
         points: [
-          "Voice notes (VNotes), playlists, and live audio stages.",
-          "Competitions, leaderboards, and a discovery feed built for engagement.",
-          "Flutter on clean architecture — our own product, not yet published.",
+          "Voice notes, playlists and live audio stages.",
+          "Competitions, leaderboards and a discovery feed built for engagement.",
+          "Flutter on clean architecture. Our own product, available to demo on a call.",
         ],
-        links: [{ label: "Plan a product like this", href: "#contact" }],
+        shotAlts: [
+          "Voicers app — discovery feed of voice notes from creators",
+          "Voicers app — live audio stage with speakers and listeners",
+          "Voicers app — creator profile with voice-note playlists",
+        ],
+        waMessage:
+          "Hi Desert Launch, I saw Voicers on your site and want to plan a product like it.",
       },
-    ],
-    redesigns: {
-      title: "Website Redesign Concepts",
-      intro:
-        "Modern, mobile-first redesigns we've prepared for real businesses — showing the before/after of a faster, clearer site.",
-      cards: [
-        {
-          label: "Real Estate — Ajman",
-          title: "Landmark Properties — Redesign Concept",
-          summary:
-            "A mobile-first property site replacing outdated demo listings with real, searchable local listings, fast load, and WhatsApp enquiry on every property.",
-          points: [
-            "Mobile-first, fast-loading layout",
-            "Searchable property listings",
-            "Clear enquiry + WhatsApp CTAs",
-          ],
-          image: {
-            src: "/assets/redesign-landmark.jpg",
-            alt: "Landmark Properties website redesign concept",
-          },
-        },
-        {
-          label: "Interior / Fit-Out — Ajman",
-          title: "Ayyath Interiors — Redesign Concept",
-          summary:
-            "A clean fit-out portfolio site with a real projects gallery, working contact details, and a clear 'Get a quote' path — replacing an outdated, broken template.",
-          points: [
-            "Projects gallery that sells the work",
-            "Working click-to-call + WhatsApp",
-            "Clear 'Get a quote' CTA",
-          ],
-          image: {
-            src: "/assets/redesign-ayyath.jpg",
-            alt: "Ayyath Interiors website redesign concept",
-          },
-        },
-      ],
     },
   },
   services: {
     kicker: "Services",
-    title: "Software services designed for growth, efficiency, and faster delivery.",
+    title: "Mobile app, web and MVP development services",
     intro:
-      "Desert Launch helps businesses move from idea to execution with clean design, scalable engineering, and practical product thinking.",
-    items: [
-      {
-        icon: "web",
-        title: "Custom Web Development",
-        body: "Business websites, client portals, dashboards, and web apps built for performance and conversion.",
+      "Six things we build. Every one comes with a fixed quote in USD, milestone payments, full code ownership and a year of support.",
+    items: {
+      mobile: {
+        title: "Mobile app development",
+        body: "One Flutter codebase published to both the App Store and Google Play. Accounts, payments, push notifications and offline behaviour are part of the build, not a phase two.",
+        deliverable: "A published iOS and Android app in your own developer accounts.",
+        timeline: "2–4 months",
       },
-      {
-        icon: "mobile",
-        title: "Mobile App Development",
-        body: "Cross-platform and native-feeling mobile products with polished UX and reliable integrations.",
+      web: {
+        title: "Web development",
+        body: "Business websites, client portals, admin dashboards and full web platforms — built for speed, search and the one action you need visitors to take.",
+        deliverable: "A live site or platform on your hosting, which you can extend.",
+        timeline: "2 weeks – 3 months",
       },
-      {
-        icon: "uiux",
-        title: "UI/UX Design",
-        body: "Interfaces that make products easier to understand, easier to use, and easier to convert from.",
+      mvp: {
+        title: "MVP development",
+        body: "The smallest version that proves the idea with real users, on an architecture that survives the next three features instead of being thrown away.",
+        deliverable: "A working product in front of real users, and what to build next.",
+        timeline: "1–2 months",
       },
-      {
-        icon: "architecture",
-        title: "System Architecture",
-        body: "The technical foundation that keeps your software fast and cheap to extend — so adding a feature next year doesn't mean rebuilding.",
+      design: {
+        title: "UI/UX design",
+        body: "Screens and flows designed and agreed before they are built, so the booking, the order or the sign-up actually gets finished.",
+        deliverable: "Clickable screens you approve before development starts.",
+        timeline: "1–3 weeks",
       },
-      {
-        icon: "mvp",
-        title: "MVP Development",
-        body: "Focused first versions that prove the concept quickly without compromising future maintainability.",
+      modernize: {
+        title: "Rebuilds & modernization",
+        body: "Take over a slow, broken or abandoned product. We read the existing code first and tell you honestly whether to fix it or rebuild it.",
+        deliverable: "A written verdict on the current code, then the work itself.",
+        timeline: "From 2 weeks",
       },
-      {
-        icon: "website",
-        title: "Business Website Development",
-        body: "Professional company websites built to explain value quickly and turn traffic into qualified leads.",
+      consulting: {
+        title: "Technical consulting & architecture",
+        body: "A second opinion before you hire, an architecture review before you scale, or a delivery plan you can hand to any team.",
+        deliverable: "A written recommendation you own, whoever ends up building it.",
+        timeline: "2–5 days",
       },
-      {
-        icon: "modernize",
-        title: "Product Modernization",
-        body: "Redesign and rebuild outdated products to improve performance, clarity, and business impact.",
-      },
-      {
-        icon: "consulting",
-        title: "Technical Consulting",
-        body: "Clear technical direction for product decisions, delivery planning, architecture, and next steps.",
-      },
-    ],
-    stackLabel: "Core Stack",
+    },
+    learnMore: "Service details",
+    timelineLabel: "Typical",
+    stackLabel: "Core stack",
     stack: [
       "Flutter",
       "Flutter Web",
@@ -404,108 +288,115 @@ export const en: Dictionary = {
       "Stripe, MyFatoorah & PayTabs",
     ],
     primary: {
-      label: "Get a Free Consultation on WhatsApp",
-      href: wa(GENERIC),
+      label: "Get a Free Quote on WhatsApp",
+      href: wa(
+        "Hi Desert Launch, I'm looking at your services and would like a free quote."
+      ),
       external: true,
     },
-    ghost: { label: "Email Your Requirements", href: MAILTO },
+    secondary: { label: "Send a Brief by Email", href: MAILTO },
   },
   why: {
     kicker: "Why Desert Launch",
-    title:
-      "A software partner that thinks about delivery, scalability, and business outcomes.",
+    title: "Why businesses in Egypt and the Gulf hire Desert Launch",
     intro:
-      "The goal is not just to ship code. The goal is to build the right product, reduce friction, and give your business a digital system you can actually rely on.",
+      "Four commitments written into every engagement. Not adjectives about how modern the code is.",
     features: [
       {
-        icon: "reliability",
-        title: "Built for reliability",
-        body: "Clean implementation, scalable structure, and engineering decisions that support long-term growth.",
+        icon: "quote",
+        title: "A fixed quote before you commit",
+        body: "A written price in USD after a free scope call. No hourly billing, no change-order surprises, and an honest answer if a smaller build reaches your goal.",
       },
       {
-        icon: "business",
-        title: "Business-oriented execution",
-        body: "Every screen, workflow, and integration is evaluated against clarity, efficiency, and conversion.",
+        icon: "ownership",
+        title: "You own the code and the accounts",
+        body: "Code, intellectual property, hosting and store accounts are in your name from day one. If we stop working together, nothing of yours leaves with us.",
       },
       {
-        icon: "tailored",
-        title: "Tailored, not templated",
-        body: "Solutions are shaped around your business model, workflows, audience, and growth stage.",
+        icon: "support",
+        title: "A year of support, included",
+        body: "Twelve months of bug fixes, OS and store updates and keeping it running. The first three months include small changes and tweaks too.",
       },
       {
-        icon: "communication",
-        title: "Clear communication",
-        body: "Direct conversations, fast responses, practical planning, and steady progress from kickoff to launch.",
+        icon: "direct",
+        title: "You talk to the engineer",
+        body: "No account managers between you and the person writing the code. Replies on WhatsApp within 12 hours, in English or Arabic.",
       },
     ],
     founder: {
-      kicker: "Who You're Working With",
+      kicker: "Who you're working with",
       name: "Abdullah Mohamed",
       role: "Founder & Lead Engineer",
-      body: "Senior software engineer with 5+ years shipping production web and mobile products for clients across Egypt, the Gulf, Europe, and the US. Based in Cairo — when you message Desert Launch, you talk directly to the person building your product.",
+      body: "Senior software engineer with 5+ years shipping production web and mobile products for clients across Egypt, the Gulf, Europe and the US. Based in Cairo — when you message Desert Launch, you are talking to the person who will build your product.",
       photo: "/assets/founder.webp",
       photoAlt: "Abdullah Mohamed, founder of Desert Launch",
-      facts: ["Cairo, Egypt", "5+ years experience", "10+ apps shipped"],
-    },
-    buildPlan: {
-      kicker: "What You Get",
-      heading: "A sharper build plan before the heavy development starts.",
-      body: "Every engagement is framed around product clarity, technical practicality, and the fastest route to a reliable launch.",
-      points: [
-        "Clear scope definition before implementation expands unnecessarily.",
-        "UX, architecture, and business goals shaped together instead of in isolation.",
-        "A launch path that stays usable for both founders and growing teams.",
+      facts: [
+        "Cairo, Egypt",
+        "5+ years in production",
+        "Flutter · Node.js · PostgreSQL",
       ],
+      moreLabel: "More about how we work",
     },
     band: {
-      kicker: "How Engagements Start",
-      body: "Most projects begin with a short scope review, a recommendation on the clearest build path, and a practical next step for delivery.",
+      kicker: "How engagements start",
+      body: "Most projects begin with a free scope call: you describe the problem, we tell you what it would take and whether a smaller build gets you there. You get a written fixed quote and a milestone plan before you pay anything.",
       points: [
-        "You own the code and infrastructure",
-        "Fixed scope quoted before any commitment",
-        "Launch planning from the start",
+        "Free scope call",
+        "Written fixed quote in USD",
+        "30% upfront, the rest per milestone",
       ],
-      cta: { label: "Get a Free Scope Review", href: "#contact" },
+      cta: {
+        label: "Get a Free Quote on WhatsApp",
+        href: wa("Hi Desert Launch, I'd like to book a free scope call."),
+        external: true,
+      },
     },
   },
   process: {
     kicker: "Process",
-    title: "A simple process that keeps projects clear and moving.",
+    title: "How a project runs, from first message to a year of support",
     intro:
-      "Fast response times matter, but so does structure. The workflow below is designed to reduce ambiguity and keep both scope and delivery under control.",
+      "Five steps. Each one ends with something you can see, and nothing is paid before you have seen the step before it.",
+    deliverableLabel: "You get",
     steps: [
       {
         n: "1",
-        title: "Discover",
-        body: "Understand the business, goals, users, and project constraints before building anything.",
+        title: "Scope call",
+        body: "A free call about how the business runs today, who will use the system and what has to be true on launch day.",
+        deliverable: "A written scope summary and an honest go or no-go.",
       },
       {
         n: "2",
-        title: "Plan",
-        body: "Define scope, technical direction, milestones, and the clearest path to launch.",
+        title: "Quote",
+        body: "A fixed price in USD, a milestone plan and a date. Nothing starts until you approve it in writing and pay the 30% deposit.",
+        deliverable: "A fixed quote and a milestone schedule.",
       },
       {
         n: "3",
         title: "Build",
-        body: "Ship the product in structured phases with attention to UX, quality, and scalability.",
+        body: "You see working software at every milestone, not screenshots. Updates on WhatsApp as the work moves, and questions answered the same day.",
+        deliverable: "A build you can open and use at each milestone.",
       },
       {
         n: "4",
         title: "Launch",
-        body: "Prepare deployment, review final flows, and release with confidence and visibility.",
+        body: "Store submission, hosting, domains and analytics, all set up in your own accounts. We handle store review feedback until it is live.",
+        deliverable: "A published app or a live platform, in your name.",
       },
       {
         n: "5",
         title: "Support",
-        body: "We don't disappear after launch — every project includes a full year of free support and maintenance.",
+        body: "Twelve months of free support and maintenance. The first three months include small changes and updates as well.",
+        deliverable: "A year of fixes and updates at no extra cost.",
       },
     ],
   },
   testimonials: {
-    kicker: "What People Say",
-    title: "Engineers and leads who've shipped with our founder, in their own words.",
+    kicker: "Peer recommendations",
+    title: "What senior engineers say about working with our founder",
     intro:
-      "Public LinkedIn recommendations for Abdullah Mohamed — the engineer who personally builds every Desert Launch project. Real names, real roles, no paid reviews.",
+      "Public LinkedIn recommendations for Abdullah Mohamed from engineers and leads he has worked alongside. These are colleague endorsements, not client reviews — the client work is in the portfolio above.",
+    sourceLabel: "LinkedIn recommendation",
     items: [
       {
         quote:
@@ -530,201 +421,173 @@ export const en: Dictionary = {
       },
     ],
   },
-  plans: {
-    kicker: "Plans & Pricing",
-    title: "Fixed-scope plans for defined products. Custom proposals for bigger systems.",
-    intro:
-      "Every plan starts with a free scope call and a written fixed quote in USD — scope, timeline, and price agreed before any payment. Payments are milestone-based: 30% upfront, the rest as you see working software. Every build includes a year of free support.",
-    items: [
-      {
-        name: "Business Website",
-        body: "A professional company website built to explain your value fast and turn visitors into WhatsApp and email leads.",
-        points: [
-          "Design, build, and launch — typically a few weeks.",
-          "Fast, mobile-first, and search-ready from day one.",
-          "One year of free support and three months of free adjustments.",
-        ],
-        price: { main: "Fixed USD quote", sub: "Written quote after a free scope call" },
-        cta: {
-          label: "Discuss a website",
-          href: wa(
-            "Hi Desert Launch, I want a business website. Can we talk about scope and a quote?"
-          ),
-          external: true,
-        },
-      },
-      {
-        name: "Mobile App",
-        note: "Most popular",
-        body: "A cross-platform mobile app for iOS and Android from one Flutter codebase — designed, built, and published to both stores.",
-        points: [
-          "App Store and Google Play submission included.",
-          "Typically two to four months, milestone by milestone.",
-          "You own the code, the IP, and the store accounts.",
-        ],
-        price: { main: "Fixed USD quote", sub: "Written quote after a free scope call" },
-        cta: {
-          label: "Discuss a mobile app",
-          href: wa(
-            "Hi Desert Launch, I want to build a mobile app. Can we talk about scope and a quote?"
-          ),
-          external: true,
-        },
-      },
-      {
-        name: "MVP Sprint",
-        note: "For new ideas",
-        body: "A focused first version of your product that proves the concept with real users — without spending a full product budget to find out.",
-        points: [
-          "Ruthless feature prioritization around one core outcome.",
-          "A launch-ready core, typically within one to two months.",
-          "An architecture that grows into the full product later.",
-        ],
-        price: { main: "Fixed USD quote", sub: "Written quote after a free scope call" },
-        cta: {
-          label: "Scope an MVP",
-          href: wa("Hi Desert Launch, I have a product idea and want to scope an MVP."),
-          external: true,
-        },
-      },
-      {
-        name: "Custom & Enterprise",
-        note: "For larger businesses",
-        body: "Larger platforms, internal systems, integrations, and ongoing product partnership — shaped around your operation, not a package.",
-        points: [
-          "Custom scope: platforms, dashboards, APIs, and integrations.",
-          "Optional monthly retainer with reserved engineering capacity.",
-          "Priority response on WhatsApp when something matters.",
-        ],
-        price: { main: "Custom proposal", sub: "Tailored after we understand your operation" },
-        cta: {
-          label: "Request a proposal",
-          href: wa(
-            "Hi Desert Launch, we need a custom system for our business. Can we set up a call?"
-          ),
-          external: true,
-        },
-      },
-    ],
-  },
   faq: {
     kicker: "FAQ",
-    title: "Straight answers to the questions every first-time software buyer has.",
+    title: "Software development FAQ: cost, timeline, ownership and support",
     intro:
-      "If your question isn't here, ask it on WhatsApp — you'll get a direct answer, not a sales pitch.",
+      "The questions every first-time software buyer asks. If yours isn't here, ask it on WhatsApp — you'll get a direct answer, not a sales pitch.",
+    updated: `Last updated ${CONTENT_UPDATED}`,
     items: [
       {
         q: "How much does a project cost?",
-        a: "Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise invoices. The price depends on scope and complexity, and we'll tell you honestly if a smaller build can reach your goal.",
+        a: "Every project gets a fixed quote in USD after a free scope call — no hourly billing and no surprise invoices. The price depends on scope and complexity: a business website is the smallest engagement we take, a full mobile product with payments and accounts the largest. Tell us the budget you have in mind and we will tell you honestly what fits inside it, or whether a smaller build reaches the same goal.",
       },
       {
         q: "How long will my project take?",
-        a: "It depends on scope and complexity: a business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before we start — and you see working software at every milestone.",
+        a: "A business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before we start, and you see working software at every milestone.",
       },
       {
         q: "What happens after launch?",
-        a: "You get a full year of free support and maintenance, plus three months of free small adjustments and updates. After that, an ongoing retainer is available if you want us to keep improving the product — but nothing breaks if you don't take it.",
+        a: "Twelve months of free support and maintenance: bug fixes, operating-system and app-store updates, and keeping the product running. In the first three months, small changes and tweaks are free as well. After that a monthly retainer is optional — nothing stops working if you skip it.",
       },
       {
         q: "Who owns the code?",
-        a: "You do. Full ownership of the code, the intellectual property, and the infrastructure accounts — everything is delivered in your name, so you are never locked in to us.",
+        a: "You do. Full ownership of the code, the intellectual property and the infrastructure and store accounts — everything is created in your name from the start, so you are never locked in to us.",
       },
       {
         q: "How do payments work?",
-        a: "Projects are split into three or four milestones. You pay 30% upfront and the rest per delivered milestone — you always see working software before the next payment is due.",
+        a: "Projects are split into three or four milestones. You pay 30% upfront and the rest per delivered milestone. You always see working software before the next payment is due, and a milestone is not accepted until you say it is.",
+      },
+      {
+        q: "Will you sign an NDA?",
+        a: "Yes. Send yours before the scope call, or we will provide a simple mutual one. We do not need your data or your accounts to quote — a description of the problem is enough.",
+      },
+      {
+        q: "Who actually does the work?",
+        a: "Abdullah builds every Desert Launch project personally — the same person you message on WhatsApp writes the code. Nothing is handed to a subcontractor you never meet. If a project needs a specialist, you are told who and why before they start.",
       },
       {
         q: "We're not technical. Is that a problem?",
-        a: "Not at all — most of our clients aren't. We explain decisions in plain business language, handle the technical choices for you, and communicate in English or Arabic on WhatsApp.",
+        a: "Not at all — most of our clients aren't. We explain decisions in plain business language, make the technical choices for you, and communicate in English or Arabic on WhatsApp.",
       },
       {
-        q: "Do you work with clients in Saudi Arabia, the UAE, and the Gulf?",
-        a: "Yes — Desert Launch works with clients across Egypt, Saudi Arabia, the UAE, Qatar, and Kuwait, as well as Europe and the US. We work in your timezone (Cairo, GMT+2 — one hour from the Gulf), communicate in Arabic or English on WhatsApp, and have shipped apps for Gulf businesses, including a live App Store product for a gym in Qatar.",
+        q: "Flutter or native iOS and Android?",
+        a: "Flutter, in almost every case. One codebase ships to both stores, which roughly halves the build and the ongoing maintenance cost, and for the apps most businesses need the result is indistinguishable from native. If your product depends on something Flutter cannot reach well, we will say so and quote native instead.",
+      },
+      {
+        q: "Can you take over an existing app or website?",
+        a: "Yes. We start with a short code review and give you a written verdict: fix it, refactor it, or rebuild it. Sometimes the honest answer is that the code is fine and the problem is elsewhere — you get that answer too.",
+      },
+      {
+        q: "What does it cost to run after launch?",
+        a: "Hosting and services are billed to you directly in your own accounts, so you always see the real cost: typically a small monthly bill for Firebase or a server, plus the Apple Developer Program at $99 a year and Google Play's one-time $25 registration if you are publishing an app. We estimate the running cost in the quote so there are no surprises.",
+      },
+      {
+        q: "Do you build Arabic and right-to-left apps?",
+        a: "Yes, and we ship them regularly. Al-Muslim, ICCD Hub and Voicers all run bilingual Arabic and English interfaces with full right-to-left layout, Arabic typography and Hijri dates. This website is another one.",
+      },
+      {
+        q: "Do you work with clients in Saudi Arabia, the UAE and the Gulf?",
+        a: "Yes. Desert Launch works with clients across Egypt, Saudi Arabia, the UAE, Qatar and Kuwait, as well as Europe and the US. We work from Cairo (UTC+2 in winter, UTC+3 in summer), which is within an hour of every Gulf capital, communicate in Arabic or English on WhatsApp, and have shipped for Gulf businesses — including a live App Store and Google Play product for a gym in Doha.",
       },
       {
         q: "Why hire a software company in Egypt?",
-        a: "You get senior engineering at Egyptian rates — typically well below Western European and US agency prices for the same scope — without the offshore downsides: same or near timezone for the Gulf and Europe, native Arabic plus fluent English, and a direct line to the engineer building your product instead of a layered account team.",
+        a: "You get senior engineering at Egyptian rates — typically well below Western European and US agency prices for the same scope — without the usual offshore downsides: the same or near timezone for the Gulf and Europe, native Arabic plus fluent English, and a direct line to the engineer building your product instead of a layered account team.",
       },
     ],
   },
   contact: {
-    kicker: "Get Started",
-    title:
-      "Tell us how your business runs today. We'll show you what a system could replace.",
+    kicker: "Get started",
+    title: "Tell us how your business runs today",
     intro:
-      "Share your product idea, current system, or business requirement. WhatsApp is the fastest route for a direct conversation. Email works well for detailed briefs, documents, and longer project outlines.",
+      "Describe the product idea, the current system or the process that keeps breaking. WhatsApp is the fastest route to a direct conversation; email suits longer briefs and documents.",
     highlights: [
-      "Get a clearer recommendation on product scope, structure, and launch path.",
-      "Use the form to send the essentials without writing a long email from scratch.",
-      "Move directly from idea to a practical next step and channel for discussion.",
+      "A recommendation on scope and the fastest route to launch — free, before any commitment.",
+      "A fixed quote in USD, so you know the number before you decide.",
+      "Nothing is stored on this site: the form drafts a message and hands it to WhatsApp or your email app.",
     ],
-    primary: { label: "Start on WhatsApp", href: wa(GENERIC), external: true },
-    secondary: { label: "Request a Consultation by Email", href: MAILTO },
+    primary: { label: "Get a Free Quote on WhatsApp", href: wa(GENERIC), external: true },
+    secondary: { label: "Send a Brief by Email", href: MAILTO },
     arabicNote: "نتحدث العربية — راسلنا على واتساب بالعربية أو الإنجليزية.",
-    image: {
-      src: "/assets/image_slot3.webp",
-      alt: "A premium desk setup representing project planning and communication.",
-    },
-    imageCaption: "Send the brief once. Continue on WhatsApp or email.",
     direct: {
-      heading: "Share a Project Brief",
-      body: "Send the core details here and open the brief directly in WhatsApp or email.",
-      whatsapp: { label: "WhatsApp", value: "+20 102 283 8534" },
-      email: { label: "Email", value: "abdullah@desertlaunch.dev" },
+      heading: "Talk to us directly",
+      body: "Prefer to skip the form? These reach the same person.",
+      whatsapp: { label: "WhatsApp", value: PHONE_DISPLAY },
+      email: { label: "Email", value: EMAIL },
+      phone: { label: "Phone", value: PHONE_DISPLAY },
+      location: { label: "Based in", value: "Cairo, Egypt" },
+      hours: { label: "Response", value: "Within 12 hours · Cairo time (UTC+2/+3)" },
     },
     form: {
+      heading: "Send a project brief",
+      body: "Five fields. It drafts the message and opens it in WhatsApp or your email app — nothing is sent from this page.",
       name: "Your name",
       namePlaceholder: "Name",
-      company: "Company or brand",
-      companyPlaceholder: "Company or brand",
-      projectType: "Project type",
-      projectTypePlaceholder: "Select a type",
+      reply: "Email or phone",
+      replyPlaceholder: "you@company.com",
+      replyHelp: "So we can reply if WhatsApp doesn't reach you.",
+      projectType: "What do you need?",
+      projectTypePlaceholder: "Select one",
       projectTypeOptions: [
+        "Mobile app (iOS & Android)",
         "Business website",
-        "Web platform",
-        "Mobile app",
-        "MVP",
-        "Internal system",
-        "Product redesign",
+        "Web platform or portal",
+        "Internal / admin system",
+        "MVP for a new product",
+        "Rebuild of an existing product",
+        "Not sure yet",
       ],
+      budget: "Budget range (USD)",
+      budgetPlaceholder: "Select a range",
+      budgetOptions: [
+        "Under $3,000",
+        "$3,000 – $8,000",
+        "$8,000 – $20,000",
+        "Over $20,000",
+        "Not sure yet",
+      ],
+      budgetHelp: "A range is enough. It tells us what is realistic before we quote.",
       timeline: "Timeline",
       timelinePlaceholder: "Select a timeline",
-      timelineOptions: ["ASAP", "Within 1 month", "1 to 3 months", "3+ months"],
-      summary: "Project summary",
+      timelineOptions: [
+        "As soon as possible",
+        "Within 1 month",
+        "1 to 3 months",
+        "More than 3 months",
+      ],
+      summary: "What are you building?",
       summaryPlaceholder:
-        "What are you building, who is it for, and what do you need help with?",
-      submitWhatsapp: "Open Brief in WhatsApp",
-      submitEmail: "Open Brief in Email",
-      note: "Nothing is stored or sent until you hit send — the form just drafts your message and opens it in WhatsApp or email.",
-      draftIntro: "Hello Desert Launch,\n\nI want to discuss a project brief.",
+        "What should it do, who is it for, and what is broken about the way it works today?",
+      requiredMark: "required",
+      optionalMark: "optional",
+      submitWhatsapp: "Open brief in WhatsApp",
+      submitEmail: "Open brief in email",
+      sending: "Opening…",
+      opened: "Your brief is ready. Send the message that just opened.",
+      blocked: "Your browser blocked the pop-up.",
+      blockedLink: "Open WhatsApp manually",
+      errors: {
+        heading: "Check these fields before sending:",
+        name: "Please add your name.",
+        reply: "Please add an email address or a phone number.",
+        summary: "Please describe what you are building, in a sentence or two.",
+      },
+      note: "Nothing is stored or sent until you hit send in WhatsApp or your email app.",
+      draftIntro: "Hello Desert Launch,\n\nHere is a brief for a project.",
       draftLabels: {
         name: "Name",
-        company: "Company",
+        reply: "Contact",
         projectType: "Project type",
+        budget: "Budget range",
         timeline: "Timeline",
-        summary: "Project summary",
+        summary: "What we're building",
       },
       emailSubject: "Project brief — Desert Launch",
     },
   },
   footer: {
-    tagline: "Software house for serious digital products",
+    tagline: "Software house — Cairo, Egypt",
     blurb:
-      "Desert Launch helps businesses launch websites, platforms, mobile apps, and internal systems with a clear delivery process and direct communication.",
+      "Desert Launch builds mobile apps, web platforms and internal systems for businesses in Egypt, the Gulf, Europe and the US.",
     copyright: "© 2026 Desert Launch. All rights reserved.",
     navHeading: "Navigate",
     navLinks: [
-      {
-        label: "Our Work",
-        sub: "Apps live on the App Store and Google Play",
-        href: "#work",
-      },
+      { label: "Work", sub: "Products live on the App Store and Google Play", href: "#work" },
       { label: "Services", sub: "What Desert Launch builds", href: "#services" },
-      {
-        label: "Plans & Pricing",
-        sub: "Fixed-scope plans and custom proposals",
-        href: "#plans",
-      },
+      { label: "Why us", sub: "Fixed quote, code ownership, a year of support", href: "#why-us" },
+      { label: "Process", sub: "From scope call to launch in five steps", href: "#process" },
+      { label: "FAQ", sub: "Cost, timeline, ownership and support", href: "#faq" },
+      { label: "Contact", sub: "Send a brief or message on WhatsApp", href: "#contact" },
     ],
     langHeading: "This page in other languages",
     contactHeading: "Contact",
@@ -736,9 +599,57 @@ export const en: Dictionary = {
       "Fastest way to discuss a new project",
       "Best for detailed briefs and requirements",
     ],
-    note: "Use the contact section above to send a structured brief and continue the conversation in the channel that suits you.",
+    identity: {
+      heading: "Desert Launch",
+      body: "An independent software studio based in Cairo, Egypt. Every project is designed and built by Abdullah Mohamed.",
+      addressLabel: "Address",
+      address: "Cairo, Egypt",
+      links: [
+        { label: "Privacy", slug: "privacy" },
+        { label: "Engagement terms", slug: "terms" },
+        { label: "About", slug: "about" },
+      ],
+    },
+    note: "Send a brief from the contact section above and continue the conversation on WhatsApp or by email.",
+  },
+  a11y: {
+    home: "Desert Launch — home",
+    primaryNav: "Primary",
+    mobileNav: "Mobile primary",
+    footerNav: "Footer",
+    breadcrumb: "Breadcrumb",
+    proofPoints: "Key proof points",
+    heroTags: "What Desert Launch builds",
+    techStack: "Core technology stack",
+    projectStack: "Technology stack",
+    founderPanel: "Who you're working with",
+    founderFacts: "Founder facts",
+    engagementPoints: "How engagements start",
+    briefBenefits: "What you get from a brief",
+    companySummary: "Company summary",
+    quickNav: "Quick navigation",
+    directContact: "Direct contact",
+    newTab: "opens in a new tab",
+  },
+  common: {
+    home: "Home",
+    servicesLabel: "Services",
+    workLabel: "Work",
+    readCaseStudy: "Read the case study",
+    allWork: "See all work",
+    allServices: "All services",
+    relatedWork: "Related work",
+    relatedServices: "Related services",
+    faqHeading: "Common questions",
+    onThisPage: "On this page",
+    published: "Published",
+    lastUpdated: "Last updated",
+    backHome: "Back to the home page",
+    notFound: {
+      title: "This page doesn't exist",
+      body: "The link may be out of date. Everything on the site is one step away.",
+    },
   },
   floatingWhatsApp: "WhatsApp",
   skipToContent: "Skip to content",
-  backToTop: "Back to top",
 };

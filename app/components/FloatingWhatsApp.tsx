@@ -1,5 +1,13 @@
 import type { Dictionary } from "@/app/data/types";
 
+/** Persistent WhatsApp shortcut, mobile only.
+ *
+ *  On desktop the sticky header already carries the primary call to action, so
+ *  a floating button there was a fourth competing CTA in the first viewport and
+ *  covered body copy on every long section. It is hidden from 901px up (see
+ *  `globals.css`), sits inside the iOS home-indicator safe area, and the page
+ *  reserves room for it at the bottom so it never lands on text.
+ */
 export function FloatingWhatsApp({ t }: { t: Dictionary }) {
   return (
     <a
@@ -7,9 +15,11 @@ export function FloatingWhatsApp({ t }: { t: Dictionary }) {
       target="_blank"
       rel="noreferrer"
       className="floating-wa"
-      aria-label={`${t.floatingWhatsApp} — Desert Launch`}
+      data-evt="whatsapp_click"
+      data-evt-placement="floating"
+      aria-label={`${t.floatingWhatsApp} — Desert Launch (${t.a11y.newTab})`}
     >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
         <path
           d="M12 4a8 8 0 0 0-6.9 12.05L4 20l4.11-1.07A8 8 0 1 0 12 4Z"
           stroke="currentColor"
@@ -21,7 +31,7 @@ export function FloatingWhatsApp({ t }: { t: Dictionary }) {
           fill="currentColor"
         />
       </svg>
-      <span className="max-[720px]:hidden">{t.floatingWhatsApp}</span>
+      <span>{t.floatingWhatsApp}</span>
     </a>
   );
 }

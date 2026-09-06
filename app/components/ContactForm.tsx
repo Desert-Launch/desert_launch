@@ -1,123 +1,305 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { ContactCopy } from "@/app/data/types";
 import { wa, EMAIL } from "@/app/data/shared";
+import { track } from "@/app/lib/analytics";
 
 type Form = ContactCopy["form"];
+type FieldKey = "name" | "reply" | "projectType" | "budget" | "timeline" | "summary";
+type Status = "idle" | "opening" | "opened" | "blocked";
 
-const EMPTY = { name: "", company: "", projectType: "", timeline: "", summary: "" };
+const EMPTY: Record<FieldKey, string> = {
+  name: "",
+  reply: "",
+  projectType: "",
+  budget: "",
+  timeline: "",
+  summary: "",
+};
 
-export function ContactForm({ form }: { form: Form }) {
+/** A qualification form, not a generic contact box.
+ *
+ *  There is no backend on this site by design, so the form drafts a message and
+ *  hands it to WhatsApp or the visitor's mail client. That handoff used to be
+ *  silent: no validation, no confirmation, and nothing at all if the browser
+ *  blocked the pop-up. It now validates, announces its state to assistive
+ *  technology, guards against double submits, fires the conversion event
+ *  *before* the handoff, and always offers a visible fallback link.
+ */
+export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   const [values, setValues] = useState(EMPTY);
+  const [errors, setErrors] = useState<Partial<Record<FieldKey, string>>>({});
+  const [status, setStatus] = useState<Status>("idle");
+  const [fallbackHref, setFallbackHref] = useState("");
+  const errorRef = useRef<HTMLDivElement>(null);
+  const uid = useId();
 
-  const set = (key: keyof typeof EMPTY) => (
+  const id = (key: string) => `${uid}-${key}`;
+
+  const set = (key: FieldKey) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => setValues((v) => ({ ...v, [key]: e.target.value }));
+  ) => {
+    const value = e.target.value;
+    setValues((v) => ({ ...v, [key]: value }));
+    // Clear the error as soon as the field stops being empty, so the message
+    // does not linger while the visitor is fixing it.
+    setErrors((prev) => (prev[key] && value.trim() ? { ...prev, [key]: undefined } : prev));
+  };
+
+  function validate(): Partial<Record<FieldKey, string>> {
+    const next: Partial<Record<FieldKey, string>> = {};
+    if (!values.name.trim()) next.name = form.errors.name;
+    if (!values.reply.trim()) next.reply = form.errors.reply;
+    if (values.summary.trim().length < 10) next.summary = form.errors.summary;
+    return next;
+  }
 
   function draft(): string {
     const l = form.draftLabels;
-    const lines = [
-      form.draftIntro,
-      "",
-      values.name.trim() && `${l.name}: ${values.name.trim()}`,
-      values.company.trim() && `${l.company}: ${values.company.trim()}`,
-      values.projectType.trim() && `${l.projectType}: ${values.projectType.trim()}`,
-      values.timeline.trim() && `${l.timeline}: ${values.timeline.trim()}`,
-      values.summary.trim() && `${l.summary}: ${values.summary.trim()}`,
-    ].filter(Boolean) as string[];
+    const lines: string[] = [form.draftIntro, ""];
+    lines.push(`${l.name}: ${values.name.trim()}`);
+    lines.push(`${l.reply}: ${values.reply.trim()}`);
+    if (values.projectType) lines.push(`${l.projectType}: ${values.projectType}`);
+    if (values.budget) lines.push(`${l.budget}: ${values.budget}`);
+    if (values.timeline) lines.push(`${l.timeline}: ${values.timeline}`);
+    lines.push("", `${l.summary}: ${values.summary.trim()}`);
     return lines.join("\n");
+  }
+
+  function guard(): boolean {
+    if (status === "opening") return false; // duplicate submit
+    const found = validate();
+    setErrors(found);
+    if (Object.keys(found).length > 0) {
+      setStatus("idle");
+      // Move focus to the summary so a screen-reader user hears what is wrong.
+      requestAnimationFrame(() => errorRef.current?.focus());
+      return false;
+    }
+    return true;
+  }
+
+  function analytics(channel: "whatsapp" | "email") {
+    track("contact_form_submit", {
+      channel,
+      lang,
+      project_type: values.projectType || "unspecified",
+      budget: values.budget || "unspecified",
+      timeline: values.timeline || "unspecified",
+    });
   }
 
   function onWhatsApp(e: React.FormEvent) {
     e.preventDefault();
-    window.open(wa(draft()), "_blank", "noopener");
+    if (!guard()) return;
+    setStatus("opening");
+    analytics("whatsapp");
+
+    const url = wa(draft());
+    setFallbackHref(url);
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    setStatus(opened ? "opened" : "blocked");
   }
 
   function onEmail() {
-    const url = `mailto:${EMAIL}?subject=${encodeURIComponent(form.emailSubject)}&body=${encodeURIComponent(draft())}`;
+    if (!guard()) return;
+    setStatus("opening");
+    analytics("email");
+
+    const url = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      form.emailSubject
+    )}&body=${encodeURIComponent(draft())}`;
+    setFallbackHref(url);
     window.location.href = url;
+    setStatus("opened");
   }
 
+  const errorList = (Object.keys(errors) as FieldKey[]).filter((k) => errors[k]);
+  const busy = status === "opening";
+
   const field = "flex flex-col gap-1.5";
-  const label = "text-meta text-muted";
-  const input =
-    "rounded-[12px] border border-line-strong bg-white/[0.02] px-3.5 py-2.5 text-body text-ink placeholder:text-muted/70 focus:border-gold focus:outline-none";
+  const labelCls = "form-label";
+  const controlCls = "form-control";
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={onWhatsApp}>
+    <form className="contact-form flex flex-col gap-4" onSubmit={onWhatsApp} noValidate>
+      {/* Error summary. `tabIndex={-1}` makes it focusable so submitting an
+          invalid form moves the user straight to the explanation. */}
+      {errorList.length > 0 && (
+        <div
+          ref={errorRef}
+          tabIndex={-1}
+          role="alert"
+          className="form-errors"
+          aria-labelledby={id("err-heading")}
+        >
+          <strong id={id("err-heading")}>{form.errors.heading}</strong>
+          <ul>
+            {errorList.map((key) => (
+              <li key={key}>
+                <a href={`#${id(key)}`}>{errors[key]}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="grid gap-3 sm:grid-cols-2">
         <div className={field}>
-          <label htmlFor="brief-name" className={label}>
-            {form.name}
+          <label htmlFor={id("name")} className={labelCls}>
+            {form.name} <span className="form-required">{form.requiredMark}</span>
           </label>
           <input
-            id="brief-name"
-            className={input}
+            id={id("name")}
+            name="name"
+            className={controlCls}
             type="text"
+            autoComplete="name"
             placeholder={form.namePlaceholder}
-            required
             value={values.name}
             onChange={set("name")}
+            aria-invalid={errors.name ? true : undefined}
+            aria-describedby={errors.name ? id("name-err") : undefined}
           />
+          {errors.name && (
+            <span id={id("name-err")} className="form-error">
+              {errors.name}
+            </span>
+          )}
         </div>
+
         <div className={field}>
-          <label htmlFor="brief-company" className={label}>
-            {form.company}
+          <label htmlFor={id("reply")} className={labelCls}>
+            {form.reply} <span className="form-required">{form.requiredMark}</span>
           </label>
           <input
-            id="brief-company"
-            className={input}
+            id={id("reply")}
+            name="reply"
+            className={controlCls}
             type="text"
-            placeholder={form.companyPlaceholder}
-            value={values.company}
-            onChange={set("company")}
+            inputMode="email"
+            autoComplete="email"
+            placeholder={form.replyPlaceholder}
+            value={values.reply}
+            onChange={set("reply")}
+            aria-invalid={errors.reply ? true : undefined}
+            aria-describedby={`${errors.reply ? `${id("reply-err")} ` : ""}${id("reply-help")}`}
           />
+          {errors.reply && (
+            <span id={id("reply-err")} className="form-error">
+              {errors.reply}
+            </span>
+          )}
+          <span id={id("reply-help")} className="form-help">
+            {form.replyHelp}
+          </span>
         </div>
+
         <div className={field}>
-          <label htmlFor="brief-type" className={label}>
-            {form.projectType}
+          <label htmlFor={id("type")} className={labelCls}>
+            {form.projectType} <span className="form-optional">{form.optionalMark}</span>
           </label>
-          <select id="brief-type" className={input} value={values.projectType} onChange={set("projectType")}>
+          <select
+            id={id("type")}
+            name="projectType"
+            className={controlCls}
+            value={values.projectType}
+            onChange={set("projectType")}
+          >
             <option value="">{form.projectTypePlaceholder}</option>
             {form.projectTypeOptions.map((o) => (
               <option key={o}>{o}</option>
             ))}
           </select>
         </div>
+
         <div className={field}>
-          <label htmlFor="brief-timeline" className={label}>
-            {form.timeline}
+          <label htmlFor={id("budget")} className={labelCls}>
+            {form.budget} <span className="form-optional">{form.optionalMark}</span>
           </label>
-          <select id="brief-timeline" className={input} value={values.timeline} onChange={set("timeline")}>
+          <select
+            id={id("budget")}
+            name="budget"
+            className={controlCls}
+            value={values.budget}
+            onChange={set("budget")}
+            aria-describedby={id("budget-help")}
+          >
+            <option value="">{form.budgetPlaceholder}</option>
+            {form.budgetOptions.map((o) => (
+              <option key={o}>{o}</option>
+            ))}
+          </select>
+          <span id={id("budget-help")} className="form-help">
+            {form.budgetHelp}
+          </span>
+        </div>
+
+        <div className={field}>
+          <label htmlFor={id("timeline")} className={labelCls}>
+            {form.timeline} <span className="form-optional">{form.optionalMark}</span>
+          </label>
+          <select
+            id={id("timeline")}
+            name="timeline"
+            className={controlCls}
+            value={values.timeline}
+            onChange={set("timeline")}
+          >
             <option value="">{form.timelinePlaceholder}</option>
             {form.timelineOptions.map((o) => (
               <option key={o}>{o}</option>
             ))}
           </select>
         </div>
+
         <div className={`${field} sm:col-span-2`}>
-          <label htmlFor="brief-summary" className={label}>
-            {form.summary}
+          <label htmlFor={id("summary")} className={labelCls}>
+            {form.summary} <span className="form-required">{form.requiredMark}</span>
           </label>
           <textarea
-            id="brief-summary"
-            className={`${input} min-h-[120px] resize-y`}
+            id={id("summary")}
+            name="summary"
+            className={`${controlCls} min-h-[120px] resize-y`}
             placeholder={form.summaryPlaceholder}
-            required
             value={values.summary}
             onChange={set("summary")}
+            aria-invalid={errors.summary ? true : undefined}
+            aria-describedby={errors.summary ? id("summary-err") : undefined}
           />
+          {errors.summary && (
+            <span id={id("summary-err")} className="form-error">
+              {errors.summary}
+            </span>
+          )}
         </div>
       </div>
+
       <div className="flex flex-col gap-3 sm:flex-row">
-        <button type="submit" className="btn btn-primary">
-          {form.submitWhatsapp}
+        <button type="submit" className="btn btn-primary" disabled={busy}>
+          {busy ? form.sending : form.submitWhatsapp}
         </button>
-        <button type="button" className="btn btn-secondary" onClick={onEmail}>
+        <button type="button" className="btn btn-secondary" onClick={onEmail} disabled={busy}>
           {form.submitEmail}
         </button>
       </div>
+
+      {/* Announced without stealing focus. Covers the pop-up-blocked case that
+          previously left the visitor staring at a form that appeared to do
+          nothing at all. */}
+      <p className="form-status" role="status" aria-live="polite">
+        {status === "opened" && form.opened}
+        {status === "blocked" && (
+          <>
+            {form.blocked}{" "}
+            <a href={fallbackHref} target="_blank" rel="noreferrer" className="form-status__link">
+              {form.blockedLink}
+            </a>
+          </>
+        )}
+      </p>
+
       <p className="text-meta text-muted">{form.note}</p>
     </form>
   );

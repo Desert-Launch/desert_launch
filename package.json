@@ -1,28 +1,42 @@
 {
   "name": "desertlaunch-landing",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
-  "description": "Desert Launch marketing site — Next.js (static export) + Tailwind, 5 locales.",
+  "description": "Desert Launch marketing site \u2014 Next.js (static export) + Tailwind, 5 locales.",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "preview": "next build && serve out",
-    "serve": "serve out",
-    "typecheck": "tsc --noEmit"
+    "build": "next build && node scripts/postbuild.mjs",
+    "preview": "npm run build && node scripts/serve-local.mjs",
+    "serve": "node scripts/serve-local.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build:icons": "node scripts/build-icons.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "next": "^15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next": "^15.5.25",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "serve": "^14.2.4",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.5.25",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 128",
+    "safari >= 16.4",
+    "ios_saf >= 16.4",
+    "and_chr >= 111"
+  ]
 }

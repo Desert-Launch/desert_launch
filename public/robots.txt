@@ -1,8 +1,10 @@
-# Default: allow everyone
+# Desert Launch — https://www.desertlaunch.dev
+# Structured summary for language models: /llms.txt
+
 User-agent: *
 Allow: /
 
-# AI search / answer engines — explicitly allowed (we want AI visibility)
+# AI search and answer engines — explicitly allowed. We want to be quotable.
 User-agent: GPTBot
 Allow: /
 

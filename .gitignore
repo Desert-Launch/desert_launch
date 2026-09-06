@@ -1,5 +1,16 @@
-# Working docs (CHANGES-FOR-ME, AGENT-TASKS, PENDING-ITEMS, CLAUDE) — never deploy
-*.md
+# Working docs kept out of the deployed artifact and the public repo
+/audit/
+/docs/
+
+# Generic Claude Code skill library — local tooling, ~10 MB, not site source.
+# The project-specific agents in .claude/agents/ are tracked on purpose.
+/.claude/skills/
+CHANGES-FOR-ME.md
+AGENT-TASKS.md
+PENDING-ITEMS.md
+CLAUDE.md
+OWNER_ACTIONS.md
+
 .DS_Store
 
 # Dependencies / build output

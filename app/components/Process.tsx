@@ -7,20 +7,28 @@ export function Process({ t }: { t: Dictionary }) {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="scroll-mt-24 bg-gradient-to-b from-white/[0.01] to-transparent section"
+      className="section section--alt scroll-mt-24"
     >
       <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="process-heading" kicker={p.kicker} title={p.title} intro={p.intro} />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {/* Three-up before five-up: five 177px columns at 1024px wrapped every
+            body to six lines and shrank the step number to caption size. */}
+        <ol className="grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {p.steps.map((step) => (
-            <article key={step.n} className="card reveal">
-              <small className="text-meta font-bold text-gold">{step.n}</small>
+            <li key={step.n} className="card reveal">
+              <span className="step-number" aria-hidden="true">
+                {step.n}
+              </span>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
-            </article>
+              <p className="step-deliverable">
+                <span className="step-deliverable__label">{p.deliverableLabel}</span>
+                {step.deliverable}
+              </p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

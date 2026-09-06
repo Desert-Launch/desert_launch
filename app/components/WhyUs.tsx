@@ -1,15 +1,19 @@
-import type { Dictionary } from "@/app/data/types";
+import type { Dictionary, Lang } from "@/app/data/types";
 import { Icon } from "@/app/data/icons";
+import { hasPages, simplePath } from "@/app/lib/links";
 import { SectionHead } from "./SectionHead";
 
-export function WhyUs({ t }: { t: Dictionary }) {
+export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
   const w = t.why;
+  const aboutHref = hasPages(lang) ? simplePath(lang, "about") : null;
+
   return (
     <section id="why-us" aria-labelledby="why-heading" className="section scroll-mt-24">
       <div className="shell flex flex-col gap-8 md:gap-10">
         <SectionHead id="why-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
         <div className="grid gap-4 lg:grid-cols-[1.4fr_0.9fr]">
+          {/* The four commitments, not adjectives. */}
           <div className="grid gap-4 sm:grid-cols-2">
             {w.features.map((f) => (
               <article key={f.title} className="card reveal">
@@ -22,55 +26,42 @@ export function WhyUs({ t }: { t: Dictionary }) {
             ))}
           </div>
 
-          <aside className="panel reveal flex flex-col gap-3 p-6" aria-label="Who you're working with">
+          <aside className="panel reveal flex flex-col gap-3 p-6" aria-label={t.a11y.founderPanel}>
             <span className="kicker">{w.founder.kicker}</span>
             <img
               src={w.founder.photo}
               alt={w.founder.photoAlt}
-              width={104}
-              height={104}
+              width={96}
+              height={96}
               loading="lazy"
-              className="h-[104px] w-[104px] rounded-2xl border border-line-strong object-cover"
+              decoding="async"
+              className="h-24 w-24 rounded-md border border-line-strong object-cover"
             />
             <div>
-              <h3 className="text-lg font-bold">{w.founder.name}</h3>
+              <h3 className="h-card">{w.founder.name}</h3>
               <p className="text-body text-gold">{w.founder.role}</p>
             </div>
             <p className="text-body leading-relaxed text-muted">{w.founder.body}</p>
-            <div className="flex flex-wrap gap-2" aria-label="Founder facts">
+            <div className="flex flex-wrap gap-2" aria-label={t.a11y.founderFacts}>
               {w.founder.facts.map((fact) => (
                 <span key={fact} className="chip">
                   {fact}
                 </span>
               ))}
             </div>
+            {aboutHref ? (
+              <a href={aboutHref} className="pf-link pf-link--strong mt-1 self-start">
+                {w.founder.moreLabel}
+              </a>
+            ) : null}
           </aside>
         </div>
-
-        {/* "What You Get" — build-plan framing, kept below the proof sections */}
-        <article className="panel reveal flex flex-col gap-4 p-6" aria-label="What you get">
-          <div className="flex flex-col gap-2">
-            <span className="kicker">{w.buildPlan.kicker}</span>
-            <h3 className="max-w-[46ch] text-lg font-bold">{w.buildPlan.heading}</h3>
-            <p className="max-w-[70ch] text-body leading-relaxed text-muted">
-              {w.buildPlan.body}
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {w.buildPlan.points.map((point) => (
-              <div key={point} className="flex gap-2 text-body text-ink-soft">
-                <span aria-hidden="true" className="mt-2 h-[6px] w-[6px] shrink-0 rounded-full bg-gold" />
-                <span>{point}</span>
-              </div>
-            ))}
-          </div>
-        </article>
 
         <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-3">
             <span className="kicker">{w.band.kicker}</span>
-            <p className="max-w-[60ch] text-body leading-relaxed text-ink-soft">{w.band.body}</p>
-            <div className="flex flex-wrap gap-2" aria-label="Engagement proof points">
+            <p className="max-w-[62ch] text-body leading-relaxed text-ink-soft">{w.band.body}</p>
+            <div className="flex flex-wrap gap-2" aria-label={t.a11y.engagementPoints}>
               {w.band.points.map((p) => (
                 <span key={p} className="chip">
                   {p}
@@ -78,7 +69,14 @@ export function WhyUs({ t }: { t: Dictionary }) {
               ))}
             </div>
           </div>
-          <a href={w.band.cta.href} className="btn btn-secondary shrink-0">
+          <a
+            href={w.band.cta.href}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary shrink-0"
+            data-evt="primary_cta_click"
+            data-evt-placement="why-band"
+          >
             {w.band.cta.label}
           </a>
         </div>

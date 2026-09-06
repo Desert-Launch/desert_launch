@@ -1,0 +1,20 @@
+{
+  "name": "Desert Launch",
+  "short_name": "Desert Launch",
+  "description": "Software development company in Cairo, Egypt. Mobile apps, web platforms, MVPs and internal systems.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B0F19",
+  "theme_color": "#0B0F19",
+  "icons": [
+    { "src": "/assets/logo-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

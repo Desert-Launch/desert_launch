@@ -1,32 +1,32 @@
 import type { Dictionary } from "./types";
-import { wa, MAILTO } from "./shared";
+import { wa, MAILTO, PHONE_DISPLAY, EMAIL, CONTENT_UPDATED } from "./shared";
 
 const GENERIC =
-  "Bonjour Desert Launch, je souhaite discuter de la création d'un système pour mon entreprise.";
+  "Bonjour Desert Launch, je souhaite obtenir un devis gratuit pour un projet logiciel.";
 
 export const fr: Dictionary = {
   lang: "fr",
   dir: "ltr",
   meta: {
-    title:
-      "Desert Launch | Agence de développement d'applications et de logiciels — Le Caire, Égypte",
+    title: "Agence de développement mobile et web au Caire | Desert Launch",
     description:
-      "Agence de développement d'applications au Caire, Égypte. Apps mobiles, plateformes web et MVP — devis fixe, un an de support. Consultation WhatsApp gratuite.",
+      "Développement d'applications mobiles, de plateformes web et de MVP au Caire. Devis fixe, code qui vous appartient, un an de support.",
     ogLocale: "fr_FR",
+    ogImageAlt:
+      "Desert Launch — agence de développement d'applications et de logiciels au Caire, Égypte",
   },
   nav: [
-    { label: "Nos réalisations", href: "#work" },
+    { label: "Réalisations", href: "#work" },
     { label: "Services", href: "#services" },
     { label: "Pourquoi nous", href: "#why-us" },
     { label: "Méthode", href: "#process" },
-    { label: "Tarifs", href: "#plans" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ],
   header: {
-    tagline: "Studio de développement web, mobile et produit",
+    tagline: "Développement mobile, web et produit — Le Caire, Égypte",
     emailUs: "Écrivez-nous",
-    startProject: { label: "Lancez votre projet", href: wa(GENERIC), external: true },
+    startProject: { label: "Devis gratuit", href: wa(GENERIC), external: true },
     langCode: "FR",
     langAria: "Choisir la langue",
     menuOpen: "Ouvrir le menu de navigation",
@@ -34,100 +34,134 @@ export const fr: Dictionary = {
     mobileLangLabel: "Langue",
   },
   hero: {
-    eyebrow: "Des logiciels au service de votre activité",
-    title: "Remplacez le travail manuel par un système qui pilote votre entreprise.",
-    lead: "Vous travaillez encore avec des fichiers Excel, des dossiers papier et des outils dispersés ? Desert Launch conçoit et développe les plateformes web sur mesure, applications mobiles, MVP et systèmes internes qui les remplacent — avec une exécution fiable, une architecture évolutive et une communication directe.",
+    eyebrow: "Studio de développement logiciel · Égypte, Golfe, Europe, États-Unis",
+    title: "Applications mobiles et plateformes web, conçues au Caire.",
+    lead: "Vous travaillez encore avec des fichiers Excel, des dossiers papier et des outils dispersés ? Desert Launch conçoit et développe les applications mobiles, plateformes web, MVP et systèmes internes qui les remplacent — avec un devis fixe avant tout engagement, la propriété complète du code et un an de support après le lancement.",
     tags: [
-      "Produits générateurs de leads",
-      "Expériences client mobile-first",
-      "Systèmes de gestion et d'administration",
+      "Applications iOS et Android",
+      "Plateformes web et portails",
+      "Systèmes internes de gestion",
     ],
     primary: {
-      label: "Lancez votre projet sur WhatsApp",
+      label: "Obtenir un devis gratuit sur WhatsApp",
       href: wa(GENERIC),
       external: true,
     },
     secondary: { label: "Voir nos réalisations", href: "#work" },
     responseNote:
-      "Nous répondons sous 12 heures — souvent bien plus vite. Heure du Caire (GMT+2), en français, anglais ou arabe.",
-    image: {
-      src: "/assets/image_slot1.webp",
-      alt: "Une présentation produit haut de gamme illustrant le développement logiciel moderne.",
+      "Réponse sous 12 heures, souvent bien plus vite. Heure du Caire (UTC+2/+3). Échanges en anglais ou en arabe.",
+    showcase: {
+      badge: "En ligne sur l'App Store et Google Play",
+      caption: "Q-Fight Gym (Doha) et Al-Muslim — deux produits que vous pouvez ouvrir maintenant.",
+      label: "Deux applications Desert Launch affichées sur des écrans de téléphone",
     },
-    imageCaption:
-      "Plateformes web, produits mobiles et systèmes internes conçus pour avancer vite.",
     proof: [
       {
-        label: "Expérience",
-        value: "5+ ans",
-        note: "Ingénierie senior en Égypte, dans le Golfe, en Europe et aux États-Unis.",
+        label: "Produits livrés",
+        value: "10+",
+        note: "Applications mobiles, plateformes web et systèmes internes en production.",
       },
       {
-        label: "Livrés",
-        value: "10+ produits",
-        note: "Plateformes web et applications mobiles en production.",
+        label: "Publiés sur les deux stores",
+        value: "2 apps",
+        note: "Al-Muslim et Q-Fight Gym — les liens sont sur leurs fiches ci-dessous.",
       },
       {
-        label: "Temps de réponse",
-        value: "Sous 12 heures",
-        note: "Des réponses directes sur WhatsApp — sans chargés de compte ni lenteurs d'agence.",
+        label: "Première réponse",
+        value: "Sous 12 h",
+        note: "Directement par l'ingénieur qui développera le produit. Sans intermédiaire.",
       },
     ],
   },
   work: {
     kicker: "Réalisations choisies",
-    title:
-      "Des réalisations récentes qui montrent le type de systèmes que construit Desert Launch.",
+    title: "Applications mobiles, plateformes et systèmes internes que nous avons livrés",
     intro:
-      "Les projets ci-dessous illustrent la réflexion produit, la qualité UX et la profondeur des systèmes — de la génération de leads au mobile grand public, en passant par les expériences axées sur l'engagement.",
-    capabilities: {
-      kicker: "Compétences",
-      title: "Ce que les clients peuvent attendre du processus de développement",
-      body: "Desert Launch prend en charge toutes les couches concrètes nécessaires pour livrer un produit sérieux, pas seulement l'interface visible.",
-      points: [
-        "Cadrage produit, priorisation des fonctionnalités et définition du MVP.",
-        "Interfaces responsives pour le web et le mobile, avec une UX pensée pour la conversion.",
-        "Tableaux de bord d'administration, permissions, workflows, API et intégrations.",
-        "Planification du déploiement, mise en place de l'infrastructure, accompagnement au lancement et itérations.",
-      ],
+      "Huit produits, du mobile grand public aux plateformes multi-rôles et aux systèmes métier privés. Quand une application est publique, le lien vers le store figure sur sa fiche.",
+    attribution:
+      "Chaque produit présenté ici a été conçu et développé par notre fondateur, Abdullah Mohamed — dans le cadre de missions Desert Launch et de postes d'ingénieur senior antérieurs. Voicers est notre produit interne et n'est pas encore publié.",
+    logosLabel: "Produits conçus et livrés par notre fondateur",
+    logosPause: "Mettre en pause le défilement des produits",
+    logosPlay: "Lancer le défilement des produits",
+    moreLabel: "Autres réalisations — 4 projets supplémentaires",
+    caseStudyCta: "Lire l'étude de cas",
+    similarCta: "Créer un produit similaire",
+    storeLabels: { appStore: "App Store", googlePlay: "Google Play" },
+    statusLabels: {
+      live: "En ligne sur les deux stores",
+      delivered: "Livré au client",
+      inHouse: "Produit interne · avant lancement",
     },
-    capabilityCards: [
-      {
-        icon: "dashboard",
-        title: "Tableaux de bord opérationnels",
-        body: "Des systèmes d'administration qui aident les équipes à gérer utilisateurs, workflows, données et opérations plus efficacement.",
+    projects: {
+      "q-fight-gym": {
+        tag: "Application de réservation · Qatar",
+        logoAlt: "Icône de l'application Q-Fight Gym",
+        summary:
+          "L'application officielle d'une salle professionnelle de Muay Thai à Doha, qui relie les membres à un programme d'entraînement mené par des champions du monde thaïlandais. Le membre consulte les formules, choisit son coach et réserve ses séances sans appeler l'accueil.",
+        points: [
+          "Publiée sur l'App Store et Google Play pour une entreprise qui s'en sert au quotidien.",
+          "Consultation des formules, choix du coach et réservation de séances individuelles ou collectives.",
+          "Flutter et Firebase avec une passerelle de paiement intégrée.",
+        ],
+        shotAlts: [
+          "Application Q-Fight Gym — écran du programme d'entraînement de Muay Thai",
+          "Application Q-Fight Gym — planning hebdomadaire et créneaux disponibles",
+          "Application Q-Fight Gym — formules d'abonnement et écran de réservation",
+        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu l'application Q-Fight Gym sur votre site et je souhaite une application similaire.",
       },
-      {
-        icon: "productized",
-        title: "Expériences mobiles productisées",
-        body: "Des applications qui allient clarté UX, parcours de compte, diffusion de contenu et systèmes de monétisation ou d'engagement.",
+      "al-muslim": {
+        tag: "Application compagnon du quotidien",
+        logoAlt: "Icône de l'application Al-Muslim",
+        summary:
+          "Un compagnon quotidien du musulman : Coran, adhkar et douas, horaires de prière précis et direction de la qibla, avec des rappels intelligents qui l'ancrent dans la journée. Conçue pour l'usage répété, pas pour un simple téléchargement.",
+        points: [
+          "Publiée sur l'App Store et Google Play.",
+          "Flutter avec notifications push et géolocalisation pour des horaires précis.",
+          "Bilingue arabe et anglais, avec une mise en page RTL complète.",
+        ],
+        shotAlts: [
+          "Application Al-Muslim — horaires de prière et compte à rebours de la prochaine prière",
+          "Application Al-Muslim — accueil avec adhkar, douas et raccourci qibla",
+          "Application Al-Muslim — écran de lecture du Coran en arabe",
+        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu Al-Muslim sur votre site et je souhaite une application mobile de ce type.",
       },
-      {
-        icon: "flows",
-        title: "Flux métier intégrés",
-        body: "Des logiciels qui relient les expériences client aux équipes internes, avec suivi des statuts et visibilité sur les processus.",
+      ezhal: {
+        tag: "Plateforme de services auto multi-rôles",
+        logoAlt: "Icône de l'application Ezhal",
+        summary:
+          "Une plateforme de services automobiles au service de trois publics — clients, techniciens de terrain et responsables — chacun avec son application, issue d'une seule base de code. Le client réserve, le technicien intervient, le responsable suit.",
+        points: [
+          "Trois applications par rôle depuis une base de code unique : réservation, interventions, pilotage.",
+          "Suivi des techniciens en direct, abonnements, portefeuille, points, tampons et cartes Apple Wallet.",
+          "Flutter et Riverpod avec MyFatoorah, Stripe et Firebase.",
+        ],
+        shotAlts: [
+          "Plateforme Ezhal — une couche de pilotage unique pour clients, responsables et employés",
+        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu Ezhal sur votre site et je souhaite concevoir une plateforme multi-applications.",
       },
-      {
-        icon: "scalable",
-        title: "Architecture évolutive",
-        body: "Des fondations qui laissent la place à de nouvelles fonctionnalités, intégrations et besoins opérationnels à mesure que l'entreprise grandit.",
+      "xera-lab": {
+        tag: "Plateforme de gestion des cas dentaires",
+        logoAlt: "Icône de l'application Xera Lab",
+        summary:
+          "Une plateforme full-stack de gestion des cas dentaires — un portail client et un tableau de bord administrateur reposant sur une API Node.js — conçue et livrée au client comme système de production privé.",
+        points: [
+          "Portail client et tableau de bord administrateur sur une plateforme partagée.",
+          "API Node.js et PostgreSQL avec accès par rôles via JWT.",
+          "Envoi de fichiers vers AWS S3, Docker Compose et déploiement Nginx.",
+        ],
+        shotAlts: [],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu Xera Lab sur votre site et je souhaite une plateforme de ce type.",
       },
-    ],
-    logosLabel: "Produits conçus et livrés par Desert Launch",
-    projects: [
-      {
-        title: "FasTap",
+      fastap: {
         tag: "Carte de visite numérique NFC",
-        logo: "/assets/logo-fastap.webp",
         logoAlt: "Icône de l'application FasTap",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/fastab1.webp", alt: "Aperçu 1 de l'interface de l'application FasTap" },
-            { src: "/assets/fastab2.webp", alt: "Aperçu 2 de l'interface de l'application FasTap" },
-            { src: "/assets/fastab3.webp", alt: "Aperçu 3 de l'interface de l'application FasTap" },
-          ],
-        },
         summary:
           "Approchez une carte NFC pour partager un profil professionnel complet — il s'ouvre sur n'importe quel téléphone, sans installation. Une application Flutter écrit les profils sur les cartes, et une page Flutter Web s'ouvre à chaque lien de partage.",
         points: [
@@ -135,149 +169,33 @@ export const fr: Dictionary = {
           "Profil web ouvert directement après un scan NFC.",
           "Déployé avec Firebase et Nginx.",
         ],
-        links: [{ label: "Créer un produit similaire", href: "#contact" }],
-      },
-      {
-        title: "Al-Muslim",
-        tag: "Disponible sur les deux stores",
-        logo: "/assets/logo-almuslim.webp",
-        logoAlt: "Icône de l'application Al-Muslim",
-        media: {
-          kind: "cover",
-          shots: [
-            { src: "/assets/almuslim2.webp", alt: "Aperçu 1 de l'interface de l'application Al-Muslim" },
-            { src: "/assets/almuslim3.webp", alt: "Aperçu 2 de l'interface de l'application Al-Muslim" },
-            { src: "/assets/almuslim4.webp", alt: "Aperçu 3 de l'interface de l'application Al-Muslim" },
-          ],
-        },
-        summary:
-          "Un compagnon quotidien du musulman : Coran, adhkar et douas, horaires de prière précis et direction de la qibla — avec des rappels intelligents qui l'ancrent dans la journée de l'utilisateur.",
-        points: [
-          "Disponible sur l'App Store et Google Play.",
-          "Flutter avec notifications et géolocalisation.",
-          "Conçu pour la rétention quotidienne et une UX épurée, centrée sur le contenu.",
+        shotAlts: [
+          "Application FasTap — carte de visite numérique telle que la voit le destinataire",
+          "Application FasTap — éditeur de profil avec liens, médias et coordonnées",
+          "Application FasTap — profil web ouvert après une lecture NFC",
         ],
-        links: [
-          {
-            label: "App Store",
-            href: "https://apps.apple.com/us/app/al-muslim-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D9%85/id6757352101",
-            external: true,
-          },
-          {
-            label: "Google Play",
-            href: "https://play.google.com/store/apps/details?id=com.elmuslim.app",
-            external: true,
-          },
-          { label: "Créer une application mobile comme celle-ci", href: "#contact" },
-        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu FasTap sur votre site et je souhaite un produit similaire.",
       },
-      {
-        title: "Jaweb",
+      jaweb: {
         tag: "Jeu de quiz compétitif",
-        logo: "/assets/logo-jaweb.webp",
         logoAlt: "Icône de l'application Jaweb",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/jaweb1.png", alt: "Aperçu 1 de l'interface de l'application Jaweb" },
-            { src: "/assets/jaweb2.png", alt: "Aperçu 2 de l'interface de l'application Jaweb" },
-            { src: "/assets/jaweb3.png", alt: "Aperçu 3 de l'interface de l'application Jaweb" },
-          ],
-        },
         summary:
           "Une soirée quiz entre amis transformée en produit équitable et automatisé — deux équipes, six catégories, trois niveaux de difficulté, une logique d'arbitrage et un comptage automatique des points.",
         points: [
           "Déroulé de jeu complet avec score par équipe et logique d'arbitrage.",
           "Monétisation via les paiements MyFatoorah.",
-          "Flutter avec une architecture propre, pensée pour rejouer encore et encore.",
+          "Flutter avec une architecture propre, conçue pour des parties répétées.",
         ],
-        links: [{ label: "Imaginer un produit interactif", href: "#contact" }],
+        shotAlts: [
+          "Application Jaweb — écran de configuration avec noms d'équipes et catégories",
+        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu Jaweb sur votre site et je souhaite concevoir un produit interactif.",
       },
-      {
-        title: "Q-Fight Gym",
-        tag: "Disponible sur les deux stores · Qatar",
-        logo: "/assets/logo-qfightgym.webp",
-        logoAlt: "Icône de l'application Q-Fight Gym",
-        media: {
-          kind: "cover",
-          shots: [
-            { src: "/assets/qfightgym1.webp", alt: "Application Q-Fight Gym — écran du programme d'entraînement" },
-            { src: "/assets/qfightgym2.webp", alt: "Application Q-Fight Gym — écran du planning des cours" },
-            { src: "/assets/qfightgym3.webp", alt: "Application Q-Fight Gym — écran des abonnements" },
-          ],
-        },
-        summary:
-          "L'application officielle d'une salle professionnelle de Muay Thai au Qatar, qui relie les membres à un programme d'entraînement mené par des champions du monde thaïlandais.",
-        points: [
-          "Disponible sur l'App Store et Google Play pour une entreprise réellement en activité.",
-          "Consultation des formules, réservation de séances individuelles ou collectives avec un coach précis, et planning des cours dans l'app.",
-          "Flutter et Firebase avec intégration des paiements.",
-        ],
-        links: [
-          {
-            label: "App Store",
-            href: "https://apps.apple.com/us/app/q-fight-gym/id6759147399",
-            external: true,
-          },
-          {
-            label: "Google Play",
-            href: "https://play.google.com/store/apps/details?id=com.qfightgym.app",
-            external: true,
-          },
-          { label: "Créer une application pour votre entreprise", href: "#contact" },
-        ],
-      },
-      {
-        title: "Xera Lab",
-        tag: "Plateforme de gestion des cas dentaires",
-        logo: "/assets/logo-xeralab.webp",
-        logoAlt: "Icône de l'application Xera Lab",
-        media: {
-          kind: "stack",
-          stack: ["Flutter Web", "Node.js", "PostgreSQL", "Docker", "AWS"],
-        },
-        summary:
-          "Une plateforme full-stack de gestion des cas dentaires — un portail client et un tableau de bord administrateur reposant sur une API Node.js — conçue et livrée au client comme système de production privé.",
-        points: [
-          "Portail client et tableau de bord administrateur sur une plateforme partagée.",
-          "API Node.js et PostgreSQL avec accès par rôles via JWT.",
-          "Téléversements AWS S3, Docker Compose et déploiement Nginx.",
-        ],
-        links: [{ label: "Créer une plateforme comme celle-ci", href: "#contact" }],
-      },
-      {
-        title: "Ezhal",
-        tag: "Plateforme de services auto multi-rôles",
-        logo: "/assets/logo-ezhal.webp",
-        logoAlt: "Icône de l'application Ezhal",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/ezhal1.webp", alt: "Aperçu de l'interface de la plateforme Ezhal" },
-          ],
-        },
-        summary:
-          "Une plateforme de services automobiles au service de trois publics — clients, techniciens de terrain et responsables — chacun avec son application, issue d'une seule base de code.",
-        points: [
-          "Trois applications par rôle : réservation pour les clients, interventions pour les techniciens, pilotage pour les responsables.",
-          "Suivi des techniciens en direct, abonnements, portefeuille, points, tampons et cartes Apple Wallet.",
-          "Flutter et Riverpod avec MyFatoorah, Stripe et Firebase.",
-        ],
-        links: [{ label: "Concevoir une plateforme multi-applications", href: "#contact" }],
-      },
-      {
-        title: "ICCD Hub",
-        tag: "Application communautaire et de productivité",
-        logo: "/assets/logo-iccd.webp",
+      "iccd-hub": {
+        tag: "Application membres d'une organisation internationale",
         logoAlt: "Icône de l'application ICCD Hub",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/iccd1.webp", alt: "Aperçu de l'interface ICCD Hub 1" },
-            { src: "/assets/iccd2.webp", alt: "Aperçu de l'interface ICCD Hub 2" },
-            { src: "/assets/iccd3.webp", alt: "Aperçu de l'interface ICCD Hub 3" },
-          ],
-        },
         summary:
           "Une application bilingue destinée aux membres de la Société islamique pour le développement du secteur privé, associant contenus institutionnels et suite de productivité personnelle.",
         points: [
@@ -285,236 +203,206 @@ export const fr: Dictionary = {
           "Tâches, notes, calendrier et rappels, avec horaires de prière, qibla et calendrier hégirien.",
           "Connexion Google et Apple, notifications Firebase, liens profonds et prise en charge RTL complète (EN/AR).",
         ],
-        links: [{ label: "Créer une application pour votre organisation", href: "#contact" }],
-      },
-      {
-        title: "Voicers",
-        tag: "Plateforme audio sociale · produit interne",
-        logo: "/assets/logo-voicers.webp",
-        logoAlt: "Icône de l'application Voicers",
-        media: {
-          kind: "contain",
-          shots: [
-            { src: "/assets/voicers1.webp", alt: "Aperçu de l'interface Voicers 1" },
-            { src: "/assets/voicers2.webp", alt: "Aperçu de l'interface Voicers 2" },
-            { src: "/assets/voicers3.webp", alt: "Aperçu de l'interface Voicers 3" },
-          ],
-        },
-        summary:
-          "Une plateforme audio sociale bilingue pour créateurs — notes vocales, playlists et scènes en direct, avec un fil de découverte qui transforme les auditeurs en audience.",
-        points: [
-          "Notes vocales (VNotes), playlists et scènes audio en direct.",
-          "Concours, classements et fil de découverte pensés pour l'engagement.",
-          "Flutter en architecture propre — notre propre produit, pas encore publié.",
+        shotAlts: [
+          "Application ICCD Hub — écran des événements et de la mise en relation",
+          "Application ICCD Hub — bibliothèque de ressources professionnelles",
+          "Application ICCD Hub — écran d'engagement communautaire",
         ],
-        links: [{ label: "Concevoir un produit de ce type", href: "#contact" }],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu ICCD Hub sur votre site et je souhaite une application pour mon organisation.",
       },
-    ],
-    redesigns: {
-      title: "Concepts de refonte de sites web",
-      intro:
-        "Des refontes modernes, pensées mobile d'abord, préparées pour de vraies entreprises — l'avant/après d'un site plus rapide et plus clair.",
-      cards: [
-        {
-          label: "Immobilier — Ajman",
-          title: "Landmark Properties — Concept de refonte",
-          summary:
-            "Un site immobilier pensé mobile d'abord qui remplace des annonces de démonstration obsolètes par de vraies annonces locales consultables, avec un chargement rapide et une demande WhatsApp sur chaque bien.",
-          points: [
-            "Mise en page mobile d'abord, à chargement rapide",
-            "Annonces immobilières consultables",
-            "Appels à l'action clairs : demande et WhatsApp",
-          ],
-          image: {
-            src: "/assets/redesign-landmark.jpg",
-            alt: "Concept de refonte du site Landmark Properties",
-          },
-        },
-        {
-          label: "Aménagement intérieur — Ajman",
-          title: "Ayyath Interiors — Concept de refonte",
-          summary:
-            "Un site portfolio épuré pour l'aménagement intérieur, avec une vraie galerie de projets, des coordonnées fonctionnelles et un parcours « Demander un devis » clair — en remplacement d'un modèle obsolète et défaillant.",
-          points: [
-            "Une galerie de projets qui met le travail en valeur",
-            "Appel direct et WhatsApp fonctionnels",
-            "Appel à l'action « Demander un devis » clair",
-          ],
-          image: {
-            src: "/assets/redesign-ayyath.jpg",
-            alt: "Concept de refonte du site Ayyath Interiors",
-          },
-        },
-      ],
+      voicers: {
+        tag: "Plateforme audio sociale",
+        logoAlt: "Icône de l'application Voicers",
+        summary:
+          "Une plateforme audio sociale bilingue pour créateurs — notes vocales, playlists et scènes en direct, avec un fil de découverte qui transforme les auditeurs en audience. Développée en interne comme notre propre produit ; non publiée.",
+        points: [
+          "Notes vocales, playlists et scènes audio en direct.",
+          "Concours, classements et fil de découverte pensés pour l'engagement.",
+          "Flutter en architecture propre. Notre produit, présentable lors d'un appel.",
+        ],
+        shotAlts: [
+          "Application Voicers — fil de découverte des notes vocales des créateurs",
+          "Application Voicers — scène audio en direct avec intervenants et auditeurs",
+          "Application Voicers — profil de créateur et playlists de notes vocales",
+        ],
+        waMessage:
+          "Bonjour Desert Launch, j'ai vu Voicers sur votre site et je souhaite concevoir un produit de ce type.",
+      },
     },
   },
   services: {
     kicker: "Services",
-    title: "Des services logiciels pensés pour la croissance, l'efficacité et une livraison plus rapide.",
+    title: "Développement d'applications mobiles, web et de MVP",
     intro:
-      "Desert Launch aide les entreprises à passer de l'idée à l'exécution grâce à un design soigné, une ingénierie évolutive et une réflexion produit pragmatique.",
-    items: [
-      {
-        icon: "web",
-        title: "Développement web sur mesure",
-        body: "Sites web professionnels, portails clients, tableaux de bord et applications web conçus pour la performance et la conversion.",
-      },
-      {
-        icon: "mobile",
+      "Six prestations. Chacune avec un devis fixe en USD, des paiements par jalons, la propriété complète du code et un an de support.",
+    items: {
+      mobile: {
         title: "Développement d'applications mobiles",
-        body: "Des produits mobiles multiplateformes au rendu natif, avec une UX soignée et des intégrations fiables.",
+        body: "Une base de code Flutter publiée sur l'App Store et Google Play. Comptes, paiements, notifications et fonctionnement hors ligne font partie du développement, pas d'une phase deux.",
+        deliverable: "Une application iOS et Android publiée dans vos propres comptes développeur.",
+        timeline: "2 à 4 mois",
       },
-      {
-        icon: "uiux",
-        title: "Design UI/UX",
-        body: "Des interfaces qui rendent les produits plus faciles à comprendre, à utiliser et à convertir.",
+      web: {
+        title: "Développement web",
+        body: "Sites vitrines, portails clients, tableaux de bord et plateformes web complètes — conçus pour la vitesse, le référencement et l'action que vos visiteurs doivent accomplir.",
+        deliverable: "Un site ou une plateforme en ligne sur votre hébergement, que vous pouvez faire évoluer.",
+        timeline: "2 semaines à 3 mois",
       },
-      {
-        icon: "architecture",
-        title: "Architecture logicielle",
-        body: "La fondation technique qui garde votre logiciel rapide et peu coûteux à faire évoluer — pour qu'ajouter une fonctionnalité l'an prochain ne signifie pas tout reconstruire.",
-      },
-      {
-        icon: "mvp",
+      mvp: {
         title: "Développement de MVP",
-        body: "Des premières versions ciblées qui valident le concept rapidement, sans compromettre la maintenabilité future.",
+        body: "La plus petite version qui valide l'idée auprès de vrais utilisateurs, sur une architecture qui survivra aux trois fonctionnalités suivantes au lieu d'être jetée.",
+        deliverable: "Un produit fonctionnel entre les mains d'utilisateurs réels, et la suite à construire.",
+        timeline: "1 à 2 mois",
       },
-      {
-        icon: "website",
-        title: "Création de sites web professionnels",
-        body: "Des sites d'entreprise professionnels conçus pour expliquer votre valeur rapidement et transformer le trafic en prospects qualifiés.",
+      design: {
+        title: "Design UI/UX",
+        body: "Des écrans et des parcours conçus et validés avant d'être développés, pour que la réservation, la commande ou l'inscription aille vraiment jusqu'au bout.",
+        deliverable: "Des écrans cliquables que vous validez avant le développement.",
+        timeline: "1 à 3 semaines",
       },
-      {
-        icon: "modernize",
-        title: "Modernisation de produits",
-        body: "Repenser et reconstruire des produits vieillissants pour améliorer la performance, la clarté et l'impact business.",
+      modernize: {
+        title: "Refonte et modernisation",
+        body: "Reprise d'un produit lent, cassé ou abandonné. Nous lisons d'abord le code existant et vous disons honnêtement s'il faut le réparer ou le reconstruire.",
+        deliverable: "Un avis écrit sur le code actuel, puis le travail lui-même.",
+        timeline: "À partir de 2 semaines",
       },
-      {
-        icon: "consulting",
-        title: "Conseil technique",
-        body: "Une direction technique claire pour les décisions produit, la planification de la livraison, l'architecture et les prochaines étapes.",
+      consulting: {
+        title: "Conseil technique et architecture",
+        body: "Un second avis avant de recruter, une revue d'architecture avant de passer à l'échelle, ou un plan de livraison que vous pouvez confier à n'importe quelle équipe.",
+        deliverable: "Une recommandation écrite qui vous appartient, quelle que soit l'équipe qui la met en œuvre.",
+        timeline: "2 à 5 jours",
       },
-    ],
+    },
+    learnMore: "Détail du service",
+    timelineLabel: "Durée typique",
     stackLabel: "Stack principale",
     stack: [
       "Flutter",
       "Flutter Web",
       "Node.js",
-      "GraphQL & REST APIs",
+      "API GraphQL & REST",
       "PostgreSQL",
       "Firebase",
       "AWS & Docker",
       "Stripe, MyFatoorah & PayTabs",
     ],
     primary: {
-      label: "Obtenez une consultation gratuite sur WhatsApp",
-      href: wa(GENERIC),
+      label: "Obtenir un devis gratuit sur WhatsApp",
+      href: wa(
+        "Bonjour Desert Launch, je regarde vos services et je souhaite un devis gratuit."
+      ),
       external: true,
     },
-    ghost: { label: "Envoyez votre cahier des charges par e-mail", href: MAILTO },
+    secondary: { label: "Envoyer un brief par e-mail", href: MAILTO },
   },
   why: {
     kicker: "Pourquoi Desert Launch",
-    title:
-      "Un partenaire logiciel qui pense livraison, évolutivité et résultats business.",
+    title: "Pourquoi les entreprises d'Égypte et du Golfe choisissent Desert Launch",
     intro:
-      "L'objectif n'est pas seulement de livrer du code. L'objectif est de construire le bon produit, de réduire les frictions et de donner à votre entreprise un système numérique sur lequel vous pouvez vraiment compter.",
+      "Quatre engagements inscrits dans chaque mission. Pas des adjectifs sur la modernité du code.",
     features: [
       {
-        icon: "reliability",
-        title: "Conçu pour la fiabilité",
-        body: "Une implémentation propre, une structure évolutive et des choix d'ingénierie qui soutiennent la croissance à long terme.",
+        icon: "quote",
+        title: "Un devis fixe avant tout engagement",
+        body: "Un prix écrit en USD après un appel de cadrage gratuit. Pas de facturation à l'heure, pas d'avenants surprises, et une réponse honnête si une version plus légère atteint votre objectif.",
       },
       {
-        icon: "business",
-        title: "Une exécution orientée business",
-        body: "Chaque écran, workflow et intégration est évalué à l'aune de la clarté, de l'efficacité et de la conversion.",
+        icon: "ownership",
+        title: "Le code et les comptes vous appartiennent",
+        body: "Code, propriété intellectuelle, hébergement et comptes des stores sont à votre nom dès le premier jour. Si notre collaboration s'arrête, rien de ce qui est à vous ne part avec nous.",
       },
       {
-        icon: "tailored",
-        title: "Du sur-mesure, pas des templates",
-        body: "Les solutions sont façonnées autour de votre modèle économique, de vos workflows, de votre audience et de votre stade de croissance.",
+        icon: "support",
+        title: "Un an de support inclus",
+        body: "Douze mois de corrections, de mises à jour système et stores, et de maintien en conditions opérationnelles. Les trois premiers mois incluent aussi les petits ajustements.",
       },
       {
-        icon: "communication",
-        title: "Une communication claire",
-        body: "Des échanges directs, des réponses rapides, une planification pragmatique et des progrès réguliers du démarrage à la mise en ligne.",
+        icon: "direct",
+        title: "Vous parlez à l'ingénieur",
+        body: "Aucun chargé de compte entre vous et la personne qui écrit le code. Réponse sur WhatsApp sous 12 heures, en anglais ou en arabe.",
       },
     ],
     founder: {
       kicker: "Avec qui vous travaillez",
       name: "Abdullah Mohamed",
-      role: "Fondateur & ingénieur principal",
-      body: "Ingénieur logiciel senior avec plus de 5 ans d'expérience dans la livraison de produits web et mobiles en production, pour des clients en Égypte, dans le Golfe, en Europe et aux États-Unis. Basé au Caire — quand vous écrivez à Desert Launch, vous parlez directement à la personne qui construit votre produit.",
+      role: "Fondateur et ingénieur principal",
+      body: "Ingénieur logiciel senior avec plus de 5 ans d'expérience dans la livraison de produits web et mobiles en production, pour des clients en Égypte, dans le Golfe, en Europe et aux États-Unis. Basé au Caire — quand vous écrivez à Desert Launch, vous parlez à la personne qui construira votre produit.",
       photo: "/assets/founder.webp",
       photoAlt: "Abdullah Mohamed, fondateur de Desert Launch",
-      facts: ["Le Caire, Égypte", "5+ ans d'expérience", "10+ applications livrées"],
-    },
-    buildPlan: {
-      kicker: "Ce que vous obtenez",
-      heading: "Un plan de développement plus clair avant de lancer les gros travaux.",
-      body: "Chaque mission s'articule autour de la clarté produit, du pragmatisme technique et du chemin le plus rapide vers un lancement fiable.",
-      points: [
-        "Un périmètre défini clairement avant que l'implémentation ne s'étende inutilement.",
-        "UX, architecture et objectifs métier pensés ensemble, et non séparément.",
-        "Un chemin de lancement qui reste exploitable pour les fondateurs comme pour les équipes en croissance.",
+      facts: [
+        "Le Caire, Égypte",
+        "5+ ans en production",
+        "Flutter · Node.js · PostgreSQL",
       ],
+      moreLabel: "En savoir plus sur notre façon de travailler",
     },
     band: {
       kicker: "Comment démarre une collaboration",
-      body: "La plupart des projets commencent par une courte revue de périmètre, une recommandation sur le chemin de développement le plus clair et une prochaine étape concrète pour la livraison.",
+      body: "La plupart des projets commencent par un appel de cadrage gratuit : vous décrivez le problème, nous vous disons ce qu'il faudrait et si une version plus légère suffit. Vous recevez ensuite un devis fixe écrit et un plan de jalons avant tout paiement.",
       points: [
-        "Vous êtes propriétaire du code et de l'infrastructure",
-        "Un périmètre fixe chiffré avant tout engagement",
-        "La planification du lancement dès le départ",
+        "Appel de cadrage gratuit",
+        "Devis fixe écrit en USD",
+        "30 % au démarrage, le reste par jalon",
       ],
-      cta: { label: "Obtenez une revue de périmètre gratuite", href: "#contact" },
+      cta: {
+        label: "Obtenir un devis gratuit sur WhatsApp",
+        href: wa("Bonjour Desert Launch, je souhaite un appel de cadrage gratuit."),
+        external: true,
+      },
     },
   },
   process: {
     kicker: "Méthode",
-    title: "Une méthode simple qui garde les projets clairs et en mouvement.",
+    title: "Le déroulé d'un projet, du premier message à l'année de support",
     intro:
-      "La réactivité compte, mais la structure aussi. Le déroulé ci-dessous est conçu pour réduire l'ambiguïté et garder le périmètre comme la livraison sous contrôle.",
+      "Cinq étapes. Chacune se termine par un livrable visible, et rien n'est payé avant que vous ayez vu l'étape précédente.",
+    deliverableLabel: "Vous recevez",
     steps: [
       {
         n: "1",
-        title: "Découvrir",
-        body: "Comprendre l'activité, les objectifs, les utilisateurs et les contraintes du projet avant de construire quoi que ce soit.",
+        title: "Appel de cadrage",
+        body: "Un appel gratuit sur le fonctionnement actuel de l'activité, les utilisateurs du futur système et ce qui doit être vrai le jour du lancement.",
+        deliverable: "Un résumé de périmètre écrit et un go/no-go honnête.",
       },
       {
         n: "2",
-        title: "Planifier",
-        body: "Définir le périmètre, la direction technique, les jalons et le chemin le plus clair vers le lancement.",
+        title: "Devis",
+        body: "Un prix fixe en USD, un plan de jalons et une date. Rien ne démarre avant votre validation écrite et l'acompte de 30 %.",
+        deliverable: "Un devis fixe et un calendrier de jalons.",
       },
       {
         n: "3",
-        title: "Développer",
-        body: "Livrer le produit par phases structurées, avec une attention portée à l'UX, à la qualité et à l'évolutivité.",
+        title: "Développement",
+        body: "Vous voyez un logiciel qui fonctionne à chaque jalon, pas des captures d'écran. Des points sur WhatsApp au fil de l'avancement et des réponses le jour même.",
+        deliverable: "Une version que vous pouvez ouvrir et utiliser à chaque jalon.",
       },
       {
         n: "4",
-        title: "Lancer",
-        body: "Préparer le déploiement, vérifier les derniers parcours et mettre en ligne en toute confiance.",
+        title: "Lancement",
+        body: "Soumission aux stores, hébergement, noms de domaine et analytics, tout configuré dans vos propres comptes. Nous gérons les retours de validation jusqu'à la mise en ligne.",
+        deliverable: "Une application publiée ou une plateforme en ligne, à votre nom.",
       },
       {
         n: "5",
-        title: "Accompagner",
-        body: "Nous ne disparaissons pas après le lancement — chaque projet inclut une année complète de support et de maintenance gratuits.",
+        title: "Support",
+        body: "Douze mois de support et de maintenance gratuits. Les trois premiers mois incluent également les petites modifications et mises à jour.",
+        deliverable: "Un an de corrections et de mises à jour sans frais.",
       },
     ],
   },
   testimonials: {
-    kicker: "Ce qu'ils disent",
-    title: "Des ingénieurs et des leads qui ont livré des produits avec notre fondateur, avec leurs propres mots.",
+    kicker: "Recommandations de pairs",
+    title: "Ce que des ingénieurs seniors disent de notre fondateur",
     intro:
-      "Recommandations LinkedIn publiques d'Abdullah Mohamed — l'ingénieur qui construit personnellement chaque projet Desert Launch. Des noms réels, des rôles réels, aucun avis rémunéré.",
+      "Recommandations LinkedIn publiques d'Abdullah Mohamed, écrites par des ingénieurs et des responsables techniques qui ont travaillé à ses côtés. Ce sont des avis de collègues, pas de clients — les projets clients sont présentés ci-dessus.",
+    sourceLabel: "Recommandation LinkedIn",
     items: [
       {
         quote:
           "Abdullah a démontré une capacité impressionnante à assimiler rapidement des concepts techniques complexes. Ses qualités d'analyse et son approche réfléchie de la résolution de problèmes en font un contributeur clé au succès de notre équipe.",
         name: "Mohamed Sayed",
-        role: "Lead IA · Appenza",
+        role: "Responsable IA · Appenza",
         photo: "/assets/testimonial-mohamed-sayed.webp",
       },
       {
@@ -533,201 +421,173 @@ export const fr: Dictionary = {
       },
     ],
   },
-  plans: {
-    kicker: "Offres & tarifs",
-    title: "Des offres à périmètre fixe pour les produits bien définis. Des propositions sur mesure pour les systèmes plus ambitieux.",
-    intro:
-      "Chaque offre commence par un appel de cadrage gratuit et un devis fixe écrit en USD — périmètre, calendrier et prix validés avant tout paiement. Les paiements suivent les jalons : 30 % au démarrage, le reste au fur et à mesure que vous voyez le logiciel fonctionner. Chaque projet inclut un an de support gratuit.",
-    items: [
-      {
-        name: "Site web professionnel",
-        body: "Un site d'entreprise professionnel conçu pour expliquer votre valeur rapidement et transformer les visiteurs en prospects WhatsApp et e-mail.",
-        points: [
-          "Design, développement et mise en ligne — en général quelques semaines.",
-          "Rapide, mobile-first et optimisé pour la recherche dès le premier jour.",
-          "Un an de support gratuit et trois mois d'ajustements gratuits.",
-        ],
-        price: { main: "Devis fixe en USD", sub: "Devis écrit après un appel de cadrage gratuit" },
-        cta: {
-          label: "Parler d'un site web",
-          href: wa(
-            "Bonjour Desert Launch, je souhaite un site web professionnel. Pouvons-nous discuter du périmètre et d'un devis ?"
-          ),
-          external: true,
-        },
-      },
-      {
-        name: "Application mobile",
-        note: "La plus demandée",
-        body: "Une application mobile multiplateforme pour iOS et Android à partir d'une seule base de code Flutter — conçue, développée et publiée sur les deux stores.",
-        points: [
-          "Soumission à l'App Store et à Google Play incluse.",
-          "En général deux à quatre mois, jalon par jalon.",
-          "Vous êtes propriétaire du code, de la propriété intellectuelle et des comptes stores.",
-        ],
-        price: { main: "Devis fixe en USD", sub: "Devis écrit après un appel de cadrage gratuit" },
-        cta: {
-          label: "Parler d'une application mobile",
-          href: wa(
-            "Bonjour Desert Launch, je souhaite créer une application mobile. Pouvons-nous discuter du périmètre et d'un devis ?"
-          ),
-          external: true,
-        },
-      },
-      {
-        name: "Sprint MVP",
-        note: "Pour les nouvelles idées",
-        body: "Une première version ciblée de votre produit qui valide le concept auprès de vrais utilisateurs — sans dépenser le budget d'un produit complet pour le savoir.",
-        points: [
-          "Une priorisation impitoyable des fonctionnalités autour d'un résultat clé.",
-          "Un cœur prêt à lancer, en général sous un à deux mois.",
-          "Une architecture qui évoluera ensuite vers le produit complet.",
-        ],
-        price: { main: "Devis fixe en USD", sub: "Devis écrit après un appel de cadrage gratuit" },
-        cta: {
-          label: "Cadrer un MVP",
-          href: wa("Bonjour Desert Launch, j'ai une idée de produit et je souhaite cadrer un MVP."),
-          external: true,
-        },
-      },
-      {
-        name: "Sur mesure & entreprise",
-        note: "Pour les structures plus grandes",
-        body: "Plateformes plus vastes, systèmes internes, intégrations et partenariat produit dans la durée — façonnés autour de votre activité, pas d'un forfait standard.",
-        points: [
-          "Périmètre sur mesure : plateformes, tableaux de bord, API et intégrations.",
-          "Forfait mensuel optionnel avec capacité d'ingénierie réservée.",
-          "Réponse prioritaire sur WhatsApp quand c'est important.",
-        ],
-        price: { main: "Proposition sur mesure", sub: "Établie après avoir compris votre activité" },
-        cta: {
-          label: "Demander une proposition",
-          href: wa(
-            "Bonjour Desert Launch, nous avons besoin d'un système sur mesure pour notre entreprise. Pouvons-nous organiser un appel ?"
-          ),
-          external: true,
-        },
-      },
-    ],
-  },
   faq: {
     kicker: "FAQ",
-    title: "Des réponses franches aux questions que se pose tout premier acheteur de logiciel.",
+    title: "FAQ : coût, délais, propriété du code et support",
     intro:
-      "Si votre question n'est pas ici, posez-la sur WhatsApp — vous obtiendrez une réponse directe, pas un argumentaire commercial.",
+      "Les questions que se pose toute entreprise qui achète un logiciel pour la première fois. Si la vôtre n'y est pas, posez-la sur WhatsApp — vous aurez une réponse directe, pas un argumentaire.",
+    updated: `Dernière mise à jour : ${CONTENT_UPDATED}`,
     items: [
       {
         q: "Combien coûte un projet ?",
-        a: "Chaque projet reçoit un devis fixe en USD après un appel de cadrage gratuit — pas de facturation à l'heure ni de factures surprises. Le prix dépend du périmètre et de la complexité, et nous vous dirons honnêtement si une version plus légère peut atteindre votre objectif.",
+        a: "Chaque projet reçoit un devis fixe en USD après un appel de cadrage gratuit — pas de facturation à l'heure ni de factures surprises. Le prix dépend du périmètre et de la complexité : un site vitrine est la plus petite mission que nous prenons, un produit mobile complet avec paiements et comptes la plus grande. Dites-nous le budget que vous avez en tête et nous vous dirons honnêtement ce qui tient dedans.",
       },
       {
         q: "Combien de temps prendra mon projet ?",
-        a: "Tout dépend du périmètre et de la complexité : un site web professionnel se compte généralement en semaines, un MVP en un à deux mois, et un produit mobile plus ambitieux en deux à quatre mois. Vous recevez un calendrier concret avec des jalons avant le démarrage — et vous voyez un logiciel qui fonctionne à chaque jalon.",
+        a: "Un site vitrine se compte généralement en semaines, un MVP en un à deux mois, et un produit mobile plus ambitieux en deux à quatre mois. Vous recevez un calendrier concret avec des jalons avant le démarrage, et vous voyez un logiciel qui fonctionne à chaque jalon.",
       },
       {
         q: "Que se passe-t-il après le lancement ?",
-        a: "Vous bénéficiez d'une année complète de support et de maintenance gratuits, plus trois mois de petits ajustements et de mises à jour gratuits. Ensuite, un forfait de suivi est disponible si vous souhaitez que nous continuions à améliorer le produit — mais rien ne casse si vous n'en prenez pas.",
+        a: "Douze mois de support et de maintenance gratuits : corrections de bugs, mises à jour des systèmes et des stores, et maintien en fonctionnement. Les trois premiers mois incluent aussi les petites modifications. Ensuite, un forfait mensuel est optionnel — rien ne cesse de fonctionner si vous n'y souscrivez pas.",
       },
       {
         q: "Qui est propriétaire du code ?",
-        a: "Vous. Pleine propriété du code, de la propriété intellectuelle et des comptes d'infrastructure — tout est livré à votre nom, vous n'êtes donc jamais dépendant de nous.",
+        a: "Vous. Pleine propriété du code, de la propriété intellectuelle et des comptes d'infrastructure et de stores — tout est créé à votre nom dès le départ, vous n'êtes donc jamais dépendant de nous.",
       },
       {
         q: "Comment fonctionnent les paiements ?",
-        a: "Les projets sont découpés en trois ou quatre jalons. Vous payez 30 % au démarrage et le reste à chaque jalon livré — vous voyez toujours un logiciel qui fonctionne avant l'échéance suivante.",
+        a: "Les projets sont découpés en trois ou quatre jalons. Vous payez 30 % au démarrage et le reste à chaque jalon livré. Vous voyez toujours un logiciel qui fonctionne avant l'échéance suivante, et un jalon n'est validé que lorsque vous le dites.",
+      },
+      {
+        q: "Signez-vous un accord de confidentialité ?",
+        a: "Oui. Envoyez le vôtre avant l'appel de cadrage, ou nous fournirons un accord mutuel simple. Nous n'avons besoin ni de vos données ni de vos comptes pour chiffrer — une description du problème suffit.",
+      },
+      {
+        q: "Qui réalise concrètement le travail ?",
+        a: "Abdullah développe personnellement chaque projet Desert Launch — la personne à qui vous écrivez sur WhatsApp est celle qui écrit le code. Rien n'est confié à un sous-traitant que vous ne rencontrez jamais. Si un projet nécessite un spécialiste, vous saurez qui et pourquoi avant qu'il commence.",
       },
       {
         q: "Nous ne sommes pas techniques. Est-ce un problème ?",
-        a: "Pas du tout — la plupart de nos clients ne le sont pas. Nous expliquons les décisions dans un langage business clair, prenons en charge les choix techniques pour vous et communiquons en français, en anglais ou en arabe sur WhatsApp.",
+        a: "Pas du tout — la plupart de nos clients ne le sont pas. Nous expliquons les décisions dans un langage business clair, prenons en charge les choix techniques et communiquons en anglais ou en arabe sur WhatsApp.",
+      },
+      {
+        q: "Flutter ou natif iOS et Android ?",
+        a: "Flutter dans la quasi-totalité des cas. Une seule base de code publie sur les deux stores, ce qui divise à peu près par deux le coût de développement et de maintenance, et pour les applications dont la plupart des entreprises ont besoin le résultat est indiscernable du natif. Si votre produit dépend de quelque chose que Flutter atteint mal, nous le dirons et chiffrerons du natif.",
+      },
+      {
+        q: "Pouvez-vous reprendre une application ou un site existant ?",
+        a: "Oui. Nous commençons par une courte revue de code et vous donnons un avis écrit : réparer, refactorer ou reconstruire. Parfois la réponse honnête est que le code va bien et que le problème est ailleurs — vous aurez aussi cette réponse-là.",
+      },
+      {
+        q: "Combien coûte le fonctionnement après le lancement ?",
+        a: "L'hébergement et les services vous sont facturés directement, sur vos propres comptes, pour que vous voyiez toujours le coût réel : en général une petite facture mensuelle Firebase ou serveur, plus le programme développeur Apple à 99 $ par an et l'inscription unique de 25 $ chez Google Play si vous publiez une application. Nous estimons ce coût dans le devis, sans surprise.",
+      },
+      {
+        q: "Développez-vous des applications en arabe et en RTL ?",
+        a: "Oui, régulièrement. Al-Muslim, ICCD Hub et Voicers proposent tous des interfaces bilingues arabe et anglais avec une mise en page RTL complète, une typographie arabe et des dates hégiriennes. Ce site en est un autre exemple.",
       },
       {
         q: "Travaillez-vous avec des clients en Arabie saoudite, aux Émirats et dans le Golfe ?",
-        a: "Oui — Desert Launch travaille avec des clients en Égypte, en Arabie saoudite, aux Émirats arabes unis, au Qatar et au Koweït, ainsi qu'en Europe et aux États-Unis. Nous travaillons dans votre fuseau horaire (Le Caire, GMT+2 — à une heure du Golfe), communiquons en arabe, en français ou en anglais sur WhatsApp, et avons livré des applications pour des entreprises du Golfe, dont un produit disponible sur l'App Store pour une salle de sport au Qatar.",
+        a: "Oui. Desert Launch travaille avec des clients en Égypte, en Arabie saoudite, aux Émirats arabes unis, au Qatar et au Koweït, ainsi qu'en Europe et aux États-Unis. Nous travaillons depuis Le Caire (UTC+2 en hiver, UTC+3 en été), soit à moins d'une heure de toutes les capitales du Golfe, communiquons en arabe ou en anglais sur WhatsApp, et avons livré pour des entreprises du Golfe — dont une application publiée sur l'App Store et Google Play pour une salle de sport à Doha.",
       },
       {
         q: "Pourquoi faire appel à une société de développement logiciel en Égypte ?",
-        a: "Vous bénéficiez d'une ingénierie senior aux tarifs égyptiens — généralement bien en dessous des prix des agences d'Europe de l'Ouest et des États-Unis pour un périmètre équivalent — sans les inconvénients de l'offshore : un fuseau horaire identique ou proche de ceux du Golfe et de l'Europe, des échanges en français, en anglais ou en arabe, et une ligne directe avec l'ingénieur qui construit votre produit plutôt qu'une équipe commerciale à étages.",
+        a: "Vous bénéficiez d'une ingénierie senior aux tarifs égyptiens — généralement bien en dessous des prix des agences d'Europe de l'Ouest et des États-Unis pour un périmètre équivalent — sans les inconvénients habituels de la délocalisation : un fuseau horaire identique ou proche de ceux du Golfe et de l'Europe, un arabe natif et un anglais courant, et une ligne directe avec l'ingénieur qui construit votre produit plutôt qu'une chaîne d'intermédiaires.",
       },
     ],
   },
   contact: {
     kicker: "Démarrer",
-    title:
-      "Expliquez-nous comment votre entreprise fonctionne aujourd'hui. Nous vous montrerons ce qu'un système pourrait remplacer.",
+    title: "Expliquez-nous comment votre entreprise fonctionne aujourd'hui",
     intro:
-      "Partagez votre idée de produit, votre système actuel ou votre besoin métier. WhatsApp est le canal le plus rapide pour un échange direct. L'e-mail convient bien aux briefs détaillés, aux documents et aux descriptions de projet plus longues.",
+      "Décrivez l'idée de produit, le système actuel ou le processus qui casse en permanence. WhatsApp est le canal le plus rapide pour un échange direct ; l'e-mail convient mieux aux briefs longs et aux documents.",
     highlights: [
-      "Recevez une recommandation plus claire sur le périmètre produit, la structure et le chemin de lancement.",
-      "Utilisez le formulaire pour envoyer l'essentiel sans rédiger un long e-mail de zéro.",
-      "Passez directement de l'idée à une prochaine étape concrète et à un canal d'échange.",
+      "Une recommandation sur le périmètre et le chemin le plus rapide vers le lancement — gratuite, avant tout engagement.",
+      "Un devis fixe en USD, pour connaître le montant avant de décider.",
+      "Rien n'est stocké sur ce site : le formulaire rédige un message et le transmet à WhatsApp ou à votre messagerie.",
     ],
-    primary: { label: "Démarrer sur WhatsApp", href: wa(GENERIC), external: true },
-    secondary: { label: "Demander une consultation par e-mail", href: MAILTO },
+    primary: { label: "Obtenir un devis gratuit sur WhatsApp", href: wa(GENERIC), external: true },
+    secondary: { label: "Envoyer un brief par e-mail", href: MAILTO },
     arabicNote: "نتحدث العربية — راسلنا على واتساب بالعربية أو الإنجليزية.",
-    image: {
-      src: "/assets/image_slot3.webp",
-      alt: "Un bureau haut de gamme illustrant la planification de projet et la communication.",
-    },
-    imageCaption: "Envoyez le brief une seule fois. Poursuivez sur WhatsApp ou par e-mail.",
     direct: {
-      heading: "Envoyez un brief de projet",
-      body: "Indiquez ici l'essentiel et ouvrez le brief directement dans WhatsApp ou votre messagerie.",
-      whatsapp: { label: "WhatsApp", value: "+20 102 283 8534" },
-      email: { label: "E-mail", value: "abdullah@desertlaunch.dev" },
+      heading: "Nous joindre directement",
+      body: "Vous préférez éviter le formulaire ? Ces canaux atteignent la même personne.",
+      whatsapp: { label: "WhatsApp", value: PHONE_DISPLAY },
+      email: { label: "E-mail", value: EMAIL },
+      phone: { label: "Téléphone", value: PHONE_DISPLAY },
+      location: { label: "Basés au", value: "Caire, Égypte" },
+      hours: { label: "Réponse", value: "Sous 12 heures · heure du Caire (UTC+2/+3)" },
     },
     form: {
+      heading: "Envoyer un brief de projet",
+      body: "Cinq champs. Le formulaire rédige le message et l'ouvre dans WhatsApp ou votre messagerie — rien n'est envoyé depuis cette page.",
       name: "Votre nom",
       namePlaceholder: "Nom",
-      company: "Entreprise ou marque",
-      companyPlaceholder: "Entreprise ou marque",
-      projectType: "Type de projet",
-      projectTypePlaceholder: "Sélectionnez un type",
+      reply: "E-mail ou téléphone",
+      replyPlaceholder: "vous@entreprise.com",
+      replyHelp: "Pour vous répondre si WhatsApp ne vous atteint pas.",
+      projectType: "De quoi avez-vous besoin ?",
+      projectTypePlaceholder: "Sélectionnez",
       projectTypeOptions: [
-        "Site web professionnel",
-        "Plateforme web",
-        "Application mobile",
-        "MVP",
-        "Système interne",
-        "Refonte de produit",
+        "Application mobile (iOS et Android)",
+        "Site vitrine",
+        "Plateforme web ou portail",
+        "Système interne / administration",
+        "MVP pour un nouveau produit",
+        "Refonte d'un produit existant",
+        "Je ne sais pas encore",
       ],
+      budget: "Budget envisagé (USD)",
+      budgetPlaceholder: "Sélectionnez une fourchette",
+      budgetOptions: [
+        "Moins de 3 000 $",
+        "3 000 – 8 000 $",
+        "8 000 – 20 000 $",
+        "Plus de 20 000 $",
+        "Je ne sais pas encore",
+      ],
+      budgetHelp: "Une fourchette suffit. Elle nous dit ce qui est réaliste avant de chiffrer.",
       timeline: "Délai",
       timelinePlaceholder: "Sélectionnez un délai",
-      timelineOptions: ["Dès que possible", "Sous 1 mois", "1 à 3 mois", "Plus de 3 mois"],
-      summary: "Résumé du projet",
+      timelineOptions: [
+        "Dès que possible",
+        "Sous 1 mois",
+        "1 à 3 mois",
+        "Plus de 3 mois",
+      ],
+      summary: "Que voulez-vous construire ?",
       summaryPlaceholder:
-        "Que construisez-vous, pour qui, et sur quoi avez-vous besoin d'aide ?",
+        "Que doit faire le produit, pour qui, et qu'est-ce qui ne va pas aujourd'hui ?",
+      requiredMark: "obligatoire",
+      optionalMark: "facultatif",
       submitWhatsapp: "Ouvrir le brief dans WhatsApp",
       submitEmail: "Ouvrir le brief par e-mail",
-      note: "Rien n'est enregistré ni envoyé avant que vous n'appuyiez sur envoyer — le formulaire rédige simplement votre message et l'ouvre dans WhatsApp ou votre messagerie.",
-      draftIntro: "Bonjour Desert Launch,\n\nJe souhaite vous présenter un brief de projet.",
+      sending: "Ouverture…",
+      opened: "Votre brief est prêt. Envoyez le message qui vient de s'ouvrir.",
+      blocked: "Votre navigateur a bloqué la fenêtre.",
+      blockedLink: "Ouvrir WhatsApp manuellement",
+      errors: {
+        heading: "Vérifiez ces champs avant l'envoi :",
+        name: "Merci d'indiquer votre nom.",
+        reply: "Merci d'indiquer un e-mail ou un téléphone.",
+        summary: "Merci de décrire en une ou deux phrases ce que vous voulez construire.",
+      },
+      note: "Rien n'est enregistré ni envoyé tant que vous n'appuyez pas sur envoyer dans WhatsApp ou votre messagerie.",
+      draftIntro: "Bonjour Desert Launch,\n\nVoici le brief d'un projet.",
       draftLabels: {
         name: "Nom",
-        company: "Entreprise",
+        reply: "Contact",
         projectType: "Type de projet",
+        budget: "Budget",
         timeline: "Délai",
-        summary: "Résumé du projet",
+        summary: "Ce que nous voulons construire",
       },
-      emailSubject: "Brief de projet pour Desert Launch",
+      emailSubject: "Brief de projet — Desert Launch",
     },
   },
   footer: {
-    tagline: "Studio logiciel pour des produits numériques sérieux",
+    tagline: "Studio logiciel — Le Caire, Égypte",
     blurb:
-      "Desert Launch aide les entreprises à lancer sites web, plateformes, applications mobiles et systèmes internes, avec un processus de livraison clair et une communication directe.",
+      "Desert Launch développe des applications mobiles, des plateformes web et des systèmes internes pour des entreprises en Égypte, dans le Golfe, en Europe et aux États-Unis.",
     copyright: "© 2026 Desert Launch. Tous droits réservés.",
     navHeading: "Naviguer",
     navLinks: [
-      {
-        label: "Nos réalisations",
-        sub: "Des applications en ligne sur l'App Store et Google Play",
-        href: "#work",
-      },
+      { label: "Réalisations", sub: "Des produits en ligne sur l'App Store et Google Play", href: "#work" },
       { label: "Services", sub: "Ce que Desert Launch construit", href: "#services" },
-      {
-        label: "Offres & tarifs",
-        sub: "Offres à périmètre fixe et propositions sur mesure",
-        href: "#plans",
-      },
+      { label: "Pourquoi nous", sub: "Devis fixe, propriété du code, un an de support", href: "#why-us" },
+      { label: "Méthode", sub: "De l'appel de cadrage au lancement en cinq étapes", href: "#process" },
+      { label: "FAQ", sub: "Coût, délais, propriété et support", href: "#faq" },
+      { label: "Contact", sub: "Envoyez un brief ou écrivez sur WhatsApp", href: "#contact" },
     ],
     langHeading: "Cette page dans d'autres langues",
     contactHeading: "Contact",
@@ -739,9 +599,57 @@ export const fr: Dictionary = {
       "Le moyen le plus rapide de discuter d'un nouveau projet",
       "Idéal pour les briefs détaillés et les cahiers des charges",
     ],
-    note: "Utilisez la section contact ci-dessus pour envoyer un brief structuré et poursuivre la conversation sur le canal qui vous convient.",
+    identity: {
+      heading: "Desert Launch",
+      body: "Un studio logiciel indépendant basé au Caire, en Égypte. Chaque projet est conçu et développé par Abdullah Mohamed.",
+      addressLabel: "Adresse",
+      address: "Le Caire, Égypte",
+      links: [
+        { label: "Confidentialité", slug: "privacy" },
+        { label: "Conditions de mission", slug: "terms" },
+        { label: "À propos", slug: "about" },
+      ],
+    },
+    note: "Envoyez un brief depuis la section contact ci-dessus et poursuivez la conversation sur WhatsApp ou par e-mail.",
+  },
+  a11y: {
+    home: "Desert Launch — accueil",
+    primaryNav: "Navigation principale",
+    mobileNav: "Navigation mobile",
+    footerNav: "Navigation du pied de page",
+    breadcrumb: "Fil d'Ariane",
+    proofPoints: "Chiffres clés",
+    heroTags: "Ce que Desert Launch construit",
+    techStack: "Stack technique principale",
+    projectStack: "Technologies utilisées",
+    founderPanel: "Avec qui vous travaillez",
+    founderFacts: "Informations sur le fondateur",
+    engagementPoints: "Comment démarre une collaboration",
+    briefBenefits: "Ce que vous apporte un brief",
+    companySummary: "Présentation de l'entreprise",
+    quickNav: "Navigation rapide",
+    directContact: "Contact direct",
+    newTab: "ouvre un nouvel onglet",
+  },
+  common: {
+    home: "Accueil",
+    servicesLabel: "Services",
+    workLabel: "Réalisations",
+    readCaseStudy: "Lire l'étude de cas",
+    allWork: "Voir toutes les réalisations",
+    allServices: "Tous les services",
+    relatedWork: "Réalisations liées",
+    relatedServices: "Services liés",
+    faqHeading: "Questions fréquentes",
+    onThisPage: "Sur cette page",
+    published: "Publié",
+    lastUpdated: "Mise à jour",
+    backHome: "Retour à l'accueil",
+    notFound: {
+      title: "Cette page n'existe pas",
+      body: "Le lien est peut-être obsolète. Tout le site est à un clic.",
+    },
   },
   floatingWhatsApp: "WhatsApp",
   skipToContent: "Aller au contenu",
-  backToTop: "Retour en haut",
 };

@@ -1,8 +1,7 @@
 import { Site } from "@/app/components/Site";
-import { buildMetadata, viewport } from "@/app/lib/metadata";
+import { buildHomeMetadata } from "@/app/lib/metadata";
 
-export const metadata = buildMetadata("en");
-export { viewport };
+export const metadata = buildHomeMetadata("en");
 
 export default function Page() {
   return <Site lang="en" />;

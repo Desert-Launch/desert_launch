@@ -1,85 +1,104 @@
 import type { IconKey } from "./types";
 
-// Language-neutral inline SVGs. Referenced by key from the dictionaries so the
-// same icon set serves every locale. 22×22, stroke = currentColor.
+// Language-neutral inline SVGs, referenced by key from the dictionaries so the
+// same icon set serves every locale. 24×24 grid, stroke = currentColor.
+//
+// Every key has a distinct silhouette. The previous set reused the same
+// circle-plus for two different services and the same rectangle-with-two-lines
+// for three, which made six cards look like one card repeated.
 const P = {
   fill: "none" as const,
   stroke: "currentColor",
-  strokeWidth: 1.8,
+  strokeWidth: 1.7,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
 };
 
 const paths: Record<IconKey, React.ReactNode> = {
-  web: <path d="M8 7l-4 5 4 5M16 7l4 5-4 5M13 4l-2 16" {...P} />,
+  // Services ---------------------------------------------------------------
+  /** Phone with a speaker slot. */
   mobile: (
     <>
-      <rect x="7" y="3" width="10" height="18" rx="2.5" {...P} />
-      <path d="M10 6h4M11.5 18h1" {...P} />
+      <rect x="6.75" y="2.5" width="10.5" height="19" rx="2.6" {...P} />
+      <path d="M10.5 5.6h3M11.1 18.4h1.8" {...P} />
     </>
   ),
-  uiux: <path d="M4 7h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 16h7v4H4z" {...P} />,
-  architecture: (
+  /** Browser window with a chrome bar. */
+  web: (
     <>
-      <path d="M4 12h6m4 0h6M12 4v6m0 4v6" {...P} />
-      <circle cx="12" cy="12" r="3.5" {...P} />
+      <rect x="2.75" y="4.5" width="18.5" height="15" rx="2.4" {...P} />
+      <path d="M2.75 9.2h18.5" {...P} />
+      <path d="M5.9 6.85h.01M8.4 6.85h.01M10.9 6.85h.01" {...P} />
     </>
   ),
+  /** Rocket: nose cone, window and two fins. */
   mvp: (
     <>
-      <path d="M5 6h14v12H5z" {...P} />
-      <path d="M9 10h6M9 14h3" {...P} />
+      <path
+        d="M12 2.8c2.5 2 3.9 5 3.9 8.2v3.4H8.1v-3.4C8.1 7.8 9.5 4.8 12 2.8Z"
+        {...P}
+      />
+      <circle cx="12" cy="9.1" r="1.6" {...P} />
+      <path d="M8.1 12.6 5.6 15.4l2.5.8M15.9 12.6l2.5 2.8-2.5.8" {...P} />
+      <path d="M10.3 17.7c.5 1.2 1.1 2.2 1.7 3 .6-.8 1.2-1.8 1.7-3" {...P} />
     </>
   ),
-  website: (
+  /** Pen nib. */
+  design: (
     <>
-      <path d="M4 5h16v14H4z" {...P} />
-      <path d="M8 9h8M8 13h4" {...P} />
+      <path d="M3.8 20.2 6.4 13.6 15 5a2.15 2.15 0 0 1 3 3l-8.6 8.6-6.6 2.6Z" {...P} />
+      <path d="M13.4 6.6 17.4 10.6" {...P} />
+      <path d="M6.4 13.6 10.4 17.6" {...P} />
     </>
   ),
-  modernize: <path d="M5 5h6v6H5zM13 13h6v6h-6zM14 5h5v5h-5zM5 14h5v5H5z" {...P} />,
+  /** Cycle arrows — rebuild and modernize. */
+  modernize: (
+    <>
+      <path d="M19.8 12a7.8 7.8 0 0 1-13.3 5.5" {...P} />
+      <path d="M4.2 12A7.8 7.8 0 0 1 17.5 6.5" {...P} />
+      <path d="M4.2 17.4V12.6h4.8M19.8 6.6v4.8h-4.8" {...P} />
+    </>
+  ),
+  /** Compass — direction and advice. */
   consulting: (
     <>
-      <path d="M12 5v14M5 12h14" {...P} />
-      <circle cx="12" cy="12" r="8" {...P} />
+      <circle cx="12" cy="12" r="8.6" {...P} />
+      <path d="M15.1 8.9 13.4 13.4 8.9 15.1 10.6 10.6Z" {...P} />
     </>
   ),
-  reliability: (
+
+  // Differentiators --------------------------------------------------------
+  /** Priced document with a check — the fixed quote. */
+  quote: (
     <>
-      <path d="M12 3l7 4v5c0 4.2-2.8 7.9-7 9-4.2-1.1-7-4.8-7-9V7l7-4z" {...P} />
-      <path d="M9.5 12l1.7 1.7 3.3-3.7" {...P} />
+      <path
+        d="M6.4 3.4h6.9l4.3 4.3v12.1a1.2 1.2 0 0 1-1.2 1.2H6.4a1.2 1.2 0 0 1-1.2-1.2V4.6a1.2 1.2 0 0 1 1.2-1.2Z"
+        {...P}
+      />
+      <path d="M13.3 3.4v4.3h4.3" {...P} />
+      <path d="M8.4 14.6l1.9 1.9 3.9-4.3" {...P} />
     </>
   ),
-  business: (
+  /** Key — you own the code and the accounts. */
+  ownership: (
     <>
-      <path d="M5 19l4.5-10 3 6 2-4 4.5 8" {...P} />
-      <path d="M6 5h12" {...P} />
+      <circle cx="8.2" cy="12" r="3.7" {...P} />
+      <path d="M11.9 12h8.2" {...P} />
+      <path d="M17.2 12v3.1M19.7 12v2.2" {...P} />
     </>
   ),
-  tailored: <path d="M4 8h16M8 4v8M16 12v8M4 16h16" {...P} />,
-  communication: <path d="M6 7h12M6 12h12M6 17h7" {...P} />,
-  dashboard: (
+  /** Shield with a check — a year of support. */
+  support: (
     <>
-      <path d="M5 7h14v10H5z" {...P} />
-      <path d="M9 11h6M9 14h4" {...P} />
+      <path d="M12 3l7 3v5.4c0 4.3-2.9 8.1-7 9.3-4.1-1.2-7-5-7-9.3V6l7-3Z" {...P} />
+      <path d="M9.2 12.1l2 2 3.6-4.1" {...P} />
     </>
   ),
-  productized: (
+  /** Two chat bubbles — you talk to the engineer. */
+  direct: (
     <>
-      <path d="M12 5l6 3.5v7L12 19l-6-3.5v-7L12 5z" {...P} />
-      <path d="M12 12l6-3.5M12 12v7M12 12L6 8.5" {...P} />
-    </>
-  ),
-  flows: (
-    <>
-      <path d="M6 6h12v12H6z" {...P} />
-      <path d="M10 10h4v4h-4z" {...P} />
-    </>
-  ),
-  scalable: (
-    <>
-      <path d="M4 12h16M12 4v16" {...P} />
-      <circle cx="12" cy="12" r="8" {...P} />
+      <path d="M3.4 6.4a2 2 0 0 1 2-2h8.1a2 2 0 0 1 2 2v4.2a2 2 0 0 1-2 2H7.6l-4.2 3V6.4Z" {...P} />
+      <path d="M18.1 8.6a2.5 2.5 0 0 1 2.5 2.5v7.4l-3.3-2.6h-4.4a2 2 0 0 1-1.7-1" {...P} />
     </>
   ),
 };
@@ -92,6 +111,7 @@ export function Icon({ name, className }: { name: IconKey; className?: string })
       viewBox="0 0 24 24"
       className={className}
       aria-hidden="true"
+      focusable="false"
     >
       {paths[name]}
     </svg>
