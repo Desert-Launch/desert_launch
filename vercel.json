@@ -3,7 +3,13 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "desertlaunch.dev" }],
+      "has": [{ "type": "host", "value": "^desertlaunch\\.dev$" }],
+      "destination": "https://www.desertlaunch.dev/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "header", "key": "host", "value": "^desertlaunch\\.dev$" }],
       "destination": "https://www.desertlaunch.dev/:path*",
       "permanent": true
     }
