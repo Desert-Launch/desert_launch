@@ -81,7 +81,13 @@ function ProjectCard({
     <article className={`pf-card reveal ${className}`}>
       <ProjectMedia project={project} copyAlts={copy.shotAlts} stackLabel={t.a11y.projectStack} />
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-start gap-3">
+        {/* Wraps rather than squeezing. The status chip is `shrink-0`, so on a
+            narrow card it used to take its full width out of the row and crush
+            the tag beside it into a column one word wide. Giving the name/tag
+            block a 10rem basis makes the chip drop to its own line instead;
+            above ~430px everything still fits on one row, so wider layouts are
+            unchanged. */}
+        <div className="flex flex-wrap items-start gap-x-3 gap-y-2">
           <img
             src={project.logo}
             alt={copy.logoAlt}
@@ -91,7 +97,7 @@ function ProjectCard({
             decoding="async"
             className="pf-applogo"
           />
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1 basis-40">
             <h3 className="h-card">{project.name}</h3>
             <p className="mt-1 text-meta text-muted">{copy.tag}</p>
           </div>
