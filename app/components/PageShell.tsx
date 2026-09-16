@@ -12,6 +12,7 @@ import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
 export function PageShell({
   lang,
   path,
+  langs,
   crumbs,
   jsonLd,
   children,
@@ -19,12 +20,15 @@ export function PageShell({
   lang: Lang;
   /** Shared sub-path, e.g. "services/mobile-app-development". */
   path: string;
+  /** Locales this page exists in; the switcher only claims those. Defaults to
+   *  the English-and-Arabic set every sub-page except About belongs to. */
+  langs?: readonly Lang[];
   crumbs: Crumb[];
   jsonLd: object[];
   children: React.ReactNode;
 }) {
   const t = dict(lang);
-  const { langHrefs, translated } = localeLinks(path);
+  const { langHrefs, translated } = localeLinks(path, langs);
   const nav = navItems(t, lang, false);
   const home = homePath(lang);
 

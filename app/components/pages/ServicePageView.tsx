@@ -4,7 +4,13 @@ import type { ServiceSlug } from "@/app/data/pages/types";
 import { SERVICES } from "@/app/data/services";
 import { wa } from "@/app/data/shared";
 import type { PageLang } from "@/app/data/types";
-import { homePath, sectionHref, servicePath, servicesIndexPath } from "@/app/lib/links";
+import {
+  homePath,
+  sectionHref,
+  servicePath,
+  servicesIndexPath,
+  simplePath,
+} from "@/app/lib/links";
 import { servicePageSchema } from "@/app/lib/jsonld";
 import { PageShell } from "../PageShell";
 import { FaqList } from "../Faq";
@@ -95,6 +101,12 @@ export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceS
                 </a>
               </li>
             ))}
+            {/* The question every one of these pages ends up raising. */}
+            <li>
+              <a href={simplePath(lang, "pricing")} className="chip">
+                {t.common.pricingLabel}
+              </a>
+            </li>
           </ul>
         </nav>
 

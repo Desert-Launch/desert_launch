@@ -1,17 +1,32 @@
 import { dict } from "@/app/data/copy";
-import { pages } from "@/app/data/pages/copy";
+import { aboutPage, pages } from "@/app/data/pages/copy";
 import { wa, CONTENT_UPDATED } from "@/app/data/shared";
-import type { PageLang } from "@/app/data/types";
-import { homePath } from "@/app/lib/links";
+import type { Lang, PageLang } from "@/app/data/types";
+import { homePath, simplePageLocales } from "@/app/lib/links";
 import { simplePageSchema } from "@/app/lib/jsonld";
 import { PageShell } from "../PageShell";
+import { Testimonials } from "../Testimonials";
+import { FaqList } from "../Faq";
 import { CtaBand, OnThisPage, Section } from "./PageParts";
 
-type SimpleSlug = "about" | "privacy" | "terms";
+/** About exists in every locale; pricing and the legal pages in English and
+ *  Arabic only. The union keeps a French pricing page from ever type-checking. */
+type Props =
+  | { lang: Lang; slug: "about" }
+  | { lang: PageLang; slug: "pricing" | "privacy" | "terms" };
 
-export function SimplePageView({ lang, slug }: { lang: PageLang; slug: SimpleSlug }) {
+export function SimplePageView(props: Props) {
+  const { lang, slug } = props;
   const t = dict(lang);
-  const copy = pages(lang)[slug];
+  const copy = props.slug === "about" ? aboutPage(props.lang) : pages(props.lang)[props.slug];
+
+  /** The founder's peer recommendations belong beside his story, not on the
+   *  home page — see `Testimonials`. They are a real section of this page, so
+   *  the contents list has to name them. */
+  const sections =
+    slug === "about"
+      ? [...copy.sections, { id: "testimonials", title: t.testimonials.title }]
+      : copy.sections;
 
   const jsonLd = simplePageSchema({
     lang,
@@ -20,12 +35,14 @@ export function SimplePageView({ lang, slug }: { lang: PageLang; slug: SimpleSlu
     description: copy.meta.description,
     crumbLabels: { home: t.common.home, current: copy.breadcrumb },
     isAbout: slug === "about",
+    faq: copy.faq,
   });
 
   return (
     <PageShell
       lang={lang}
       path={slug}
+      langs={simplePageLocales(slug)}
       jsonLd={jsonLd}
       crumbs={[
         { label: t.common.home, href: homePath(lang) },
@@ -42,13 +59,22 @@ export function SimplePageView({ lang, slug }: { lang: PageLang; slug: SimpleSlu
           </p>
         </div>
 
-        <OnThisPage sections={copy.sections} label={t.common.onThisPage} />
+        <OnThisPage sections={sections} label={t.common.onThisPage} />
 
         <div className="flex flex-col gap-12 md:gap-14">
           {copy.sections.map((section) => (
             <Section key={section.id} section={section} />
           ))}
         </div>
+
+        {slug === "about" ? <Testimonials t={t} /> : null}
+
+        {copy.faq?.length ? (
+          <section className="flex flex-col gap-4">
+            <h2 className="h-section">{t.common.faqHeading}</h2>
+            <FaqList items={copy.faq} />
+          </section>
+        ) : null}
 
         {copy.cta ? <CtaBand cta={copy.cta} waHref={wa(copy.cta.waMessage)} /> : null}
       </div>

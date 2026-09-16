@@ -66,14 +66,14 @@ export const de: Dictionary = {
         note: "Alle stehen auf dieser Seite – mobile Apps, rollenbasierte Plattformen und private Unternehmenssysteme.",
       },
       {
-        label: "In beiden Stores",
-        value: "2 Apps",
-        note: "Al-Muslim und Q-Fight Gym – die Store-Links stehen auf ihren Karten.",
-      },
-      {
         label: "Erste Antwort",
         value: "Unter 12 h",
         note: "Direkt vom Entwickler, der das Produkt bauen würde. Ohne Account-Manager.",
+      },
+      {
+        label: "Support nach dem Launch",
+        value: "12 Monate",
+        note: "Fehlerbehebung sowie System- und Store-Updates inklusive. Kleine Änderungen sind in den ersten drei Monaten kostenlos.",
       },
     ],
   },
@@ -276,6 +276,28 @@ export const de: Dictionary = {
         deliverable: "Eine schriftliche Empfehlung, die Ihnen gehört – unabhängig davon, wer sie umsetzt.",
         timeline: "2–5 Tage",
       },
+      gymBooking: {
+        title: "Buchungs-App für Fitnessstudios",
+        body: "Eine App für Mitgliedschaften und Kursbuchungen für ein Studio oder einen Trainer — Tarife, Trainer, Termine und Zahlungen, damit der Empfang keine Buchungen mehr am Telefon annimmt.",
+        deliverable: "Eine veröffentlichte iOS- und Android-Buchungs-App in Ihren eigenen Konten.",
+        timeline: "2–3 Monate",
+      },
+      fieldService: {
+        title: "App für Außendienst und Disposition",
+        body: "Der Kunde bucht, der Techniker arbeitet seine Auftragsliste ab, die Leitung sieht alles — drei rollenspezifische Apps aus einer Codebasis, mit Live-Tracking.",
+        deliverable: "Eine Kunden-App, eine Techniker-App und ein Dashboard für die Leitung.",
+        timeline: "3–4 Monate",
+      },
+      clinicLab: {
+        title: "Management-System für Labore und Praxen",
+        body: "Eine Plattform zur Fallverwaltung für ein Labor oder eine Praxis: ein Portal für die Kunden, die Aufträge einreichen, und ein Admin-Bereich für das Team, das sie bearbeitet.",
+        deliverable: "Ein Kundenportal und ein Admin-Dashboard auf Ihrem eigenen Hosting.",
+        timeline: "2–3 Monate",
+      },
+    },
+    useCases: {
+      title: "Für eine konkrete Situation gebaut",
+      intro: "Seiten, die für eine bestimmte Art von Unternehmen geschrieben sind statt für eine Arbeitskategorie. Wenn eine davon Ihre Situation beschreibt, fangen Sie dort an — dieselbe Person baut, zu denselben Bedingungen.",
     },
     learnMore: "Details zur Leistung",
     timelineLabel: "Übliche Dauer",
@@ -336,7 +358,7 @@ export const de: Dictionary = {
       facts: [
         "Kairo, Ägypten",
         "5+ Jahre im Produktivbetrieb",
-        "Flutter · Node.js · PostgreSQL",
+        "Englisch und Arabisch",
       ],
       moreLabel: "Mehr über unsere Arbeitsweise",
     },
@@ -530,6 +552,12 @@ export const de: Dictionary = {
         "Neuentwicklung eines bestehenden Produkts",
         "Noch unklar",
       ],
+      otherEnquiry: {
+        option: "Etwas anderes (Entwickler, Partnerschaft, Zusammenarbeit)",
+        note: "Nachrichten von Entwicklern sowie zu Partnerschaften und Zusammenarbeit laufen per E-Mail — WhatsApp bleibt für Kundenprojekte frei. Schreiben Sie, worum es geht; wir lesen es.",
+        draftIntro: "Hallo Desert Launch,\n\ndies ist keine Anfrage zu einem Kundenprojekt.",
+        emailSubject: "Anfrage — Desert Launch",
+      },
       budget: "Budgetrahmen (USD)",
       budgetPlaceholder: "Bereich auswählen",
       budgetOptions: [
@@ -603,12 +631,14 @@ export const de: Dictionary = {
       "Der schnellste Weg, ein neues Projekt zu besprechen",
       "Ideal für ausführliche Briefings und Anforderungen",
     ],
+    enquiryNote: "Projekt- und Geschäftsanfragen gehen am schnellsten über WhatsApp. Anfragen von Entwicklern sowie zu Partnerschaften und Zusammenarbeit sind per E-Mail willkommen.",
     identity: {
       heading: "Desert Launch",
       body: "Ein unabhängiges Software-Studio mit Sitz in Kairo, Ägypten. Jedes Projekt wird von Abdullah Mohamed konzipiert und entwickelt.",
       addressLabel: "Adresse",
       address: "Kairo, Ägypten",
       links: [
+        { label: "Preise", slug: "pricing" },
         { label: "Datenschutz", slug: "privacy" },
         { label: "Zusammenarbeit", slug: "terms" },
         { label: "Über uns", slug: "about" },
@@ -642,6 +672,7 @@ export const de: Dictionary = {
     readCaseStudy: "Case Study lesen",
     allWork: "Alle Referenzen ansehen",
     allServices: "Alle Leistungen",
+    pricingLabel: "Was es kostet",
     relatedWork: "Passende Referenzen",
     relatedServices: "Passende Leistungen",
     faqHeading: "Häufige Fragen",

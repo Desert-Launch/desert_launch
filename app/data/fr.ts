@@ -66,14 +66,14 @@ export const fr: Dictionary = {
         note: "Tous figurent sur cette page — applications mobiles, plateformes multi-rôles et systèmes métier privés.",
       },
       {
-        label: "Publiés sur les deux stores",
-        value: "2 apps",
-        note: "Al-Muslim et Q-Fight Gym — les liens sont sur leurs fiches ci-dessous.",
-      },
-      {
         label: "Première réponse",
         value: "Sous 12 h",
         note: "Directement par l'ingénieur qui développera le produit. Sans intermédiaire.",
+      },
+      {
+        label: "Support après lancement",
+        value: "12 mois",
+        note: "Corrections de bugs et mises à jour système et stores incluses. Les petites modifications sont offertes les trois premiers mois.",
       },
     ],
   },
@@ -276,6 +276,28 @@ export const fr: Dictionary = {
         deliverable: "Une recommandation écrite qui vous appartient, quelle que soit l'équipe qui la met en œuvre.",
         timeline: "2 à 5 jours",
       },
+      gymBooking: {
+        title: "Application de réservation pour salles de sport",
+        body: "Une application d'abonnements et de réservation de séances pour une salle, un studio ou un coach — formules, coachs, créneaux et paiements, pour que l'accueil cesse de prendre les réservations au téléphone.",
+        deliverable: "Une application de réservation publiée sur iOS et Android, sur vos propres comptes.",
+        timeline: "2–3 mois",
+      },
+      fieldService: {
+        title: "Application de gestion des interventions",
+        body: "Le client réserve, le technicien traite sa file d'interventions, le responsable suit l'ensemble — trois applications par rôle issues d'une seule base de code, avec suivi en direct.",
+        deliverable: "Une application client, une application technicien et un tableau de bord.",
+        timeline: "3–4 mois",
+      },
+      clinicLab: {
+        title: "Système de gestion pour laboratoires et cliniques",
+        body: "Une plateforme de gestion des dossiers pour un laboratoire ou une clinique : un portail pour les clients qui envoient le travail, et une interface d'administration pour l'équipe qui le traite.",
+        deliverable: "Un portail client et un tableau de bord d'administration sur votre hébergement.",
+        timeline: "2–3 mois",
+      },
+    },
+    useCases: {
+      title: "Conçu pour une situation précise",
+      intro: "Des pages écrites pour un type d'activité plutôt que pour une catégorie de travail. Si l'une d'elles décrit votre situation, commencez par là — la même personne construit, aux mêmes conditions.",
     },
     learnMore: "Détail du service",
     timelineLabel: "Durée typique",
@@ -336,7 +358,7 @@ export const fr: Dictionary = {
       facts: [
         "Le Caire, Égypte",
         "5+ ans en production",
-        "Flutter · Node.js · PostgreSQL",
+        "Anglais et arabe",
       ],
       moreLabel: "En savoir plus sur notre façon de travailler",
     },
@@ -530,6 +552,12 @@ export const fr: Dictionary = {
         "Refonte d'un produit existant",
         "Je ne sais pas encore",
       ],
+      otherEnquiry: {
+        option: "Autre chose (développeur, partenariat, collaboration)",
+        note: "Les messages de développeurs, de partenariat et de collaboration passent par e-mail — WhatsApp reste réservé aux projets clients. Dites-nous ce que vous avez en tête, nous le lirons.",
+        draftIntro: "Bonjour Desert Launch,\n\nCe message ne concerne pas un projet client.",
+        emailSubject: "Demande — Desert Launch",
+      },
       budget: "Budget envisagé (USD)",
       budgetPlaceholder: "Sélectionnez une fourchette",
       budgetOptions: [
@@ -603,12 +631,14 @@ export const fr: Dictionary = {
       "Le moyen le plus rapide de discuter d'un nouveau projet",
       "Idéal pour les briefs détaillés et les cahiers des charges",
     ],
+    enquiryNote: "Les demandes de projet sont plus rapides sur WhatsApp. Les développeurs, les partenariats et les propositions de collaboration sont les bienvenus par e-mail.",
     identity: {
       heading: "Desert Launch",
       body: "Un studio logiciel indépendant basé au Caire, en Égypte. Chaque projet est conçu et développé par Abdullah Mohamed.",
       addressLabel: "Adresse",
       address: "Le Caire, Égypte",
       links: [
+        { label: "Tarifs", slug: "pricing" },
         { label: "Confidentialité", slug: "privacy" },
         { label: "Conditions de mission", slug: "terms" },
         { label: "À propos", slug: "about" },
@@ -642,6 +672,7 @@ export const fr: Dictionary = {
     readCaseStudy: "Lire l'étude de cas",
     allWork: "Voir toutes les réalisations",
     allServices: "Tous les services",
+    pricingLabel: "Ce que ça coûte",
     relatedWork: "Réalisations liées",
     relatedServices: "Services liés",
     faqHeading: "Questions fréquentes",

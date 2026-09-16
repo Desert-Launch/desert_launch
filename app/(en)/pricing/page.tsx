@@ -1,18 +1,17 @@
 import { SimplePageView } from "@/app/components/pages/SimplePageView";
 import { pages } from "@/app/data/pages/copy";
-import { ABOUT_LOCALES } from "@/app/data/shared";
-import { buildMetadata } from "@/app/lib/metadata";
+import { buildMetadata, SUBPAGE_LANGS } from "@/app/lib/metadata";
 
-const copy = pages("ar").about;
+const copy = pages("en").pricing;
 
 export const metadata = buildMetadata({
-  lang: "ar",
-  path: "about",
+  lang: "en",
+  path: "pricing",
   title: copy.meta.title,
   description: copy.meta.description,
-  langs: ABOUT_LOCALES,
+  langs: SUBPAGE_LANGS,
 });
 
 export default function Page() {
-  return <SimplePageView lang="ar" slug="about" />;
+  return <SimplePageView lang="en" slug="pricing" />;
 }

@@ -1,9 +1,9 @@
 import { dict } from "@/app/data/copy";
 import { Icon } from "@/app/data/icons";
-import { SERVICES } from "@/app/data/services";
+import { HOME_SERVICES, USE_CASE_SERVICES } from "@/app/data/services";
 import { wa } from "@/app/data/shared";
 import type { PageLang } from "@/app/data/types";
-import { homePath, sectionHref, servicePath } from "@/app/lib/links";
+import { homePath, sectionHref, servicePath, simplePath } from "@/app/lib/links";
 import { servicesIndexSchema } from "@/app/lib/jsonld";
 import { PageShell } from "../PageShell";
 
@@ -51,6 +51,9 @@ export function ServicesIndexView({ lang }: { lang: PageLang }) {
             >
               {s.primary.label}
             </a>
+            <a href={simplePath(lang, "pricing")} className="btn btn-secondary">
+              {t.common.pricingLabel}
+            </a>
             <a href={sectionHref(lang, "#work", false)} className="btn btn-secondary">
               {t.common.allWork}
             </a>
@@ -58,7 +61,7 @@ export function ServicesIndexView({ lang }: { lang: PageLang }) {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => {
+          {HOME_SERVICES.map((service) => {
             const copy = s.items[service.id];
             const href = service.slug ? servicePath(lang, service.slug) : null;
             return (
@@ -95,6 +98,47 @@ export function ServicesIndexView({ lang }: { lang: PageLang }) {
             );
           })}
         </div>
+
+        {/* The use-case pages. They are not on the home page's grid — a buyer
+            reaches them by searching their own problem — but somebody browsing
+            the menu should still find the page written for their situation. */}
+        <section className="flex flex-col gap-4">
+          <h2 className="h-section">{s.useCases.title}</h2>
+          <p className="prose">{s.useCases.intro}</p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {USE_CASE_SERVICES.map((service) => {
+              const copy = s.items[service.id];
+              return (
+                <article key={service.id} className="card card--link">
+                  <span className="icon-box">
+                    <Icon name={service.icon} />
+                  </span>
+                  <h3 className="h-card">
+                    <a
+                      href={servicePath(lang, service.slug!)}
+                      className="card__link"
+                      data-evt="service_cta_click"
+                      data-evt-service={service.id}
+                      data-evt-placement="services-index-use-case"
+                    >
+                      {copy.title}
+                    </a>
+                  </h3>
+                  <p>{copy.body}</p>
+                  <p className="service-deliverable">
+                    <span aria-hidden="true" className="bullet-dot" />
+                    {copy.deliverable}
+                  </p>
+                  <p className="service-timeline">
+                    <span className="service-timeline__label">{s.timelineLabel}</span>
+                    <span className="service-timeline__value">{copy.timeline}</span>
+                    <span className="service-timeline__more">{s.learnMore} →</span>
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
 
         <section className="flex flex-col gap-3" aria-label={t.a11y.techStack}>
           <h2 className="h-section">{s.stackLabel}</h2>

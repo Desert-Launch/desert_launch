@@ -1,11 +1,12 @@
 import type { Dictionary, Lang } from "@/app/data/types";
 import { Icon } from "@/app/data/icons";
-import { hasPages, simplePath } from "@/app/lib/links";
+import { simplePath } from "@/app/lib/links";
 import { SectionHead } from "./SectionHead";
 
 export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
   const w = t.why;
-  const aboutHref = hasPages(lang) ? simplePath(lang, "about") : null;
+  // About exists in every locale, unlike the other sub-pages.
+  const aboutHref = simplePath(lang, "about");
 
   return (
     <section id="why-us" aria-labelledby="why-heading" className="section scroll-mt-24">
@@ -51,11 +52,9 @@ export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
                 </span>
               ))}
             </div>
-            {aboutHref ? (
-              <a href={aboutHref} className="pf-link pf-link--strong mt-1 self-start">
-                {w.founder.moreLabel}
-              </a>
-            ) : null}
+            <a href={aboutHref} className="pf-link pf-link--strong mt-1 self-start">
+              {w.founder.moreLabel}
+            </a>
           </section>
         </div>
 

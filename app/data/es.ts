@@ -66,14 +66,14 @@ export const es: Dictionary = {
         note: "Todos están en esta página: apps móviles, plataformas multiperfil y sistemas de negocio privados.",
       },
       {
-        label: "Publicadas en ambas tiendas",
-        value: "2 apps",
-        note: "Al-Muslim y Q-Fight Gym — los enlaces están en sus fichas.",
-      },
-      {
         label: "Primera respuesta",
         value: "Menos de 12 h",
         note: "Directamente del ingeniero que lo desarrollará. Sin gestores de cuenta.",
+      },
+      {
+        label: "Soporte tras el lanzamiento",
+        value: "12 meses",
+        note: "Corrección de errores y actualizaciones de sistema y tiendas incluidas. Los cambios pequeños son gratis los tres primeros meses.",
       },
     ],
   },
@@ -276,6 +276,28 @@ export const es: Dictionary = {
         deliverable: "Una recomendación escrita que es suya, la ejecute quien la ejecute.",
         timeline: "2–5 días",
       },
+      gymBooking: {
+        title: "App de reservas para gimnasios",
+        body: "Una app de suscripciones y reserva de sesiones para un gimnasio, un estudio o un entrenador — planes, entrenadores, horarios y pagos, para que recepción deje de tomar reservas por teléfono.",
+        deliverable: "Una app de reservas publicada en iOS y Android, en tus propias cuentas.",
+        timeline: "2–3 meses",
+      },
+      fieldService: {
+        title: "App de gestión de servicio técnico",
+        body: "El cliente reserva, el técnico trabaja su cola de trabajos y el responsable lo ve todo — tres apps por rol desde una sola base de código, con seguimiento en vivo.",
+        deliverable: "Una app de cliente, una app de técnico y un panel de gestión.",
+        timeline: "3–4 meses",
+      },
+      clinicLab: {
+        title: "Sistema de gestión para laboratorios y clínicas",
+        body: "Una plataforma de gestión de casos para un laboratorio o una clínica: un portal para los clientes que envían el trabajo y un panel de administración para el equipo que lo procesa.",
+        deliverable: "Un portal de clientes y un panel de administración en tu propio hosting.",
+        timeline: "2–3 meses",
+      },
+    },
+    useCases: {
+      title: "Pensado para una situación concreta",
+      intro: "Páginas escritas para un tipo de negocio en lugar de una categoría de trabajo. Si una de ellas es tu caso, empieza por ahí: lo construye la misma persona y con las mismas condiciones.",
     },
     learnMore: "Detalle del servicio",
     timelineLabel: "Duración habitual",
@@ -336,7 +358,7 @@ export const es: Dictionary = {
       facts: [
         "El Cairo, Egipto",
         "Más de 5 años en producción",
-        "Flutter · Node.js · PostgreSQL",
+        "Inglés y árabe",
       ],
       moreLabel: "Más sobre cómo trabajamos",
     },
@@ -530,6 +552,12 @@ export const es: Dictionary = {
         "Rehacer un producto existente",
         "Todavía no lo sé",
       ],
+      otherEnquiry: {
+        option: "Otra cosa (desarrollador, alianza, colaboración)",
+        note: "Los mensajes de desarrolladores, alianzas y colaboraciones se envían por correo — WhatsApp queda reservado a los proyectos de clientes. Cuéntanos qué tienes en mente y lo leeremos.",
+        draftIntro: "Hola Desert Launch:\n\nEsta consulta no es sobre un proyecto de cliente.",
+        emailSubject: "Consulta — Desert Launch",
+      },
       budget: "Presupuesto (USD)",
       budgetPlaceholder: "Seleccione un rango",
       budgetOptions: [
@@ -603,12 +631,14 @@ export const es: Dictionary = {
       "La vía más rápida para hablar de un nuevo proyecto",
       "Ideal para briefs y requisitos detallados",
     ],
+    enquiryNote: "Las consultas de proyectos y de negocio son más rápidas por WhatsApp. Las consultas de desarrolladores, alianzas y colaboraciones son bienvenidas por correo.",
     identity: {
       heading: "Desert Launch",
       body: "Un estudio de desarrollo de software independiente con base en El Cairo, Egipto. Cada proyecto lo diseña y lo desarrolla Abdullah Mohamed.",
       addressLabel: "Dirección",
       address: "El Cairo, Egipto",
       links: [
+        { label: "Precios", slug: "pricing" },
         { label: "Privacidad", slug: "privacy" },
         { label: "Condiciones de trabajo", slug: "terms" },
         { label: "Quiénes somos", slug: "about" },
@@ -642,6 +672,7 @@ export const es: Dictionary = {
     readCaseStudy: "Leer el caso de estudio",
     allWork: "Ver todos los proyectos",
     allServices: "Todos los servicios",
+    pricingLabel: "Cuánto cuesta",
     relatedWork: "Proyectos relacionados",
     relatedServices: "Servicios relacionados",
     faqHeading: "Preguntas habituales",

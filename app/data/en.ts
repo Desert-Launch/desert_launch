@@ -66,14 +66,14 @@ export const en: Dictionary = {
         note: "Every one of them is on this page — mobile apps, multi-role platforms and private business systems.",
       },
       {
-        label: "Published to both stores",
-        value: "2 apps",
-        note: "Al-Muslim and Q-Fight Gym — store links are on their cards below.",
-      },
-      {
         label: "First reply",
         value: "Under 12h",
         note: "Direct from the engineer who would build it. No account managers.",
+      },
+      {
+        label: "Support after launch",
+        value: "12 months",
+        note: "Free bug fixes, OS and store updates. Small changes are free for the first three months.",
       },
     ],
   },
@@ -276,6 +276,28 @@ export const en: Dictionary = {
         deliverable: "A written recommendation you own, whoever ends up building it.",
         timeline: "2–5 days",
       },
+      gymBooking: {
+        title: "Gym & fitness booking app",
+        body: "A membership and session booking app for a gym, a studio or a trainer — plans, trainers, schedules and payments, so the front desk stops taking bookings by phone.",
+        deliverable: "A published iOS and Android booking app in your own accounts.",
+        timeline: "2–3 months",
+      },
+      fieldService: {
+        title: "Field service management app",
+        body: "Customers book, technicians work the job queue and managers watch it happen — three role-specific apps built from one codebase, with live tracking.",
+        deliverable: "A customer app, a technician app and a manager dashboard.",
+        timeline: "3–4 months",
+      },
+      clinicLab: {
+        title: "Lab & clinic management system",
+        body: "A case management platform for a lab or a clinic: a portal for the customers who send work in, and an admin side for the team processing it.",
+        deliverable: "A customer portal and an admin dashboard on your own hosting.",
+        timeline: "2–3 months",
+      },
+    },
+    useCases: {
+      title: "Built for a specific situation",
+      intro: "Pages written for a particular kind of business rather than a category of work. If one of these is your situation, start there — it is the same person building it and the same terms.",
     },
     learnMore: "Service details",
     timelineLabel: "Typical",
@@ -336,7 +358,7 @@ export const en: Dictionary = {
       facts: [
         "Cairo, Egypt",
         "5+ years in production",
-        "Flutter · Node.js · PostgreSQL",
+        "English & Arabic",
       ],
       moreLabel: "More about how we work",
     },
@@ -530,6 +552,12 @@ export const en: Dictionary = {
         "Rebuild of an existing product",
         "Not sure yet",
       ],
+      otherEnquiry: {
+        option: "Something else (developer, partnership, collaboration)",
+        note: "Developer, partnership and collaboration messages go to email — WhatsApp is kept clear for client projects. Tell us what you have in mind and we will read it.",
+        draftIntro: "Hello Desert Launch,\n\nThis is an enquiry about something other than a client project.",
+        emailSubject: "Enquiry — Desert Launch",
+      },
       budget: "Budget range (USD)",
       budgetPlaceholder: "Select a range",
       budgetOptions: [
@@ -603,12 +631,14 @@ export const en: Dictionary = {
       "Fastest way to discuss a new project",
       "Best for detailed briefs and requirements",
     ],
+    enquiryNote: "Business and project enquiries are fastest on WhatsApp. Developers, partnerships and collaboration enquiries are welcome by email.",
     identity: {
       heading: "Desert Launch",
       body: "An independent software studio based in Cairo, Egypt. Every project is designed and built by Abdullah Mohamed.",
       addressLabel: "Address",
       address: "Cairo, Egypt",
       links: [
+        { label: "Pricing", slug: "pricing" },
         { label: "Privacy", slug: "privacy" },
         { label: "Engagement terms", slug: "terms" },
         { label: "About", slug: "about" },
@@ -642,6 +672,7 @@ export const en: Dictionary = {
     readCaseStudy: "Read the case study",
     allWork: "See all work",
     allServices: "All services",
+    pricingLabel: "What it costs",
     relatedWork: "Related work",
     relatedServices: "Related services",
     faqHeading: "Common questions",

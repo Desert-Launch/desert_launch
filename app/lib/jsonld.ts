@@ -123,7 +123,7 @@ export function entityGraph() {
         url: `${SITE_URL}/about/`,
         mainEntityOfPage: `${SITE_URL}/about/`,
         worksFor: { "@id": ORG_ID },
-        knowsAbout: ORG.knowsAbout,
+        knowsAbout: FOUNDER.knowsAbout,
         knowsLanguage: ORG.knowsLanguage,
         homeLocation: {
           "@type": "Place",
@@ -418,14 +418,21 @@ export function simplePageSchema({
   description,
   crumbLabels,
   isAbout = false,
+  faq = [],
 }: {
-  lang: PageLang;
+  /** `Lang`, not `PageLang`: About exists in every locale. */
+  lang: Lang;
   slug: string;
   title: string;
   description: string;
   crumbLabels: { home: string; current: string };
   isAbout?: boolean;
+  /** Pages that carry their own Q&A (currently /pricing/) emit an FAQPage from
+   *  the same items the page renders, so the markup and the visible answers
+   *  cannot drift apart. */
+  faq?: { q: string; a: string }[];
 }) {
+  const url = localeUrl(lang, slug);
   return [
     {
       "@context": "https://schema.org",
@@ -433,9 +440,25 @@ export function simplePageSchema({
         ...(isAbout ? { "@type": "AboutPage", mainEntity: { "@id": ORG_ID } } : {}),
       }),
     },
+    ...(faq.length
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": `${url}#faq`,
+            isPartOf: { "@id": `${url}#webpage` },
+            inLanguage: localeByCode(lang).hreflang,
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          },
+        ]
+      : []),
     breadcrumbs([
       { name: crumbLabels.home, url: localeUrl(lang, "") },
-      { name: crumbLabels.current, url: localeUrl(lang, slug) },
+      { name: crumbLabels.current, url },
     ]),
   ];
 }

@@ -1,6 +1,6 @@
 import type { Dictionary, Lang } from "@/app/data/types";
 import { Icon } from "@/app/data/icons";
-import { SERVICES } from "@/app/data/services";
+import { HOME_SERVICES } from "@/app/data/services";
 import { hasPages, servicePath } from "@/app/lib/links";
 import { SectionHead } from "./SectionHead";
 
@@ -17,7 +17,7 @@ export function Services({ t, lang }: { t: Dictionary; lang: Lang }) {
         <SectionHead id="services-heading" kicker={s.kicker} title={s.title} intro={s.intro} />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => {
+          {HOME_SERVICES.map((service) => {
             const copy = s.items[service.id];
             const href = service.slug && hasPages(lang) ? servicePath(lang, service.slug) : null;
             return (

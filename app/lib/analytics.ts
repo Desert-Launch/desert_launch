@@ -116,7 +116,16 @@ interface AnalyticsWindow extends Window {
 export function track(name: EventName, props: EventProps = {}): void {
   if (typeof window === "undefined") return;
 
-  const payload: EventProps = { ...readAttribution(), ...props } as EventProps;
+  // `landing` records where the session started; `page` records where the
+  // conversion actually happened. They are different questions with usually
+  // different answers — a visitor who arrives on the gym booking page and
+  // converts on /pricing/ has to be readable as both, or there is no way to
+  // tell which new page is earning its keep.
+  const payload: EventProps = {
+    ...readAttribution(),
+    page: window.location.pathname,
+    ...props,
+  } as EventProps;
   const w = window as AnalyticsWindow;
 
   try {

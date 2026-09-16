@@ -8,7 +8,6 @@ import { Work } from "./Work";
 import { Services } from "./Services";
 import { WhyUs } from "./WhyUs";
 import { Process } from "./Process";
-import { Testimonials } from "./Testimonials";
 import { Faq } from "./Faq";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
@@ -45,7 +44,6 @@ export function Site({ lang }: { lang: Lang }) {
         <Services t={t} lang={lang} />
         <WhyUs t={t} lang={lang} />
         <Process t={t} />
-        <Testimonials t={t} />
         <Faq t={t} />
         <Contact t={t} />
       </main>

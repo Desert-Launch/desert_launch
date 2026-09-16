@@ -1,4 +1,4 @@
-import { localePath, LOCALE_CODES, PAGE_LOCALES } from "@/app/data/shared";
+import { ABOUT_LOCALES, localePath, LOCALE_CODES, PAGE_LOCALES } from "@/app/data/shared";
 import type { Dictionary, Lang, PageLang, ProjectId } from "@/app/data/types";
 
 /** Locales that have the long-form sub-pages. Everything that links to a
@@ -32,8 +32,19 @@ export function casePath(lang: PageLang, id: ProjectId): string {
   return localePath(lang, `work/${id}`);
 }
 
-export function simplePath(lang: PageLang, slug: string): string {
+export function simplePath(lang: Lang, slug: string): string {
   return localePath(lang, slug);
+}
+
+/** Locales a simple page exists in. About is everywhere; the rest are the
+ *  English-and-Arabic set. Anything linking to one of these pages from a
+ *  locale that might not have it asks here first. */
+export function simplePageLocales(slug: string): readonly Lang[] {
+  return slug === "about" ? ABOUT_LOCALES : PAGE_LOCALES;
+}
+
+export function hasSimplePage(lang: Lang, slug: string): boolean {
+  return simplePageLocales(slug).includes(lang);
 }
 
 /** Language-switcher targets for a page.
@@ -43,7 +54,12 @@ export function simplePath(lang: PageLang, slug: string): string {
  *  URL and a real `hreflang`; the rest fall back to their home page and are
  *  listed without one, so the switcher never claims a translation that does not
  *  exist. */
-export function localeLinks(path: string | null): {
+export function localeLinks(
+  path: string | null,
+  /** Locales this page exists in. Sub-pages default to English and Arabic;
+   *  About passes every locale. */
+  langs: readonly Lang[] = PAGE_LOCALES
+): {
   langHrefs: Partial<Record<Lang, string>>;
   translated: Lang[];
 } {
@@ -56,9 +72,9 @@ export function localeLinks(path: string | null): {
 
   const langHrefs: Partial<Record<Lang, string>> = {};
   for (const l of LOCALE_CODES) {
-    langHrefs[l] = hasPages(l) ? localePath(l, path) : localePath(l);
+    langHrefs[l] = langs.includes(l) ? localePath(l, path) : localePath(l);
   }
-  return { langHrefs, translated: [...PAGE_LOCALES] };
+  return { langHrefs, translated: [...langs] };
 }
 
 /** Header and footer navigation, resolved for the current document. */

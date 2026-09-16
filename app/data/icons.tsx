@@ -23,6 +23,31 @@ const paths: Record<IconKey, React.ReactNode> = {
       <path d="M10.5 5.6h3M11.1 18.4h1.8" {...P} />
     </>
   ),
+  /** Calendar page with a tick: a slot that is booked. */
+  booking: (
+    <>
+      <rect x="3.25" y="4.75" width="17.5" height="16" rx="2.4" {...P} />
+      <path d="M3.25 9.4h17.5M8.1 2.8v3.6M15.9 2.8v3.6" {...P} />
+      <path d="M8.8 14.6l2.2 2.2 4.2-4.2" {...P} />
+    </>
+  ),
+  /** Map pin on a route line: a technician on the way to a job. */
+  dispatch: (
+    <>
+      <path d="M16.4 3.3c1.9 0 3.4 1.6 3.4 3.5 0 2.6-3.4 6-3.4 6s-3.4-3.4-3.4-6c0-1.9 1.5-3.5 3.4-3.5Z" {...P} />
+      <path d="M16.4 6.6h.01" {...P} />
+      <path d="M9.9 6.9H6.5a2.6 2.6 0 0 0 0 5.2h5a2.6 2.6 0 0 1 0 5.2H4.2" {...P} />
+      <path d="M5.4 15.6l-1.2 1.7 1.2 1.7" {...P} />
+    </>
+  ),
+  /** Stacked record cards: a case file moving through a lab. */
+  records: (
+    <>
+      <rect x="2.75" y="6.4" width="13.5" height="14.2" rx="2.2" {...P} />
+      <path d="M6.6 3.4h10.2a2.4 2.4 0 0 1 2.4 2.4v11.4" {...P} />
+      <path d="M6.2 11h6.6M6.2 14.6h4.4" {...P} />
+    </>
+  ),
   /** Browser window with a chrome bar. */
   web: (
     <>

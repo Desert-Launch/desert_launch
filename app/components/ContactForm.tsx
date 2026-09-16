@@ -46,6 +46,11 @@ const EMPTY: Record<FieldKey, string> = {
  *  blocked the pop-up. It now validates, announces its state to assistive
  *  technology, guards against double submits, fires the conversion event
  *  *before* the handoff, and always offers a visible fallback link.
+ *
+ *  It also carries the two enquiry lanes. A client project drafts to WhatsApp;
+ *  a developer, partnership or collaboration message drafts to email under its
+ *  own subject line. Both are welcome — they just must not arrive on the same
+ *  channel, or the line that closes work fills up with the one that does not.
  */
 export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   const [values, setValues] = useState(EMPTY);
@@ -72,6 +77,11 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   });
 
   const id = (key: string) => `${uid}-${key}`;
+
+  /** The non-client lane: a developer, partnership or collaboration message.
+   *  Welcome, but routed to email so it never lands in the WhatsApp line that
+   *  client projects arrive on. */
+  const isOther = values.projectType === form.otherEnquiry.option;
 
   /** The same rule the submit check uses, so a message clears exactly when the
    *  field would now pass — not merely when it stops being empty, which used to
@@ -104,12 +114,17 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
 
   function draft(): string {
     const l = form.draftLabels;
-    const lines: string[] = [form.draftIntro, ""];
+    const lines: string[] = [isOther ? form.otherEnquiry.draftIntro : form.draftIntro, ""];
     lines.push(`${l.name}: ${values.name.trim()}`);
     lines.push(`${l.reply}: ${values.reply.trim()}`);
     if (values.projectType) lines.push(`${l.projectType}: ${values.projectType}`);
-    if (values.budget) lines.push(`${l.budget}: ${values.budget}`);
-    if (values.timeline) lines.push(`${l.timeline}: ${values.timeline}`);
+    // Budget and timeline describe a build. They are hidden on the non-client
+    // lane, and a value left behind by a changed selection must not survive
+    // into the draft.
+    if (!isOther) {
+      if (values.budget) lines.push(`${l.budget}: ${values.budget}`);
+      if (values.timeline) lines.push(`${l.timeline}: ${values.timeline}`);
+    }
     lines.push("", `${l.summary}: ${values.summary.trim()}`);
     return lines.join("\n");
   }
@@ -142,14 +157,16 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
     track("contact_form_submit", {
       channel,
       lang,
+      // Which lane the lead arrived on, so a client brief and a developer
+      // message are never counted as the same conversion.
+      enquiry: isOther ? "other" : "project",
       project_type: values.projectType || "unspecified",
       budget: values.budget || "unspecified",
       timeline: values.timeline || "unspecified",
     });
   }
 
-  function onWhatsApp(e: React.FormEvent) {
-    e.preventDefault();
+  function submitWhatsApp() {
     if (!guard()) return;
     setStatus("opening");
     analytics("whatsapp");
@@ -160,17 +177,25 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
     setStatus(opened ? "opened" : "blocked");
   }
 
-  function onEmail() {
+  function submitEmail() {
     if (!guard()) return;
     setStatus("opening");
     analytics("email");
 
     const url = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      form.emailSubject
+      isOther ? form.otherEnquiry.emailSubject : form.emailSubject
     )}&body=${encodeURIComponent(draft())}`;
     setFallbackHref(url);
     window.location.href = url;
     setStatus("opened");
+  }
+
+  /** The non-client lane has no WhatsApp route, so Enter must submit to email
+   *  rather than to the primary action the rest of the form uses. */
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (isOther) submitEmail();
+    else submitWhatsApp();
   }
 
   const errorList = (Object.keys(errors) as FieldKey[]).filter((k) => errors[k]);
@@ -181,7 +206,7 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
   const controlCls = "form-control";
 
   return (
-    <form className="contact-form flex flex-col gap-4" onSubmit={onWhatsApp} noValidate>
+    <form className="contact-form flex flex-col gap-4" onSubmit={onSubmit} noValidate>
       {/* Error summary. `tabIndex={-1}` makes it focusable so submitting an
           invalid form moves the user straight to the explanation. */}
       {errorList.length > 0 && (
@@ -264,53 +289,67 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
             className={controlCls}
             value={values.projectType}
             onChange={set("projectType")}
+            aria-describedby={isOther ? id("type-note") : undefined}
           >
             <option value="">{form.projectTypePlaceholder}</option>
             {form.projectTypeOptions.map((o) => (
               <option key={o}>{o}</option>
             ))}
+            <option>{form.otherEnquiry.option}</option>
           </select>
+          {isOther && (
+            <span id={id("type-note")} className="form-help">
+              {form.otherEnquiry.note}
+            </span>
+          )}
         </div>
 
-        <div className={field}>
-          <label htmlFor={id("budget")} className={labelCls}>
-            {form.budget} <span className="form-optional">{form.optionalMark}</span>
-          </label>
-          <select
-            id={id("budget")}
-            name="budget"
-            className={controlCls}
-            value={values.budget}
-            onChange={set("budget")}
-            aria-describedby={id("budget-help")}
-          >
-            <option value="">{form.budgetPlaceholder}</option>
-            {form.budgetOptions.map((o) => (
-              <option key={o}>{o}</option>
-            ))}
-          </select>
-          <span id={id("budget-help")} className="form-help">
-            {form.budgetHelp}
-          </span>
-        </div>
+        {/* A build has a budget and a date; a developer or partnership
+            message has neither. Asking anyway is how the two lanes got
+            mixed together in the first place. */}
+        {!isOther && (
+          <div className={field}>
+            <label htmlFor={id("budget")} className={labelCls}>
+              {form.budget} <span className="form-optional">{form.optionalMark}</span>
+            </label>
+            <select
+              id={id("budget")}
+              name="budget"
+              className={controlCls}
+              value={values.budget}
+              onChange={set("budget")}
+              aria-describedby={id("budget-help")}
+            >
+              <option value="">{form.budgetPlaceholder}</option>
+              {form.budgetOptions.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <span id={id("budget-help")} className="form-help">
+              {form.budgetHelp}
+            </span>
+          </div>
+        )}
 
-        <div className={field}>
-          <label htmlFor={id("timeline")} className={labelCls}>
-            {form.timeline} <span className="form-optional">{form.optionalMark}</span>
-          </label>
-          <select
-            id={id("timeline")}
-            name="timeline"
-            className={controlCls}
-            value={values.timeline}
-            onChange={set("timeline")}
-          >
-            <option value="">{form.timelinePlaceholder}</option>
-            {form.timelineOptions.map((o) => (
-              <option key={o}>{o}</option>
-            ))}
-          </select>
-        </div>
+        {!isOther && (
+          <div className={field}>
+            <label htmlFor={id("timeline")} className={labelCls}>
+              {form.timeline} <span className="form-optional">{form.optionalMark}</span>
+            </label>
+            <select
+              id={id("timeline")}
+              name="timeline"
+              className={controlCls}
+              value={values.timeline}
+              onChange={set("timeline")}
+            >
+              <option value="">{form.timelinePlaceholder}</option>
+              {form.timelineOptions.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div className={`${field} sm:col-span-2`}>
           <label htmlFor={id("summary")} className={labelCls}>
@@ -335,12 +374,20 @@ export function ContactForm({ form, lang }: { form: Form; lang: string }) {
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row">
-        <button type="submit" className="btn btn-primary" disabled={busy}>
-          {busy ? form.sending : form.submitWhatsapp}
-        </button>
-        <button type="button" className="btn btn-secondary" onClick={onEmail} disabled={busy}>
-          {form.submitEmail}
-        </button>
+        {isOther ? (
+          <button type="submit" className="btn btn-primary" disabled={busy}>
+            {busy ? form.sending : form.submitEmail}
+          </button>
+        ) : (
+          <>
+            <button type="submit" className="btn btn-primary" disabled={busy}>
+              {busy ? form.sending : form.submitWhatsapp}
+            </button>
+            <button type="button" className="btn btn-secondary" onClick={submitEmail} disabled={busy}>
+              {form.submitEmail}
+            </button>
+          </>
+        )}
       </div>
 
       {/* Announced without stealing focus. Covers the pop-up-blocked case that

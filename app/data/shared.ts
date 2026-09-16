@@ -15,7 +15,7 @@ export const MAILTO = `mailto:${EMAIL}`;
 /** Date the site content was last reviewed. Shown on dated pages and used for
  *  `dateModified` in JSON-LD. Deliberately a content date, not the build date:
  *  a rebuild does not make the content newer. */
-export const CONTENT_UPDATED = "2026-09-06";
+export const CONTENT_UPDATED = "2026-09-15";
 
 /** Build a WhatsApp click-to-chat link with a pre-filled (already localized)
  *  message. Every entry point passes its own message so an incoming chat says
@@ -46,6 +46,14 @@ export const LOCALE_CODES = LOCALES.map((l) => l.code);
 /** Locales that also carry the long-form sub-pages. Adding a locale here means
  *  adding its route files and its `pages/<lang>.ts` content. */
 export const PAGE_LOCALES: PageLang[] = ["en", "ar"];
+
+/** The About page is the exception to `PAGE_LOCALES`: it exists in all five.
+ *  The founder panel on every home page links to it, and a visitor deciding
+ *  whether to write should not be sent to English for the one page that says
+ *  who they would be writing to. Its copy for the extra three is in
+ *  `pages/about.ts`, which also says plainly that project work itself runs in
+ *  English or Arabic. */
+export const ABOUT_LOCALES: readonly Lang[] = LOCALE_CODES;
 
 export function localeByCode(code: Lang): LocaleMeta {
   return LOCALES.find((l) => l.code === code) ?? LOCALES[0];
@@ -121,16 +129,26 @@ export const ORG = {
    *  organisation below was verified to return HTTP 200.
    *  See OWNER_ACTIONS.md for the profiles still to be created. */
   sameAs: ["https://github.com/Desert-Launch"] as string[],
+  /** What the *business* is about, in the words a buyer would use.
+   *
+   *  Framework names used to sit here, and they were the loudest machine-
+   *  readable fact about the company: an Organization whose declared expertise
+   *  is a list of frameworks reads to search and answer engines as an
+   *  engineering profile, so it kept being surfaced to developers looking for
+   *  work rather than to businesses looking for a supplier. The frameworks
+   *  moved to `FOUNDER.knowsAbout`, where they are true of a person and do no
+   *  harm. Every entry below is backed by shipped work on this site. */
   knowsAbout: [
+    "Custom software development",
     "Mobile app development",
-    "Flutter",
-    "iOS app development",
-    "Android app development",
     "Web development",
     "Web platform development",
     "MVP development",
+    "Booking and reservation systems",
+    "Field service management systems",
+    "Customer portals and admin dashboards",
+    "Internal business systems",
     "UI/UX design",
-    "System architecture",
     "Product modernization",
     "Technical consulting",
   ],
@@ -141,6 +159,20 @@ export const FOUNDER = {
   nameAr: "عبدالله محمد",
   jobTitle: "Founder & Lead Engineer",
   image: `${SITE_URL}/assets/founder.webp`,
+  /** The technical expertise, attached to the person it is true of rather than
+   *  to the company. See the note on `ORG.knowsAbout`. */
+  knowsAbout: [
+    "Flutter",
+    "Dart",
+    "iOS app development",
+    "Android app development",
+    "Node.js",
+    "PostgreSQL",
+    "Firebase",
+    "REST APIs",
+    "GraphQL",
+    "System architecture",
+  ],
   sameAs: [
     "https://www.linkedin.com/in/abdullah-mohamed-3010",
     "https://github.com/Abdullah3010",

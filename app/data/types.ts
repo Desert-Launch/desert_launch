@@ -21,6 +21,9 @@ export type IconKey =
   | "mobile"
   | "web"
   | "mvp"
+  | "booking"
+  | "dispatch"
+  | "records"
   | "design"
   | "modernize"
   | "consulting"
@@ -47,7 +50,13 @@ export type ServiceId =
   | "mvp"
   | "design"
   | "modernize"
-  | "consulting";
+  | "consulting"
+  // Use-case offerings. These are pages rather than home-page cards: a buyer
+  // searching for "gym booking app" is describing their own problem, not
+  // browsing a service menu, and the menu stays six clear items.
+  | "gymBooking"
+  | "fieldService"
+  | "clinicLab";
 
 export interface NavItem {
   label: string;
@@ -183,6 +192,9 @@ export interface ServicesCopy {
   title: string;
   intro: string;
   items: Record<ServiceId, ServiceCopy>;
+  /** Heading for the use-case pages on the /services/ hub — the ones written
+   *  for a kind of business rather than a category of work. */
+  useCases: { title: string; intro: string };
   /** Link label on services that have a dedicated page. */
   learnMore: string;
   timelineLabel: string;
@@ -296,6 +308,17 @@ export interface ContactCopy {
     projectType: string;
     projectTypePlaceholder: string;
     projectTypeOptions: string[];
+    /** The non-client lane. Developers, partnerships and collaboration offers
+     *  are welcome, but they do not belong in the WhatsApp line that client
+     *  projects arrive on. Selecting this option appends it to the project-type
+     *  list, routes the draft to email and relabels it, so both kinds of
+     *  enquiry stay possible without competing for the same channel. */
+    otherEnquiry: {
+      option: string;
+      note: string;
+      draftIntro: string;
+      emailSubject: string;
+    };
     budget: string;
     budgetPlaceholder: string;
     budgetOptions: string[];
@@ -352,6 +375,9 @@ export interface FooterCopy {
   contactHeading: string;
   contactLinks: Cta[];
   contactSub: string[];
+  /** Which enquiry goes down which channel. Keeps WhatsApp the client line
+   *  without turning anyone away. */
+  enquiryNote: string;
   /** Honest legal / identity block. */
   identity: {
     heading: string;
@@ -400,6 +426,8 @@ export interface CommonCopy {
   readCaseStudy: string;
   allWork: string;
   allServices: string;
+  /** Link label for the /pricing/ page. */
+  pricingLabel: string;
   relatedWork: string;
   relatedServices: string;
   faqHeading: string;

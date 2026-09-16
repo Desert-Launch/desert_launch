@@ -1,7 +1,7 @@
 import type { Dictionary, Lang } from "@/app/data/types";
 import { LOCALES, MAILTO, PHONE_HREF, PHONE_DISPLAY, EMAIL } from "@/app/data/shared";
 import { SERVICES } from "@/app/data/services";
-import { hasPages, servicePath, simplePath } from "@/app/lib/links";
+import { hasPages, hasSimplePage, servicePath, simplePath } from "@/app/lib/links";
 
 export function Footer({
   t,
@@ -131,6 +131,10 @@ export function Footer({
               </li>
             </ul>
           </address>
+          {/* Developers and partners are welcome — just not on the line client
+              projects arrive on. Stating the split is what keeps WhatsApp the
+              channel that closes work. */}
+          <p className="text-meta leading-relaxed text-muted">{f.enquiryNote}</p>
         </section>
       </div>
 
@@ -138,22 +142,26 @@ export function Footer({
       <div className="shell flex flex-col gap-4 border-t border-line py-6">
         <p className="max-w-[70ch] text-meta leading-relaxed text-muted">{f.identity.body}</p>
 
-        {/* The privacy notice and engagement terms are written in English and
-            Arabic. A French, Spanish or German visitor still needs to reach
-            them — a European page with no privacy link at all is worse than one
-            that links to the English notice and says so. */}
+        {/* About exists in every locale; pricing, the privacy notice and the
+            engagement terms are written in English and Arabic. A French,
+            Spanish or German visitor still needs to reach those — a European
+            page with no privacy link at all is worse than one that links to
+            the English notice and says so. */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-meta">
-          {f.identity.links.map((link) => (
-            <a
-              key={link.slug}
-              href={simplePath(pageLocale ?? "en", link.slug)}
-              {...(pageLocale ? {} : { hrefLang: "en", lang: "en" })}
-              className="footer-legal-link"
-            >
-              {link.label}
-              {pageLocale ? null : <span aria-hidden="true"> (EN)</span>}
-            </a>
-          ))}
+          {f.identity.links.map((link) => {
+            const local = hasSimplePage(lang, link.slug);
+            return (
+              <a
+                key={link.slug}
+                href={simplePath(local ? lang : "en", link.slug)}
+                {...(local ? {} : { hrefLang: "en", lang: "en" })}
+                className="footer-legal-link"
+              >
+                {link.label}
+                {local ? null : <span aria-hidden="true"> (EN)</span>}
+              </a>
+            );
+          })}
         </div>
 
         {/* A list of links rather than links inside a sentence. Inline links

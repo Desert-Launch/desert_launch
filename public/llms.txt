@@ -2,7 +2,7 @@
 
 > Desert Launch is a software development company in Cairo, Egypt. It builds custom mobile apps (Flutter, iOS and Android), web platforms, MVPs and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe and the United States.
 
-Last updated: 2026-09-06
+Last updated: 2026-09-15
 
 ## Key facts
 
@@ -13,14 +13,37 @@ Last updated: 2026-09-06
 - First reply to an enquiry: within 12 hours, usually faster.
 - Contact: abdullah@desertlaunch.dev, WhatsApp +20 102 283 8534.
 
+## Who Desert Launch builds for
+
+Business owners, founders and operations managers who need software built and are not going to build it themselves. The usual situations:
+
+- A business running on spreadsheets, paper records, phone calls or WhatsApp messages where there should be bookings, orders or job tickets.
+- A company that needs a mobile app for its customers, for its staff, or for both.
+- A founder with an idea that needs the smallest working version in front of real users.
+- An operation whose existing app or platform is slow, broken, or abandoned by whoever built it.
+- A team that needs a customer portal, an admin dashboard or an internal system shaped around how it actually works.
+
+No in-house technical team is needed. Most clients are not technical: the technical decisions are made for them and explained in plain business language, in English or Arabic.
+
+## How to get in touch
+
+- Project and business enquiries: WhatsApp +20 102 283 8534 is the fastest route, or email abdullah@desertlaunch.dev. A free scope call comes first, with no obligation and no commitment to a quote.
+- Developer, partnership and collaboration enquiries: welcome by email at abdullah@desertlaunch.dev. These are read and answered, but they go to email rather than WhatsApp, which is kept clear for client projects.
+
 ## Services
 
 1. Mobile app development — one Flutter codebase published to the App Store and Google Play. Typical duration 2–4 months. https://www.desertlaunch.dev/services/mobile-app-development/
 2. Web development — business websites, client portals, admin dashboards and full web platforms. Typical duration 2 weeks to 3 months. https://www.desertlaunch.dev/services/web-development/
 3. MVP development — the smallest version that proves an idea with real users. Typical duration 1–2 months. https://www.desertlaunch.dev/services/mvp-development/
-4. UI/UX design — screens and flows agreed before development. Typical duration 1–3 weeks.
-5. Rebuilds and modernization — taking over a slow, broken or abandoned product, starting with a written verdict on the existing code. From 2 weeks.
-6. Technical consulting and architecture — a second opinion, an architecture review or a delivery plan. 2–5 days.
+4. UI/UX design — screens and flows agreed before development, including Arabic right-to-left layouts. Typical duration 1–3 weeks. https://www.desertlaunch.dev/services/ui-ux-design/
+5. Rebuilds and modernization — taking over a slow, broken or abandoned product, starting with a written verdict on the existing code. From 2 weeks. https://www.desertlaunch.dev/services/rebuilds-and-modernization/
+6. Technical consulting and architecture — a second opinion, an architecture review or a delivery plan you own. 2–5 days. https://www.desertlaunch.dev/services/technical-consulting/
+
+## Pages written for a specific situation
+
+- Gym and fitness booking apps — membership plans, trainer availability, session booking and in-app payment. Backed by Q-Fight Gym, live on both stores. https://www.desertlaunch.dev/services/gym-booking-app/
+- Field service management apps — a customer app, a technician app and a manager view built from one codebase, with live tracking. Backed by Ezhal. https://www.desertlaunch.dev/services/field-service-management-app/
+- Lab and clinic management systems — a customer portal plus an admin dashboard, with role-based access and file storage. Backed by Xera Lab. https://www.desertlaunch.dev/services/lab-and-clinic-management-system/
 
 ## Commercial terms
 
@@ -31,6 +54,7 @@ Last updated: 2026-09-06
 - Twelve months of free support and maintenance after launch. Small changes and updates are also free for the first three months.
 - Running costs (hosting or Firebase, plus the Apple Developer Program at 99 USD/year and Google Play's one-time 25 USD registration) are billed to the client's own accounts and estimated in the quote.
 - NDAs are signed on request, before the scope call.
+- There is no published price list, and no number can be quoted without a scope call: the same brief can differ by a factor of three depending on how many kinds of user it has. What drives the price, what is excluded, and what the price includes are all set out at https://www.desertlaunch.dev/pricing/
 
 ## Technology
 
@@ -66,9 +90,11 @@ Two of these eight are published on public app stores; the store links above are
 - Home (French): https://www.desertlaunch.dev/fr/
 - Home (Spanish): https://www.desertlaunch.dev/es/
 - Home (German): https://www.desertlaunch.dev/de/
-- About: https://www.desertlaunch.dev/about/
+- About: https://www.desertlaunch.dev/about/ (also in Arabic, French, Spanish and German under /ar/, /fr/, /es/ and /de/)
+- Pricing and how a quote is built: https://www.desertlaunch.dev/pricing/
+- All services: https://www.desertlaunch.dev/services/
 - Engagement terms: https://www.desertlaunch.dev/terms/
 - Privacy: https://www.desertlaunch.dev/privacy/
 - Sitemap: https://www.desertlaunch.dev/sitemap.xml
 
-Arabic versions of every service page, case study and the about, terms and privacy pages exist under the /ar/ prefix.
+Arabic versions of every service page, case study and the about, pricing, terms and privacy pages exist under the /ar/ prefix. The About page alone also exists in French, Spanish and German.

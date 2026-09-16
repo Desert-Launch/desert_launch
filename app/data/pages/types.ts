@@ -57,13 +57,25 @@ export interface SimplePageCopy {
   h1: string;
   lead: string;
   sections: PageSection[];
+  /** Optional Q&A, rendered under the sections and emitted as `FAQPage`.
+   *  The pricing page carries one; the legal pages do not. */
+  faq?: FaqItem[];
   cta?: PageCta;
 }
 
 export type ServiceSlug =
+  // The six offerings.
   | "mobile-app-development"
   | "web-development"
-  | "mvp-development";
+  | "mvp-development"
+  | "ui-ux-design"
+  | "rebuilds-and-modernization"
+  | "technical-consulting"
+  // Use-case pages, written in the words a buyer searches with rather than the
+  // category name we would use ourselves.
+  | "gym-booking-app"
+  | "field-service-management-app"
+  | "lab-and-clinic-management-system";
 
 export type CaseSlug = "q-fight-gym" | "al-muslim" | "ezhal" | "xera-lab";
 
@@ -78,6 +90,7 @@ export interface PagesCopy {
   services: Record<ServiceSlug, ServicePageCopy>;
   cases: Record<CaseSlug, CaseStudyCopy>;
   about: SimplePageCopy;
+  pricing: SimplePageCopy;
   privacy: SimplePageCopy;
   terms: SimplePageCopy;
 }

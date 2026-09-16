@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import {
+  ABOUT_LOCALES,
   LOCALE_CODES,
   PAGE_LOCALES,
   CONTENT_UPDATED,
@@ -53,7 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const project of CASE_STUDIES) {
     add(`work/${project.id}`, pageLangs, 0.8, "monthly");
   }
-  add("about", pageLangs, 0.7, "monthly");
+  add("pricing", pageLangs, 0.8, "monthly");
+  add("about", ABOUT_LOCALES, 0.7, "monthly");
   add("terms", pageLangs, 0.4, "monthly");
   add("privacy", pageLangs, 0.3, "monthly");
 
