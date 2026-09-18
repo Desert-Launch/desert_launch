@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { Work } from "./Work";
 import { Services } from "./Services";
+import { Demos } from "./Demos";
 import { WhyUs } from "./WhyUs";
 import { Process } from "./Process";
 import { Faq } from "./Faq";
@@ -42,6 +43,7 @@ export function Site({ lang }: { lang: Lang }) {
         <Hero t={t} />
         <Work t={t} lang={lang} />
         <Services t={t} lang={lang} />
+        <Demos t={t} lang={lang} />
         <WhyUs t={t} lang={lang} />
         <Process t={t} />
         <Faq t={t} />

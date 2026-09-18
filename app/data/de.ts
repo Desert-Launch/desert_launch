@@ -10,7 +10,7 @@ export const de: Dictionary = {
   meta: {
     title: "App-Entwicklung & Software aus Kairo | Desert Launch",
     description:
-      "Desert Launch entwickelt Mobile Apps, Webplattformen und MVPs für Ägypten und die Golfstaaten. Festpreis, Code gehört Ihnen, ein Jahr Gratis-Support.",
+      "Desert Launch entwickelt Mobile Apps, Webplattformen und MVPs für Ägypten und die Golfstaaten – mit sechs Live-Demos zum Ausprobieren. Festpreis, Code gehört Ihnen, ein Jahr Gratis-Support.",
     ogLocale: "de_DE",
     ogImageAlt:
       "Desert Launch – App-Agentur und Softwareentwicklung in Kairo, Ägypten",
@@ -18,6 +18,7 @@ export const de: Dictionary = {
   nav: [
     { label: "Referenzen", href: "#work" },
     { label: "Leistungen", href: "#services" },
+    { label: "Demos", href: "#demos" },
     { label: "Warum wir", href: "#why-us" },
     { label: "Ablauf", href: "#process" },
     { label: "FAQ", href: "#faq" },
@@ -321,6 +322,66 @@ export const de: Dictionary = {
     },
     secondary: { label: "Briefing per E-Mail senden", href: MAILTO },
   },
+  demos: {
+    kicker: "Live-Demos",
+    title: "Probieren Sie die Art von System aus, die wir für Sie bauen würden",
+    intro:
+      "Sechs funktionierende Demos, jede eine öffentliche Website mit dem Mitarbeiter-Dashboard dahinter. Buchen, bestellen, reservieren oder eine Anfrage senden, dann das Dashboard öffnen und zusehen, wie sie ankommt. Nichts zu installieren, keine Registrierung. Die Demos sind auf Englisch (die Immobilien-Demo auf Arabisch und Englisch).",
+    disclaimer:
+      "Jedes Unternehmen, jeder Name, Preis und jede Telefonnummer in diesen Demos ist erfunden. Was Sie eingeben, bleibt für die Sitzung in Ihrem Browser und wird beim Neuladen zurückgesetzt.",
+    items: {
+      dental: {
+        tag: "Zahnarztpraxis · Dubai",
+        summary:
+          "Behandlungen und Preise, Online-Terminbuchung mit echten Slot-Regeln — Mittagspause, geschlossene Tage, nichts innerhalb der nächsten zwei Stunden — und ein Praxis-Dashboard, in dem der Empfang den neuen Termin und die dabei angelegte Patientenakte findet.",
+        flows: ["Termin buchen", "Verschieben oder Status ändern", "Patientenakten", "Terminbuch des Empfangs"],
+      },
+      medical: {
+        tag: "Fachübergreifende Klinik · Abu Dhabi",
+        summary:
+          "Ärzte nach Fachgebiet, ein fünfstufiger Buchungsassistent, der den ersten freien Termin einer ganzen Abteilung findet, und ein Mitarbeiter-Dashboard mit voller Kontrolle über Termine und Patientenakten.",
+        flows: ["Arzt nach Fachgebiet finden", "Buchung in fünf Schritten", "Erster freier Termin einer Abteilung", "Termine und Patienten"],
+      },
+      gym: {
+        tag: "Fitnessstudio · Dubai",
+        summary:
+          "Ein Wochenplan der Kurse mit freien Plätzen in Echtzeit und einer Warteliste, sobald ein Kurs voll ist, ein Beitrittsablauf, der eine Mitgliedsnummer vergibt, und die Verwaltung des Studios — Mitglieder, Kurse und die Auslastung des Tages.",
+        flows: ["Kurs buchen", "Tarif abschließen", "Warteliste bei vollem Kurs", "Mitglieder und Kurse"],
+      },
+      cafe: {
+        tag: "Café und Rösterei · Dubai",
+        summary:
+          "Eine Karte mit 32 Produkten samt Größe, Milch und Extras, Vorbestellung zur Abholung oder Lieferung mit Zeitfenster und das Bon-Board der Bar, auf dem das Team jede Bestellung von neu nach fertig schiebt.",
+        flows: ["Vorbestellen", "Zeitfenster für Abholung oder Lieferung", "Bon-Board", "Karte und ausverkaufte Produkte"],
+      },
+      restaurant: {
+        tag: "Restaurant · Dubai",
+        summary:
+          "Tischreservierungen, die zeigen, was für Ihre Gruppengröße wirklich frei ist, Online-Bestellung zur Abholung oder Lieferung und die Mitarbeiteransicht — Reservierungsbuch, Pass und Karte an einem Ort.",
+        flows: ["Tisch reservieren", "Zur Abholung oder Lieferung bestellen", "Reservierungsbuch und Raumplan", "Bestell-Pass"],
+      },
+      realestate: {
+        tag: "Immobilienmakler · Riad",
+        summary:
+          "Durchsuchbare Angebote mit Filtern in der URL, gespeicherte Objekte, Anfragen, die auf einem Lead-Board landen, und vollständige Verwaltung der Objekte. Arabisch zuerst, Englisch mit einem Tipp.",
+        flows: ["Angebote filtern und sortieren", "Objekte speichern", "Anfrage senden", "Lead-Board und Objektverwaltung"],
+      },
+    },
+    siteCta: "Website öffnen",
+    adminCta: "Dashboard öffnen",
+    flowsLabel: "Was Sie ausprobieren können",
+    langs: { en: "auf Englisch", ar: "auf Arabisch" },
+    band: {
+      kicker: "Eine davon passt?",
+      body: "Jede davon würde an Ihre Leistungen, Preise, Öffnungszeiten und Marke angepasst, mit echter Datenbank, Konten und Zahlungen, wo Sie sie brauchen. Sagen Sie uns, welche am nächsten kommt, und Sie erhalten ein schriftliches Festpreisangebot.",
+      cta: {
+        label: "So etwas per WhatsApp anfragen",
+        href: wa("Hallo Desert Launch, ich habe die Demos auf desertlaunch.dev ausprobiert und hätte gern etwas Ähnliches für mein Unternehmen."),
+        external: true,
+      },
+    },
+    pageLink: "Alles über die Demos",
+  },
   why: {
     kicker: "Warum Desert Launch",
     title: "Warum Unternehmen in Ägypten und am Golf Desert Launch beauftragen",
@@ -460,6 +521,10 @@ export const de: Dictionary = {
       {
         q: "Wie lange dauert mein Projekt?",
         a: "Eine Unternehmenswebsite dauert in der Regel Wochen, ein MVP ein bis zwei Monate und ein größeres mobiles Produkt zwei bis vier Monate. Sie erhalten vor dem Start einen konkreten Zeitplan mit Meilensteinen und sehen bei jedem Meilenstein funktionierende Software.",
+      },
+      {
+        q: "Kann ich etwas ausprobieren, bevor ich mich festlege?",
+        a: "Ja. Es gibt sechs funktionierende Demos — eine Zahnarztpraxis, eine Klinik, ein Fitnessstudio, ein Café, ein Restaurant und einen Immobilienmakler — jede eine öffentliche Website mit dem Mitarbeiter-Dashboard dahinter. Buchen, bestellen oder eine Anfrage senden, dann das Dashboard öffnen und zusehen, wie sie ankommt. Es sind erfundene Unternehmen mit Beispieldaten, und nichts, was Sie eingeben, wird gespeichert.",
       },
       {
         q: "Was passiert nach dem Launch?",
@@ -616,6 +681,7 @@ export const de: Dictionary = {
     navLinks: [
       { label: "Referenzen", sub: "Produkte im App Store und bei Google Play", href: "#work" },
       { label: "Leistungen", sub: "Was Desert Launch entwickelt", href: "#services" },
+      { label: "Demos", sub: "Sechs funktionierende Demos zum Ausprobieren, Website und Dashboard", href: "#demos" },
       { label: "Warum wir", sub: "Festpreis, Eigentum am Code, ein Jahr Support", href: "#why-us" },
       { label: "Ablauf", sub: "Vom Scope-Gespräch bis zum Launch in fünf Schritten", href: "#process" },
       { label: "FAQ", sub: "Kosten, Dauer, Eigentum und Support", href: "#faq" },
@@ -663,6 +729,7 @@ export const de: Dictionary = {
     companySummary: "Kurzprofil des Unternehmens",
     quickNav: "Schnellnavigation",
     directContact: "Direkter Kontakt",
+    social: "Desert Launch folgen",
     newTab: "wird in einem neuen Tab geöffnet",
   },
   common: {

@@ -48,6 +48,72 @@ const paths: Record<IconKey, React.ReactNode> = {
       <path d="M6.2 11h6.6M6.2 14.6h4.4" {...P} />
     </>
   ),
+  // Social -----------------------------------------------------------------
+  /** The Facebook "f", drawn as an outline to sit with the rest of the set. */
+  facebook: (
+    <path
+      d="M13.6 21v-7.1h2.5l.4-2.9h-2.9V9.2c0-.85.25-1.45 1.5-1.45h1.5V5.15A20 20 0 0 0 14.4 5c-2.3 0-3.85 1.4-3.85 3.95V11H8v2.9h2.55V21"
+      {...P}
+    />
+  ),
+  /** Instagram glyph: rounded square, lens, flash. */
+  instagram: (
+    <>
+      <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="4.6" {...P} />
+      <circle cx="12" cy="12" r="3.9" {...P} />
+      <path d="M17.2 6.8h.01" {...P} strokeWidth={2.4} />
+    </>
+  ),
+  // Demo sectors ------------------------------------------------------------
+  /** Molar: crown with two roots. */
+  tooth: (
+    <path
+      d="M12 4.2c-1.5 0-2.3-.9-3.9-.9-1.9 0-3.1 1.5-3.1 3.8 0 2.6 1.2 3.9 1.6 6.4.4 2.4.9 6.7 2.4 6.7 1.5 0 1.4-4.3 3-4.3s1.5 4.3 3 4.3c1.5 0 2-4.3 2.4-6.7.4-2.5 1.6-3.8 1.6-6.4 0-2.3-1.2-3.8-3.1-3.8-1.6 0-2.4.9-3.9.9Z"
+      {...P}
+    />
+  ),
+  /** Stethoscope: ear tubes into a U, tube down to the chest piece. */
+  stethoscope: (
+    <>
+      <path d="M5.5 3.4v6a4.6 4.6 0 0 0 9.2 0v-6" {...P} />
+      <path d="M4 3.6h3M13.2 3.6h3" {...P} />
+      <path d="M10.1 14v2.4a3.7 3.7 0 0 0 7.4 0v-1.2" {...P} />
+      <circle cx="17.5" cy="12.8" r="2.3" {...P} />
+    </>
+  ),
+  /** Dumbbell: bar between two plates each side. */
+  dumbbell: (
+    <>
+      <path d="M6.6 7.6v8.8M17.4 7.6v8.8" {...P} />
+      <path d="M3.4 9.6v4.8M20.6 9.6v4.8" {...P} />
+      <path d="M6.6 12h10.8" {...P} />
+    </>
+  ),
+  /** Cup with a handle and two lines of steam. */
+  coffee: (
+    <>
+      <path d="M4.4 9.6h12.2v5.2a4.6 4.6 0 0 1-4.6 4.6H9a4.6 4.6 0 0 1-4.6-4.6V9.6Z" {...P} />
+      <path d="M16.6 11.2h1.1a2.4 2.4 0 0 1 0 4.8h-1.1" {...P} />
+      <path d="M8.4 3.4c0 1.2-1 1.5-1 2.8M12.4 3.4c0 1.2-1 1.5-1 2.8" {...P} />
+    </>
+  ),
+  /** Fork and knife. */
+  utensils: (
+    <>
+      <path d="M5.4 3v5a3 3 0 0 0 6 0V3M8.4 3v18" {...P} />
+      <path d="M18.2 3c-2.3 2.1-3.2 5.4-3.2 8.6 0 .8.7 1.4 1.5 1.4h1.7" {...P} />
+      <path d="M18.2 3v18" {...P} />
+    </>
+  ),
+  /** Two buildings on a baseline, the taller one with windows. */
+  building: (
+    <>
+      <path d="M4.6 21V5.4a2 2 0 0 1 2-2h6.4a2 2 0 0 1 2 2V21" {...P} />
+      <path d="M15 10.2h2.6a1.8 1.8 0 0 1 1.8 1.8V21" {...P} />
+      <path d="M8 7.4h1.4M10.6 7.4H12M8 10.8h1.4M10.6 10.8H12M8 14.2h1.4M10.6 14.2H12" {...P} />
+      <path d="M8.9 21v-3.2h2.2V21M3 21h18" {...P} />
+    </>
+  ),
   /** Browser window with a chrome bar. */
   web: (
     <>

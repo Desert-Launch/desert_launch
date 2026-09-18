@@ -4,7 +4,7 @@ import type { Dictionary } from "@/app/data/types";
  *
  *  On desktop the sticky header already carries the primary call to action, so
  *  a floating button there was a fourth competing CTA in the first viewport and
- *  covered body copy on every long section. It is hidden from 901px up (see
+ *  covered body copy on every long section. It is hidden from 1100px up (see
  *  `globals.css`), sits inside the iOS home-indicator safe area, and the page
  *  reserves room for it at the bottom so it never lands on text.
  *

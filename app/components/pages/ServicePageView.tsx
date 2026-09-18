@@ -15,6 +15,7 @@ import { servicePageSchema } from "@/app/lib/jsonld";
 import { PageShell } from "../PageShell";
 import { FaqList } from "../Faq";
 import { CtaBand, OnThisPage, RelatedProjects, Section } from "./PageParts";
+import { DemoGrid } from "../Demos";
 
 export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceSlug }) {
   const t = dict(lang);
@@ -85,6 +86,16 @@ export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceS
           ids={meta.related}
           heading={t.common.relatedWork}
         />
+
+        {/* Where a live demo shows this service, it sits right under the
+            proof: a visitor can open the thing instead of reading about it. */}
+        {meta.demos?.length ? (
+          <section className="flex flex-col gap-4">
+            <h2 className="h-section">{p.labels.tryDemo}</h2>
+            <p className="attribution">{t.demos.disclaimer}</p>
+            <DemoGrid t={t} ids={meta.demos} placement="service" />
+          </section>
+        ) : null}
 
         <section className="flex flex-col gap-4">
           <h2 className="h-section">{t.common.faqHeading}</h2>

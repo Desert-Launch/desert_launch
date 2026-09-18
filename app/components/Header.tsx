@@ -154,7 +154,7 @@ export function Header({
           />
           <span className="min-w-0">
             <strong className="block text-body tracking-[0.02em]">Desert Launch</strong>
-            <span className="mt-0.5 hidden text-micro text-muted min-[1024px]:block">
+            <span className="mt-0.5 hidden text-micro text-muted min-[1360px]:block">
               {header.tagline}
             </span>
           </span>
@@ -162,7 +162,7 @@ export function Header({
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-4 text-body min-[901px]:flex xl:gap-5"
+          className="hidden items-center gap-3 text-body min-[1100px]:flex xl:gap-5"
           aria-label={a11y.primaryNav}
         >
           {navItems.map((item) => (
@@ -185,7 +185,7 @@ export function Header({
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? header.menuClose : header.menuOpen}
-          className={`menu-toggle inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong bg-white/[0.03] text-ink min-[901px]:hidden ${
+          className={`menu-toggle inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong bg-white/[0.03] text-ink min-[1100px]:hidden ${
             menuOpen ? "is-open" : ""
           }`}
         >
@@ -197,7 +197,7 @@ export function Header({
         </button>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-2 min-[901px]:flex">
+        <div className="hidden items-center gap-2 min-[1100px]:flex">
           <div className="relative inline-flex" ref={langRef}>
             <button
               type="button"
@@ -262,7 +262,7 @@ export function Header({
             </ul>
           </div>
 
-          {/* Kept off the 901–1279px band, where two buttons plus the nav used
+          {/* Kept off the 1100–1279px band, where two buttons plus the nav used
               to force both labels onto two lines. */}
           <a
             href={MAILTO}
@@ -287,7 +287,7 @@ export function Header({
 
       {/* Mobile menu */}
       {menuOpen ? (
-        <div id="mobile-menu" className="border-t border-line min-[901px]:hidden">
+        <div id="mobile-menu" className="border-t border-line min-[1100px]:hidden">
           <div className="shell flex flex-col gap-4 py-4">
             <nav className="grid gap-1" aria-label={a11y.mobileNav}>
               {navItems.map((item) => (

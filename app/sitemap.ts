@@ -54,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const project of CASE_STUDIES) {
     add(`work/${project.id}`, pageLangs, 0.8, "monthly");
   }
+  add("demos", pageLangs, 0.9, "weekly");
   add("pricing", pageLangs, 0.8, "monthly");
   add("about", ABOUT_LOCALES, 0.7, "monthly");
   add("terms", pageLangs, 0.4, "monthly");

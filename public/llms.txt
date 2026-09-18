@@ -2,7 +2,7 @@
 
 > Desert Launch is a software development company in Cairo, Egypt. It builds custom mobile apps (Flutter, iOS and Android), web platforms, MVPs and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe and the United States.
 
-Last updated: 2026-09-15
+Last updated: 2026-09-18
 
 ## Key facts
 
@@ -12,6 +12,7 @@ Last updated: 2026-09-15
 - Time zone: Cairo, UTC+2 in winter and UTC+3 in summer — within one hour of every Gulf capital.
 - First reply to an enquiry: within 12 hours, usually faster.
 - Contact: abdullah@desertlaunch.dev, WhatsApp +20 102 283 8534.
+- Social profiles: Facebook https://www.facebook.com/profile.php?id=61593467717104 and Instagram https://www.instagram.com/desertlaunch.dev/ — GitHub organisation at https://github.com/Desert-Launch.
 
 ## Who Desert Launch builds for
 
@@ -44,6 +45,7 @@ No in-house technical team is needed. Most clients are not technical: the techni
 - Gym and fitness booking apps — membership plans, trainer availability, session booking and in-app payment. Backed by Q-Fight Gym, live on both stores. https://www.desertlaunch.dev/services/gym-booking-app/
 - Field service management apps — a customer app, a technician app and a manager view built from one codebase, with live tracking. Backed by Ezhal. https://www.desertlaunch.dev/services/field-service-management-app/
 - Lab and clinic management systems — a customer portal plus an admin dashboard, with role-based access and file storage. Backed by Xera Lab. https://www.desertlaunch.dev/services/lab-and-clinic-management-system/
+- Live demos — six working demos (clinic, medical centre, gym, café, restaurant, real estate), how to use them, what is real in them and what a real build adds. https://www.desertlaunch.dev/demos/ (Arabic: https://www.desertlaunch.dev/ar/demos/)
 
 ## Commercial terms
 
@@ -74,6 +76,19 @@ Every product below was designed and built by Abdullah Mohamed — across Desert
 - Voicers — bilingual social audio platform: voice notes, playlists and live stages. Built in-house; not published.
 
 Two of these eight are published on public app stores; the store links above are the verifiable ones.
+
+## Live demos
+
+Six working demos of the kind of system Desert Launch builds for small and mid-sized businesses, each a public website plus the staff dashboard behind it. They are fictional businesses with invented names, prices and phone numbers, running against an in-memory store: nothing entered is kept, and every demo resets on refresh. They exist so a prospect can try the booking, ordering or enquiry flow and then see it arrive on the admin side. Listed at https://www.desertlaunch.dev/#demos, with a full guide and FAQ at https://www.desertlaunch.dev/demos/. Each demo also serves its own llms.txt at /llms.txt.
+
+- Nile Dental Studio — dental clinic, online booking with real slot rules, front-desk diary and patient records. https://dental.demos.desertlaunch.dev/ (dashboard at /admin)
+- Andalus Medical Center — multi-specialty clinic, five-step booking across departments, appointments and patient files. https://medical.demos.desertlaunch.dev/
+- Forge Athletic Club — gym, weekly class timetable with live capacity and waitlist, membership sign-up, club admin. https://gym.demos.desertlaunch.dev/
+- Dune & Bean — café and roastery, order-ahead with pickup or delivery slots, bar ticket board, menu control. https://cafe.demos.desertlaunch.dev/
+- Saffron & Oud — restaurant, table reservations with real availability per party size, online ordering, reservation book and order pass. https://restaurant.demos.desertlaunch.dev/
+- Ghazara Real Estate (غزارة العقارية) — brokerage, searchable listings, saved units, enquiries onto a leads board, unit admin; Arabic-first with English. https://realestate.demos.desertlaunch.dev/
+
+The demos are in English, except Ghazara which is Arabic-first. Source: https://github.com/Desert-Launch (repositories named demo-*).
 
 ## Process
 

@@ -207,7 +207,7 @@
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
   }
 
-  @media (min-width: 901px) {
+  @media (min-width: 1100px) {
     .page-shell {
       padding-bottom: 0;
     }
@@ -1064,6 +1064,25 @@
     text-decoration-color: rgba(245, 197, 66, 0.4);
   }
 
+  /* Links that leave the site say so with the arrow, not only in the
+     screen-reader suffix. Mirrored in RTL like the in-page arrow above. */
+  .pf-link--external::after {
+    content: "↗";
+  }
+
+  [dir="rtl"] .pf-link--external::after {
+    content: "↖";
+  }
+
+  /* --- Demo cards -------------------------------------------------------- */
+  /* `.card p` sets body size on every paragraph; the tag line under a demo's
+     name is a caption and needs the extra specificity to say so. */
+  .card .demo-card__tag {
+    margin-top: 0.25rem;
+    font-size: var(--text-meta);
+    line-height: var(--text-meta--line-height);
+  }
+
   /* --- More-work disclosure -------------------------------------------- */
   .more-work {
     border: 1px solid var(--color-line);
@@ -1557,6 +1576,42 @@
     font-weight: 600;
   }
 
+  /* --- Footer social profiles ------------------------------------------ */
+  .footer-social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-social__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.8rem 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    color: var(--color-ink-soft);
+    font-size: var(--text-meta);
+    transition: border-color 180ms var(--ease-soft), color 180ms var(--ease-soft),
+      background-color 180ms var(--ease-soft);
+  }
+
+  .footer-social__link:hover {
+    color: var(--color-ink);
+    border-color: var(--color-line-strong);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .footer-social__icon {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+  }
+
   /* --- Floating WhatsApp ------------------------------------------------ */
   .floating-wa {
     position: fixed;
@@ -1581,10 +1636,10 @@
     box-shadow: 0 18px 38px rgba(37, 211, 102, 0.45);
   }
 
-  /* Hidden from 901px up: the sticky header already carries the primary call to
+  /* Hidden from 1100px up: the sticky header already carries the primary call to
      action there, so the floating button was a competing fourth CTA in the
      first viewport and covered body copy further down every long section. */
-  @media (min-width: 901px) {
+  @media (min-width: 1100px) {
     .floating-wa {
       display: none;
     }

@@ -13,8 +13,13 @@ import {
 } from "@/app/data/shared";
 import { PROJECTS_BY_ID, STORE_PROJECTS } from "@/app/data/projects";
 import { SERVICES } from "@/app/data/services";
+import { DEMOS, demoUrl } from "@/app/data/demos";
+import type { DemoId } from "@/app/data/types";
 
 const ORG_ID = `${SITE_URL}/#organization`;
+/** Stable node id for a live demo, so every page that lists one references the
+ *  same entity instead of describing it again. */
+export const demoNodeId = (id: DemoId) => `${SITE_URL}/#demo-${id}`;
 const FOUNDER_ID = `${SITE_URL}/#founder`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 
@@ -164,6 +169,32 @@ export function entityGraph() {
             : {}),
         };
       }),
+      // The live demos: fictional businesses, so they are described as what
+      // they are — free web applications *created* by the studio to show its
+      // work — and never as businesses, addresses or reviews.
+      ...DEMOS.map((demo) => {
+        const copy = en.demos.items[demo.id];
+        return {
+          "@type": "WebApplication",
+          "@id": demoNodeId(demo.id),
+          name: demo.name,
+          alternateName: `${demo.name} — demo by Desert Launch`,
+          url: demoUrl(demo.id),
+          // The tag is "Kind of business · City"; only the kind is prose here.
+          description: `Working demo of a ${copy.tag.split(" · ")[0].toLowerCase()} website with its staff dashboard, set in ${copy.tag.split(" · ")[1]}: ${copy.summary} Fictional business on sample data; nothing entered is kept.`,
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Any (web browser)",
+          browserRequirements: "Requires JavaScript",
+          isAccessibleForFree: true,
+          inLanguage: demo.langs,
+          featureList: copy.flows,
+          creator: { "@id": ORG_ID },
+          publisher: { "@id": ORG_ID },
+          isPartOf: { "@id": WEBSITE_ID },
+          mainEntityOfPage: `${SITE_URL}/demos/`,
+          ...(demo.repo ? { codeRepository: demo.repo } : {}),
+        };
+      }),
     ],
   };
 }
@@ -219,6 +250,7 @@ export function homePageSchema(lang: Lang) {
     "@context": "https://schema.org",
     ...webPage(lang, "", t.meta.title, t.meta.description, {
       mainEntity: { "@id": ORG_ID },
+      mentions: DEMOS.map((demo) => ({ "@id": demoNodeId(demo.id) })),
     }),
   };
 }
@@ -406,6 +438,59 @@ export function caseStudySchema({
       // There is no /work/ index page; the portfolio lives in a section of the
       // home page, and that anchor is the URL a visitor actually lands on.
       { name: crumbLabels.work, url: `${localeUrl(lang, "")}#work` },
+      { name: crumbLabels.current, url },
+    ]),
+  ];
+}
+
+export function demosPageSchema({
+  lang,
+  title,
+  description,
+  faq,
+  crumbLabels,
+}: {
+  lang: PageLang;
+  title: string;
+  description: string;
+  faq: { q: string; a: string }[];
+  crumbLabels: { home: string; current: string };
+}) {
+  const url = localeUrl(lang, "demos");
+  return [
+    {
+      "@context": "https://schema.org",
+      ...webPage(lang, "demos", title, description, {
+        "@type": "CollectionPage",
+        mainEntity: {
+          "@type": "ItemList",
+          "@id": `${url}#list`,
+          name: title,
+          numberOfItems: DEMOS.length,
+          itemListElement: DEMOS.map((demo, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: demo.name,
+            url: demoUrl(demo.id),
+            item: { "@id": demoNodeId(demo.id) },
+          })),
+        },
+      }),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      isPartOf: { "@id": `${url}#webpage` },
+      inLanguage: localeByCode(lang).hreflang,
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    breadcrumbs([
+      { name: crumbLabels.home, url: localeUrl(lang, "") },
       { name: crumbLabels.current, url },
     ]),
   ];

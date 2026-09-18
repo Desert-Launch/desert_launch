@@ -24,6 +24,14 @@ export type IconKey =
   | "booking"
   | "dispatch"
   | "records"
+  | "facebook"
+  | "instagram"
+  | "tooth"
+  | "stethoscope"
+  | "dumbbell"
+  | "coffee"
+  | "utensils"
+  | "building"
   | "design"
   | "modernize"
   | "consulting"
@@ -42,6 +50,10 @@ export type ProjectId =
   | "jaweb"
   | "iccd-hub"
   | "voicers";
+
+/** Stable ids for the live demos. Also the subdomain each one lives on
+ *  (`<id>.demos.desertlaunch.dev`) and the utm_campaign its bar sends back. */
+export type DemoId = "dental" | "medical" | "gym" | "cafe" | "restaurant" | "realestate";
 
 /** Stable ids for the service offering. */
 export type ServiceId =
@@ -202,6 +214,36 @@ export interface ServicesCopy {
   stack: string[];
   primary: Cta;
   secondary: Cta;
+}
+
+// --- Live demos -----------------------------------------------------------
+
+export interface DemoCopy {
+  /** Kind of business and city — the line under the (untranslated) name. */
+  tag: string;
+  summary: string;
+  /** The things a visitor can actually do in it. Every entry must be a flow
+   *  that exists in the demo; the READMEs in each demo repo are the source. */
+  flows: string[];
+}
+
+export interface DemosCopy {
+  kicker: string;
+  title: string;
+  intro: string;
+  /** Plain statement that the businesses are invented and the data resets. */
+  disclaimer: string;
+  items: Record<DemoId, DemoCopy>;
+  /** Link labels on every card. */
+  siteCta: string;
+  adminCta: string;
+  /** Accessible name for the flow-chip list, and the language line. */
+  flowsLabel: string;
+  langs: Record<"en" | "ar", string>;
+  /** Closing band under the grid. */
+  band: { kicker: string; body: string; cta: Cta };
+  /** Link to the long-form /demos/ page, shown where that page exists. */
+  pageLink: string;
 }
 
 // --- Why us ---------------------------------------------------------------
@@ -413,6 +455,8 @@ export interface A11yCopy {
   companySummary: string;
   quickNav: string;
   directContact: string;
+  /** Accessible name for the footer's social-profile row. */
+  social: string;
   /** Appended to links that open a new tab, for screen readers only. */
   newTab: string;
 }
@@ -452,6 +496,7 @@ export interface Dictionary {
   hero: HeroCopy;
   work: WorkCopy;
   services: ServicesCopy;
+  demos: DemosCopy;
   why: WhyCopy;
   process: ProcessCopy;
   testimonials: TestimonialsCopy;

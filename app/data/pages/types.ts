@@ -51,6 +51,22 @@ export interface CaseStudyCopy {
   cta: PageCta;
 }
 
+/** The /demos/ page. The per-demo copy (tag, summary, flows) comes from the
+ *  locale dictionary so the page and the home section cannot disagree. */
+export interface DemosPageCopy {
+  meta: PageMeta;
+  breadcrumb: string;
+  h1: string;
+  lead: string;
+  /** How to use a demo, in three steps. */
+  stepsTitle: string;
+  steps: { title: string; body: string }[];
+  gridTitle: string;
+  sections: PageSection[];
+  faq: FaqItem[];
+  cta: PageCta;
+}
+
 export interface SimplePageCopy {
   meta: PageMeta;
   breadcrumb: string;
@@ -86,10 +102,13 @@ export interface PagesCopy {
     onThisPage: string;
     atAGlance: string;
     attribution: string;
+    /** Heading over the demo links on a service page. */
+    tryDemo: string;
   };
   services: Record<ServiceSlug, ServicePageCopy>;
   cases: Record<CaseSlug, CaseStudyCopy>;
   about: SimplePageCopy;
+  demos: DemosPageCopy;
   pricing: SimplePageCopy;
   privacy: SimplePageCopy;
   terms: SimplePageCopy;

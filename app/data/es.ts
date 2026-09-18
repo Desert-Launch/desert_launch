@@ -10,7 +10,7 @@ export const es: Dictionary = {
   meta: {
     title: "Desarrollo de apps y software en El Cairo | Desert Launch",
     description:
-      "Desarrollo de apps móviles, plataformas web y MVP en El Cairo. Presupuesto cerrado, el código es suyo y un año de soporte gratis.",
+      "Desarrollo de apps móviles, plataformas web y MVP en El Cairo, con seis demos en vivo para probar. Presupuesto cerrado, el código es suyo y un año de soporte gratis.",
     ogLocale: "es_ES",
     ogImageAlt:
       "Desert Launch — empresa de desarrollo de aplicaciones y software en El Cairo, Egipto",
@@ -18,6 +18,7 @@ export const es: Dictionary = {
   nav: [
     { label: "Proyectos", href: "#work" },
     { label: "Servicios", href: "#services" },
+    { label: "Demos", href: "#demos" },
     { label: "Por qué nosotros", href: "#why-us" },
     { label: "Proceso", href: "#process" },
     { label: "FAQ", href: "#faq" },
@@ -321,6 +322,66 @@ export const es: Dictionary = {
     },
     secondary: { label: "Envíe un brief por email", href: MAILTO },
   },
+  demos: {
+    kicker: "Demos en vivo",
+    title: "Pruebe el tipo de sistema que construiríamos para usted",
+    intro:
+      "Seis demos funcionales, cada una un sitio público con el panel del personal detrás. Reserve, pida o envíe una consulta y luego abra el panel y vea cómo llega. Nada que instalar, sin registro. Las demos están en inglés (la inmobiliaria, en árabe e inglés).",
+    disclaimer:
+      "Todos los negocios, nombres, precios y teléfonos de estas demos son inventados. Lo que introduzca se queda en su navegador durante la sesión y se reinicia al recargar.",
+    items: {
+      dental: {
+        tag: "Clínica dental · Dubái",
+        summary:
+          "Tratamientos y precios, reserva online con reglas de horario reales —pausa de comida, días cerrados, nada en las próximas dos horas— y un panel de clínica donde recepción encuentra la nueva cita y la ficha de paciente creada con ella.",
+        flows: ["Reservar una cita", "Reprogramar o cambiar el estado", "Fichas de pacientes", "Agenda de recepción"],
+      },
+      medical: {
+        tag: "Clínica multiespecialidad · Abu Dabi",
+        summary:
+          "Médicos por especialidad, un asistente de reserva en cinco pasos que encuentra el primer hueco libre de todo un departamento y un panel del personal con control total sobre citas y fichas de pacientes.",
+        flows: ["Buscar médico por especialidad", "Reserva en cinco pasos", "Primer hueco libre de un departamento", "Citas y pacientes"],
+      },
+      gym: {
+        tag: "Gimnasio · Dubái",
+        summary:
+          "Un horario semanal de clases con plazas restantes en directo y lista de espera cuando una sesión se llena, un alta que emite un número de socio y la administración del club: socios, clases y ocupación del día.",
+        flows: ["Reservar una clase", "Darse de alta en un plan", "Lista de espera si está lleno", "Socios y clases"],
+      },
+      cafe: {
+        tag: "Cafetería y tostador · Dubái",
+        summary:
+          "Una carta de 32 productos con tamaño, leche y extras, pedido anticipado para recoger o a domicilio con franja horaria y el tablero de tickets de la barra donde el equipo pasa cada pedido de nuevo a listo.",
+        flows: ["Pedir por adelantado", "Franja de recogida o entrega", "Tablero de tickets", "Carta y productos agotados"],
+      },
+      restaurant: {
+        tag: "Restaurante · Dubái",
+        summary:
+          "Reservas de mesa que muestran lo que de verdad queda libre para su número de comensales, pedidos online para recoger o a domicilio y la vista del personal: el libro de reservas, el pase y la carta en un solo sitio.",
+        flows: ["Reservar mesa", "Pedir para recoger o a domicilio", "Libro de reservas y plano de sala", "Pase de pedidos"],
+      },
+      realestate: {
+        tag: "Agencia inmobiliaria · Riad",
+        summary:
+          "Anuncios con búsqueda y filtros que viajan en la URL, inmuebles guardados, consultas que llegan a un tablero de contactos y administración completa de los inmuebles. Árabe primero, inglés a un toque.",
+        flows: ["Filtrar y ordenar anuncios", "Guardar inmuebles", "Enviar una consulta", "Tablero de contactos y gestión de inmuebles"],
+      },
+    },
+    siteCta: "Abrir el sitio",
+    adminCta: "Abrir el panel",
+    flowsLabel: "Qué puede probar",
+    langs: { en: "en inglés", ar: "en árabe" },
+    band: {
+      kicker: "¿Le encaja alguna?",
+      body: "Cualquiera se adaptaría a sus servicios, precios, horarios y marca, con una base de datos real, cuentas y pagos donde los necesite. Díganos cuál se parece más y recibirá un presupuesto cerrado por escrito.",
+      cta: {
+        label: "Pedir una igual por WhatsApp",
+        href: wa("Hola Desert Launch, he probado las demos en desertlaunch.dev y me gustaría algo parecido para mi negocio."),
+        external: true,
+      },
+    },
+    pageLink: "Todo sobre las demos",
+  },
   why: {
     kicker: "Por qué Desert Launch",
     title: "Por qué las empresas de Egipto y el Golfo eligen Desert Launch",
@@ -460,6 +521,10 @@ export const es: Dictionary = {
       {
         q: "¿Cuánto tardará mi proyecto?",
         a: "Una web corporativa suele medirse en semanas, un MVP en uno o dos meses y un producto móvil más grande en dos a cuatro meses. Recibirá un calendario concreto con hitos antes de empezar y verá software funcionando en cada hito.",
+      },
+      {
+        q: "¿Puedo probar algo antes de comprometerme?",
+        a: "Sí. Hay seis demos funcionales — una clínica dental, un centro médico, un gimnasio, una cafetería, un restaurante y una agencia inmobiliaria — cada una un sitio público con el panel del personal detrás. Reserve, pida o envíe una consulta y luego abra el panel y vea cómo llega. Son negocios ficticios con datos de ejemplo, y nada de lo que introduzca se guarda.",
       },
       {
         q: "¿Qué ocurre después del lanzamiento?",
@@ -616,6 +681,7 @@ export const es: Dictionary = {
     navLinks: [
       { label: "Proyectos", sub: "Productos publicados en el App Store y Google Play", href: "#work" },
       { label: "Servicios", sub: "Qué construye Desert Launch", href: "#services" },
+      { label: "Demos", sub: "Seis demos funcionales para probar, web y panel", href: "#demos" },
       { label: "Por qué nosotros", sub: "Presupuesto cerrado, código propio y un año de soporte", href: "#why-us" },
       { label: "Proceso", sub: "De la llamada de alcance al lanzamiento en cinco pasos", href: "#process" },
       { label: "FAQ", sub: "Coste, plazos, propiedad y soporte", href: "#faq" },
@@ -663,6 +729,7 @@ export const es: Dictionary = {
     companySummary: "Resumen de la empresa",
     quickNav: "Navegación rápida",
     directContact: "Contacto directo",
+    social: "Sigue a Desert Launch",
     newTab: "se abre en una pestaña nueva",
   },
   common: {

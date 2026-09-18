@@ -1,5 +1,6 @@
 import type { Dictionary, Lang } from "@/app/data/types";
-import { LOCALES, MAILTO, PHONE_HREF, PHONE_DISPLAY, EMAIL } from "@/app/data/shared";
+import { LOCALES, MAILTO, PHONE_HREF, PHONE_DISPLAY, EMAIL, SOCIAL } from "@/app/data/shared";
+import { Icon } from "@/app/data/icons";
 import { SERVICES } from "@/app/data/services";
 import { hasPages, hasSimplePage, servicePath, simplePath } from "@/app/lib/links";
 
@@ -43,6 +44,29 @@ export function Footer({
             </span>
           </a>
           <p className="text-body leading-relaxed text-muted">{f.blurb}</p>
+          {/* Icon plus the network's name, not the icon alone: a bare glyph is
+              a guess for anyone who does not already know the logo. */}
+          <nav className="footer-social" aria-label={t.a11y.social}>
+            <ul>
+              {SOCIAL.map((profile) => (
+                <li key={profile.id}>
+                  <a
+                    href={profile.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="footer-social__link"
+                    data-evt="social_click"
+                    data-evt-network={profile.id}
+                    data-evt-placement="footer"
+                  >
+                    <Icon name={profile.id} className="footer-social__icon" />
+                    {profile.name}
+                    <span className="sr-only"> ({t.a11y.newTab})</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </section>
 
         {/* Navigate */}

@@ -18,7 +18,7 @@ npm run preview    # build, then serve it with the production headers applied
 | --- | --- |
 | Copy, all five locales | `app/data/{en,ar,fr,es,de}.ts`, typed by `app/data/types.ts` |
 | Long-form pages (EN + AR) | `app/data/pages/` |
-| Language-neutral structure | `app/data/projects.ts`, `app/data/services.ts`, `app/data/shared.ts` |
+| Language-neutral structure | `app/data/projects.ts`, `app/data/services.ts`, `app/data/demos.ts`, `app/data/shared.ts` |
 | Sections and templates | `app/components/` |
 | Metadata, JSON-LD, links, analytics | `app/lib/` |
 | Design tokens and component classes | `app/globals.css` |
@@ -30,6 +30,12 @@ and TypeScript will not let them drift apart. Anything language-neutral — whic
 projects exist, their screenshots, their store URLs, which services have a page
 — lives in `projects.ts` and `services.ts`, keyed by id, so a locale cannot fall
 out of structural parity either.
+
+**The live demos are separate apps.** `app/data/demos.ts` only lists them. Each
+one is its own Next.js project in a `Desert-Launch/demo-*` repository, deployed
+as its own Vercel project on `<id>.demos.desertlaunch.dev`, running against an
+in-memory store with `robots: noindex`. This site links out; nothing about a
+demo is built here.
 
 **One root layout per locale.** Route groups (`app/(en)/`, `app/(ar)/ar/`, …)
 give every language its own `<html lang dir>`, which is what makes the Arabic

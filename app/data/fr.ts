@@ -10,7 +10,7 @@ export const fr: Dictionary = {
   meta: {
     title: "Agence de développement mobile et web au Caire | Desert Launch",
     description:
-      "Développement d'applications mobiles, de plateformes web et de MVP au Caire. Devis fixe, code qui vous appartient, un an de support.",
+      "Développement d'applications mobiles, de plateformes web et de MVP au Caire, avec six démos en ligne à essayer. Devis fixe, code qui vous appartient, un an de support.",
     ogLocale: "fr_FR",
     ogImageAlt:
       "Desert Launch — agence de développement d'applications et de logiciels au Caire, Égypte",
@@ -18,6 +18,7 @@ export const fr: Dictionary = {
   nav: [
     { label: "Réalisations", href: "#work" },
     { label: "Services", href: "#services" },
+    { label: "Démos", href: "#demos" },
     { label: "Pourquoi nous", href: "#why-us" },
     { label: "Méthode", href: "#process" },
     { label: "FAQ", href: "#faq" },
@@ -321,6 +322,66 @@ export const fr: Dictionary = {
     },
     secondary: { label: "Envoyer un brief par e-mail", href: MAILTO },
   },
+  demos: {
+    kicker: "Démos en ligne",
+    title: "Essayez le type de système que nous construirions pour vous",
+    intro:
+      "Six démos fonctionnelles, chacune un site public avec le tableau de bord du personnel derrière. Réservez, commandez ou envoyez une demande, puis ouvrez le tableau de bord et regardez-la arriver. Rien à installer, aucune inscription. Les démos sont en anglais (la démo immobilière en arabe et en anglais).",
+    disclaimer:
+      "Chaque entreprise, nom, prix et numéro de téléphone dans ces démos est inventé. Ce que vous saisissez reste dans votre navigateur le temps de la session et se réinitialise au rechargement.",
+    items: {
+      dental: {
+        tag: "Cabinet dentaire · Dubaï",
+        summary:
+          "Soins et tarifs, prise de rendez-vous en ligne avec de vraies règles de créneaux — pause déjeuner, jours fermés, rien dans les deux prochaines heures — et un tableau de bord où l'accueil retrouve le nouveau rendez-vous et le dossier patient créé avec lui.",
+        flows: ["Prendre rendez-vous", "Reporter ou changer le statut", "Dossiers patients", "Agenda de l'accueil"],
+      },
+      medical: {
+        tag: "Clinique pluridisciplinaire · Abou Dabi",
+        summary:
+          "Médecins par spécialité, un assistant de réservation en cinq étapes qui trouve le premier créneau libre de tout un service, et un tableau de bord avec contrôle complet des rendez-vous et des dossiers patients.",
+        flows: ["Trouver un médecin par spécialité", "Réservation en cinq étapes", "Premier créneau libre d'un service", "Rendez-vous et patients"],
+      },
+      gym: {
+        tag: "Salle de sport · Dubaï",
+        summary:
+          "Un planning hebdomadaire des cours avec les places restantes en direct et une liste d'attente quand une séance est pleine, un parcours d'adhésion qui délivre un numéro de membre, et l'administration du club — membres, cours et taux de remplissage du jour.",
+        flows: ["Réserver un cours", "Souscrire une formule", "Liste d'attente si complet", "Membres et cours"],
+      },
+      cafe: {
+        tag: "Café et torréfacteur · Dubaï",
+        summary:
+          "Une carte de 32 produits avec taille, lait et suppléments, la commande à l'avance pour retrait ou livraison avec un créneau, et le tableau des tickets du bar où l'équipe fait passer chaque commande de nouvelle à prête.",
+        flows: ["Commander à l'avance", "Créneau de retrait ou de livraison", "Tableau des tickets", "Carte et produits épuisés"],
+      },
+      restaurant: {
+        tag: "Restaurant · Dubaï",
+        summary:
+          "Des réservations de table qui montrent ce qui est vraiment libre pour votre nombre de convives, la commande en ligne à emporter ou en livraison, et la vue du personnel — le cahier des réservations, le passe et la carte au même endroit.",
+        flows: ["Réserver une table", "Commander à emporter ou en livraison", "Cahier des réservations et plan de salle", "Passe des commandes"],
+      },
+      realestate: {
+        tag: "Agence immobilière · Riyad",
+        summary:
+          "Des annonces consultables avec des filtres portés par l'URL, des biens enregistrés, des demandes qui arrivent sur un tableau de prospects, et l'administration complète des biens. Arabe d'abord, anglais en un clic.",
+        flows: ["Filtrer et trier les annonces", "Enregistrer des biens", "Envoyer une demande", "Tableau des prospects et gestion des biens"],
+      },
+    },
+    siteCta: "Ouvrir le site",
+    adminCta: "Ouvrir le tableau de bord",
+    flowsLabel: "Ce que vous pouvez essayer",
+    langs: { en: "en anglais", ar: "en arabe" },
+    band: {
+      kicker: "Une démo vous parle ?",
+      body: "Chacune serait adaptée à vos services, vos tarifs, vos horaires et votre marque, avec une vraie base de données, des comptes et des paiements là où vous en avez besoin. Dites-nous laquelle est la plus proche et vous recevez un devis fixe écrit.",
+      cta: {
+        label: "Demander la même chose sur WhatsApp",
+        href: wa("Bonjour Desert Launch, j'ai essayé les démos sur desertlaunch.dev et je souhaite quelque chose de similaire pour mon entreprise."),
+        external: true,
+      },
+    },
+    pageLink: "Tout sur les démos",
+  },
   why: {
     kicker: "Pourquoi Desert Launch",
     title: "Pourquoi les entreprises d'Égypte et du Golfe choisissent Desert Launch",
@@ -460,6 +521,10 @@ export const fr: Dictionary = {
       {
         q: "Combien de temps prendra mon projet ?",
         a: "Un site vitrine se compte généralement en semaines, un MVP en un à deux mois, et un produit mobile plus ambitieux en deux à quatre mois. Vous recevez un calendrier concret avec des jalons avant le démarrage, et vous voyez un logiciel qui fonctionne à chaque jalon.",
+      },
+      {
+        q: "Puis-je essayer quelque chose avant de m'engager ?",
+        a: "Oui. Six démos fonctionnelles sont en ligne — un cabinet dentaire, une clinique, une salle de sport, un café, un restaurant et une agence immobilière — chacune un site public avec le tableau de bord du personnel derrière. Réservez, commandez ou envoyez une demande, puis ouvrez le tableau de bord et regardez-la arriver. Ce sont des entreprises fictives sur des données d'exemple, et rien de ce que vous saisissez n'est conservé.",
       },
       {
         q: "Que se passe-t-il après le lancement ?",
@@ -616,6 +681,7 @@ export const fr: Dictionary = {
     navLinks: [
       { label: "Réalisations", sub: "Des produits en ligne sur l'App Store et Google Play", href: "#work" },
       { label: "Services", sub: "Ce que Desert Launch construit", href: "#services" },
+      { label: "Démos", sub: "Six démos fonctionnelles à essayer, site et tableau de bord", href: "#demos" },
       { label: "Pourquoi nous", sub: "Devis fixe, propriété du code, un an de support", href: "#why-us" },
       { label: "Méthode", sub: "De l'appel de cadrage au lancement en cinq étapes", href: "#process" },
       { label: "FAQ", sub: "Coût, délais, propriété et support", href: "#faq" },
@@ -663,6 +729,7 @@ export const fr: Dictionary = {
     companySummary: "Présentation de l'entreprise",
     quickNav: "Navigation rapide",
     directContact: "Contact direct",
+    social: "Suivre Desert Launch",
     newTab: "ouvre un nouvel onglet",
   },
   common: {

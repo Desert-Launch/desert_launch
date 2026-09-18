@@ -1,4 +1,4 @@
-import type { IconKey, ProjectId, ServiceId } from "./types";
+import type { DemoId, IconKey, ProjectId, ServiceId } from "./types";
 
 /** The language-neutral half of the service offering: which services exist, in
  *  what order, which icon each carries, which have a dedicated page, and which
@@ -14,6 +14,9 @@ export interface ServiceMeta {
   slug?: string;
   /** Projects shown as proof on the service page. */
   related: ProjectId[];
+  /** Live demos a visitor can open from the service page. Only where a demo
+   *  genuinely shows that service — a mobile-app page gets none. */
+  demos?: DemoId[];
   /** Shown in the home page's service grid.
    *
    *  The use-case entries below are pages without a card. They exist because a
@@ -38,6 +41,7 @@ export const SERVICES: ServiceMeta[] = [
     icon: "web",
     slug: "web-development",
     related: ["xera-lab", "fastap"],
+    demos: ["dental", "restaurant", "realestate"],
     home: true,
   },
   {
@@ -45,6 +49,7 @@ export const SERVICES: ServiceMeta[] = [
     icon: "mvp",
     slug: "mvp-development",
     related: ["ezhal", "voicers"],
+    demos: ["cafe"],
     home: true,
   },
   {
@@ -52,6 +57,7 @@ export const SERVICES: ServiceMeta[] = [
     icon: "design",
     slug: "ui-ux-design",
     related: ["al-muslim", "fastap"],
+    demos: ["restaurant", "cafe"],
     home: true,
   },
   {
@@ -75,6 +81,7 @@ export const SERVICES: ServiceMeta[] = [
     icon: "booking",
     slug: "gym-booking-app",
     related: ["q-fight-gym"],
+    demos: ["gym"],
     home: false,
   },
   {
@@ -89,6 +96,7 @@ export const SERVICES: ServiceMeta[] = [
     icon: "records",
     slug: "lab-and-clinic-management-system",
     related: ["xera-lab"],
+    demos: ["medical", "dental"],
     home: false,
   },
 ];

@@ -6,6 +6,7 @@ export const enPages: PagesCopy = {
     onThisPage: "On this page",
     atAGlance: "At a glance",
     attribution: "Attribution",
+    tryDemo: "Try a working demo",
   },
 
   services: {
@@ -1254,6 +1255,106 @@ export const enPages: PagesCopy = {
     },
   },
 
+  demos: {
+    meta: {
+      title: "Live Demos: Clinic, Gym, Café, Restaurant & Real Estate Systems | Desert Launch",
+      description:
+        "Six working demos from Desert Launch: a public website plus the staff dashboard behind it. Book, order or send an enquiry, then watch it arrive. Nothing to install.",
+    },
+    breadcrumb: "Demos",
+    h1: "Try a working demo before you ask for a quote",
+    lead: "Six demos, each a public website with the staff dashboard behind it: a dental clinic, a medical centre, a gym, a café, a restaurant and a real estate brokerage. They are fictional businesses running on sample data, but everything works — book, order, reserve or enquire, then open the dashboard and watch it arrive.",
+    stepsTitle: "How to use a demo",
+    steps: [
+      {
+        title: "Open the website",
+        body: "Every demo starts on the public site a customer would see. Browse it the way a customer would, on your phone if you like.",
+      },
+      {
+        title: "Do what a customer does",
+        body: "Book, order, reserve or send an enquiry. The rules you run into — closed days, lunch breaks, class capacity, table sizes — are calculated live, not painted on.",
+      },
+      {
+        title: "Open the dashboard",
+        body: "Then open the staff side. What you just did is already there, ready to be confirmed, moved, edited or cancelled.",
+      },
+    ],
+    gridTitle: "The six demos",
+    sections: [
+      {
+        id: "whats-real",
+        title: "What is real in each demo",
+        list: [
+          "The booking, ordering and reservation rules are computed from the data, not hard-coded: a dental slot respects the lunch break and the closed day, a restaurant slot shows what is left for your party size, a class shows its actual spots left.",
+          "Anything done on the public side appears on the staff side immediately, and a change on the staff side — a dish taken off, a unit marked sold — shows on the public side just as fast.",
+          "Loading states, empty states and error handling are real. In several demos roughly one cancellation in ten fails on purpose, so you can watch the screen recover and tell you what happened.",
+          "Every demo works on a phone. The dashboards were built for a 390px screen as well as a desktop.",
+        ],
+      },
+      {
+        id: "what-a-real-build-adds",
+        title: "What a real build adds",
+        body: [
+          "The demos keep their data in your browser for one session and reset on refresh; that is what makes them safe to hand to anyone. A real build for your business starts from the same screens and flows and adds what a demo deliberately leaves out.",
+        ],
+        list: [
+          "A database, so data survives a refresh and is shared by everyone on your team.",
+          "Accounts and roles for staff, so the dashboard is yours and not the public's.",
+          "Payments where the flow needs them — Stripe, MyFatoorah or PayTabs, depending on where you take money.",
+          "Notifications by email, SMS or WhatsApp when a booking, order or enquiry comes in.",
+          "Your services, prices, hours, languages and brand, on hosting in your own name — with a year of support after launch.",
+        ],
+      },
+      {
+        id: "which-demo",
+        title: "Which demo is closest to your business?",
+        list: [
+          "Clinics, dentists, labs and physiotherapy practices: Nile Dental Studio or Andalus Medical Center.",
+          "Gyms, studios and personal trainers: Forge Athletic Club.",
+          "Cafés, bakeries and dark kitchens: Dune & Bean.",
+          "Restaurants and lounges: Saffron & Oud.",
+          "Brokerages, developers and property managers: Ghazara Real Estate.",
+          "Something else entirely: the pieces are the same — a public site, a flow that captures the customer, and a dashboard for the team. Tell us what the flow is.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Are these real businesses?",
+        a: "No. Every clinic, café, restaurant, gym and brokerage is invented, along with the names, prices, addresses and phone numbers. They exist to show how a system like yours would behave, not to sell anything themselves.",
+      },
+      {
+        q: "Is anything I enter saved?",
+        a: "No. Each demo keeps its data in your browser for the session and resets when you refresh. Nothing is sent anywhere, because there is no database behind them.",
+      },
+      {
+        q: "Can I get one of these for my business?",
+        a: "Yes. Each one would be adapted to your services, prices, hours, languages and brand, and built on a real database with accounts, payments and hosting where you need them. Tell us which is closest and you get a written fixed quote after a free scope call.",
+      },
+      {
+        q: "How long would a real version take?",
+        a: "It depends on how much of the demo you need and what it has to connect to. Business websites and platforms of this kind run from two weeks to three months on our services page; the free scope call is where that becomes a number for your case.",
+      },
+      {
+        q: "Why is the dashboard part of the same demo as the website?",
+        a: "Because the value is the connection. A booking, an order or an enquiry made on the public side should reach the staff side without anyone re-typing it, and that is exactly what the demos are built to show.",
+      },
+      {
+        q: "Can I see one in Arabic?",
+        a: "Ghazara Real Estate is Arabic-first with an English switch. The other five are in English. A real build for you can be in Arabic, English or both — every project here runs in those two languages.",
+      },
+      {
+        q: "What happens when I tap the WhatsApp link inside a demo?",
+        a: "It opens a chat with Desert Launch with a short message naming the demo you were looking at. That is all — no form, no account, nothing pre-filled about you.",
+      },
+    ],
+    cta: {
+      title: "Seen one that fits?",
+      body: "Tell us which demo is closest to your business and what would need to change. You get a written fixed quote after a free scope call.",
+      label: "Ask on WhatsApp",
+      waMessage: "Hi Desert Launch, I've been through the demos page and I'd like to talk about something similar for my business.",
+    },
+  },
   pricing: {
     meta: {
       title: "What Software Development Costs | Desert Launch, Cairo",

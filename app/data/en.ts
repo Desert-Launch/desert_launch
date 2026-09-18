@@ -10,7 +10,7 @@ export const en: Dictionary = {
   meta: {
     title: "App & Software Development Company in Cairo | Desert Launch",
     description:
-      "Desert Launch builds mobile apps, web platforms and MVPs for businesses in Egypt and the Gulf. Fixed quote, you own the code, one year of free support.",
+      "Mobile apps, web platforms and MVPs for businesses in Egypt and the Gulf, with six live demos to try. Fixed quote, you own the code, a year of free support.",
     ogLocale: "en_US",
     ogImageAlt:
       "Desert Launch — mobile app and software development company in Cairo, Egypt",
@@ -18,6 +18,7 @@ export const en: Dictionary = {
   nav: [
     { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
+    { label: "Demos", href: "#demos" },
     { label: "Why us", href: "#why-us" },
     { label: "Process", href: "#process" },
     { label: "FAQ", href: "#faq" },
@@ -321,6 +322,66 @@ export const en: Dictionary = {
     },
     secondary: { label: "Send a Brief by Email", href: MAILTO },
   },
+  demos: {
+    kicker: "Live demos",
+    title: "Try the kind of system we would build for you",
+    intro:
+      "Six working demos, each a public website with the staff dashboard behind it. Book, order, reserve or send an enquiry, then open the dashboard and watch it arrive. Nothing to install, no sign-up.",
+    disclaimer:
+      "Every business, name, price and phone number in these demos is invented. What you enter stays in your browser for the session and resets when you refresh.",
+    items: {
+      dental: {
+        tag: "Dental clinic · Dubai",
+        summary:
+          "Treatments and prices, online booking against real slot rules — lunch breaks, closed days, nothing inside the next two hours — and a clinic dashboard where the front desk finds the new appointment and the patient record it created.",
+        flows: ["Book an appointment", "Reschedule or change status", "Patient records", "Front-desk diary"],
+      },
+      medical: {
+        tag: "Multi-specialty clinic · Abu Dhabi",
+        summary:
+          "Doctors by specialty, a five-step booking wizard that finds the first free slot across a whole department, and a staff dashboard with full control over appointments and patient files.",
+        flows: ["Find a doctor by specialty", "Five-step booking", "First available in a department", "Appointments and patients"],
+      },
+      gym: {
+        tag: "Gym & fitness club · Dubai",
+        summary:
+          "A weekly class timetable with live spots left and a waitlist once a session fills, a join flow that issues a membership number, and the club's admin — members, classes and today's fill rates.",
+        flows: ["Book a class", "Join a plan", "Waitlist when full", "Members and classes"],
+      },
+      cafe: {
+        tag: "Café & roastery · Dubai",
+        summary:
+          "A 32-item menu with size, milk and extras, order-ahead for pickup or delivery with a time slot, and the bar's ticket board where staff move each order from new to ready.",
+        flows: ["Order ahead", "Pickup or delivery slot", "Ticket board", "Menu and sold-out control"],
+      },
+      restaurant: {
+        tag: "Restaurant · Dubai",
+        summary:
+          "Table reservations that show what is genuinely free for your party size, online ordering for collection or delivery, and the staff view — the reservation book, the pass and the menu in one place.",
+        flows: ["Reserve a table", "Order for collection or delivery", "Reservation book and floor view", "Order pass"],
+      },
+      realestate: {
+        tag: "Real estate brokerage · Riyadh",
+        summary:
+          "Searchable listings with filters that travel in the URL, saved units, enquiries that land on a leads board, and full admin over the units. Arabic first, with English a tap away.",
+        flows: ["Filter and sort listings", "Save units", "Send an enquiry", "Leads board and unit admin"],
+      },
+    },
+    siteCta: "Open the website",
+    adminCta: "Open the dashboard",
+    flowsLabel: "What you can try",
+    langs: { en: "English", ar: "Arabic" },
+    band: {
+      kicker: "Seen one you like?",
+      body: "Any of these would be adapted to your services, prices, hours and brand, with a real database, accounts and payments where you need them. Tell us which one is closest and you get a written fixed quote.",
+      cta: {
+        label: "Ask for one like this on WhatsApp",
+        href: wa("Hi Desert Launch, I tried the demos on desertlaunch.dev and I'd like something similar for my business."),
+        external: true,
+      },
+    },
+    pageLink: "Everything about the demos",
+  },
   why: {
     kicker: "Why Desert Launch",
     title: "Why businesses in Egypt and the Gulf hire Desert Launch",
@@ -460,6 +521,10 @@ export const en: Dictionary = {
       {
         q: "How long will my project take?",
         a: "A business website is usually measured in weeks, an MVP in one to two months, and a larger mobile product in two to four months. You get a concrete timeline with milestones before we start, and you see working software at every milestone.",
+      },
+      {
+        q: "Can I try something before I commit?",
+        a: "Yes. There are six working demos — a dental clinic, a medical centre, a gym, a café, a restaurant and a real estate brokerage — each a public website with the staff dashboard behind it. Book, order or send an enquiry, then open the dashboard and watch it arrive. They are fictional businesses on sample data, and nothing you enter is kept.",
       },
       {
         q: "What happens after launch?",
@@ -616,6 +681,7 @@ export const en: Dictionary = {
     navLinks: [
       { label: "Work", sub: "Products live on the App Store and Google Play", href: "#work" },
       { label: "Services", sub: "What Desert Launch builds", href: "#services" },
+      { label: "Demos", sub: "Six working demos to try, site and dashboard", href: "#demos" },
       { label: "Why us", sub: "Fixed quote, code ownership, a year of support", href: "#why-us" },
       { label: "Process", sub: "From scope call to launch in five steps", href: "#process" },
       { label: "FAQ", sub: "Cost, timeline, ownership and support", href: "#faq" },
@@ -663,6 +729,7 @@ export const en: Dictionary = {
     companySummary: "Company summary",
     quickNav: "Quick navigation",
     directContact: "Direct contact",
+    social: "Follow Desert Launch",
     newTab: "opens in a new tab",
   },
   common: {

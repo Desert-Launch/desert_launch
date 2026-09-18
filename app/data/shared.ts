@@ -15,7 +15,7 @@ export const MAILTO = `mailto:${EMAIL}`;
 /** Date the site content was last reviewed. Shown on dated pages and used for
  *  `dateModified` in JSON-LD. Deliberately a content date, not the build date:
  *  a rebuild does not make the content newer. */
-export const CONTENT_UPDATED = "2026-09-15";
+export const CONTENT_UPDATED = "2026-09-18";
 
 /** Build a WhatsApp click-to-chat link with a pre-filled (already localized)
  *  message. Every entry point passes its own message so an incoming chat says
@@ -128,7 +128,11 @@ export const ORG = {
    *  is added only once the profile is live and confirmed. The GitHub
    *  organisation below was verified to return HTTP 200.
    *  See OWNER_ACTIONS.md for the profiles still to be created. */
-  sameAs: ["https://github.com/Desert-Launch"] as string[],
+  sameAs: [
+    "https://github.com/Desert-Launch",
+    "https://www.facebook.com/profile.php?id=61593467717104",
+    "https://www.instagram.com/desertlaunch.dev/",
+  ] as string[],
   /** What the *business* is about, in the words a buyer would use.
    *
    *  Framework names used to sit here, and they were the loudest machine-
@@ -153,6 +157,22 @@ export const ORG = {
     "Technical consulting",
   ],
 };
+
+/** Public social profiles, shown in the footer. Both verified to return
+ *  HTTP 200 on 2026-09-17 before being added here and to `ORG.sameAs`. The
+ *  network names are proper nouns and stay untranslated. */
+export const SOCIAL: { id: "facebook" | "instagram"; name: string; url: string }[] = [
+  {
+    id: "facebook",
+    name: "Facebook",
+    url: "https://www.facebook.com/profile.php?id=61593467717104",
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    url: "https://www.instagram.com/desertlaunch.dev/",
+  },
+];
 
 export const FOUNDER = {
   name: "Abdullah Mohamed",
