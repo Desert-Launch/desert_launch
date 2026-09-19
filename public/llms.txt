@@ -79,16 +79,16 @@ Two of these eight are published on public app stores; the store links above are
 
 ## Live demos
 
-Six working demos of the kind of system Desert Launch builds for small and mid-sized businesses, each a public website plus the staff dashboard behind it. They are fictional businesses with invented names, prices and phone numbers, running against an in-memory store: nothing entered is kept, and every demo resets on refresh. They exist so a prospect can try the booking, ordering or enquiry flow and then see it arrive on the admin side. Listed at https://www.desertlaunch.dev/#demos, with a full guide and FAQ at https://www.desertlaunch.dev/demos/. Each demo also serves its own llms.txt at /llms.txt.
+Six working demos of the kind of system Desert Launch builds for small and mid-sized businesses, each a public website plus the staff dashboard behind it. They are fictional businesses and deliberately look it — names like "Demo Gym", people like "Doctor 1", addresses on "Demo Street", phone numbers ending in "xxx" — running against an in-memory store: nothing entered is kept, and every demo resets on refresh. They exist so a prospect can try the booking, ordering or enquiry flow and then see it arrive on the admin side. Listed at https://www.desertlaunch.dev/#demos, with a full guide and FAQ at https://www.desertlaunch.dev/demos/. Each demo also serves its own llms.txt at /llms.txt.
 
-- Nile Dental Studio — dental clinic, online booking with real slot rules, front-desk diary and patient records. https://dental.demos.desertlaunch.dev/ (dashboard at /admin)
-- Andalus Medical Center — multi-specialty clinic, five-step booking across departments, appointments and patient files. https://medical.demos.desertlaunch.dev/
-- Forge Athletic Club — gym, weekly class timetable with live capacity and waitlist, membership sign-up, club admin. https://gym.demos.desertlaunch.dev/
-- Dune & Bean — café and roastery, order-ahead with pickup or delivery slots, bar ticket board, menu control. https://cafe.demos.desertlaunch.dev/
-- Saffron & Oud — restaurant, table reservations with real availability per party size, online ordering, reservation book and order pass. https://restaurant.demos.desertlaunch.dev/
-- Ghazara Real Estate (غزارة العقارية) — brokerage, searchable listings, saved units, enquiries onto a leads board, unit admin; Arabic-first with English. https://realestate.demos.desertlaunch.dev/
+- Demo Dental Clinic — dental clinic, online booking with real slot rules, front-desk diary and patient records. https://dental.demos.desertlaunch.dev/ (dashboard at /admin)
+- Demo Medical Clinic — multi-specialty clinic, five-step booking across departments, appointments and patient files. https://medical.demos.desertlaunch.dev/
+- Demo Gym — gym, weekly class timetable with live capacity and waitlist, membership sign-up, club admin. https://gym.demos.desertlaunch.dev/
+- Demo Café — café and roastery, order-ahead with pickup or delivery slots, bar ticket board, menu control. https://cafe.demos.desertlaunch.dev/
+- Demo Restaurant — restaurant, table reservations with real availability per party size, online ordering, reservation book and order pass. https://restaurant.demos.desertlaunch.dev/
+- Demo Real Estate (ديمو العقارية) — brokerage, searchable listings, saved units, enquiries onto a leads board, unit admin; Arabic-first with English. https://realestate.demos.desertlaunch.dev/
 
-The demos are in English, except Ghazara which is Arabic-first. Source: https://github.com/Desert-Launch (repositories named demo-*).
+The demos are in English, except Demo Real Estate which is Arabic-first. Source: https://github.com/Desert-Launch (repositories named demo-*).
 
 ## Process
 

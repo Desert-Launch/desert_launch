@@ -13,13 +13,14 @@ export const DEMOS_HOST = "demos.desertlaunch.dev";
 
 export interface DemoMeta {
   id: DemoId;
-  /** The fictional brand — shown untranslated in every locale. */
+  /** The demo's name — deliberately generic ("Demo Gym"), never a plausible
+   *  business, and shown untranslated in every locale. */
   name: string;
   icon: IconKey;
   /** Path of the staff/admin side, relative to the demo's origin. */
   adminPath: string;
   /** Interface languages the demo itself offers, for the language line.
-   *  Everything runs in English except Ghazara, which is Arabic-first. */
+   *  Everything runs in English except Demo Real Estate, which is Arabic-first. */
   langs: ("en" | "ar")[];
   /** GitHub repository, for the README and anyone asking where the code is. */
   repo: string;
@@ -32,7 +33,7 @@ export function demoUrl(id: DemoId, path = "/"): string {
 export const DEMOS: DemoMeta[] = [
   {
     id: "dental",
-    name: "Nile Dental Studio",
+    name: "Demo Dental Clinic",
     icon: "tooth",
     adminPath: "/admin",
     langs: ["en"],
@@ -40,7 +41,7 @@ export const DEMOS: DemoMeta[] = [
   },
   {
     id: "medical",
-    name: "Andalus Medical Center",
+    name: "Demo Medical Clinic",
     icon: "stethoscope",
     adminPath: "/admin",
     langs: ["en"],
@@ -48,7 +49,7 @@ export const DEMOS: DemoMeta[] = [
   },
   {
     id: "gym",
-    name: "Forge Athletic Club",
+    name: "Demo Gym",
     icon: "dumbbell",
     adminPath: "/admin",
     langs: ["en"],
@@ -56,7 +57,7 @@ export const DEMOS: DemoMeta[] = [
   },
   {
     id: "cafe",
-    name: "Dune & Bean",
+    name: "Demo Café",
     icon: "coffee",
     adminPath: "/admin",
     langs: ["en"],
@@ -64,7 +65,7 @@ export const DEMOS: DemoMeta[] = [
   },
   {
     id: "restaurant",
-    name: "Saffron & Oud",
+    name: "Demo Restaurant",
     icon: "utensils",
     adminPath: "/admin",
     langs: ["en"],
@@ -72,7 +73,7 @@ export const DEMOS: DemoMeta[] = [
   },
   {
     id: "realestate",
-    name: "غزارة العقارية — Ghazara Real Estate",
+    name: "ديمو العقارية — Demo Real Estate",
     icon: "building",
     adminPath: "/admin",
     langs: ["ar", "en"],

@@ -1309,11 +1309,11 @@ export const enPages: PagesCopy = {
         id: "which-demo",
         title: "Which demo is closest to your business?",
         list: [
-          "Clinics, dentists, labs and physiotherapy practices: Nile Dental Studio or Andalus Medical Center.",
-          "Gyms, studios and personal trainers: Forge Athletic Club.",
-          "Cafés, bakeries and dark kitchens: Dune & Bean.",
-          "Restaurants and lounges: Saffron & Oud.",
-          "Brokerages, developers and property managers: Ghazara Real Estate.",
+          "Clinics, dentists, labs and physiotherapy practices: the Demo Dental Clinic or the Demo Medical Clinic.",
+          "Gyms, studios and personal trainers: the Demo Gym.",
+          "Cafés, bakeries and dark kitchens: the Demo Café.",
+          "Restaurants and lounges: the Demo Restaurant.",
+          "Brokerages, developers and property managers: Demo Real Estate.",
           "Something else entirely: the pieces are the same — a public site, a flow that captures the customer, and a dashboard for the team. Tell us what the flow is.",
         ],
       },
@@ -1321,7 +1321,7 @@ export const enPages: PagesCopy = {
     faq: [
       {
         q: "Are these real businesses?",
-        a: "No. Every clinic, café, restaurant, gym and brokerage is invented, along with the names, prices, addresses and phone numbers. They exist to show how a system like yours would behave, not to sell anything themselves.",
+        a: "No. Every clinic, café, restaurant, gym and brokerage is invented, and deliberately looks it: the businesses are called things like Demo Gym, the people are Doctor 1 or Member 12, the addresses are on Demo Street and every phone number ends in xxx. They exist to show how a system like yours would behave, not to sell anything themselves.",
       },
       {
         q: "Is anything I enter saved?",
@@ -1341,7 +1341,7 @@ export const enPages: PagesCopy = {
       },
       {
         q: "Can I see one in Arabic?",
-        a: "Ghazara Real Estate is Arabic-first with an English switch. The other five are in English. A real build for you can be in Arabic, English or both — every project here runs in those two languages.",
+        a: "Demo Real Estate is Arabic-first with an English switch. The other five are in English. A real build for you can be in Arabic, English or both — every project here runs in those two languages.",
       },
       {
         q: "What happens when I tap the WhatsApp link inside a demo?",
