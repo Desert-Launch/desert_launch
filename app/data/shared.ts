@@ -197,4 +197,6 @@ export const FOUNDER = {
     "https://www.linkedin.com/in/abdullah-mohamed-3010",
     "https://github.com/Abdullah3010",
   ],
+  /** The profile the recommendations on the home page come from. */
+  linkedin: "https://www.linkedin.com/in/abdullah-mohamed-3010",
 };

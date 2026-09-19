@@ -153,8 +153,8 @@ export function ServicesIndexView({ lang }: { lang: PageLang }) {
 
         <section className="panel cta-band p-6">
           <div className="flex max-w-[52ch] flex-col gap-2">
-            <h2 className="h-card">{t.why.band.kicker}</h2>
-            <p className="text-body leading-relaxed text-muted">{t.why.band.body}</p>
+            <h2 className="h-card">{t.contact.title}</h2>
+            <p className="text-body leading-relaxed text-muted">{t.contact.intro}</p>
           </div>
           <a
             href={wa(t.contact.form.draftIntro)}

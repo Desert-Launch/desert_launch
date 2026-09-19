@@ -28,6 +28,9 @@ export interface ProjectMeta {
   status: ProjectStatus;
   /** Featured projects fill the main grid; the rest sit behind a disclosure. */
   featured: boolean;
+  /** The three projects that get a full case row (screenshots + problem /
+   *  built / outcome) on the home page; the rest appear as small cards. */
+  homeCase: boolean;
   /** Projects with a dedicated case-study page at /work/<id>/. */
   caseStudy: boolean;
   /** Year the work was delivered, when it is known. Omitted rather than
@@ -55,6 +58,7 @@ export const PROJECTS: ProjectMeta[] = [
     stack: ["Flutter", "Firebase", "Payment gateway", "iOS", "Android"],
     status: "live",
     featured: true,
+    homeCase: true,
     caseStudy: true,
   },
   {
@@ -77,6 +81,7 @@ export const PROJECTS: ProjectMeta[] = [
     stack: ["Flutter", "Push notifications", "Geolocation", "iOS", "Android"],
     status: "live",
     featured: true,
+    homeCase: true,
     caseStudy: true,
   },
   {
@@ -94,6 +99,7 @@ export const PROJECTS: ProjectMeta[] = [
     ],
     status: "delivered",
     featured: true,
+    homeCase: true,
     caseStudy: true,
   },
   {
@@ -115,6 +121,7 @@ export const PROJECTS: ProjectMeta[] = [
     ],
     status: "delivered",
     featured: true,
+    homeCase: false,
     caseStudy: true,
   },
   {
@@ -128,6 +135,7 @@ export const PROJECTS: ProjectMeta[] = [
     stack: ["Flutter", "Flutter Web", "NFC", "Firebase", "Nginx"],
     status: "delivered",
     featured: false,
+    homeCase: false,
     caseStudy: false,
   },
   {
@@ -141,6 +149,7 @@ export const PROJECTS: ProjectMeta[] = [
     stack: ["Flutter", "Clean architecture", "MyFatoorah"],
     status: "delivered",
     featured: false,
+    homeCase: false,
     caseStudy: false,
   },
   {
@@ -162,6 +171,7 @@ export const PROJECTS: ProjectMeta[] = [
     ],
     status: "delivered",
     featured: false,
+    homeCase: false,
     caseStudy: false,
   },
   {
@@ -175,6 +185,7 @@ export const PROJECTS: ProjectMeta[] = [
     stack: ["Flutter", "Clean architecture", "Live audio", "EN/AR"],
     status: "inHouse",
     featured: false,
+    homeCase: false,
     caseStudy: false,
   },
 ];
@@ -185,6 +196,9 @@ export const PROJECTS_BY_ID: Record<ProjectId, ProjectMeta> = Object.fromEntries
 
 export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);
 export const MORE_PROJECTS = PROJECTS.filter((p) => !p.featured);
+/** The home page: three full case rows, then the other five as small cards. */
+export const HOME_CASE_PROJECTS = PROJECTS.filter((p) => p.homeCase);
+export const HOME_CARD_PROJECTS = PROJECTS.filter((p) => !p.homeCase);
 export const CASE_STUDIES = PROJECTS.filter((p) => p.caseStudy);
 
 /** Products published on a public app store — the only portfolio claim a

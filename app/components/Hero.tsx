@@ -1,29 +1,22 @@
 import type { Dictionary } from "@/app/data/types";
-import { HeroShowcase } from "./HeroShowcase";
+import { JourneyLoop } from "./JourneyLoop";
 
 export function Hero({ t }: { t: Dictionary }) {
   const h = t.hero;
   return (
-    <section className="hero pt-8 pb-12 sm:pt-12 md:pb-16">
-      <div className="shell flex flex-col gap-10 md:gap-12">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+    <>
+      <section className="hero pt-10 pb-12 sm:pt-14 md:pb-16">
+        <div className="shell grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Copy */}
-          <div className="reveal flex flex-col gap-5">
+          <div className="reveal flex flex-col items-start gap-5">
             <span className="kicker">{h.eyebrow}</span>
-            <h1 className="h-display">{h.title}</h1>
-            <p className="max-w-[48ch] text-lead leading-relaxed text-ink-soft">{h.lead}</p>
-            <div className="flex flex-wrap gap-2" aria-label={t.a11y.heroTags}>
-              {h.tags.map((tag) => (
-                <span key={tag} className="chip">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <h1 className="h-display max-w-[15ch]">{h.title}</h1>
+            <p className="max-w-[48ch] text-lead leading-relaxed text-ink-soft [text-wrap:pretty]">
+              {h.lead}
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
                 href={h.primary.href}
-                target="_blank"
-                rel="noreferrer"
                 className="btn btn-primary"
                 data-evt="primary_cta_click"
                 data-evt-placement="hero"
@@ -37,14 +30,18 @@ export function Hero({ t }: { t: Dictionary }) {
             <p className="text-meta text-muted">{h.responseNote}</p>
           </div>
 
-          {/* Real product proof, not a stock render */}
-          <HeroShowcase t={t} />
+          {/* The animated journey from idea to production. */}
+          <div className="reveal">
+            <JourneyLoop journey={h.journey} />
+          </div>
         </div>
+      </section>
 
-        {/* Proof — full width under both columns */}
-        <div className="reveal grid gap-3 sm:grid-cols-3" aria-label={t.a11y.proofPoints}>
+      {/* Proof — a full-width band of four figures, divided by hairlines. */}
+      <div className="proof-band" aria-label={t.a11y.proofPoints}>
+        <div className="shell grid sm:grid-cols-2 lg:grid-cols-4">
           {h.proof.map((p) => (
-            <div key={p.label} className="panel stat">
+            <div key={p.label} className="proof-band__cell">
               <small className="stat__label">{p.label}</small>
               <strong className="stat__value">{p.value}</strong>
               <span className="stat__note">{p.note}</span>
@@ -52,6 +49,6 @@ export function Hero({ t }: { t: Dictionary }) {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

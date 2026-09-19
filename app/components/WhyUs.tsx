@@ -1,86 +1,47 @@
-import type { Dictionary, Lang } from "@/app/data/types";
-import { Icon } from "@/app/data/icons";
-import { simplePath } from "@/app/lib/links";
-import { SectionHead } from "./SectionHead";
+import type { Dictionary } from "@/app/data/types";
 
-export function WhyUs({ t, lang }: { t: Dictionary; lang: Lang }) {
+/** Four commitments as numbered rows: the claim, the reasoning, and a small
+ *  before/after panel that says what the visitor is not signing up for. */
+export function WhyUs({ t }: { t: Dictionary }) {
   const w = t.why;
-  // About exists in every locale, unlike the other sub-pages.
-  const aboutHref = simplePath(lang, "about");
 
   return (
     <section id="why-us" aria-labelledby="why-heading" className="section scroll-mt-24">
-      <div className="shell flex flex-col gap-8 md:gap-10">
-        <SectionHead id="why-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
-
-        <div className="grid gap-4 lg:grid-cols-[1.4fr_0.9fr]">
-          {/* The four commitments, not adjectives. */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {w.features.map((f) => (
-              <article key={f.title} className="card reveal">
-                <span className="icon-box">
-                  <Icon name={f.icon} />
-                </span>
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
-              </article>
-            ))}
-          </div>
-
-          {/* A named `region`, not an `aside`: this sits inside <main>, and a
-              complementary landmark is meant to be top level. */}
-          <section className="panel reveal flex flex-col gap-3 p-6" aria-label={t.a11y.founderPanel}>
-            <span className="kicker">{w.founder.kicker}</span>
-            <img
-              src={w.founder.photo}
-              alt={w.founder.photoAlt}
-              width={96}
-              height={96}
-              loading="lazy"
-              decoding="async"
-              className="h-24 w-24 rounded-md border border-line-strong object-cover"
-            />
-            <div>
-              <h3 className="h-card">{w.founder.name}</h3>
-              <p className="text-body text-gold">{w.founder.role}</p>
-            </div>
-            <p className="text-body leading-relaxed text-muted">{w.founder.body}</p>
-            <div className="flex flex-wrap gap-2" aria-label={t.a11y.founderFacts}>
-              {w.founder.facts.map((fact) => (
-                <span key={fact} className="chip">
-                  {fact}
-                </span>
-              ))}
-            </div>
-            <a href={aboutHref} className="pf-link pf-link--strong mt-1 self-start">
-              {w.founder.moreLabel}
-            </a>
-          </section>
+      <div className="shell">
+        <div className="reveal flex max-w-[46rem] flex-col gap-4">
+          <span className="kicker">{w.kicker}</span>
+          <h2 id="why-heading" className="h-section max-w-[24ch]">
+            {w.title}
+          </h2>
         </div>
 
-        <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-3">
-            <span className="kicker">{w.band.kicker}</span>
-            <p className="max-w-[62ch] text-body leading-relaxed text-ink-soft">{w.band.body}</p>
-            <div className="flex flex-wrap gap-2" aria-label={t.a11y.engagementPoints}>
-              {w.band.points.map((p) => (
-                <span key={p} className="chip">
-                  {p}
+        <ol className="mt-11 list-none border-b border-line">
+          {w.features.map((f, i) => (
+            <li key={f.title} className="why-row reveal grid gap-6 lg:grid-cols-3 lg:gap-8">
+              <div>
+                <span className="why-row__number" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-              ))}
-            </div>
-          </div>
-          <a
-            href={w.band.cta.href}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary shrink-0"
-            data-evt="primary_cta_click"
-            data-evt-placement="why-band"
-          >
-            {w.band.cta.label}
-          </a>
-        </div>
+                <h3 className="h-card mt-4">{f.title}</h3>
+              </div>
+              <p className="text-body leading-relaxed text-ink-soft">{f.body}</p>
+              <div className="panel px-5 py-5">
+                <p className="flex items-start gap-3 text-meta text-muted">
+                  <span aria-hidden="true" className="shrink-0">
+                    ✕
+                  </span>
+                  <s className="decoration-line-strong">{f.before}</s>
+                </p>
+                <p className="mt-3.5 flex items-start gap-3 border-t border-line pt-3.5 text-body text-ink">
+                  <span aria-hidden="true" className="dir-arrow shrink-0 text-gold">
+                    →
+                  </span>
+                  <span>{f.after}</span>
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

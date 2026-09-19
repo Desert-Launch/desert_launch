@@ -1,151 +1,154 @@
-import type { Dictionary, Lang, ProjectId } from "@/app/data/types";
-import { FEATURED_PROJECTS, MORE_PROJECTS, type ProjectMeta } from "@/app/data/projects";
+import type { Dictionary, Lang } from "@/app/data/types";
+import { HOME_CARD_PROJECTS, HOME_CASE_PROJECTS, type ProjectMeta } from "@/app/data/projects";
 import { wa } from "@/app/data/shared";
 import { casePath, hasPages } from "@/app/lib/links";
-import { LogoMarquee } from "./LogoMarquee";
 import { SectionHead } from "./SectionHead";
 
-function ProjectMedia({
-  project,
-  copyAlts,
-  stackLabel,
-}: {
-  project: ProjectMeta;
-  copyAlts: string[];
-  stackLabel: string;
-}) {
-  if (project.media.kind === "stack") {
+/** Store links, shared by the case rows and the small cards. */
+function StoreLinks({ t, project }: { t: Dictionary; project: ProjectMeta }) {
+  const w = t.work;
+  if (!project.store) return null;
+  return (
+    <>
+      {project.store.appStore && (
+        <a
+          href={project.store.appStore}
+          target="_blank"
+          rel="noreferrer"
+          className="pf-link pf-link--external text-meta"
+          data-evt="store_click"
+          data-evt-store="app-store"
+          data-evt-project={project.id}
+        >
+          {w.storeLabels.appStore}
+          <span className="sr-only"> ({t.a11y.newTab})</span>
+        </a>
+      )}
+      {project.store.googlePlay && (
+        <a
+          href={project.store.googlePlay}
+          target="_blank"
+          rel="noreferrer"
+          className="pf-link pf-link--external text-meta"
+          data-evt="store_click"
+          data-evt-store="google-play"
+          data-evt-project={project.id}
+        >
+          {w.storeLabels.googlePlay}
+          <span className="sr-only"> ({t.a11y.newTab})</span>
+        </a>
+      )}
+    </>
+  );
+}
+
+function CaseMedia({ project, alts }: { project: ProjectMeta; alts: string[] }) {
+  if (project.media.kind === "stack") return null;
+  const shots = project.media.shots;
+
+  // One wide screenshot (a web platform) fills the column; a set of phone
+  // screenshots steps down the row so three tall images read as one object.
+  if (shots.length === 1) {
     return (
-      <div className="pf-showcase">
-        <img src={project.logo} alt="" width={56} height={56} loading="lazy" decoding="async" />
-        <div className="flex flex-wrap justify-center gap-2" aria-label={stackLabel}>
-          {project.media.stack.map((s) => (
-            <span key={s} className="pf-stack-chip">
-              {s}
-            </span>
-          ))}
-        </div>
-      </div>
+      <img
+        src={shots[0]}
+        alt={alts[0] ?? ""}
+        width={1080}
+        height={698}
+        loading="lazy"
+        decoding="async"
+        className="case-shot case-shot--wide"
+      />
     );
   }
-
-  const modifiers = [
-    project.media.kind === "contain" ? "pf-media--contain" : "",
-    project.media.shots.length === 1 ? "pf-media--single" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
   return (
-    <div className={`pf-media ${modifiers}`}>
-      {project.media.shots.map((src, i) => (
+    <div className="case-shots-stagger">
+      {shots.map((src, i) => (
         <img
           key={src}
           src={src}
-          alt={copyAlts[i] ?? ""}
+          alt={alts[i] ?? ""}
+          width={420}
+          height={909}
           loading="lazy"
           decoding="async"
-          width={project.media.kind === "contain" && project.media.shots.length === 1 ? 640 : 240}
-          height={project.media.kind === "contain" && project.media.shots.length === 1 ? 400 : 308}
+          className="case-shot"
         />
       ))}
     </div>
   );
 }
 
-function ProjectCard({
+/** A full case row: screenshots on one side, the problem / built / outcome
+ *  lines on the other. Rows alternate sides on desktop. */
+function CaseRow({
   t,
   lang,
   project,
-  compact = false,
-  className = "",
+  flip,
 }: {
   t: Dictionary;
   lang: Lang;
   project: ProjectMeta;
-  compact?: boolean;
-  className?: string;
+  flip: boolean;
 }) {
   const w = t.work;
   const copy = w.projects[project.id];
+  const c = copy.case;
   const statusLabel =
     project.status === "live"
       ? w.statusLabels.live
       : project.status === "delivered"
         ? w.statusLabels.delivered
         : w.statusLabels.inHouse;
-
   const caseHref = project.caseStudy && hasPages(lang) ? casePath(lang, project.id) : null;
 
   return (
-    <article className={`pf-card reveal ${className}`}>
-      <ProjectMedia project={project} copyAlts={copy.shotAlts} stackLabel={t.a11y.projectStack} />
-      <div className="flex flex-1 flex-col p-5">
-        {/* Wraps rather than squeezing. The status chip is `shrink-0`, so on a
-            narrow card it used to take its full width out of the row and crush
-            the tag beside it into a column one word wide. Giving the name/tag
-            block a 10rem basis makes the chip drop to its own line instead;
-            above ~430px everything still fits on one row, so wider layouts are
-            unchanged. */}
-        <div className="flex flex-wrap items-start gap-x-3 gap-y-2">
+    <article className="case-row reveal grid items-center gap-8 lg:grid-cols-2">
+      <div className={flip ? "lg:order-2" : ""}>
+        <CaseMedia project={project} alts={copy.shotAlts} />
+      </div>
+
+      <div className={flip ? "lg:order-1" : ""}>
+        <div className="flex flex-wrap items-center gap-3">
           <img
             src={project.logo}
             alt={copy.logoAlt}
-            width={44}
-            height={44}
+            width={40}
+            height={40}
             loading="lazy"
             decoding="async"
-            className="pf-applogo"
+            className="h-10 w-10 rounded-sm border border-line"
           />
           <div className="min-w-0 flex-1 basis-40">
             <h3 className="h-card">{project.name}</h3>
-            <p className="mt-1 text-meta text-muted">{copy.tag}</p>
+            <p className="mt-0.5 text-meta text-ink-soft">{copy.tag}</p>
           </div>
           <span className={`pf-status pf-status--${project.status} ms-auto shrink-0`}>
             {statusLabel}
           </span>
         </div>
 
-        <p className="mt-4 text-body leading-relaxed text-muted">{copy.summary}</p>
-
-        {!compact && (
-          <ul className="mt-3 grid gap-2 text-body text-ink-soft">
-            {copy.points.map((point) => (
-              <li key={point} className="flex gap-2">
-                <span aria-hidden="true" className="bullet-dot" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
+        {c ? (
+          <dl className="case-lines mt-6">
+            <div>
+              <dt>{w.caseLabels.problem}</dt>
+              <dd>{c.problem}</dd>
+            </div>
+            <div>
+              <dt>{w.caseLabels.built}</dt>
+              <dd>{c.built}</dd>
+            </div>
+            <div>
+              <dt>{w.caseLabels.outcome}</dt>
+              <dd className="text-ink">{c.outcome}</dd>
+            </div>
+          </dl>
+        ) : (
+          <p className="mt-5 text-body leading-relaxed text-muted">{copy.summary}</p>
         )}
 
-        <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4">
-          {project.store?.appStore && (
-            <a
-              href={project.store.appStore}
-              target="_blank"
-              rel="noreferrer"
-              className="pf-link"
-              data-evt="store_click"
-              data-evt-store="app-store"
-              data-evt-project={project.id}
-            >
-              {w.storeLabels.appStore}
-            </a>
-          )}
-          {project.store?.googlePlay && (
-            <a
-              href={project.store.googlePlay}
-              target="_blank"
-              rel="noreferrer"
-              className="pf-link"
-              data-evt="store_click"
-              data-evt-store="google-play"
-              data-evt-project={project.id}
-            >
-              {w.storeLabels.googlePlay}
-            </a>
-          )}
+        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
           {caseHref ? (
             <a
               href={caseHref}
@@ -167,65 +170,78 @@ function ProjectCard({
               {w.similarCta}
             </a>
           )}
+          <StoreLinks t={t} project={project} />
         </div>
       </div>
     </article>
   );
 }
 
+/** The products without a case row: logo, name and category. The ones with a
+ *  case study are links; the rest are plain cards, so nothing lifts on hover
+ *  that will not open. */
+function MiniCard({ t, lang, project }: { t: Dictionary; lang: Lang; project: ProjectMeta }) {
+  const copy = t.work.projects[project.id];
+  const caseHref = project.caseStudy && hasPages(lang) ? casePath(lang, project.id) : null;
+  const inner = (
+    <>
+      <img
+        src={project.logo}
+        alt={copy.logoAlt}
+        width={32}
+        height={32}
+        loading="lazy"
+        decoding="async"
+        className="h-8 w-8 rounded-xs"
+      />
+      <h3 className="mt-3.5 text-[1rem]">
+        {caseHref ? (
+          <a
+            href={caseHref}
+            className="card__link"
+            data-evt="case_study_click"
+            data-evt-project={project.id}
+          >
+            {project.name}
+          </a>
+        ) : (
+          project.name
+        )}
+      </h3>
+      <p className="text-meta text-muted">{copy.tag}</p>
+    </>
+  );
+  return (
+    <article className={`card mini-card reveal ${caseHref ? "card--link" : ""}`}>{inner}</article>
+  );
+}
+
 export function Work({ t, lang }: { t: Dictionary; lang: Lang }) {
   const w = t.work;
-  const logoAlts = Object.fromEntries(
-    (Object.keys(w.projects) as ProjectId[]).map((id) => [id, w.projects[id].logoAlt])
-  ) as Record<ProjectId, string>;
 
   return (
     <section id="work" aria-labelledby="work-heading" className="section scroll-mt-24">
-      <div className="shell flex flex-col gap-8 md:gap-10">
+      <div className="shell">
         <SectionHead id="work-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
         {/* Honest attribution, directly under the intro rather than buried. */}
-        <p className="attribution reveal">{w.attribution}</p>
+        <p className="attribution reveal mt-6">{w.attribution}</p>
 
-        <LogoMarquee
-          alts={logoAlts}
-          label={w.logosLabel}
-          pauseLabel={w.logosPause}
-          playLabel={w.logosPlay}
-        />
-
-        {/* Four featured projects. The other four sit behind a disclosure so the
-            section stops being a third of the page on a phone. */}
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          {FEATURED_PROJECTS.map((project) => (
-            <ProjectCard key={project.id} t={t} lang={lang} project={project} />
+        {/* Three case rows, then the other five as small cards. */}
+        <div className="mt-8 flex flex-col">
+          {HOME_CASE_PROJECTS.map((project, i) => (
+            <CaseRow key={project.id} t={t} lang={lang} project={project} flip={i % 2 === 1} />
           ))}
         </div>
 
-        {/* Native <details>: works with JavaScript disabled and is keyboard
-            operable without a single line of script. */}
-        <details className="more-work reveal">
-          <summary className="more-work__summary">
-            <span>{w.moreLabel}</span>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              className="h-4 w-4 shrink-0 text-gold transition-transform"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M12 5v14M5 12h14" />
-            </svg>
-          </summary>
-          <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
-            {MORE_PROJECTS.map((project) => (
-              <ProjectCard key={project.id} t={t} lang={lang} project={project} compact />
+        <div className="reveal mt-12 border-t border-line pt-7">
+          <p className="mb-4 text-micro uppercase tracking-[0.1em] text-muted">{w.moreHeading}</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {HOME_CARD_PROJECTS.map((project) => (
+              <MiniCard key={project.id} t={t} lang={lang} project={project} />
             ))}
           </div>
-        </details>
+        </div>
       </div>
     </section>
   );

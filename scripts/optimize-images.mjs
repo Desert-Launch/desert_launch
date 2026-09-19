@@ -26,8 +26,10 @@ const jobs = [
     in: `${n}.webp`, out: `${n}.webp`, width: 128, q: 82,
   })),
 
-  // Founder portrait — rendered at 96 px.
+  // Founder portrait — 96 px on About and in the JSON-LD; the home-page panel
+  // renders it at ~440 CSS px, so the large cut covers 2x DPR.
   { in: "founder.webp", out: "founder.webp", width: 256, q: 82 },
+  { in: "founder-lg.webp", out: "founder-lg.webp", width: 880, q: 80 },
   // Testimonial avatars — rendered at 44 px.
   ...["testimonial-ahmed-farid", "testimonial-mohamad-zakaria", "testimonial-mohamed-sayed"]
     .map((n) => ({ in: `${n}.webp`, out: `${n}.webp`, width: 128, q: 80 })),

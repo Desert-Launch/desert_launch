@@ -9,6 +9,7 @@ import { Services } from "./Services";
 import { Demos } from "./Demos";
 import { WhyUs } from "./WhyUs";
 import { Process } from "./Process";
+import { Founder } from "./Founder";
 import { Faq } from "./Faq";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
@@ -42,10 +43,11 @@ export function Site({ lang }: { lang: Lang }) {
       <main id="main">
         <Hero t={t} />
         <Work t={t} lang={lang} />
-        <Services t={t} lang={lang} />
         <Demos t={t} lang={lang} />
-        <WhyUs t={t} lang={lang} />
         <Process t={t} />
+        <Services t={t} lang={lang} />
+        <WhyUs t={t} />
+        <Founder t={t} />
         <Faq t={t} />
         <Contact t={t} />
       </main>

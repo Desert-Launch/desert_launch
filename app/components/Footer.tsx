@@ -11,6 +11,7 @@ export function Footer({
   langHrefs,
   translated,
   navItems,
+  logoSrc = "/assets/logo-96.png",
 }: {
   t: Dictionary;
   lang: Lang;
@@ -18,9 +19,15 @@ export function Footer({
   langHrefs: Partial<Record<Lang, string>>;
   translated: Lang[];
   navItems: { label: string; href: string }[];
+  /** The brand mark. Defaults to the site asset; the design-system package
+   *  passes an inlined copy so the footer renders outside this site. */
+  logoSrc?: string;
 }) {
   const f = t.footer;
   const pageLocale = hasPages(lang) ? lang : null;
+  // The footer's anchors are section hashes. On the home page they stay bare;
+  // on a sub-page they travel back to this locale's home first.
+  const homePrefix = navItems[0]?.href.startsWith("#") ? "" : homeHref;
   const servicePages = SERVICES.filter((s) => s.slug);
 
   return (
@@ -30,7 +37,7 @@ export function Footer({
         <section className="reveal flex flex-col gap-3" aria-label={t.a11y.companySummary}>
           <a href={homeHref} className="flex items-center gap-3">
             <img
-              src="/assets/logo-96.png"
+              src={logoSrc}
               alt=""
               width={40}
               height={40}
@@ -73,11 +80,10 @@ export function Footer({
         <nav className="reveal flex flex-col gap-3" aria-label={t.a11y.footerNav}>
           <h2 className="footer-heading">{f.navHeading}</h2>
           <ul className="grid list-none gap-2">
-            {f.navLinks.map((link, i) => (
+            {f.navLinks.map((link) => (
               <li key={link.href}>
-                <a href={navItems[i]?.href ?? link.href} className="footer-link">
+                <a href={`${homePrefix}${link.href}`} className="footer-link">
                   <strong className="text-body">{link.label}</strong>
-                  <span className="text-meta text-muted">{link.sub}</span>
                 </a>
               </li>
             ))}
@@ -148,10 +154,6 @@ export function Footer({
                     {PHONE_DISPLAY}
                   </span>
                 </a>
-              </li>
-              <li className="footer-link footer-link--static">
-                <strong className="text-body">{f.identity.addressLabel}</strong>
-                <span className="text-meta text-muted">{f.identity.address}</span>
               </li>
             </ul>
           </address>

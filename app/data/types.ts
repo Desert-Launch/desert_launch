@@ -97,12 +97,6 @@ export interface ProofStat {
   note: string;
 }
 
-export interface IconCard {
-  icon: IconKey;
-  title: string;
-  body: string;
-}
-
 export interface FaqItem {
   q: string;
   a: string;
@@ -112,7 +106,6 @@ export interface FaqItem {
 
 export interface HeaderCopy {
   tagline: string;
-  emailUs: string;
   /** Short primary action used in the sticky header. */
   startProject: Cta;
   /** Short code shown in the language toggle, e.g. "EN". */
@@ -129,24 +122,53 @@ export interface HeroCopy {
   eyebrow: string;
   title: string;
   lead: string;
-  tags: string[];
   primary: Cta;
   secondary: Cta;
   responseNote: string;
-  /** The device composition built from real product screenshots. */
-  showcase: {
-    /** Badge above the frames, e.g. "Live on the App Store and Google Play". */
-    badge: string;
-    caption: string;
-    /** Accessible name for the whole composition. */
-    label: string;
-    /** Alt text for each phone, in DOM order: Al-Muslim behind, Q-Fight Gym in
-     *  front. The hero uses tighter crops than the project cards do, so it
-     *  describes what the crop shows rather than reusing a project's
-     *  `shotAlts` — which described a different screen. */
-    alts: [string, string];
-  };
+  /** The animated "journey loop" beside the headline: six stages from idea
+   *  to support, cycling through the states a project passes through. All
+   *  of its micro-copy — even the mock UI's labels — is here so the Arabic
+   *  page animates in Arabic. */
+  journey: JourneyCopy;
+  /** Four proof figures in the band under the hero. */
   proof: ProofStat[];
+}
+
+export interface JourneyCopy {
+  /** Accessible name for the whole animation. */
+  label: string;
+  statusLabel: string;
+  /** The four status lines, in stage order. */
+  statuses: [string, string, string, string];
+  stageLabel: string;
+  /** Idea, Scope, Design, Build, Launch, Support. */
+  stages: [string, string, string, string, string, string];
+  /** The mock browser's address. */
+  url: string;
+  /** The scattered pre-project artefacts: a spreadsheet, a chat thread… */
+  fragments: [string, string, string, string];
+  scope: { title: string; lines: [string, string, string] };
+  /** The mock dashboard. Customer names are numbered on purpose — a mock
+   *  must never read as a real person. */
+  ui: {
+    app: string;
+    nav: [string, string, string, string];
+    headline: string;
+    live: string;
+    rows: [{ label: string; state: string }, { label: string; state: string }];
+  };
+  phone: { title: string; slot: string; slotNote: string; day: string; cta: string };
+  captions: {
+    idle: string;
+    milestones: string;
+    terms: string;
+    live: string;
+    liveNote: string;
+    since: string;
+    sinceValue: string;
+  };
+  /** Alt text for the two real screenshots the loop ends on. */
+  alts: [string, string];
 }
 
 // --- Work -----------------------------------------------------------------
@@ -163,6 +185,10 @@ export interface ProjectCopy {
   shotAlts: string[];
   /** Pre-filled WhatsApp message used by this project's CTA. */
   waMessage: string;
+  /** The three-line case row on the home page: only the projects flagged
+   *  `homeCase` in `projects.ts` carry one. Every line must be something the
+   *  case study already says. */
+  case?: { problem: string; built: string; outcome: string };
 }
 
 export interface WorkCopy {
@@ -172,12 +198,10 @@ export interface WorkCopy {
   /** Honest attribution for the portfolio — who built what, and under which
    *  relationship. Rendered directly under the section intro. */
   attribution: string;
-  /** Accessible name for the auto-scrolling product strip. */
-  logosLabel: string;
-  logosPause: string;
-  logosPlay: string;
-  /** Disclosure label for the projects that are not featured. */
-  moreLabel: string;
+  /** Row labels on a case: Problem / We built / Outcome. */
+  caseLabels: { problem: string; built: string; outcome: string };
+  /** Heading over the small cards for the projects without a case row. */
+  moreHeading: string;
   /** Link label on cards that have a dedicated case study. */
   caseStudyCta: string;
   /** Link label on cards that do not. */
@@ -240,22 +264,50 @@ export interface DemosCopy {
   /** Accessible name for the flow-chip list, and the language line. */
   flowsLabel: string;
   langs: Record<"en" | "ar", string>;
-  /** Closing band under the grid. */
-  band: { kicker: string; body: string; cta: Cta };
+  /** Short link labels for the row layout on the home page. */
+  siteShort: string;
+  adminShort: string;
   /** Link to the long-form /demos/ page, shown where that page exists. */
   pageLink: string;
 }
 
+// --- Investment brackets --------------------------------------------------
+
+export interface PricingCopy {
+  kicker: string;
+  title: string;
+  intro: string;
+  labels: { typical: string; youGet: string; fits: string };
+  /** Four brackets, low to high. `range` matches the brief form's budget
+   *  options; the rest says what that money typically buys. */
+  brackets: { range: string; summary: string; typical: string; youGet: string; fits: string }[];
+  /** The three commercial constants under the brackets. */
+  checks: string[];
+  /** Link label to /pricing/, shown where that page exists. */
+  link: string;
+}
+
 // --- Why us ---------------------------------------------------------------
+
+/** One commitment: numbered, with the usual practice it replaces. */
+export interface WhyFeature {
+  title: string;
+  body: string;
+  /** The industry default, shown struck through. */
+  before: string;
+  /** What we do instead. */
+  after: string;
+}
 
 export interface WhyCopy {
   kicker: string;
   title: string;
-  intro: string;
   /** The four commercial differentiators, not adjectives. */
-  features: IconCard[];
+  features: WhyFeature[];
   founder: {
     kicker: string;
+    /** The one-sentence promise above the bio. */
+    title: string;
     name: string;
     role: string;
     body: string;
@@ -264,12 +316,7 @@ export interface WhyCopy {
     facts: string[];
     /** Link to the About page. Only rendered for locales that have one. */
     moreLabel: string;
-  };
-  band: {
-    kicker: string;
-    body: string;
-    points: string[];
-    cta: Cta;
+    linkedinLabel: string;
   };
 }
 
@@ -278,6 +325,13 @@ export interface WhyCopy {
 export interface ProcessStep {
   n: string;
   title: string;
+  /** Small chip beside the title: "Free · no obligation", "Fixed price in USD". */
+  chip: string;
+  /** What is paid at this step, in the gold label on the right. */
+  payment: string;
+  /** What the client brings. */
+  youShare: string;
+  /** What we do. */
   body: string;
   /** What the client receives at the end of this step. */
   deliverable: string;
@@ -287,7 +341,13 @@ export interface ProcessCopy {
   kicker: string;
   title: string;
   intro: string;
+  /** Column labels: "You share", "We do", "You get". */
+  youShareLabel: string;
+  weDoLabel: string;
   deliverableLabel: string;
+  /** The payment terms band above the timeline: one sentence and the four
+   *  chips (free call → 30% → per milestone → 12 months). */
+  terms: { note: string; steps: string[] };
   steps: ProcessStep[];
 }
 
@@ -325,7 +385,8 @@ export interface ContactCopy {
   kicker: string;
   title: string;
   intro: string;
-  highlights: string[];
+  /** What happens after the message, in four numbered lines. */
+  steps: { title: string; note: string }[];
   primary: Cta;
   secondary: Cta;
   /** Shown only on non-Arabic pages: "we speak Arabic". */
@@ -412,11 +473,10 @@ export interface FooterCopy {
   blurb: string;
   copyright: string;
   navHeading: string;
-  navLinks: { label: string; sub: string; href: string }[];
+  navLinks: { label: string; href: string }[];
   langHeading: string;
   contactHeading: string;
   contactLinks: Cta[];
-  contactSub: string[];
   /** Which enquiry goes down which channel. Keeps WhatsApp the client line
    *  without turning anyone away. */
   enquiryNote: string;
@@ -425,8 +485,6 @@ export interface FooterCopy {
     heading: string;
     /** What the business actually is, in one sentence. */
     body: string;
-    addressLabel: string;
-    address: string;
     /** Links to /privacy/ and /terms/ where those pages exist. */
     links: { label: string; slug: string }[];
   };
@@ -445,12 +503,10 @@ export interface A11yCopy {
   footerNav: string;
   breadcrumb: string;
   proofPoints: string;
-  heroTags: string;
   techStack: string;
   projectStack: string;
   founderPanel: string;
   founderFacts: string;
-  engagementPoints: string;
   briefBenefits: string;
   companySummary: string;
   quickNav: string;
@@ -497,6 +553,7 @@ export interface Dictionary {
   work: WorkCopy;
   services: ServicesCopy;
   demos: DemosCopy;
+  pricing: PricingCopy;
   why: WhyCopy;
   process: ProcessCopy;
   testimonials: TestimonialsCopy;

@@ -2,7 +2,6 @@ import type { DemoId, Dictionary, Lang } from "@/app/data/types";
 import { DEMOS, demoUrl, type DemoMeta } from "@/app/data/demos";
 import { Icon } from "@/app/data/icons";
 import { hasPages, simplePath } from "@/app/lib/links";
-import { SectionHead } from "./SectionHead";
 
 /** One demo: the public site and the staff dashboard, both in a new tab. The
  *  demo's own bar brings the visitor back here with attribution. */
@@ -90,60 +89,105 @@ export function DemoGrid({
   );
 }
 
-/** The closing band: the quote CTA, plus a link to the long-form /demos/ page
- *  in the locales that have it. */
-export function DemosBand({
-  t,
-  lang,
-  placement,
-}: {
-  t: Dictionary;
-  lang: Lang;
-  placement: string;
-}) {
+/** One row of the home-page list: icon, name, the two flows, two links. */
+function DemoRow({ t, demo }: { t: Dictionary; demo: DemoMeta }) {
   const d = t.demos;
-  const pageHref = hasPages(lang) ? simplePath(lang, "demos") : null;
+  const copy = d.items[demo.id];
   return (
-    <div className="panel reveal flex flex-col items-start gap-5 p-6 md:flex-row md:items-center md:justify-between">
-      <div className="flex flex-col gap-3">
-        <span className="kicker">{d.band.kicker}</span>
-        <p className="max-w-[62ch] text-body leading-relaxed text-ink-soft">{d.band.body}</p>
-        {pageHref ? (
-          <a href={pageHref} className="pf-link pf-link--strong self-start" data-evt="demos_page_click">
-            {d.pageLink}
-          </a>
-        ) : null}
+    <li className="demo-row">
+      <span className="icon-box shrink-0">
+        <Icon name={demo.icon} />
+      </span>
+      <div className="min-w-[11rem]">
+        <h3 className="text-body font-semibold text-ink">{demo.name}</h3>
+        <p className="mt-0.5 text-meta text-ink-soft">{copy.tag}</p>
       </div>
-      <a
-        href={d.band.cta.href}
-        target="_blank"
-        rel="noreferrer"
-        className="btn btn-primary shrink-0"
-        data-evt="primary_cta_click"
-        data-evt-placement={placement}
-      >
-        {d.band.cta.label}
-      </a>
-    </div>
+      {/* A 16rem basis, not 0: with a zero basis the list "fits" beside the
+          name on a phone and its chips spill out of the panel. */}
+      <ul className="flex min-w-0 flex-[1_1_16rem] flex-wrap gap-2" aria-label={d.flowsLabel}>
+        {copy.flows.slice(0, 2).map((flow) => (
+          <li key={flow} className="chip">
+            {flow}
+          </li>
+        ))}
+      </ul>
+      <span className="flex shrink-0 gap-4">
+        <a
+          href={demoUrl(demo.id)}
+          target="_blank"
+          rel="noreferrer"
+          className="pf-link pf-link--external text-meta"
+          data-evt="demo_click"
+          data-evt-demo={demo.id}
+          data-evt-surface="site"
+          data-evt-placement="home"
+        >
+          {d.siteShort}
+          <span className="sr-only">
+            {" "}
+            — {demo.name} ({t.a11y.newTab})
+          </span>
+        </a>
+        <a
+          href={demoUrl(demo.id, demo.adminPath)}
+          target="_blank"
+          rel="noreferrer"
+          className="pf-link pf-link--external text-meta"
+          data-evt="demo_click"
+          data-evt-demo={demo.id}
+          data-evt-surface="admin"
+          data-evt-placement="home"
+        >
+          {d.adminShort}
+          <span className="sr-only">
+            {" "}
+            — {demo.name} ({t.a11y.newTab})
+          </span>
+        </a>
+      </span>
+    </li>
   );
 }
 
-/** Home-page section: six working demos on their own subdomains. */
+/** Home-page section: six working demos on their own subdomains, as one
+ *  list in a panel. The card grid is kept for the service pages and /demos/. */
 export function Demos({ t, lang }: { t: Dictionary; lang: Lang }) {
   const d = t.demos;
+  const pageHref = hasPages(lang) ? simplePath(lang, "demos") : null;
 
   return (
-    <section id="demos" aria-labelledby="demos-heading" className="section scroll-mt-24">
-      <div className="shell flex flex-col gap-8 md:gap-10">
-        <SectionHead id="demos-heading" kicker={d.kicker} title={d.title} intro={d.intro} />
+    <section
+      id="demos"
+      aria-labelledby="demos-heading"
+      className="section section--alt scroll-mt-24"
+    >
+      <div className="shell">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-8">
+          <div className="reveal flex flex-col gap-4">
+            <span className="kicker">{d.kicker}</span>
+            <h2 id="demos-heading" className="h-section max-w-[26ch]">
+              {d.title}
+            </h2>
+          </div>
+          <p className="reveal text-body leading-relaxed text-ink-soft">{d.intro}</p>
+        </div>
 
-        {/* Fictional businesses, invented numbers: said before the cards, not
-            in a footnote, for the same reason the portfolio attribution is. */}
-        <p className="attribution reveal">{d.disclaimer}</p>
+        <ul className="panel reveal mt-9 list-none overflow-hidden p-0">
+          {DEMOS.map((demo) => (
+            <DemoRow key={demo.id} t={t} demo={demo} />
+          ))}
+        </ul>
 
-        <DemoGrid t={t} placement="home" />
-
-        <DemosBand t={t} lang={lang} placement="demos" />
+        {/* Fictional businesses, invented numbers: said plainly, right under
+            the list, for the same reason the portfolio attribution is. */}
+        <div className="reveal mt-4 flex flex-wrap items-center justify-between gap-4">
+          <p className="attribution">{d.disclaimer}</p>
+          {pageHref ? (
+            <a href={pageHref} className="pf-link pf-link--strong" data-evt="demos_page_click">
+              {d.pageLink}
+            </a>
+          ) : null}
+        </div>
       </div>
     </section>
   );

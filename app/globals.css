@@ -207,7 +207,7 @@
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     .page-shell {
       padding-bottom: 0;
     }
@@ -352,9 +352,14 @@
   [dir="rtl"] .source-tag,
   [dir="rtl"] .footer-heading,
   [dir="rtl"] .btn,
-  [dir="rtl"] .hero-showcase__badge,
   [dir="rtl"] .service-timeline__label,
-  [dir="rtl"] .step-deliverable__label {
+  [dir="rtl"] .step-col-label,
+  [dir="rtl"] .case-lines dt,
+  [dir="rtl"] .bracket__rows dt,
+  [dir="rtl"] .jl__label,
+  [dir="rtl"] .jl__status-item,
+  [dir="rtl"] .jl__stage,
+  [dir="rtl"] .jl__scope-title {
     letter-spacing: 0;
   }
 
@@ -395,88 +400,6 @@
     font-size: var(--text-meta);
     line-height: 1.5;
     color: var(--color-muted);
-  }
-
-  /* --- Hero device composition ------------------------------------------ */
-  .hero-showcase {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  .hero-showcase__stage {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-    padding-block: 0.5rem;
-  }
-
-  .hero-showcase__phone {
-    position: relative;
-    flex: 0 0 auto;
-    width: clamp(8.5rem, 32vw, 13.5rem);
-    padding: 0.4rem;
-    border-radius: 1.9rem;
-    border: 1px solid var(--color-line-strong);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
-    box-shadow: var(--shadow-e3);
-  }
-
-  .hero-showcase__phone img {
-    width: 100%;
-    height: auto;
-    border-radius: 1.5rem;
-    display: block;
-  }
-
-  /* The back frame is tucked behind and lifted, so the pair reads as one
-     composed object rather than two screenshots side by side. */
-  .hero-showcase__phone--back {
-    transform: translateY(-1.6rem) rotate(-4deg);
-    opacity: 0.92;
-    z-index: 1;
-  }
-
-  .hero-showcase__phone--front {
-    transform: translateY(0.6rem) rotate(2.5deg);
-    z-index: 2;
-    margin-inline-start: -2.5rem;
-  }
-
-  [dir="rtl"] .hero-showcase__phone--back {
-    transform: translateY(-1.6rem) rotate(4deg);
-  }
-
-  [dir="rtl"] .hero-showcase__phone--front {
-    transform: translateY(0.6rem) rotate(-2.5deg);
-  }
-
-  .hero-showcase__caption {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    text-align: center;
-    max-width: 34ch;
-  }
-
-  .hero-showcase__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.3rem 0.75rem;
-    border-radius: 999px;
-    font-size: var(--text-micro);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--color-live);
-    background: rgba(74, 222, 128, 0.1);
-    border: 1px solid rgba(74, 222, 128, 0.24);
   }
 
   /* --- Section eyebrow -------------------------------------------------- */
@@ -625,7 +548,6 @@
     border: 1px solid rgba(245, 197, 66, 0.22);
   }
 
-  .step-deliverable,
   .service-deliverable {
     display: flex;
     gap: 0.5rem;
@@ -636,15 +558,6 @@
     font-size: var(--text-meta);
     line-height: 1.5;
     color: var(--color-ink-soft);
-  }
-
-  .step-deliverable__label {
-    flex: none;
-    font-size: var(--text-micro);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-gold);
   }
 
   .service-timeline {
@@ -792,204 +705,7 @@
     border-color: rgba(229, 231, 235, 0.28);
   }
 
-  /* --- Product strip ---------------------------------------------------- */
-  .logo-marquee {
-    position: relative;
-    padding-block: 0.25rem;
-  }
-
-  .logo-marquee__viewport {
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
-  }
-
-  .logo-marquee__track {
-    display: flex;
-    width: max-content;
-    animation: logo-marquee 40s linear infinite;
-  }
-
-  [dir="rtl"] .logo-marquee__track {
-    animation-direction: reverse;
-  }
-
-  .logo-marquee:hover .logo-marquee__track,
-  .logo-marquee:focus-within .logo-marquee__track,
-  .logo-marquee__track.is-paused {
-    animation-play-state: paused;
-  }
-
-  .logo-marquee__toggle {
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-end: 0;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    transform: translateY(-50%);
-    border-radius: 999px;
-    border: 1px solid var(--color-line-strong);
-    background: rgba(11, 15, 25, 0.92);
-    color: var(--color-ink-soft);
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 200ms var(--ease-soft), color 200ms var(--ease-soft),
-      border-color 200ms var(--ease-soft);
-  }
-
-  .logo-marquee:hover .logo-marquee__toggle,
-  .logo-marquee__toggle:focus-visible,
-  .logo-marquee__toggle[aria-pressed="true"] {
-    opacity: 1;
-  }
-
-  /* A touch device cannot hover, so on those pointers the control that WCAG
-     2.2.2 requires is permanently visible instead of permanently hidden. */
-  @media (hover: none), (pointer: coarse) {
-    .logo-marquee__toggle {
-      opacity: 1;
-    }
-  }
-
-  .logo-marquee__toggle:hover {
-    color: var(--color-gold);
-    border-color: rgba(245, 197, 66, 0.32);
-  }
-
-  .logo-marquee__row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-inline-end: 0.75rem;
-    margin: 0;
-    list-style: none;
-    padding-inline-start: 0;
-  }
-
-  .logo-marquee__item {
-    display: inline-flex;
-    flex: none;
-    align-items: center;
-    gap: 0.6rem;
-    padding-block: 0.45rem;
-    padding-inline: 0.45rem 0.95rem;
-    border-radius: 999px;
-    border: 1px solid var(--color-line);
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--color-ink-soft);
-    font-size: var(--text-body);
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .logo-marquee__item img {
-    width: 2rem;
-    height: 2rem;
-    border-radius: var(--radius-xs);
-    object-fit: cover;
-    border: 1px solid var(--color-line);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  @keyframes logo-marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% / 3));
-    }
-  }
-
   /* --- Portfolio cards -------------------------------------------------- */
-  .pf-card {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-lg);
-    background: rgba(11, 15, 25, 0.86);
-    box-shadow: var(--shadow-e1);
-    transition: border-color 340ms var(--ease-soft), box-shadow 340ms var(--ease-soft);
-  }
-
-  .pf-card:hover,
-  .pf-card:focus-within {
-    border-color: rgba(245, 197, 66, 0.24);
-    box-shadow: var(--shadow-e3);
-  }
-
-  .pf-media {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding: 1.25rem 1.25rem 0;
-  }
-
-  .pf-media img {
-    width: 100%;
-    aspect-ratio: 0.78;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .pf-media--single {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .pf-media--single img {
-    aspect-ratio: 16 / 10;
-  }
-
-  .pf-media--contain img {
-    object-fit: contain;
-    padding: 0.5rem;
-    background:
-      radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 55%),
-      rgba(11, 15, 25, 0.55);
-  }
-
-  .pf-showcase {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    /* Matches the height a three-up phone strip occupies, so a stack card does
-       not leave a void beside its neighbour in the same row. */
-    min-height: 13.5rem;
-    margin: 1.25rem 1.25rem 0;
-    padding: 1.75rem 1.25rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background:
-      radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 55%),
-      radial-gradient(circle at bottom left, rgba(200, 169, 81, 0.1), transparent 50%),
-      rgba(11, 15, 25, 0.6);
-  }
-
-  .pf-showcase img {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-line-strong);
-    box-shadow: var(--shadow-e2);
-  }
-
-  .pf-stack-chip {
-    border-radius: 999px;
-    border: 1px solid var(--color-line);
-    background: rgba(255, 255, 255, 0.04);
-    padding: 0.35rem 0.75rem;
-    font-size: var(--text-micro);
-    font-weight: 600;
-    color: var(--color-ink-soft);
-  }
-
   .pf-applogo {
     width: 2.75rem;
     height: 2.75rem;
@@ -1083,30 +799,856 @@
     line-height: var(--text-meta--line-height);
   }
 
-  /* --- More-work disclosure -------------------------------------------- */
-  .more-work {
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.02);
-    padding: 1rem 1.25rem;
+  /* --- Hero: proof band ------------------------------------------------- */
+  /* Four figures on a soft strip under the hero, divided by hairlines rather
+     than boxed into cards, so they read as one statement. */
+  .proof-band {
+    border-block: 1px solid var(--color-line);
+    background: var(--color-bg-soft);
   }
 
-  .more-work__summary {
+  .proof-band__cell {
     display: flex;
-    cursor: pointer;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.6rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .proof-band__cell {
+      padding: 1.6rem 1.5rem;
+    }
+    .proof-band__cell:nth-child(odd) {
+      padding-inline-start: 0;
+    }
+    .proof-band__cell:nth-child(even) {
+      padding-inline-end: 0;
+      border-inline-start: 1px solid var(--color-line);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .proof-band__cell:nth-child(n) {
+      padding-inline: 1.5rem;
+      border-inline-start: 1px solid var(--color-line);
+    }
+    .proof-band__cell:first-child {
+      padding-inline-start: 0;
+      border-inline-start: 0;
+    }
+    .proof-band__cell:last-child {
+      padding-inline-end: 0;
+    }
+  }
+
+  /* --- Hero: journey loop ----------------------------------------------- */
+  /* Every state is a 0–1 custom property written by JourneyLoop.tsx. The
+     fallbacks describe the idle frame, which is what renders on the server
+     and stays without JavaScript. */
+  .jl {
+    padding: 1.25rem 1.375rem 1.375rem;
+    width: 100%;
+  }
+
+  .jl__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .jl__label {
+    font-size: var(--text-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .jl__status {
+    position: relative;
+    display: block;
+    flex: 1;
+    height: 1.125rem;
+    min-width: 0;
+  }
+
+  .jl__status-item {
+    position: absolute;
+    inset-inline-start: 0;
+    white-space: nowrap;
+    font-size: var(--text-micro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .jl__status-item--live {
+    color: var(--color-live);
+  }
+
+  .jl__counter {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-micro);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .jl__pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-gold);
+    animation: jl-pulse 1.6s ease-in-out infinite;
+  }
+
+  .jl__rail {
+    position: relative;
+    height: 2px;
+    margin-top: 1.125rem;
+    background: var(--color-line);
+  }
+
+  .jl__rail-fill {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    height: 2px;
+    width: calc(var(--jl-p, 0) / 5 * 100%);
+    background: linear-gradient(90deg, var(--color-gold-deep), var(--color-gold-strong));
+  }
+
+  .jl__dots {
+    position: absolute;
+    inset-inline: 0;
+    top: -3px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .jl__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-line-strong);
+    box-shadow: 0 0 0 calc(var(--o, 0) * 4px) rgba(245, 197, 66, 0.18);
+  }
+
+  .jl__stages {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+  }
+
+  .jl__stage {
+    font-size: var(--text-micro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--color-gold) calc(var(--o, 0) * 100%), var(--color-muted));
+  }
+
+  .jl__devices {
+    position: relative;
+    margin-top: 1.375rem;
+    padding-inline-end: 2.375rem;
+  }
+
+  .jl__browser {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-soft);
+    box-shadow: var(--shadow-e3);
+  }
+
+  .jl__chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-bg);
+  }
+
+  .jl__chrome-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--color-line-strong);
+  }
+
+  .jl__url {
+    margin-inline-start: 0.5rem;
+    padding: 1px 0.625rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-size: var(--text-micro);
+    color: var(--color-muted);
+    direction: ltr;
+  }
+
+  .jl__screen {
+    position: relative;
+    aspect-ratio: 16 / 10;
+  }
+
+  .jl__layer {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* 1 · Scattered fragments settle, then the scope summary appears. */
+  .jl__fragments {
+    padding: 0.875rem;
+    opacity: var(--jl-fragments, 1);
+  }
+
+  .jl__frag {
+    position: absolute;
+    padding: 0.5rem 0.625rem;
+    border: 1px dashed var(--color-line-strong);
+    border-radius: var(--radius-xs);
+    transform: rotate(calc((1 - var(--jl-settle, 0)) * var(--tilt)));
+  }
+
+  .jl__frag p {
+    font-size: var(--text-micro);
+    color: var(--color-muted);
+  }
+
+  .jl__frag--1 { left: 3%; top: 6%; width: 42%; --tilt: -5deg; }
+  .jl__frag--2 { right: 4%; top: 14%; width: 36%; --tilt: 6deg; }
+  .jl__frag--3 { left: 10%; bottom: 10%; width: 38%; --tilt: 4deg; }
+  .jl__frag--4 { right: 8%; bottom: 18%; width: 28%; --tilt: -7deg; }
+
+  .jl__line {
+    display: block;
+    height: 4px;
+    margin-top: 0.25rem;
+    background: var(--color-line);
+  }
+  .jl__frag p + .jl__line { margin-top: 0.45rem; }
+  .jl__line--60 { width: 60%; }
+  .jl__line--70 { width: 70%; }
+  .jl__line--80 { width: 80%; }
+
+  .jl__scope {
+    position: absolute;
+    inset-inline: 12%;
+    top: 40%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    opacity: var(--jl-scope, 0);
+  }
+
+  .jl__scope-title {
+    font-size: var(--text-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .jl__scope-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: var(--text-micro);
+    color: var(--color-muted);
+  }
+  .jl__scope-title + .jl__scope-line { margin-top: 0.5rem; }
+  .jl__scope-line > span { color: var(--color-gold); }
+
+  /* 2 · Wireframe */
+  .jl__wire {
+    display: flex;
+    opacity: var(--jl-wire, 0);
+  }
+
+  .jl__wire-side {
+    width: 22%;
+    padding: 0.75rem 0.5rem;
+    border-inline-end: 1px dashed var(--color-line-strong);
+  }
+
+  .jl__wire-main {
+    flex: 1;
+    padding: 0.75rem;
+  }
+
+  .jl__bar {
+    display: block;
+    height: 5px;
+    margin-top: 0.45rem;
+    border-radius: 2px;
+    background: var(--color-line);
+  }
+  .jl__bar:first-child { margin-top: 0; }
+  .jl__bar--strong { height: 7px; background: var(--color-line-strong); opacity: 0.6; }
+  .jl__bar--tall { height: 8px; }
+  .jl__bar--44 { width: 44%; }
+  .jl__bar--60 { width: 60%; }
+  .jl__bar--70 { width: 70%; }
+  .jl__bar--80 { width: 80%; }
+  .jl__bar--88 { width: 88%; }
+  .jl__bar--90 { width: 90%; }
+
+  .jl__wire-boxes {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+  .jl__wire-boxes span,
+  .jl__wire-box {
+    display: block;
+    flex: 1;
+    height: 34px;
+    border: 1px dashed var(--color-line-strong);
+    border-radius: var(--radius-xs);
+  }
+  .jl__wire-box { height: 30px; margin-block: 0.625rem; }
+
+  /* 3 · The working dashboard */
+  .jl__ui {
+    display: flex;
+    opacity: var(--jl-ui, 0);
+  }
+
+  .jl__ui-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    width: 22%;
+    padding: 0.75rem 0.5rem;
+    border-inline-end: 1px solid var(--color-line);
+    background: var(--color-bg);
+    font-size: var(--text-micro);
+  }
+
+  .jl__ui-app {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+    color: var(--color-ink-soft);
+  }
+
+  .jl__ui-mark {
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    background: var(--color-gold);
+  }
+
+  .jl__ui-nav { color: var(--color-muted); }
+  .jl__ui-nav.is-active { color: var(--color-gold); }
+
+  .jl__ui-main {
+    flex: 1;
+    padding: 0.75rem;
+  }
+
+  .jl__ui-head {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    list-style: none;
+  }
+
+  .jl__ui-headline {
+    font-size: var(--text-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  .jl__ui-live {
+    padding: 1px 0.5rem;
+    border-radius: 999px;
+    font-size: var(--text-micro);
+    color: var(--color-gold);
+    background: rgba(245, 197, 66, 0.16);
+  }
+
+  .jl__chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    height: 38px;
+    margin-top: 0.75rem;
+  }
+
+  .jl__chart span {
+    flex: 1;
+    height: calc(var(--jl-ui, 0) * var(--h));
+    border-radius: 2px;
+    background: var(--color-line-strong);
+  }
+  .jl__chart .is-deep { background: var(--color-gold-deep); }
+  .jl__chart .is-gold { background: var(--color-gold); }
+
+  .jl__ui-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.375rem 0;
+    border-top: 1px solid var(--color-line);
+    font-size: var(--text-micro);
+    color: var(--color-muted);
+  }
+  .jl__chart + .jl__ui-row { margin-top: 0.75rem; }
+
+  /* 4 · The real product, and the scanning highlight while it builds. */
+  .jl__real {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: var(--jl-real, 0);
+  }
+
+  .jl__scan {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 14%;
+    background: linear-gradient(180deg, rgba(245, 197, 66, 0.18), transparent);
+    opacity: var(--jl-scan, 0);
+    animation: jl-scan 1.7s linear infinite;
+  }
+
+  .jl__phone {
+    position: absolute;
+    inset-inline-end: 0;
+    bottom: -1.125rem;
+    width: 104px;
+    overflow: hidden;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-e3);
+  }
+
+  .jl__phone-screen {
+    position: relative;
+    aspect-ratio: 9 / 17;
+  }
+
+  .jl__phone-wire,
+  .jl__phone-ui {
+    display: block;
+    padding: 0.625rem 0.45rem;
+    font-size: var(--text-micro);
+  }
+
+  .jl__phone-title { color: var(--color-ink-soft); }
+
+  .jl__phone-card {
+    margin-top: 0.375rem;
+    padding: 0.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+  }
+  .jl__phone-card--soft {
+    margin-top: 0.625rem;
+    background: var(--color-bg-soft);
+  }
+
+  .jl__phone-cta {
+    display: block;
+    margin-top: 0.625rem;
+    padding: 0.375rem;
+    border-radius: 999px;
+    background: var(--color-gold);
+    text-align: center;
     font-weight: 600;
+    color: var(--color-bg);
   }
 
-  .more-work__summary::-webkit-details-marker {
-    display: none;
+  .jl__captions {
+    position: relative;
+    height: 1.25rem;
+    margin-top: 1.625rem;
+    font-size: var(--text-micro);
+    color: var(--color-muted);
   }
 
-  .more-work[open] > .more-work__summary svg {
-    transform: rotate(45deg);
+  .jl__caption {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    white-space: nowrap;
+  }
+  .jl__caption--idle { opacity: var(--jl-idle, 1); }
+  .jl__caption--build { opacity: var(--jl-build, 0); }
+  .jl__caption--live { top: -4px; opacity: var(--jl-live, 0); }
+  .jl__caption--support { opacity: var(--jl-support, 0); }
+
+  .jl__milestones {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .jl__milestones span {
+    width: 26px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-gold);
+  }
+  .jl__milestones span:nth-child(2) { opacity: calc(var(--jl-build, 0) * 3 - 0.6); }
+  .jl__milestones span:nth-child(3) { opacity: calc(var(--jl-build, 0) * 3 - 1.4); }
+  .jl__milestones span:nth-child(4) { opacity: calc(var(--jl-build, 0) * 3 - 2.2); }
+
+  .jl__since {
+    color: var(--color-ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* A "→" typed into copy points the wrong way in Arabic; the glyph is
+     mirrored instead of translated so the dictionaries stay plain text. */
+  .dir-arrow {
+    display: inline-block;
+  }
+  [dir="rtl"] .dir-arrow {
+    transform: scaleX(-1);
+  }
+
+  .chip--live {
+    color: var(--color-live);
+    border-color: rgba(74, 222, 128, 0.24);
+  }
+
+  @keyframes jl-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes jl-scan {
+    from { transform: translateY(-120%); }
+    to { transform: translateY(560%); }
+  }
+
+  /* On a phone the captions cannot sit on one line, and the mock phone would
+     cover the browser: let the captions wrap and tuck the phone in. */
+  @media (max-width: 520px) {
+    .jl {
+      padding-inline: 1rem;
+    }
+    .jl__counter {
+      display: none;
+    }
+    .jl__status {
+      overflow: hidden;
+    }
+    .jl__stage {
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+    }
+    .jl__devices {
+      padding-inline-end: 1.25rem;
+    }
+    .jl__phone {
+      width: 78px;
+    }
+    .jl__captions {
+      height: 2.5rem;
+    }
+    .jl__caption {
+      white-space: normal;
+    }
+    .jl__caption--build > span:last-child {
+      display: none;
+    }
+  }
+
+  /* --- Work: case rows --------------------------------------------------- */
+  .case-row {
+    padding-top: 2.5rem;
+    margin-top: 3.5rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .case-row:first-child {
+    margin-top: 0;
+  }
+
+  .case-shot {
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-e2);
+  }
+
+  .case-shot--wide {
+    box-shadow: var(--shadow-e3);
+  }
+
+  /* Three phone screenshots stepping down, so the set reads as one object. */
+  .case-shots-stagger {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .case-shots-stagger .case-shot {
+    width: 33%;
+    height: auto;
+  }
+  .case-shots-stagger .case-shot:nth-child(2) { margin-top: 1.125rem; }
+  .case-shots-stagger .case-shot:nth-child(3) { margin-top: 2.25rem; }
+
+  /* Problem / We built / Outcome: a definition list ruled into rows. The
+     label column is sized by the widest label, so "Nous avons construit"
+     gets the room "We built" does not need. */
+  .case-lines {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 1.5rem;
+  }
+  .case-lines > div {
+    display: contents;
+  }
+  .case-lines dt,
+  .case-lines dd {
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .case-lines > div:last-child dt,
+  .case-lines > div:last-child dd {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .case-lines dt {
+    max-width: 9rem;
+    font-size: var(--text-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding-top: 0.95rem;
+  }
+  .case-lines dd {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+  }
+
+  .mini-card {
+    gap: 0;
+    padding: 1.125rem;
+  }
+  .mini-card h3 {
+    margin-bottom: 0.25rem;
+  }
+
+  /* --- Demos: list rows -------------------------------------------------- */
+  .demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.375rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .demo-row:first-child {
+    border-top: 0;
+  }
+
+  /* --- Process: timeline ------------------------------------------------- */
+  .timeline {
+    position: relative;
+    margin-top: 2.5rem;
+    padding-inline-start: 3.5rem;
+  }
+
+  .timeline__rail,
+  .timeline__fill {
+    position: absolute;
+    inset-inline-start: 1.1875rem;
+    top: 1.5rem;
+    width: 1px;
+  }
+  .timeline__rail {
+    bottom: 1.5rem;
+    background: var(--color-line);
+  }
+  .timeline__fill {
+    height: var(--progress, 0%);
+    background: linear-gradient(180deg, var(--color-gold), var(--color-gold-deep));
+    transition: height 240ms linear;
+  }
+
+  .timeline__item {
+    position: relative;
+  }
+
+  .timeline__number {
+    position: absolute;
+    inset-inline-start: -3.5rem;
+    top: 1.125rem;
+    /* Opaque, so the rail behind it does not show through the tint. */
+    background:
+      linear-gradient(rgba(245, 197, 66, 0.1), rgba(245, 197, 66, 0.1)),
+      var(--color-bg);
+  }
+
+  .step-col-label {
+    margin-bottom: 0.5rem;
+    font-size: var(--text-micro);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .step-outcome {
+    padding: 1rem 1.125rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background: rgba(245, 197, 66, 0.05);
+  }
+
+  @media (max-width: 639px) {
+    .timeline {
+      padding-inline-start: 0;
+    }
+    .timeline__rail,
+    .timeline__fill {
+      display: none;
+    }
+    .timeline__number {
+      position: static;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  /* --- Services: rows and the investment panel --------------------------- */
+  .service-row {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.625rem 0;
+    border-top: 1px solid var(--color-line);
+    color: inherit;
+  }
+
+  @media (min-width: 1024px) {
+    .service-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+  }
+
+  .service-row--link {
+    transition: background-color 240ms var(--ease-soft);
+  }
+  .service-row--link:hover h3 {
+    color: var(--color-gold);
+  }
+  .service-row h3 {
+    transition: color 200ms var(--ease-soft);
+  }
+
+  /* The tier bar darkens gold as the bracket rises. */
+  .bracket__bar {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(245, 197, 66, calc(0.07 + var(--tier, 1) * 0.23));
+  }
+
+  .bracket__range {
+    margin-top: 1.125rem;
+    font-size: 1.2rem;
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bracket__rows {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+  .bracket__rows > div {
+    display: contents;
+  }
+  .bracket__rows dt,
+  .bracket__rows dd {
+    padding: 0.625rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .bracket__rows dt {
+    max-width: 6.5rem;
+    font-size: var(--text-micro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding-top: 0.85rem;
+  }
+  .bracket__rows dd {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+  }
+
+  /* --- Why us: numbered rows --------------------------------------------- */
+  .why-row {
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .why-row__number {
+    display: block;
+    font-size: clamp(2.2rem, 3.6vw, 3rem);
+    line-height: 1;
+    color: var(--color-gold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- Founder ------------------------------------------------------------ */
+  /* The founder panel is hidden on the home page for now (see Founder.tsx);
+     these rules stay so putting the markup back needs no CSS work. */
+  .founder-photo {
+    width: 100%;
+    height: 100%;
+    min-height: 16rem;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (max-width: 1023px) {
+    .founder-photo {
+      max-height: 22rem;
+      object-position: center 30%;
+    }
+  }
+
+  /* --- Contact: what happens next --------------------------------------- */
+  .contact-steps li {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .contact-steps li:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .contact-steps__n {
+    flex: none;
+    padding-top: 0.25rem;
+    font-size: var(--text-micro);
+    color: var(--color-gold);
+    font-variant-numeric: tabular-nums;
   }
 
   /* --- FAQ -------------------------------------------------------------- */
@@ -1636,10 +2178,10 @@
     box-shadow: 0 18px 38px rgba(37, 211, 102, 0.45);
   }
 
-  /* Hidden from 1100px up: the sticky header already carries the primary call to
+  /* Hidden from 1024px up: the sticky header already carries the primary call to
      action there, so the floating button was a competing fourth CTA in the
      first viewport and covered body copy further down every long section. */
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     .floating-wa {
       display: none;
     }
@@ -1687,27 +2229,6 @@
     transform: none;
     transition: none;
   }
-  .logo-marquee__viewport {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-  .logo-marquee__track {
-    animation: none;
-    width: 100%;
-    justify-content: center;
-  }
-  .logo-marquee__row {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-inline-end: 0;
-  }
-  .logo-marquee__row[aria-hidden="true"] {
-    display: none;
-  }
-  /* The strip is already static here, so a pause control would do nothing. */
-  .logo-marquee__toggle {
-    display: none;
-  }
   .btn::after {
     display: none;
   }
@@ -1715,13 +2236,18 @@
   .btn:active,
   .card--link:hover,
   .card--link:focus-within,
-  .pf-card:hover,
   .floating-wa:hover,
   .pf-link:hover::after {
     transform: none;
   }
-  .faq-item__icon,
-  .more-work[open] > .more-work__summary svg {
+  .faq-item__icon {
+    transition: none;
+  }
+  .jl__pulse,
+  .jl__scan {
+    animation: none;
+  }
+  .timeline__fill {
     transition: none;
   }
 }

@@ -50,26 +50,35 @@ function Row({
 export function Contact({ t }: { t: Dictionary }) {
   const c = t.contact;
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="section scroll-mt-24">
-      <div className="shell grid items-start gap-4 lg:grid-cols-2 lg:gap-6">
-        {/* Info + direct channels */}
-        <article className="panel reveal flex flex-col gap-4 p-6">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="section section--alt scroll-mt-24"
+    >
+      <div className="shell grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
+        {/* What happens next, then the direct channels */}
+        <div className="reveal flex flex-col items-start gap-4">
           <span className="kicker">{c.kicker}</span>
-          <h2 id="contact-heading" className="h-section">
+          <h2 id="contact-heading" className="h-section max-w-[24ch]">
             {c.title}
           </h2>
-          <p className="text-body leading-relaxed text-muted">{c.intro}</p>
+          <p className="max-w-[52ch] text-body leading-relaxed text-ink-soft">{c.intro}</p>
 
-          <ul className="grid list-none gap-2" aria-label={t.a11y.briefBenefits}>
-            {c.highlights.map((h) => (
-              <li key={h} className="flex gap-2 text-body text-ink-soft">
-                <span aria-hidden="true" className="bullet-dot" />
-                <span>{h}</span>
+          <ol className="contact-steps mt-3 w-full list-none" aria-label={t.a11y.briefBenefits}>
+            {c.steps.map((step, i) => (
+              <li key={step.title}>
+                <span className="contact-steps__n" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <span className="block text-body text-ink-soft">{step.title}</span>
+                  <span className="mt-0.5 block text-meta text-muted">{step.note}</span>
+                </span>
               </li>
             ))}
-          </ul>
+          </ol>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="mt-3 flex flex-col gap-3 sm:flex-row">
             <a
               href={c.primary.href}
               target="_blank"
@@ -90,15 +99,15 @@ export function Contact({ t }: { t: Dictionary }) {
             </a>
           </div>
 
-          <p dir="rtl" lang="ar" className="text-body text-muted">
+          <p dir="rtl" lang="ar" className="text-meta text-muted">
             {c.arabicNote}
           </p>
 
-          <div className="mt-2 flex flex-col gap-3 border-t border-line pt-5">
+          {/* Real contact details in a semantic <address>, which is also what
+              a crawler and an answer engine look for. */}
+          <div className="mt-3 flex w-full flex-col gap-3 border-t border-line pt-5">
             <h3 className="h-card">{c.direct.heading}</h3>
-            <p className="text-body text-muted">{c.direct.body}</p>
-            {/* Real contact details in a semantic <address>, which is also
-                what a crawler and an answer engine look for. */}
+            <p className="text-meta text-muted">{c.direct.body}</p>
             <address className="contact-list" aria-label={t.a11y.directContact}>
               <Row
                 href={c.primary.href}
@@ -123,16 +132,16 @@ export function Contact({ t }: { t: Dictionary }) {
               <Row label={c.direct.hours.label} value={c.direct.hours.value} ltr={false} />
             </address>
           </div>
-        </article>
+        </div>
 
         {/* Qualification form.
             `js-only` because the form composes a message and hands it to
             WhatsApp or a mail client in JavaScript; without it the controls
             would look functional and do nothing. The direct WhatsApp, email and
             phone links in the other column carry the section on their own. */}
-        <div className="panel js-only reveal flex-col gap-4 p-6 lg:sticky lg:top-24">
+        <div className="panel js-only reveal flex-col gap-4 p-6 md:p-7 lg:sticky lg:top-24">
           <h3 className="h-card">{c.form.heading}</h3>
-          <p className="text-body text-muted">{c.form.body}</p>
+          <p className="text-meta text-muted">{c.form.body}</p>
           <ContactForm form={c.form} lang={t.lang} />
         </div>
       </div>

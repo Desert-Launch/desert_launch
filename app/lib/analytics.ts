@@ -29,6 +29,7 @@ export type EventName =
   | "social_click"
   | "demo_click"
   | "demos_page_click"
+  | "pricing_click"
   | "contact_form_submit";
 
 export type EventProps = Record<string, string | number | boolean>;
