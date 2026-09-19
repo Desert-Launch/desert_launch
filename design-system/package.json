@@ -1,0 +1,13 @@
+{
+  "name": "@desert-launch/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desert Launch's design system: the landing site's tokens, component classes, fonts and React parts, packaged for Claude Design.",
+  "type": "module",
+  "main": "./dist/design-system/src/index.js",
+  "module": "./dist/design-system/src/index.js",
+  "types": "./dist/design-system/src/index.d.ts",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "projectId": "d1860ce1-e222-4b39-9258-2a2e7be59f41",
+  "pkg": "@desert-launch/design-system",
+  "globalName": "DesertLaunch",
+  "shape": "package",
+  "buildCmd": "npm run build --prefix design-system",
+  "srcDir": "src",
+  "cssEntry": "dist/styles.css",
+  "extraFonts": [
+    "fonts/fonts.css"
+  ],
+  "docsDir": "docs",
+  "componentSrcMap": {
+    "Button": "src/primitives.tsx",
+    "Chip": "src/primitives.tsx",
+    "Kicker": "src/primitives.tsx",
+    "IconBox": "src/primitives.tsx",
+    "StepNumber": "src/primitives.tsx",
+    "Card": "src/primitives.tsx",
+    "Panel": "src/primitives.tsx",
+    "SectionBand": "src/primitives.tsx",
+    "Stat": "src/primitives.tsx",
+    "Attribution": "src/primitives.tsx",
+    "PfLink": "src/primitives.tsx",
+    "FormField": "src/primitives.tsx",
+    "SiteHeader": "src/sections.tsx",
+    "SiteFooter": "src/sections.tsx",
+    "SiteServices": "src/sections.tsx",
+    "SiteDemos": "src/sections.tsx",
+    "SiteProcess": "src/sections.tsx",
+    "SiteFaq": "src/sections.tsx",
+    "SiteContact": "src/sections.tsx"
+  },
+  "guidelinesGlob": [],
+  "dtsPropsFor": {
+    "Card": "  /** Card heading. Becomes the whole-card link when `href` is set. */\n  title: string;\n  /** Icon shown in an IconBox above the title. */\n  icon?: \"mobile\" | \"web\" | \"mvp\" | \"booking\" | \"dispatch\" | \"records\" | \"facebook\" | \"instagram\" | \"tooth\" | \"stethoscope\" | \"dumbbell\" | \"coffee\" | \"utensils\" | \"building\" | \"design\" | \"modernize\" | \"consulting\" | \"quote\" | \"ownership\" | \"support\" | \"direct\";\n  /** Makes the whole card a link (hover lift is reserved for link cards). */\n  href?: string;\n  /** Short caption under the title, in the muted meta size. */\n  tag?: string;\n  /** Body: a paragraph string, or any children (chips, lists, links). */\n  children?: React.ReactNode;\n  className?: string;",
+    "IconBox": "  /** One of the design system's own line icons. */\n  icon: \"mobile\" | \"web\" | \"mvp\" | \"booking\" | \"dispatch\" | \"records\" | \"facebook\" | \"instagram\" | \"tooth\" | \"stethoscope\" | \"dumbbell\" | \"coffee\" | \"utensils\" | \"building\" | \"design\" | \"modernize\" | \"consulting\" | \"quote\" | \"ownership\" | \"support\" | \"direct\";\n  className?: string;",
+    "Icon": "  /** One of the design system's own line icons (24px grid, stroke = currentColor). */\n  name: \"mobile\" | \"web\" | \"mvp\" | \"booking\" | \"dispatch\" | \"records\" | \"facebook\" | \"instagram\" | \"tooth\" | \"stethoscope\" | \"dumbbell\" | \"coffee\" | \"utensils\" | \"building\" | \"design\" | \"modernize\" | \"consulting\" | \"quote\" | \"ownership\" | \"support\" | \"direct\";\n  className?: string;",
+    "FaqList": "  /** Question/answer pairs, rendered as native <details> accordions. */\n  items: { q: string; a: string }[];",
+    "Breadcrumbs": "  /** Trail, home first; the last item is the current page and has no href. */\n  items: { label: string; href?: string }[];\n  /** Accessible name for the nav, e.g. \"Breadcrumb\". */\n  label: string;",
+    "CtaBand": "  /** Heading, one-line body and the button label; waMessage is the pre-filled WhatsApp text the site builds waHref from. */\n  cta: { title: string; body: string; label: string; waMessage: string };\n  /** The button's href (a wa.me link on the site). */\n  waHref: string;",
+    "Section": "  /** One long-form section: anchor id, h2 title, then prose paragraphs, a bullet list and/or a card grid. */\n  section: { id: string; title: string; body?: string[]; list?: string[]; cards?: { title: string; body: string }[] };",
+    "OnThisPage": "  /** The page's sections, in order; each becomes a jump link to #id. */\n  sections: { id: string; title: string }[];\n  /** Accessible name / visible label, e.g. \"On this page\". */\n  label: string;"
+  },
+  "overrides": {
+    "SiteHeader": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteFooter": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteServices": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteDemos": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteProcess": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteFaq": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SiteContact": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "SectionBand": {
+      "cardMode": "column",
+      "viewport": "1360x900"
+    },
+    "Card": {
+      "cardMode": "column"
+    },
+    "Stat": {
+      "cardMode": "column"
+    },
+    "Breadcrumbs": {
+      "cardMode": "column"
+    },
+    "CtaBand": {
+      "cardMode": "column"
+    },
+    "FactGrid": {
+      "cardMode": "column"
+    },
+    "FaqList": {
+      "cardMode": "column"
+    },
+    "Icon": {
+      "cardMode": "column"
+    },
+    "OnThisPage": {
+      "cardMode": "column"
+    },
+    "Section": {
+      "cardMode": "column"
+    },
+    "SectionHead": {
+      "cardMode": "column"
+    },
+    "Attribution": {
+      "cardMode": "column"
+    },
+    "Button": {
+      "cardMode": "column"
+    },
+    "Chip": {
+      "cardMode": "column"
+    },
+    "FormField": {
+      "cardMode": "column"
+    },
+    "IconBox": {
+      "cardMode": "column"
+    },
+    "Kicker": {
+      "cardMode": "column"
+    },
+    "Panel": {
+      "cardMode": "column"
+    },
+    "PfLink": {
+      "cardMode": "column"
+    },
+    "StepNumber": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

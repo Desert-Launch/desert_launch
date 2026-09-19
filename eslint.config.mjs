@@ -19,6 +19,13 @@ const config = [
       "audit/**",
       "docs/**",
       "next-env.d.ts",
+      // Design-system sync (claude.ai/design): staged converter, its output
+      // (bundled React included), the package's build output and the preview
+      // compositions — tooling around the site, not the site.
+      ".ds-sync/**",
+      "ds-bundle/**",
+      "design-system/dist/**",
+      ".design-sync/**",
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),

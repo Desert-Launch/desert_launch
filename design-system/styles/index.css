@@ -1,0 +1,86 @@
+/* ---------------------------------------------------------------------------
+   Desert Launch design system — stylesheet entry.
+
+   The site's own `app/globals.css` (Tailwind v4 tokens in @theme, base styles,
+   every component class) compiled standalone, plus the two things the site
+   gets from Next.js at build time and a design tool does not:
+
+   1. The font variables. `next/font` sets `--font-inter` / `--font-tajawal`
+      on <html>; without them `--font-sans` resolves to nothing and the page
+      silently drops to the browser serif. The @font-face rules themselves
+      ship from ../fonts/fonts.css.
+   2. A safelist of layout utilities. Tailwind emits only the classes it finds
+      in the site's sources, so a design agent's own `grid-cols-3` or `gap-6`
+      would not exist. The @source inline() lines below enumerate the families
+      a page built from these components needs.
+--------------------------------------------------------------------------- */
+@import "../../app/globals.css";
+
+:root {
+  --font-inter: "Inter", "Inter Fallback";
+  --font-tajawal: "Tajawal", "Tajawal Fallback";
+}
+
+/* --- Safelist ------------------------------------------------------------ */
+
+/* Display and flex/grid layout, with the three responsive prefixes. */
+@source inline("{sm:,md:,lg:,}{flex,inline-flex,grid,block,inline-block,hidden,contents}");
+@source inline("{sm:,md:,lg:,}flex-{row,col,wrap,nowrap,1,auto,none}");
+@source inline("{sm:,md:,lg:,}{grow,shrink-0,grow-0}");
+@source inline("{sm:,md:,lg:,}items-{start,center,end,stretch,baseline}");
+@source inline("{sm:,md:,lg:,}justify-{start,center,end,between,around}");
+@source inline("{sm:,md:,lg:,}self-{start,center,end,stretch,auto}");
+@source inline("{sm:,md:,lg:,}grid-cols-{1..6}");
+@source inline("{sm:,md:,lg:,}col-span-{1..6}");
+@source inline("{sm:,md:,lg:,}gap-{0,1,1.5,2,2.5,3,4,5,6,8,10,12,16}");
+@source inline("{sm:,md:,lg:,}gap-{x,y}-{0,1,1.5,2,2.5,3,4,5,6,8,10,12}");
+@source inline("{sm:,md:,lg:,}order-{first,last,1,2,3}");
+
+/* Spacing — padding and margin on every side, logical sides included. */
+@source inline("{sm:,md:,lg:,}p-{0,1,1.5,2,2.5,3,4,5,6,7,8,10,12,16}");
+@source inline("{sm:,md:,lg:,}p{x,y,t,b,s,e}-{0,1,1.5,2,2.5,3,4,5,6,7,8,10,12,16}");
+@source inline("{sm:,md:,lg:,}m-{0,1,2,3,4,5,6,8,10,12,auto}");
+@source inline("{sm:,md:,lg:,}m{x,y,t,b,s,e}-{0,0.5,1,1.5,2,2.5,3,4,5,6,8,10,12,16,auto}");
+
+/* Sizing. */
+@source inline("{sm:,md:,lg:,}w-{full,auto,fit,1/2,1/3,2/3,1/4,3/4}");
+@source inline("{sm:,md:,lg:,}{min-w-0,max-w-full,max-w-none,max-w-prose}");
+@source inline("max-w-{xs,sm,md,lg,xl,2xl,3xl,4xl,5xl,6xl}");
+@source inline("h-{full,auto,screen,dvh}");
+@source inline("{h,w}-{4,5,6,8,10,11,12,14,16,20,24}");
+@source inline("size-{4,5,6,8,10,12}");
+@source inline("{min-h-screen,min-h-dvh}");
+
+/* Typography — the four token sizes plus alignment, weight and leading. */
+@source inline("{sm:,md:,lg:,}text-{micro,meta,body,lead,xs,sm,base,lg,xl,2xl,3xl,4xl,5xl}");
+@source inline("{sm:,md:,lg:,}text-{left,center,right,start,end}");
+@source inline("font-{normal,medium,semibold,bold,extrabold}");
+@source inline("font-{sans,arabic}");
+@source inline("leading-{none,tight,snug,normal,relaxed,loose}");
+@source inline("tracking-{tighter,tight,normal,wide,wider}");
+@source inline("{uppercase,lowercase,capitalize,normal-case,italic,not-italic}");
+@source inline("{truncate,text-pretty,text-balance,break-words,whitespace-nowrap}");
+@source inline("{underline,no-underline,underline-offset-2,underline-offset-4,line-through}");
+@source inline("list-{none,disc,decimal,inside,outside}");
+@source inline("{tabular-nums,sr-only,not-sr-only}");
+
+/* Brand tokens as utilities: backgrounds, text, borders. */
+@source inline("{hover:,}bg-{bg,bg-soft,ink,ink-soft,muted,gold,gold-strong,gold-deep,whatsapp,live,transparent}");
+@source inline("{hover:,}text-{bg,bg-soft,ink,ink-soft,muted,gold,gold-strong,gold-deep,whatsapp,live}");
+@source inline("{hover:,}border-{line,line-strong,gold,gold-strong,transparent}");
+@source inline("bg-white/{5,10,15}");
+@source inline("{border,border-0,border-2,border-t,border-b,border-s,border-e,border-x,border-y}");
+@source inline("rounded-{xs,sm,md,lg,full,none}");
+@source inline("shadow-{e1,e2,e3,none}");
+@source inline("{opacity-0,opacity-50,opacity-60,opacity-75,opacity-100}");
+
+/* Positioning and overflow. */
+@source inline("{relative,absolute,fixed,sticky,static}");
+@source inline("{inset-0,top-0,bottom-0,start-0,end-0,left-0,right-0}");
+@source inline("z-{0,10,20,30,40,50}");
+@source inline("overflow-{hidden,auto,visible,x-auto,y-auto,clip}");
+@source inline("{object-cover,object-contain,aspect-square,aspect-video}");
+@source inline("scroll-mt-24");
+@source inline("{sm:,md:,lg:,}{divide-y,divide-line}");
+@source inline("transition{,-colors,-transform,-opacity}");
+@source inline("{cursor-pointer,select-none,pointer-events-none}");
