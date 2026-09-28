@@ -55,6 +55,11 @@ export type ProjectId =
  *  (`<id>.demos.desertlaunch.dev`) and the utm_campaign its bar sends back. */
 export type DemoId = "dental" | "medical" | "gym" | "cafe" | "restaurant" | "realestate";
 
+/** Stable ids for the industry pages. Also the URL slug:
+ *  `/industries/<id>/`. One id per vertical a buyer searches for, not one per
+ *  demo — the dental and medical demos both prove the clinics page. */
+export type IndustryId = "clinics" | "gyms" | "restaurants-and-cafes" | "real-estate";
+
 /** Stable ids for the service offering. */
 export type ServiceId =
   | "mobile"

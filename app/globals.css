@@ -601,6 +601,19 @@
     border: 1px solid var(--color-line);
   }
 
+  /* A chip that is a link (the industry and related-service rows). It says so
+     on hover and on focus; a static chip does neither. The min-height clears
+     the 24px WCAG 2.2 target. */
+  .chip--link {
+    min-height: 2rem;
+    transition: color 180ms var(--ease-soft), border-color 180ms var(--ease-soft);
+  }
+  .chip--link:hover,
+  .chip--link:focus-visible {
+    color: var(--color-ink);
+    border-color: var(--color-line-strong);
+  }
+
   .source-tag {
     align-self: flex-start;
     padding: 0.2rem 0.6rem;

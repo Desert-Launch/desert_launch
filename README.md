@@ -18,7 +18,7 @@ npm run preview    # build, then serve it with the production headers applied
 | --- | --- |
 | Copy, all five locales | `app/data/{en,ar,fr,es,de}.ts`, typed by `app/data/types.ts` |
 | Long-form pages (EN + AR) | `app/data/pages/` |
-| Language-neutral structure | `app/data/projects.ts`, `app/data/services.ts`, `app/data/demos.ts`, `app/data/shared.ts` |
+| Language-neutral structure | `app/data/projects.ts`, `app/data/services.ts`, `app/data/industries.ts`, `app/data/demos.ts`, `app/data/shared.ts` |
 | Sections and templates | `app/components/` |
 | Metadata, JSON-LD, links, analytics | `app/lib/` |
 | Design tokens and component classes | `app/globals.css` |
@@ -34,8 +34,15 @@ out of structural parity either.
 **The live demos are separate apps.** `app/data/demos.ts` only lists them. Each
 one is its own Next.js project in a `Desert-Launch/demo-*` repository, deployed
 as its own Vercel project on `<id>.demos.desertlaunch.dev`, running against an
-in-memory store with `robots: noindex`. This site links out; nothing about a
-demo is built here.
+in-memory store with `robots: noindex, follow`. This site links out; nothing
+about a demo is built here.
+
+**Industry pages carry the demos into search.** A demo is a fictional business
+written for its customers, so it is never indexed. The page that answers a
+business owner's search for one — `/industries/<id>/`, in English and Arabic —
+lives here, describes what a real build involves, and links the demo as proof.
+`app/data/industries.ts` lists which demos and which service pages belong to
+each industry; routes, sitemap, structured data and cross-links derive from it.
 
 **One root layout per locale.** Route groups (`app/(en)/`, `app/(ar)/ar/`, …)
 give every language its own `<html lang dir>`, which is what makes the Arabic

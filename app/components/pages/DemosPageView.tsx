@@ -67,7 +67,7 @@ export function DemosPageView({ lang }: { lang: PageLang }) {
         <section id="the-demos" className="flex scroll-mt-24 flex-col gap-4">
           <h2 className="h-section">{copy.gridTitle}</h2>
           <p className="attribution">{t.demos.disclaimer}</p>
-          <DemoGrid t={t} placement="demos-page" />
+          <DemoGrid t={t} lang={lang} placement="demos-page" />
         </section>
 
         <div className="flex flex-col gap-12 md:gap-14">

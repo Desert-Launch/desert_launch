@@ -2,7 +2,9 @@ import type { Dictionary, Lang } from "@/app/data/types";
 import { LOCALES, MAILTO, PHONE_HREF, PHONE_DISPLAY, EMAIL, SOCIAL } from "@/app/data/shared";
 import { Icon } from "@/app/data/icons";
 import { SERVICES } from "@/app/data/services";
-import { hasPages, hasSimplePage, servicePath, simplePath } from "@/app/lib/links";
+import { hasPages, hasSimplePage, industriesIndexPath, servicePath, simplePath } from "@/app/lib/links";
+import { INDUSTRIES } from "@/app/data/industries";
+import { pages } from "@/app/data/pages/copy";
 
 export function Footer({
   t,
@@ -106,6 +108,18 @@ export function Footer({
                 </li>
               );
             })}
+            {/* One sitewide link to the industries hub, which links every
+                industry page — rather than four more links in every footer. */}
+            {pageLocale ? (
+              <li>
+                <a href={industriesIndexPath(pageLocale)} className="footer-link">
+                  <strong className="text-body">{pages(pageLocale).labels.industriesHeading}</strong>
+                  <span className="text-meta text-muted">
+                    {INDUSTRIES.map((i) => pages(pageLocale).industries.items[i.id].breadcrumb).join(" · ")}
+                  </span>
+                </a>
+              </li>
+            ) : null}
           </ul>
         </nav>
 

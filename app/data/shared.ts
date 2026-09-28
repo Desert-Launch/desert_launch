@@ -15,7 +15,7 @@ export const MAILTO = `mailto:${EMAIL}`;
 /** Date the site content was last reviewed. Shown on dated pages and used for
  *  `dateModified` in JSON-LD. Deliberately a content date, not the build date:
  *  a rebuild does not make the content newer. */
-export const CONTENT_UPDATED = "2026-09-18";
+export const CONTENT_UPDATED = "2026-09-28";
 
 /** Build a WhatsApp click-to-chat link with a pre-filled (already localized)
  *  message. Every entry point passes its own message so an incoming chat says
@@ -122,7 +122,6 @@ export const ORG = {
    *  translated into five languages for discovery, but delivery happens in
    *  English or Arabic — every locale's copy says so. */
   knowsLanguage: ["en", "ar"],
-  currenciesAccepted: "USD",
   /** Verified public profiles, emitted as schema.org `sameAs`. A `sameAs`
    *  pointing at a dead or unclaimed URL hurts more than it helps, so an entry
    *  is added only once the profile is live and confirmed. The GitHub
@@ -141,7 +140,9 @@ export const ORG = {
    *  engineering profile, so it kept being surfaced to developers looking for
    *  work rather than to businesses looking for a supplier. The frameworks
    *  moved to `FOUNDER.knowsAbout`, where they are true of a person and do no
-   *  harm. Every entry below is backed by shipped work on this site. */
+   *  harm. Every entry below is backed by shipped work or a live demo on
+   *  this site; the four vertical entries at the end are the industry pages,
+   *  each of which links the demo that proves it. */
   knowsAbout: [
     "Custom software development",
     "Mobile app development",
@@ -155,6 +156,10 @@ export const ORG = {
     "UI/UX design",
     "Product modernization",
     "Technical consulting",
+    "Clinic and dental websites with online appointment booking",
+    "Gym and fitness studio websites with class booking",
+    "Restaurant and café online ordering and table reservations",
+    "Real estate websites with property listings and lead management",
   ],
 };
 

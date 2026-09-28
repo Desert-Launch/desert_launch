@@ -16,6 +16,8 @@ import { PageShell } from "../PageShell";
 import { FaqList } from "../Faq";
 import { CtaBand, OnThisPage, RelatedProjects, Section } from "./PageParts";
 import { DemoGrid } from "../Demos";
+import { IndustryLinks } from "../Industries";
+import { industriesForService } from "@/app/data/industries";
 
 export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceSlug }) {
   const t = dict(lang);
@@ -93,7 +95,7 @@ export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceS
           <section className="flex flex-col gap-4">
             <h2 className="h-section">{p.labels.tryDemo}</h2>
             <p className="attribution">{t.demos.disclaimer}</p>
-            <DemoGrid t={t} ids={meta.demos} placement="service" />
+            <DemoGrid t={t} lang={lang} ids={meta.demos} placement="service" />
           </section>
         ) : null}
 
@@ -102,19 +104,29 @@ export function ServicePageView({ lang, slug }: { lang: PageLang; slug: ServiceS
           <FaqList items={copy.faq} />
         </section>
 
+        {/* The industry pages that share this service's audience. On a
+            use-case page ("gym booking app") this is the one vertical page
+            that owns the broader query ("gym website"): linked, not copied. */}
+        <IndustryLinks
+          lang={lang}
+          industries={industriesForService(meta.id)}
+          heading={{ variant: "block", text: p.labels.industriesHeading }}
+          placement="service-related"
+        />
+
         <nav aria-label={t.common.relatedServices} className="flex flex-col gap-3">
           <h2 className="h-card">{t.common.relatedServices}</h2>
           <ul className="flex flex-wrap gap-2 list-none">
             {SERVICES.filter((s) => s.slug && s.slug !== slug).map((s) => (
               <li key={s.id}>
-                <a href={servicePath(lang, s.slug!)} className="chip">
+                <a href={servicePath(lang, s.slug!)} className="chip chip--link">
                   {t.services.items[s.id].title}
                 </a>
               </li>
             ))}
             {/* The question every one of these pages ends up raising. */}
             <li>
-              <a href={simplePath(lang, "pricing")} className="chip">
+              <a href={simplePath(lang, "pricing")} className="chip chip--link">
                 {t.common.pricingLabel}
               </a>
             </li>

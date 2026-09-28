@@ -9,6 +9,7 @@ import {
 } from "@/app/data/shared";
 import { SERVICE_PAGES } from "@/app/data/services";
 import { CASE_STUDIES } from "@/app/data/projects";
+import { INDUSTRIES } from "@/app/data/industries";
 import type { Lang } from "@/app/data/types";
 
 export const dynamic = "force-static";
@@ -53,6 +54,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   for (const project of CASE_STUDIES) {
     add(`work/${project.id}`, pageLangs, 0.8, "monthly");
+  }
+  // Industry pages own the vertical queries ("clinic website"); the hub is
+  // their parent. The demos themselves are not listed anywhere in this
+  // sitemap: they are `noindex`, on other hosts, and a sitemap is a list of
+  // URLs we want indexed.
+  add("industries", pageLangs, 0.8, "monthly");
+  for (const industry of INDUSTRIES) {
+    add(`industries/${industry.id}`, pageLangs, 0.9, "monthly");
   }
   add("demos", pageLangs, 0.9, "weekly");
   add("pricing", pageLangs, 0.8, "monthly");

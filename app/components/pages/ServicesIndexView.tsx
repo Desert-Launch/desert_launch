@@ -6,6 +6,9 @@ import type { PageLang } from "@/app/data/types";
 import { homePath, sectionHref, servicePath, simplePath } from "@/app/lib/links";
 import { servicesIndexSchema } from "@/app/lib/jsonld";
 import { PageShell } from "../PageShell";
+import { IndustryCards } from "../Industries";
+import { pages } from "@/app/data/pages/copy";
+import { industriesIndexPath } from "@/app/lib/links";
 
 /** The /services/ hub.
  *
@@ -138,6 +141,16 @@ export function ServicesIndexView({ lang }: { lang: PageLang }) {
               );
             })}
           </div>
+        </section>
+
+        {/* The same work, by the kind of business it is for. Each card leads
+            to the page that owns that vertical's search, with its demo. */}
+        <section className="flex flex-col gap-4">
+          <h2 className="h-section">{pages(lang).labels.industriesHeading}</h2>
+          <IndustryCards lang={lang} headingLevel="h3" placement="services-index" />
+          <a href={industriesIndexPath(lang)} className="pf-link self-start">
+            {pages(lang).industries.hub.h1}
+          </a>
         </section>
 
         <section className="flex flex-col gap-3" aria-label={t.a11y.techStack}>

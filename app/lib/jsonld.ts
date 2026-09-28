@@ -14,12 +14,23 @@ import {
 import { PROJECTS_BY_ID, STORE_PROJECTS } from "@/app/data/projects";
 import { SERVICES } from "@/app/data/services";
 import { DEMOS, demoUrl } from "@/app/data/demos";
-import type { DemoId } from "@/app/data/types";
+import { INDUSTRIES, INDUSTRIES_BY_ID, industryForDemo } from "@/app/data/industries";
+import { pages } from "@/app/data/pages/copy";
+import type { DemoId, IndustryId } from "@/app/data/types";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 /** Stable node id for a live demo, so every page that lists one references the
- *  same entity instead of describing it again. */
-export const demoNodeId = (id: DemoId) => `${SITE_URL}/#demo-${id}`;
+ *  same entity instead of describing it again. It is the id the demo's own
+ *  JSON-LD gives itself (`<demo origin>/#app`), so the node this site describes
+ *  and the node the demo describes are one entity to anything that merges the
+ *  two graphs, rather than two applications with the same name. */
+export const demoNodeId = (id: DemoId) => `${demoUrl(id)}#app`;
+
+/** The page node and the `Service` node of an industry page. */
+const industryPageId = (lang: Lang, id: IndustryId) =>
+  `${localeUrl(lang, `industries/${id}`)}#webpage`;
+const industryServiceId = (lang: Lang, id: IndustryId) =>
+  `${localeUrl(lang, `industries/${id}`)}#service`;
 const FOUNDER_ID = `${SITE_URL}/#founder`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 
@@ -65,7 +76,6 @@ export function entityGraph() {
         description: ORG_DESCRIPTION,
         email: EMAIL,
         telephone: PHONE_INTL,
-        currenciesAccepted: ORG.currenciesAccepted,
         address: {
           "@type": "PostalAddress",
           addressLocality: ORG.addressLocality,
@@ -97,23 +107,41 @@ export function entityGraph() {
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Software development services",
-          itemListElement: SERVICES.map((service) => {
-            const copy = en.services.items[service.id];
-            return {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: copy.title,
-                serviceType: copy.title,
-                description: copy.body,
-                provider: { "@id": ORG_ID },
-                areaServed: ORG.areaServed,
-                ...(service.slug
-                  ? { url: `${SITE_URL}/services/${service.slug}/` }
-                  : {}),
-              },
-            };
-          }),
+          itemListElement: [
+            ...SERVICES.map((service) => {
+              const copy = en.services.items[service.id];
+              return {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: copy.title,
+                  serviceType: copy.title,
+                  description: copy.body,
+                  provider: { "@id": ORG_ID },
+                  areaServed: ORG.areaServed,
+                  ...(service.slug
+                    ? { url: `${SITE_URL}/services/${service.slug}/` }
+                    : {}),
+                },
+              };
+            }),
+            // The vertical offerings. Same `@id` as the full `Service` node on
+            // the industry page, so the two merge into one entity; the name and
+            // URL are here so the catalog still reads on its own.
+            ...INDUSTRIES.map((industry) => {
+              const copy = pages("en").industries.items[industry.id];
+              return {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  "@id": industryServiceId("en", industry.id),
+                  name: copy.schema.serviceName,
+                  provider: { "@id": ORG_ID },
+                  url: localeUrl("en", `industries/${industry.id}`),
+                },
+              };
+            }),
+          ],
         },
       },
       {
@@ -174,6 +202,7 @@ export function entityGraph() {
       // work — and never as businesses, addresses or reviews.
       ...DEMOS.map((demo) => {
         const copy = en.demos.items[demo.id];
+        const industry = industryForDemo(demo.id);
         return {
           "@type": "WebApplication",
           "@id": demoNodeId(demo.id),
@@ -190,9 +219,18 @@ export function entityGraph() {
           featureList: copy.flows,
           creator: { "@id": ORG_ID },
           publisher: { "@id": ORG_ID },
-          isPartOf: { "@id": WEBSITE_ID },
-          mainEntityOfPage: `${SITE_URL}/demos/`,
-          ...(demo.repo ? { codeRepository: demo.repo } : {}),
+          // Who the demo is for — the owner of that kind of business, not its
+          // customers — and the pages on this site that describe it. Not
+          // `isPartOf` this WebSite: the demo is a separate site on its own
+          // host, and saying otherwise would be a claim about URLs that is
+          // false.
+          audience: { "@type": "BusinessAudience", audienceType: demo.audience },
+          subjectOf: [
+            ...(industry ? [{ "@id": industryPageId("en", industry.id) }] : []),
+            { "@id": `${SITE_URL}/demos/#webpage` },
+          ],
+          // `codeRepository` belongs to SoftwareSourceCode, not to the app.
+          isBasedOn: { "@type": "SoftwareSourceCode", codeRepository: demo.repo },
         };
       }),
     ],
@@ -309,7 +347,6 @@ export function servicePageSchema({
       url,
       provider: { "@id": ORG_ID },
       areaServed: ORG.areaServed,
-      availableLanguage: ["English", "Arabic"],
       ...(meta?.related.length
         ? {
             hasOfferCatalog: {
@@ -488,6 +525,109 @@ export function demosPageSchema({
         name: item.q,
         acceptedAnswer: { "@type": "Answer", text: item.a },
       })),
+    },
+    breadcrumbs([
+      { name: crumbLabels.home, url: localeUrl(lang, "") },
+      { name: crumbLabels.current, url },
+    ]),
+  ];
+}
+
+/** An industry page: the page, the vertical `Service` it describes, its FAQ
+ *  and the breadcrumb. The demos are referenced by `@id` as what the page
+ *  mentions — a working example of the service — and never described as the
+ *  businesses they portray: those are fictional, and a `Dentist` or
+ *  `Restaurant` node here would tell a search engine a clinic exists at an
+ *  invented address. */
+export function industryPageSchema({
+  lang,
+  id,
+  crumbLabels,
+}: {
+  lang: PageLang;
+  id: IndustryId;
+  crumbLabels: { home: string; industries: string; current: string };
+}) {
+  const copy = pages(lang).industries.items[id];
+  const meta = INDUSTRIES_BY_ID[id];
+  const path = `industries/${id}`;
+  const url = localeUrl(lang, path);
+  const serviceId = industryServiceId(lang, id);
+
+  return [
+    {
+      "@context": "https://schema.org",
+      ...webPage(lang, path, copy.meta.title, copy.meta.description, {
+        about: { "@id": serviceId },
+        mainEntity: { "@id": serviceId },
+        mentions: meta.demos.map((demo) => ({ "@id": demoNodeId(demo) })),
+        significantLink: meta.demos.map((demo) => demoUrl(demo)),
+      }),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": serviceId,
+      name: copy.schema.serviceName,
+      serviceType: copy.schema.serviceName,
+      description: copy.schema.description,
+      url,
+      provider: { "@id": ORG_ID },
+      areaServed: ORG.areaServed,
+      audience: { "@type": "BusinessAudience", audienceType: copy.schema.audience },
+      // The category services this vertical draws on, by the `@id` their own
+      // pages give them.
+      isRelatedTo: SERVICES.filter((s) => s.slug && meta.services.includes(s.id)).map((s) => ({
+        "@id": `${localeUrl(lang, `services/${s.slug}`)}#service`,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      isPartOf: { "@id": `${url}#webpage` },
+      inLanguage: localeByCode(lang).hreflang,
+      mainEntity: copy.faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    breadcrumbs([
+      { name: crumbLabels.home, url: localeUrl(lang, "") },
+      { name: crumbLabels.industries, url: localeUrl(lang, "industries") },
+      { name: crumbLabels.current, url },
+    ]),
+  ];
+}
+
+/** The /industries/ hub: a collection of the industry pages. */
+export function industriesIndexSchema({
+  lang,
+  crumbLabels,
+}: {
+  lang: PageLang;
+  crumbLabels: { home: string; current: string };
+}) {
+  const copy = pages(lang).industries;
+  const url = localeUrl(lang, "industries");
+  return [
+    {
+      "@context": "https://schema.org",
+      ...webPage(lang, "industries", copy.hub.meta.title, copy.hub.meta.description, {
+        "@type": "CollectionPage",
+        mainEntity: {
+          "@type": "ItemList",
+          "@id": `${url}#list`,
+          numberOfItems: INDUSTRIES.length,
+          itemListElement: INDUSTRIES.map((industry, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: copy.items[industry.id].name,
+            url: localeUrl(lang, `industries/${industry.id}`),
+          })),
+        },
+      }),
     },
     breadcrumbs([
       { name: crumbLabels.home, url: localeUrl(lang, "") },

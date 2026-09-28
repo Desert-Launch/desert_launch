@@ -1,19 +1,29 @@
 import type { DemoId, Dictionary, Lang } from "@/app/data/types";
 import { DEMOS, demoUrl, type DemoMeta } from "@/app/data/demos";
 import { Icon } from "@/app/data/icons";
-import { hasPages, simplePath } from "@/app/lib/links";
+import { industryForDemo } from "@/app/data/industries";
+import { pages } from "@/app/data/pages/copy";
+import { hasPages, industryPath, simplePath } from "@/app/lib/links";
+import { IndustryLinks } from "./Industries";
 
-/** One demo: the public site and the staff dashboard, both in a new tab. The
- *  demo's own bar brings the visitor back here with attribution. */
+type Placement = "home" | "demos-page" | "service" | "industry";
+
+/** One demo: the public site and the staff dashboard, both in a new tab, and
+ *  — where the page exists — the industry page that explains what a real build
+ *  for that kind of business involves. The demo's own bar links back to that
+ *  same industry page with attribution. */
 export function DemoCard({
   t,
   demo,
   placement,
+  industry,
 }: {
   t: Dictionary;
   demo: DemoMeta;
   /** Where the card sits, for the click event. */
-  placement: "home" | "demos-page" | "service";
+  placement: Placement;
+  /** Link to the demo's industry page, with descriptive anchor text. */
+  industry?: { href: string; label: string; id: string };
 }) {
   const d = t.demos;
   const copy = d.items[demo.id];
@@ -64,6 +74,18 @@ export function DemoCard({
           {d.adminCta}
           <span className="sr-only"> ({t.a11y.newTab})</span>
         </a>
+        {industry ? (
+          <a
+            href={industry.href}
+            className="pf-link"
+            data-evt="industry_click"
+            data-evt-industry={industry.id}
+            data-evt-demo={demo.id}
+            data-evt-placement={placement}
+          >
+            {industry.label}
+          </a>
+        ) : null}
       </div>
     </article>
   );
@@ -71,20 +93,41 @@ export function DemoCard({
 
 export function DemoGrid({
   t,
+  lang,
   ids,
   placement,
+  linkIndustry = true,
 }: {
   t: Dictionary;
+  lang: Lang;
   /** Subset to show; every demo when omitted. */
   ids?: DemoId[];
-  placement: "home" | "demos-page" | "service";
+  placement: Placement;
+  /** Off on an industry page, where the link would point at the page itself. */
+  linkIndustry?: boolean;
 }) {
   const demos = ids ? ids.map((id) => DEMOS.find((d) => d.id === id)!).filter(Boolean) : DEMOS;
+  // Industry pages exist in English and Arabic only.
+  const pageLang = linkIndustry && hasPages(lang) ? lang : null;
+  // One or two demos (an industry or service page) fill two columns; a third
+  // empty column beside them reads as something missing.
+  const cols = demos.length > 2 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2";
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {demos.map((demo) => (
-        <DemoCard key={demo.id} t={t} demo={demo} placement={placement} />
-      ))}
+    <div className={`grid gap-4 ${cols}`}>
+      {demos.map((demo) => {
+        const industry = industryForDemo(demo.id);
+        const link =
+          pageLang && industry
+            ? {
+                href: industryPath(pageLang, industry.id),
+                label: pages(pageLang).industries.items[industry.id].linkLabel,
+                id: industry.id,
+              }
+            : undefined;
+        return (
+          <DemoCard key={demo.id} t={t} demo={demo} placement={placement} industry={link} />
+        );
+      })}
     </div>
   );
 }
@@ -188,6 +231,19 @@ export function Demos({ t, lang }: { t: Dictionary; lang: Lang }) {
             </a>
           ) : null}
         </div>
+
+        {/* The demos show; the industry pages sell. One row of descriptive
+            links from the home page is what gives each of them the site's
+            strongest page as a parent. English and Arabic only. */}
+        {hasPages(lang) ? (
+          <div className="reveal mt-6">
+            <IndustryLinks
+              lang={lang}
+              heading={{ variant: "inline", text: pages(lang).labels.byIndustry }}
+              placement="home-demos"
+            />
+          </div>
+        ) : null}
       </div>
     </section>
   );

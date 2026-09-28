@@ -1,5 +1,5 @@
 import { ABOUT_LOCALES, localePath, LOCALE_CODES, PAGE_LOCALES } from "@/app/data/shared";
-import type { Dictionary, Lang, PageLang, ProjectId } from "@/app/data/types";
+import type { Dictionary, IndustryId, Lang, PageLang, ProjectId } from "@/app/data/types";
 
 /** Locales that have the long-form sub-pages. Everything that links to a
  *  service page, case study or legal page must check this first, so a French
@@ -30,6 +30,15 @@ export function servicesIndexPath(lang: PageLang): string {
 
 export function casePath(lang: PageLang, id: ProjectId): string {
   return localePath(lang, `work/${id}`);
+}
+
+/** The /industries/ hub — the parent in every industry breadcrumb. */
+export function industriesIndexPath(lang: PageLang): string {
+  return localePath(lang, "industries");
+}
+
+export function industryPath(lang: PageLang, id: IndustryId): string {
+  return localePath(lang, `industries/${id}`);
 }
 
 export function simplePath(lang: Lang, slug: string): string {

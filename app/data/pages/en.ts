@@ -7,6 +7,10 @@ export const enPages: PagesCopy = {
     atAGlance: "At a glance",
     attribution: "Attribution",
     tryDemo: "Try a working demo",
+    industries: "Industries",
+    byIndustry: "By industry",
+    industriesHeading: "Industries we build for",
+    servicesForIndustry: "Related services",
   },
 
   services: {
@@ -812,12 +816,12 @@ export const enPages: PagesCopy = {
 
     "lab-and-clinic-management-system": {
       meta: {
-        title: "Lab & Clinic Management System — Portal and Admin | Desert Launch",
+        title: "Lab & Clinic Case Management System — Portal and Admin | Desert Launch",
         description:
           "A case management platform for a lab or clinic: a portal for the customers sending work in, and an admin dashboard for the team processing it. Built and delivered for a dental lab.",
       },
       breadcrumb: "Lab & clinic system",
-      h1: "Lab and clinic management systems",
+      h1: "Case management systems for labs and clinics",
       lead: "The customers who send work in need to know where their cases are. The team processing them needs one place to work instead of five. We built both sides of exactly that for Xera Lab — a dental case management platform running in production as a private system.",
       schemaDescription:
         "Custom case management systems for laboratories and clinics: a customer portal, an admin dashboard, role-based access and file storage, built on Node.js and PostgreSQL in Cairo, Egypt.",
@@ -1353,6 +1357,516 @@ export const enPages: PagesCopy = {
       body: "Tell us which demo is closest to your business and what would need to change. You get a written fixed quote after a free scope call.",
       label: "Ask on WhatsApp",
       waMessage: "Hi Desert Launch, I've been through the demos page and I'd like to talk about something similar for my business.",
+    },
+  },
+  industries: {
+    hub: {
+      meta: {
+        title: "Websites and Booking Systems by Industry | Desert Launch",
+        description:
+          "Clinic, gym, restaurant, café and real estate websites, each with the booking, ordering or enquiry system behind it, and a live demo you can try first.",
+      },
+      breadcrumb: "Industries",
+      h1: "Websites and systems for your kind of business",
+      lead: "A clinic, a gym, a restaurant and a brokerage need different things from a website: a diary, a timetable, a kitchen screen, a leads board. Each page below is written for one of them, and each has a working demo you can open before you ask us for anything.",
+      demoLabel: "Live demo",
+      other: {
+        title: "Not on the list?",
+        body: "Most businesses need the same three pieces: a public site, a flow that captures the customer (a booking, an order or an enquiry), and a dashboard for the team. Tell us what your flow is. The service pages cover everything else we build.",
+      },
+      cta: {
+        title: "Tell us about your business",
+        body: "Say which of these is closest and what would have to change. You get a scope summary and a written fixed price in USD after a free call.",
+        label: "Talk to us on WhatsApp",
+        waMessage:
+          "Hi Desert Launch, I looked at your industries page and want to talk about a website or system for my business.",
+      },
+    },
+    items: {
+      clinics: {
+        meta: {
+          title: "Clinic & Dental Website Design with Online Booking | Desert Launch",
+          description:
+            "Clinic and dental websites with online appointment booking, doctor profiles and a front-desk dashboard. Try two live clinic demos, then get a fixed quote.",
+        },
+        breadcrumb: "Clinics",
+        name: "Clinics & dental practices",
+        linkLabel: "Clinic & dental websites",
+        summary:
+          "Websites for dental and medical clinics where patients book online against your real hours, and the front desk sees every appointment in one dashboard.",
+        kicker: "For clinics",
+        h1: "Clinic and dental websites with online booking built in",
+        lead: "Patients pick a treatment or a doctor, see the slots that are actually free, and book without calling. The front desk sees the appointment, and the patient record it created, in one dashboard. The two demos below do exactly that, so you can try them before you talk to us.",
+        demo: {
+          title: "Try the two clinic demos",
+          body: "A dental clinic and a multi-specialty medical clinic, each a public website with the dashboard behind it. Book an appointment as a patient, then open the dashboard and find it waiting.",
+        },
+        sections: [
+          {
+            id: "who-for",
+            title: "Who this is for",
+            list: [
+              "A dental practice whose diary lives in a paper book or a spreadsheet, and whose phone rings all day with questions a website could answer.",
+              "A clinic with several doctors or specialties, where patients do not know who to ask for and reception spends the day matching them up.",
+              "A practice losing bookings in the evening and at weekends, when nobody is there to pick up.",
+              "A clinic whose website is a brochure: opening hours, a phone number, and nothing a patient can actually do on it.",
+            ],
+          },
+          {
+            id: "what-it-does",
+            title: "What a clinic website should actually do",
+            cards: [
+              {
+                title: "Treatments and prices, before the visit",
+                body: "Each treatment with what it involves and what it costs, or an honest range. A patient who has seen the price before booking is a patient who turns up.",
+              },
+              {
+                title: "Booking against your real schedule",
+                body: "Slots come from your working hours, lunch break, closed days and each doctor's calendar, so the website never offers a time the clinic cannot keep.",
+              },
+              {
+                title: "Doctors and specialties",
+                body: "A profile for every doctor, and booking that can start from a specialty when the patient has no name in mind. The medical demo finds the first free slot across a whole department.",
+              },
+              {
+                title: "A dashboard for the front desk",
+                body: "Today's appointments, reschedules, cancellations and the patient record in one place, so the diary is the system rather than a copy of it.",
+              },
+            ],
+          },
+          {
+            id: "demos-and-real-build",
+            title: "What the demos show, and what a real build adds",
+            body: [
+              "The dental demo applies real slot rules: it respects the lunch break and the closed day, and never offers a time inside the next two hours. The medical demo takes a patient through five steps (specialty, doctor, date, time, details) and can jump straight to the first available doctor in a department. In both, the booking appears on the staff side the moment it is made.",
+              "The demos keep their data in your browser and reset when you refresh. A real build for your clinic adds what they deliberately leave out:",
+            ],
+            list: [
+              "A real database and staff accounts, with each role seeing only what it should.",
+              "Confirmations and reminders by SMS, email or WhatsApp. Reminders are what bring no-shows down.",
+              "Your own treatments, prices, doctors, hours and branches, in Arabic, English or both.",
+              "Hosting, domain and data in your clinic's own accounts.",
+            ],
+          },
+          {
+            id: "patient-data",
+            title: "Patient data, handled honestly",
+            body: [
+              "A booking site holds personal data, and it would be easy to write the word compliant here. We will not. Desert Launch does not hold a healthcare compliance certification, and any studio that implies one without naming it should be asked to name it.",
+              "What we do instead is answer the concrete questions at scoping: where the data lives and in whose account, which role can see which record, and what is logged. We usually recommend keeping the booking site to what a booking needs (a name, a phone number, a reason for the visit) and leaving clinical notes in the system built for them. If your regulator sets specific requirements, bring them to the scope call and they go into the written quote.",
+            ],
+          },
+          {
+            id: "proof",
+            title: "Our shipped work in dentistry",
+            body: [
+              "The closest client work we have shipped is Xera Lab, a dental case management platform: a portal for the clinics sending work in and an admin dashboard for the lab team, on Node.js and PostgreSQL with role-based access. It is a private production system rather than a public booking site, but it solves the same kind of problem, with records, roles and files that have to stay findable.",
+              "If your problem looks more like Xera Lab's, with cases arriving from outside rather than patients booking in, the lab and clinic case management page is written for it.",
+            ],
+          },
+          {
+            id: "timeline",
+            title: "Timeline and price",
+            body: [
+              "A clinic website on its own (treatments, doctors, contact, fast and findable in search) takes two to four weeks. Add online booking with real schedule rules and a front-desk dashboard, and it becomes a small platform that usually takes one to two months.",
+              "The price is a fixed number in USD, quoted after a free scope call. After the 30% deposit, each payment follows a milestone you have opened and accepted as a working build. The pricing page shows where a project like this sits.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Can patients book with a specific doctor?",
+            a: "Yes. Booking can start from a doctor or from a specialty, and the medical demo shows both, including the first free slot across a whole department for a patient with no preference.",
+          },
+          {
+            q: "Will it send appointment reminders?",
+            a: "A real build can, by SMS, email or WhatsApp. SMS and WhatsApp go through a paid messaging provider billed to your own account, and email costs almost nothing. The demos leave reminders out because they have no backend.",
+          },
+          {
+            q: "Can the website be in Arabic and English?",
+            a: "Yes, with a proper right-to-left Arabic layout rather than a mirrored English one. Every project here runs in Arabic or English, and this site is built the same way.",
+          },
+          {
+            q: "Can it connect to the clinic software we already use?",
+            a: "Sometimes. It depends on whether your current system has an API or an export worth using. We check that first, so you hear the answer on the scope call rather than after paying for an integration.",
+          },
+          {
+            q: "Do we need an app, or is a website enough?",
+            a: "For booking, a website that works properly on a phone is usually enough, and cheaper to run. An app earns its cost when patients come back often enough to keep it installed, for follow-up plans, results or loyalty. We will tell you which one you actually need.",
+          },
+          {
+            q: "Are the clinics in the demos real?",
+            a: "No. Demo Dental Clinic and Demo Medical Clinic are invented, and deliberately look it: the doctors are called Doctor 1, Doctor 2 and so on, the address is on Demo Street and the phone numbers end in xxx. They exist to show how the booking and the dashboard behave.",
+          },
+        ],
+        cta: {
+          title: "Get a fixed quote for your clinic's website",
+          body: "Tell us how patients book today, how many doctors and branches you have, and what goes wrong. You get a scope summary and a written price in USD before you commit.",
+          label: "Get a Free Quote on WhatsApp",
+          waMessage:
+            "Hi Desert Launch, I read your clinic websites page and want a website with online booking for my clinic.",
+        },
+        schema: {
+          serviceName: "Clinic and dental website development with online appointment booking",
+          description:
+            "Websites for dental and medical clinics with online appointment booking against real working hours, doctor and specialty profiles, and a front-desk dashboard for appointments and patient records. Built in Cairo, Egypt for clinics in Egypt and the Gulf, in Arabic and English.",
+          audience: "Dental clinics, medical clinics and multi-specialty medical centres",
+        },
+      },
+
+      gyms: {
+        meta: {
+          title: "Gym & Fitness Studio Websites with Class Booking | Desert Launch",
+          description:
+            "Gym and studio websites with a live class timetable, spots left, waitlists and online membership sign-up, plus the admin behind it. Try the live gym demo.",
+        },
+        breadcrumb: "Gyms",
+        name: "Gyms & fitness studios",
+        linkLabel: "Gym & fitness websites",
+        summary:
+          "Gym and studio websites where members book a class with live spots left, join a plan online, and the club runs it all from one admin.",
+        kicker: "For gyms and studios",
+        h1: "Gym and fitness studio websites with class booking and online sign-up",
+        lead: "A timetable members can book from, showing the spots left in every class and a waitlist once it fills. A join flow that sells a plan without a visit to the desk. An admin where the club sees members, classes and today's numbers. The gym demo does all three, so try it first.",
+        demo: {
+          title: "Try the gym demo",
+          body: "Book a class from the weekly timetable and join a plan to get a membership number. Then open the club admin and find the booking and the new member already there.",
+        },
+        sections: [
+          {
+            id: "who-for",
+            title: "Who this is for",
+            list: [
+              "A gym, box or studio whose class bookings happen in a WhatsApp group, and whose full classes are only discovered at the door.",
+              "A club that sells memberships at the front desk only, and loses the people who decided to join at eleven at night.",
+              "A studio with a busy timetable and no way to show which sessions still have space.",
+              "An owner who wants a website that sells memberships, not a page with a phone number and a gallery.",
+            ],
+          },
+          {
+            id: "what-it-does",
+            title: "What a gym website should actually do",
+            cards: [
+              {
+                title: "A timetable that is live",
+                body: "The week's classes with the coach, the level and the spots left, updated as people book, so members stop asking whether there is room.",
+              },
+              {
+                title: "Capacity and waitlists",
+                body: "Each class has a limit. When it fills, the next person joins a waitlist instead of turning up to a full room.",
+              },
+              {
+                title: "Joining online",
+                body: "Plans and prices on the page, and a sign-up that ends with a membership number. In a real build the plan is paid for online, through a gateway that works in your country.",
+              },
+              {
+                title: "The club's admin",
+                body: "Members, classes and today's fill rates on one screen, with a timetable your own team can edit.",
+              },
+            ],
+          },
+          {
+            id: "website-or-app",
+            title: "A website, an app, or both?",
+            body: [
+              "Most gyms should start with the website. It is what a new member finds in search, and a well-built one handles the timetable, booking and sign-up on a phone without anyone installing anything.",
+              "An app earns its place when members book several times a week and expect to do it from their home screen, with notifications, plan tracking and payment inside. We built that for Q-Fight Gym in Doha, and the gym booking app page covers it. The website and the app can share one backend, so starting with the website does not mean starting again later.",
+            ],
+          },
+          {
+            id: "proof",
+            title: "A gym we have already shipped for",
+            body: [
+              "Q-Fight Gym is the official app of a professional Muay Thai gym in Doha, Qatar. Members browse plans, choose a trainer and book personal or group sessions, with payment built in. It is live on the App Store and Google Play, and the store links are on the case study, so you can check it yourself.",
+              "The gym demo covers the website side of the same problem: a public timetable, capacity and waitlists, online joining and a club admin.",
+            ],
+          },
+          {
+            id: "timeline",
+            title: "Timeline and price",
+            body: [
+              "A gym website with a live timetable, class booking, sign-up and an admin usually takes one to two months. Online payment and more than one location add to that, and the scope call is where it becomes a number.",
+              "The price is fixed in USD before anything starts and paid across milestones. The site, the data and the payment account are all in your club's name.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Can members pay for a membership online?",
+            a: "In a real build, yes. The join flow ends at a payment gateway chosen for your country; Stripe, MyFatoorah and PayTabs cover Egypt and the Gulf between them. The demo stops before payment because it has no backend.",
+          },
+          {
+            q: "Does it handle class capacity and waitlists?",
+            a: "Yes, and that is the core of the demo. Each class shows its spots left, and once it is full the next member joins a waitlist instead of getting a booking the club cannot honour.",
+          },
+          {
+            q: "We have more than one branch. Does that work?",
+            a: "Separate timetables and coaches per branch are straightforward. Separate pricing, membership rules or ownership per branch is a bigger question, and the scope call is where you get a straight answer.",
+          },
+          {
+            q: "Can our own staff change the timetable?",
+            a: "That is what the admin is for. Classes, times, coaches and capacity are all editable by your team, without calling us.",
+          },
+          {
+            q: "Should we build a website or an app first?",
+            a: "Usually the website, because it is how new members find you and it works on every phone. If your members book several times a week, an app on the same system is the next step. The gym booking app page covers that.",
+          },
+          {
+            q: "Is the gym in the demo real?",
+            a: "No. Demo Gym is invented and says so: the coaches are Trainer 1 to Trainer 8, members have names like Member 12, and the address is on Demo Street. It exists to show booking, sign-up and the admin working.",
+          },
+        ],
+        cta: {
+          title: "Get a fixed quote for your gym's website",
+          body: "Tell us how classes, memberships and bookings work at your club today, and what goes wrong. You get a scope summary and a written price in USD before you commit.",
+          label: "Get a Free Quote on WhatsApp",
+          waMessage:
+            "Hi Desert Launch, I read your gym websites page and want a website with class booking for my gym.",
+        },
+        schema: {
+          serviceName: "Gym and fitness studio website development with class booking",
+          description:
+            "Websites for gyms, fitness clubs and studios with a live class timetable, class capacity and waitlists, online membership sign-up, and a club admin for members and classes. Built in Cairo, Egypt for clubs in Egypt and the Gulf, in Arabic and English.",
+          audience: "Gyms, fitness clubs, fitness studios and personal trainers",
+        },
+      },
+
+      "restaurants-and-cafes": {
+        meta: {
+          title: "Restaurant & Café Websites with Online Ordering | Desert Launch",
+          description:
+            "Restaurant and café websites with table reservations, online ordering for pickup or delivery, and the staff screens behind them. Try two live demos.",
+        },
+        breadcrumb: "Restaurants & cafés",
+        name: "Restaurants & cafés",
+        linkLabel: "Restaurant & café websites",
+        summary:
+          "Restaurant and café websites with your own online ordering and table reservations, plus the staff screens that run them: the book, the pass and the ticket board.",
+        kicker: "For restaurants and cafés",
+        h1: "Restaurant and café websites with online ordering and reservations",
+        lead: "Your menu, your orders and your reservations on your own site, not only inside a delivery app. Guests reserve a table that is genuinely free for their party size, or order ahead for pickup, and the kitchen and the floor see it arrive on their own screens. Two live demos show both.",
+        demo: {
+          title: "Try the restaurant and café demos",
+          body: "Reserve a table or place an order on the public site, then open the staff side: the reservation book, the order pass, and the café's ticket board where every order moves from new to ready.",
+        },
+        sections: [
+          {
+            id: "who-for",
+            title: "Who this is for",
+            list: [
+              "A restaurant taking reservations by phone and Instagram message, with the book kept on paper by whoever answered.",
+              "A café or bakery whose regulars would order ahead if they could, and whose eight o'clock queue is the bottleneck of the day.",
+              "A kitchen selling delivery only through aggregator apps, and paying commission on customers who already know it by name.",
+              "An owner whose menu changes every week, and whose website still shows last season's prices.",
+            ],
+          },
+          {
+            id: "what-it-does",
+            title: "What a restaurant or café website should actually do",
+            cards: [
+              {
+                title: "A menu you control",
+                body: "Items, sizes, options and extras. A dish can be taken off from the staff side in a tap, and the public menu changes at the same moment.",
+              },
+              {
+                title: "Reservations that know your floor",
+                body: "Guests see only the times that are free for their party size, instead of filling in a form someone answers later. The book on the staff side fills as they reserve.",
+              },
+              {
+                title: "Ordering ahead, for pickup or delivery",
+                body: "Order from the menu with the options that matter, pick collection or delivery and a time slot, and the order lands on the right screen.",
+              },
+              {
+                title: "Screens for the floor and the pass",
+                body: "A ticket board where staff move each order from new to ready, and tonight's reservations at a glance, built for a phone or a tablet on the counter.",
+              },
+            ],
+          },
+          {
+            id: "own-channel",
+            title: "Your own ordering, next to the delivery apps",
+            body: [
+              "A website with ordering does not replace the delivery apps, and we will not pretend it does: they bring customers who have never heard of you. What your own site gives you is a direct way for the customers who already know you to order and reserve, with no commission on each order and their details kept by you.",
+              "Whether that is worth building depends on how many of your orders come from regulars. It is one of the first questions we ask on the scope call.",
+            ],
+          },
+          {
+            id: "proof",
+            title: "What we can show you",
+            body: [
+              "For this industry, the two demos are the proof: open them and try the ordering, the reservations and the staff screens yourself. The businesses are fictional and the data is sample data, but the rules (party sizes, time slots, dishes taken off the menu) are calculated live.",
+              "The closest client work we have shipped is not a restaurant: it is Ezhal, a multi-role car-service platform with customer bookings, payments through MyFatoorah and Stripe, subscriptions, a wallet and points. Those are the same parts a restaurant's ordering and loyalty programme are built from.",
+            ],
+          },
+          {
+            id: "timeline",
+            title: "Timeline and price",
+            body: [
+              "A menu website on its own takes a few weeks. Add reservations or online ordering with a staff side and it becomes a small platform, usually one to two months, and longer with payments, delivery zones or several branches.",
+              "The price is fixed in USD after a free scope call and paid across milestones. The site, the data and the payment account are all in your name.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Can customers pay online when they order?",
+            a: "In a real build, yes, through a payment gateway chosen for your country: Stripe, MyFatoorah or PayTabs. Cash on collection or delivery can sit alongside it. The demos stop before payment because they have no backend.",
+          },
+          {
+            q: "Does this replace the delivery apps?",
+            a: "No, and it should not try to. The apps bring you new customers, and your own ordering serves the ones who already know you, without the commission. The two can run side by side.",
+          },
+          {
+            q: "Can guests reserve a table for a specific party size?",
+            a: "Yes. The restaurant demo only offers the times that are free for the number of guests, and the reservation appears in the staff book straight away.",
+          },
+          {
+            q: "Can staff take a dish off the menu when it runs out?",
+            a: "Yes, from the staff side, and it disappears from the public menu at once. Both demos show it.",
+          },
+          {
+            q: "Can the menu be in Arabic and English?",
+            a: "Yes, with a real right-to-left Arabic layout. Every project here runs in Arabic or English.",
+          },
+          {
+            q: "Are the restaurant and café in the demos real?",
+            a: "No. Demo Restaurant and Demo Café are invented, with addresses on Demo Street and phone numbers ending in xxx. They exist to show ordering, reservations and the staff screens working.",
+          },
+        ],
+        cta: {
+          title: "Get a fixed quote for your restaurant or café",
+          body: "Tell us how orders and reservations reach you today, and where they get lost. You get a scope summary and a written price in USD before you commit.",
+          label: "Get a Free Quote on WhatsApp",
+          waMessage:
+            "Hi Desert Launch, I read your restaurant and café websites page and want online ordering or reservations for my business.",
+        },
+        schema: {
+          serviceName: "Restaurant and café website development with online ordering and table reservations",
+          description:
+            "Websites for restaurants, cafés, bakeries and dark kitchens with online ordering for pickup or delivery, table reservations by party size, menu control, and staff screens for the reservation book and the order pass. Built in Cairo, Egypt for businesses in Egypt and the Gulf, in Arabic and English.",
+          audience: "Restaurants, cafés, bakeries and dark kitchens",
+        },
+      },
+
+      "real-estate": {
+        meta: {
+          title: "Real Estate Websites with Property Search & Leads | Desert Launch",
+          description:
+            "Real estate websites with searchable listings, saved units, enquiries that land on a leads board, and full listings admin. Try the live Arabic-first demo.",
+        },
+        breadcrumb: "Real estate",
+        name: "Real estate brokerages & developers",
+        linkLabel: "Real estate websites",
+        summary:
+          "Real estate websites where buyers filter and save units, every enquiry lands on a leads board, and your team edits the listings without a developer.",
+        kicker: "For real estate",
+        h1: "Real estate websites with property search, listings and lead management",
+        lead: "Buyers and tenants filter your units by district, type, price and bedrooms, save the ones they like, and send an enquiry about a specific unit. The enquiry lands on a leads board your team works from, and the listings are edited in the same admin. The live demo is Arabic-first, with English a tap away.",
+        demo: {
+          title: "Try the real estate demo",
+          body: "Filter the listings, save a unit and send an enquiry. Then open the admin and find the enquiry on the leads board, next to the unit it was about.",
+        },
+        sections: [
+          {
+            id: "who-for",
+            title: "Who this is for",
+            list: [
+              "A brokerage whose listings live on the portals and in a spreadsheet, with no site of its own that shows the full inventory.",
+              "A developer launching a project who needs units and availability online, and every enquiry captured rather than lost in a phone log.",
+              "A team whose enquiries arrive by WhatsApp, phone and portal, where nobody can say which ones were answered.",
+              "An agency serving Arabic-speaking buyers with a website that was built in English and translated as an afterthought.",
+            ],
+          },
+          {
+            id: "what-it-does",
+            title: "What a real estate website should actually do",
+            cards: [
+              {
+                title: "Search that works the way buyers think",
+                body: "Filters for sale or rent, district, type, price, bedrooms, bathrooms and size, plus sorting and a text search. The filters travel in the URL, so a search shared on WhatsApp opens exactly as it was sent.",
+              },
+              {
+                title: "A page for every unit",
+                body: "Photos, specifications and price for each unit, with the enquiry tied to that unit instead of a generic contact form.",
+              },
+              {
+                title: "Every enquiry on one board",
+                body: "Enquiries land on a leads board with the unit, the contact and the status, so the team can see what is new, what is in progress and what is closed.",
+              },
+              {
+                title: "Listings your team can edit",
+                body: "Add a unit, edit it, mark it reserved, sold or rented, and the public site follows at once, with no developer involved.",
+              },
+            ],
+          },
+          {
+            id: "arabic-first",
+            title: "Arabic first, not translated afterwards",
+            body: [
+              "Many property buyers in Saudi Arabia and Egypt read Arabic first. The demo is built for them: right-to-left from the start, with Arabic typography chosen for it and English as the second language rather than the other way round.",
+              "That also covers the details a translated site tends to get wrong: prices, areas and references that stay readable in both languages, and a layout that mirrors properly instead of breaking.",
+            ],
+          },
+          {
+            id: "portals",
+            title: "Your own site, alongside the portals",
+            body: [
+              "Listing portals bring traffic you cannot get alone, and a website will not replace them. What it gives you is a place where your full inventory lives under your own name, and where the enquiries you already paid for, from ads, social media or the portal itself, land in one system instead of five inboxes.",
+            ],
+          },
+          {
+            id: "proof",
+            title: "What we can show you",
+            body: [
+              "For this industry, the demo is the proof: it runs the listings, saved units, enquiries and admin described on this page, on sample data.",
+              "The closest client work we have shipped is Xera Lab, a platform with a customer portal, an admin dashboard, role-based access and file uploads on Node.js and PostgreSQL. A leads board and a listings admin are built on the same foundation.",
+            ],
+          },
+          {
+            id: "timeline",
+            title: "Timeline and price",
+            body: [
+              "A real estate website with searchable listings, unit pages, enquiries and an admin usually takes one to two months. Integrations such as a CRM or a portal feed add to that, and each one is scoped on its own.",
+              "The price is fixed in USD after a free scope call and paid across milestones, and the site and its data are in your company's name.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Can the listings sync with the property portals?",
+            a: "Sometimes. It depends on whether the portal offers a feed or an API you are allowed to use, and we check that before quoting, not after. Where there is none, listings are managed in your own admin and posted to the portals the way you do it today.",
+          },
+          {
+            q: "Can buyers filter by district, price and bedrooms?",
+            a: "Yes, and by sale or rent, type, bathrooms and size too, with sorting and a text search. The filters live in the URL, so a search can be shared or bookmarked.",
+          },
+          {
+            q: "Where do the enquiries go?",
+            a: "Onto a leads board in the admin, attached to the unit they were about. A real build can also notify the right agent by email or WhatsApp the moment one arrives.",
+          },
+          {
+            q: "Is the site in Arabic, English or both?",
+            a: "Both. The demo is Arabic-first with an English switch, and your site can lead with whichever language your buyers read first.",
+          },
+          {
+            q: "Is the brokerage in the demo real?",
+            a: "No. Demo Real Estate is invented, with addresses on Demo Street and phone numbers ending in xxx. It exists to show the search, the enquiries and the admin working.",
+          },
+        ],
+        cta: {
+          title: "Get a fixed quote for your real estate website",
+          body: "Tell us how many units you list, where your enquiries come from today and what happens to them. You get a scope summary and a written price in USD before you commit.",
+          label: "Get a Free Quote on WhatsApp",
+          waMessage:
+            "Hi Desert Launch, I read your real estate websites page and want a website with listings and lead management for my company.",
+        },
+        schema: {
+          serviceName: "Real estate website development with property listings and lead management",
+          description:
+            "Websites for real estate brokerages, developers and property managers with searchable property listings, unit pages, saved units, enquiries routed to a leads board, and a listings admin, Arabic-first or English. Built in Cairo, Egypt for companies in Egypt, Saudi Arabia and the Gulf.",
+          audience: "Real estate brokerages, property developers and property managers",
+        },
+      },
     },
   },
   pricing: {

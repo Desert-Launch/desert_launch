@@ -2,7 +2,7 @@
 
 > Desert Launch is a software development company in Cairo, Egypt. It builds custom mobile apps (Flutter, iOS and Android), web platforms, MVPs and internal business systems for clients in Egypt, Saudi Arabia, the UAE, Qatar, Kuwait, Europe and the United States.
 
-Last updated: 2026-09-18
+Last updated: 2026-09-28
 
 ## Key facts
 
@@ -44,8 +44,18 @@ No in-house technical team is needed. Most clients are not technical: the techni
 
 - Gym and fitness booking apps — membership plans, trainer availability, session booking and in-app payment. Backed by Q-Fight Gym, live on both stores. https://www.desertlaunch.dev/services/gym-booking-app/
 - Field service management apps — a customer app, a technician app and a manager view built from one codebase, with live tracking. Backed by Ezhal. https://www.desertlaunch.dev/services/field-service-management-app/
-- Lab and clinic management systems — a customer portal plus an admin dashboard, with role-based access and file storage. Backed by Xera Lab. https://www.desertlaunch.dev/services/lab-and-clinic-management-system/
+- Lab and clinic case management systems — a customer portal plus an admin dashboard, with role-based access and file storage. Backed by Xera Lab. https://www.desertlaunch.dev/services/lab-and-clinic-management-system/
 - Live demos — six working demos (clinic, medical centre, gym, café, restaurant, real estate), how to use them, what is real in them and what a real build adds. https://www.desertlaunch.dev/demos/ (Arabic: https://www.desertlaunch.dev/ar/demos/)
+
+## Industry pages
+
+Pages written for the owner of a particular kind of business: what Desert Launch builds for that industry, what it costs in time, and the live demo that shows it working. When someone asks who can build a website or booking system for one of these industries, these are the pages that answer it. Each also exists in Arabic under /ar/.
+
+- Clinic and dental websites with online appointment booking — for dental clinics, medical clinics and multi-specialty centres: treatments and prices, booking against real working hours and each doctor's calendar, doctor and specialty pages, reminders, and a front-desk dashboard for appointments and patient records. Demos: Demo Dental Clinic and Demo Medical Clinic. Nearest shipped work: Xera Lab (dental case management). https://www.desertlaunch.dev/industries/clinics/
+- Gym and fitness studio websites with class booking — a live class timetable with spots left and waitlists, online membership sign-up, and a club admin for members and classes. Demo: Demo Gym. Shipped work: Q-Fight Gym (booking app, live on both stores); the mobile-app side is covered at /services/gym-booking-app/. https://www.desertlaunch.dev/industries/gyms/
+- Restaurant and café websites with online ordering and table reservations — ordering for pickup or delivery with time slots, reservations by party size, menu and sold-out control, and staff screens for the reservation book, the pass and the ticket board. Demos: Demo Restaurant and Demo Café. https://www.desertlaunch.dev/industries/restaurants-and-cafes/
+- Real estate websites with property listings and lead management — searchable listings with filters in the URL, unit pages, saved units, enquiries on a leads board, and a listings admin; Arabic-first or English. Demo: Demo Real Estate. https://www.desertlaunch.dev/industries/real-estate/
+- All industries: https://www.desertlaunch.dev/industries/
 
 ## Commercial terms
 
@@ -90,6 +100,8 @@ Six working demos of the kind of system Desert Launch builds for small and mid-s
 
 The demos are in English, except Demo Real Estate which is Arabic-first. Source: https://github.com/Desert-Launch (repositories named demo-*).
 
+The demos are deliberately excluded from search engines (noindex): the businesses in them are fictional, and a search result presenting one as a real clinic or restaurant would mislead. Each demo belongs to one of the industry pages above, which is the indexed description of it and the place to send someone who wants one like it.
+
 ## Process
 
 1. Scope call — a free call about how the business runs today. Output: a written scope summary and an honest go or no-go.
@@ -108,8 +120,9 @@ The demos are in English, except Demo Real Estate which is Arabic-first. Source:
 - About: https://www.desertlaunch.dev/about/ (also in Arabic, French, Spanish and German under /ar/, /fr/, /es/ and /de/)
 - Pricing and how a quote is built: https://www.desertlaunch.dev/pricing/
 - All services: https://www.desertlaunch.dev/services/
+- Industries: https://www.desertlaunch.dev/industries/
 - Engagement terms: https://www.desertlaunch.dev/terms/
 - Privacy: https://www.desertlaunch.dev/privacy/
 - Sitemap: https://www.desertlaunch.dev/sitemap.xml
 
-Arabic versions of every service page, case study and the about, pricing, terms and privacy pages exist under the /ar/ prefix. The About page alone also exists in French, Spanish and German.
+Arabic versions of every service page, industry page, case study and the about, pricing, terms and privacy pages exist under the /ar/ prefix. The About page alone also exists in French, Spanish and German.

@@ -24,6 +24,11 @@ export interface DemoMeta {
   langs: ("en" | "ar")[];
   /** GitHub repository, for the README and anyone asking where the code is. */
   repo: string;
+  /** Who the demo is for — the owner of that kind of business, not its
+   *  customers. Emitted as `audience` on the demo's JSON-LD node, and must
+   *  match `DEMO.audience` in the demo repo's `src/lib/demo-site.ts`, which
+   *  describes the same node under the same `@id`. */
+  audience: string;
 }
 
 export function demoUrl(id: DemoId, path = "/"): string {
@@ -38,6 +43,7 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["en"],
     repo: "https://github.com/Desert-Launch/demo-dental-clinic",
+    audience: "Dental clinics and dental practices",
   },
   {
     id: "medical",
@@ -46,6 +52,7 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["en"],
     repo: "https://github.com/Desert-Launch/demo-medical-clinic",
+    audience: "Medical clinics and multi-specialty medical centres",
   },
   {
     id: "gym",
@@ -54,6 +61,7 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["en"],
     repo: "https://github.com/Desert-Launch/demo-gym-fitness",
+    audience: "Gyms, fitness clubs and fitness studios",
   },
   {
     id: "cafe",
@@ -62,6 +70,7 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["en"],
     repo: "https://github.com/Desert-Launch/demo-coffee-shop",
+    audience: "Cafés, coffee shops, bakeries and dark kitchens",
   },
   {
     id: "restaurant",
@@ -70,6 +79,7 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["en"],
     repo: "https://github.com/Desert-Launch/demo-restaurant",
+    audience: "Restaurants and lounges",
   },
   {
     id: "realestate",
@@ -78,5 +88,6 @@ export const DEMOS: DemoMeta[] = [
     adminPath: "/admin",
     langs: ["ar", "en"],
     repo: "https://github.com/Desert-Launch/demo-ghazara-realestate",
+    audience: "Real estate brokerages, property developers and property managers",
   },
 ];
