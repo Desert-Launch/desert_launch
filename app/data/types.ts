@@ -195,9 +195,6 @@ export interface WorkCopy {
   kicker: string;
   title: string;
   intro: string;
-  /** Honest attribution for the portfolio — who built what, and under which
-   *  relationship. Rendered directly under the section intro. */
-  attribution: string;
   /** Row labels on a case: Problem / We built / Outcome. */
   caseLabels: { problem: string; built: string; outcome: string };
   /** Heading over the small cards for the projects without a case row. */

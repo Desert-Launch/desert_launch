@@ -113,8 +113,6 @@ export const en: Dictionary = {
     title: "Products in the stores, platforms running a business every day",
     intro:
       "Eight products across consumer mobile, multi-role platforms and private business systems. Where an app is public, the store link is on the case.",
-    attribution:
-      "Every product here was designed and built by our founder, Abdullah Mohamed — across Desert Launch client work and earlier senior engineering roles. Voicers is our own in-house product and is not published yet.",
     caseLabels: { problem: "Problem", built: "We built", outcome: "Outcome" },
     moreHeading: "Five further products",
     caseStudyCta: "Read the case study",

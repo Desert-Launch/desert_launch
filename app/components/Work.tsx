@@ -224,9 +224,6 @@ export function Work({ t, lang }: { t: Dictionary; lang: Lang }) {
       <div className="shell">
         <SectionHead id="work-heading" kicker={w.kicker} title={w.title} intro={w.intro} />
 
-        {/* Honest attribution, directly under the intro rather than buried. */}
-        <p className="attribution reveal mt-6">{w.attribution}</p>
-
         {/* Three case rows, then the other five as small cards. */}
         <div className="mt-8 flex flex-col">
           {HOME_CASE_PROJECTS.map((project, i) => (

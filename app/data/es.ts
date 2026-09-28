@@ -113,8 +113,6 @@ export const es: Dictionary = {
     title: "Productos en las tiendas, plataformas que operan un negocio cada día",
     intro:
       "Ocho productos entre móvil de consumo, plataformas multirrol y sistemas empresariales privados. Cuando una app es pública, el enlace a la tienda está en el caso.",
-    attribution:
-      "Todos los productos que ve aquí los diseñó y desarrolló nuestro fundador, Abdullah Mohamed — entre proyectos de clientes de Desert Launch y puestos anteriores como ingeniero sénior. Voicers es nuestro producto interno y todavía no está publicado.",
     caseLabels: { problem: "Problema", built: "Construimos", outcome: "Resultado" },
     moreHeading: "Cinco productos más",
     caseStudyCta: "Leer el caso de estudio",

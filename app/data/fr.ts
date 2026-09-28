@@ -113,8 +113,6 @@ export const fr: Dictionary = {
     title: "Des produits sur les stores, des plateformes qui font tourner une entreprise chaque jour",
     intro:
       "Huit produits : mobile grand public, plateformes multi-rôles et systèmes métier privés. Quand une application est publique, le lien du store figure sur le cas.",
-    attribution:
-      "Chaque produit présenté ici a été conçu et développé par notre fondateur, Abdullah Mohamed — dans le cadre de missions Desert Launch et de postes d'ingénieur senior antérieurs. Voicers est notre produit interne et n'est pas encore publié.",
     caseLabels: { problem: "Problème", built: "Nous avons construit", outcome: "Résultat" },
     moreHeading: "Cinq autres produits",
     caseStudyCta: "Lire l'étude de cas",
