@@ -369,7 +369,7 @@ export const en: Dictionary = {
     intro:
       "Six working demos. Book, order or send an enquiry on the public site, then open the staff dashboard and watch it arrive. Nothing to install, no sign-up.",
     disclaimer:
-      "Every business, name, price and phone number in these demos is invented. What you enter stays in your browser for the session and resets when you refresh.",
+      "Every business, name, price and phone number in these demos is invented. What you enter is saved only in your own browser, for the day, so you can find it on the dashboard — nothing is sent anywhere.",
     items: {
       dental: {
         tag: "Dental clinic · Dubai",
@@ -408,10 +408,8 @@ export const en: Dictionary = {
         flows: ["Filter and sort listings", "Save units", "Send an enquiry", "Leads board and unit admin"],
       },
     },
-    siteCta: "Open the website",
-    adminCta: "Open the dashboard",
-    siteShort: "Website",
-    adminShort: "Dashboard",
+    siteCta: "Try the demo",
+    siteShort: "Try it",
     flowsLabel: "What you can try",
     langs: { en: "English", ar: "Arabic" },
     pageLink: "Everything about the demos",

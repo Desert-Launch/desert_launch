@@ -1280,7 +1280,7 @@ export const enPages: PagesCopy = {
       },
       {
         title: "Open the dashboard",
-        body: "Then open the staff side. What you just did is already there, ready to be confirmed, moved, edited or cancelled.",
+        body: "Then press Open the dashboard in the bar at the top of the demo. What you just did is already there, ready to be confirmed, moved, edited or cancelled — and it is still there after a refresh.",
       },
     ],
     gridTitle: "The six demos",
@@ -1299,10 +1299,10 @@ export const enPages: PagesCopy = {
         id: "what-a-real-build-adds",
         title: "What a real build adds",
         body: [
-          "The demos keep their data in your browser for one session and reset on refresh; that is what makes them safe to hand to anyone. A real build for your business starts from the same screens and flows and adds what a demo deliberately leaves out.",
+          "The demos keep what you do in your own browser, for the day, and send nothing anywhere; that is what makes them safe to hand to anyone. A real build for your business starts from the same screens and flows and adds what a demo deliberately leaves out.",
         ],
         list: [
-          "A database, so data survives a refresh and is shared by everyone on your team.",
+          "A database, so the data lives on a server, is backed up and is shared by everyone on your team, not kept in one browser.",
           "Accounts and roles for staff, so the dashboard is yours and not the public's.",
           "Payments where the flow needs them — Stripe, MyFatoorah or PayTabs, depending on where you take money.",
           "Notifications by email, SMS or WhatsApp when a booking, order or enquiry comes in.",
@@ -1329,7 +1329,7 @@ export const enPages: PagesCopy = {
       },
       {
         q: "Is anything I enter saved?",
-        a: "No. Each demo keeps its data in your browser for the session and resets when you refresh. Nothing is sent anywhere, because there is no database behind them.",
+        a: "No. Each demo saves what you do in your own browser's storage, for the day, so it is still on the dashboard after a refresh. Nothing is sent anywhere, because there is no database behind them, and Reset demo data in the dashboard clears it.",
       },
       {
         q: "Can I get one of these for my business?",
@@ -1439,7 +1439,7 @@ export const enPages: PagesCopy = {
             title: "What the demos show, and what a real build adds",
             body: [
               "The dental demo applies real slot rules: it respects the lunch break and the closed day, and never offers a time inside the next two hours. The medical demo takes a patient through five steps (specialty, doctor, date, time, details) and can jump straight to the first available doctor in a department. In both, the booking appears on the staff side the moment it is made.",
-              "The demos keep their data in your browser and reset when you refresh. A real build for your clinic adds what they deliberately leave out:",
+              "The demos keep their data in your own browser, for the day. A real build for your clinic adds what they deliberately leave out:",
             ],
             list: [
               "A real database and staff accounts, with each role seeing only what it should.",

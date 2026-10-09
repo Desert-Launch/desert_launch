@@ -369,7 +369,7 @@ export const es: Dictionary = {
     intro:
       "Seis demos funcionales. Reserve, pida o envíe una consulta en el sitio público y luego abra el panel del personal y vea cómo llega. Nada que instalar, sin registro.",
     disclaimer:
-      "Todos los negocios, nombres, precios y teléfonos de estas demos son inventados. Lo que introduzca se queda en su navegador durante la sesión y se reinicia al recargar.",
+      "Todos los negocios, nombres, precios y teléfonos de estas demos son inventados. Lo que introduzca se guarda solo en su navegador, durante el día, para que lo encuentre en el panel; no se envía a ninguna parte.",
     items: {
       dental: {
         tag: "Clínica dental · Dubái",
@@ -408,10 +408,8 @@ export const es: Dictionary = {
         flows: ["Filtrar y ordenar anuncios", "Guardar inmuebles", "Enviar una consulta", "Tablero de contactos y gestión de inmuebles"],
       },
     },
-    siteCta: "Abrir el sitio",
-    adminCta: "Abrir el panel",
-    siteShort: "Sitio",
-    adminShort: "Panel",
+    siteCta: "Probar la demo",
+    siteShort: "Probar",
     flowsLabel: "Qué puede probar",
     langs: { en: "en inglés", ar: "en árabe" },
     pageLink: "Todo sobre las demos",

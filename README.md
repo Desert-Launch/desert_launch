@@ -33,9 +33,11 @@ out of structural parity either.
 
 **The live demos are separate apps.** `app/data/demos.ts` only lists them. Each
 one is its own Next.js project in a `Desert-Launch/demo-*` repository, deployed
-as its own Vercel project on `<id>.demos.desertlaunch.dev`, running against an
-in-memory store with `robots: noindex, follow`. This site links out; nothing
-about a demo is built here.
+as its own Vercel project on `<id>.demos.desertlaunch.dev`, running against a
+store saved in the visitor's own browser for the day, with `robots: noindex,
+follow`. This site links out — one link per demo, to its public site; the
+demo's own bar carries the switch to its dashboard. Nothing about a demo is
+built here.
 
 **Industry pages carry the demos into search.** A demo is a fictional business
 written for its customers, so it is never indexed. The page that answers a

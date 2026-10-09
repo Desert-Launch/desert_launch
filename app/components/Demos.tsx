@@ -8,10 +8,12 @@ import { IndustryLinks } from "./Industries";
 
 type Placement = "home" | "demos-page" | "service" | "industry";
 
-/** One demo: the public site and the staff dashboard, both in a new tab, and
- *  — where the page exists — the industry page that explains what a real build
- *  for that kind of business involves. The demo's own bar links back to that
- *  same industry page with attribution. */
+/** One demo: one link to its public site, in a new tab, and — where the page
+ *  exists — the industry page that explains what a real build for that kind
+ *  of business involves. The staff dashboard is not linked from here: the
+ *  demo's own bar carries the switch to it, so a visitor tries the customer's
+ *  side first and then watches the result arrive. The bar also links back to
+ *  the industry page with attribution. */
 export function DemoCard({
   t,
   demo,
@@ -59,19 +61,6 @@ export function DemoCard({
           data-evt-placement={placement}
         >
           {d.siteCta}
-          <span className="sr-only"> ({t.a11y.newTab})</span>
-        </a>
-        <a
-          href={demoUrl(demo.id, demo.adminPath)}
-          target="_blank"
-          rel="noreferrer"
-          className="pf-link pf-link--external"
-          data-evt="demo_click"
-          data-evt-demo={demo.id}
-          data-evt-surface="admin"
-          data-evt-placement={placement}
-        >
-          {d.adminCta}
           <span className="sr-only"> ({t.a11y.newTab})</span>
         </a>
         {industry ? (
@@ -132,7 +121,7 @@ export function DemoGrid({
   );
 }
 
-/** One row of the home-page list: icon, name, the two flows, two links. */
+/** One row of the home-page list: icon, name, the two flows, one link. */
 function DemoRow({ t, demo }: { t: Dictionary; demo: DemoMeta }) {
   const d = t.demos;
   const copy = d.items[demo.id];
@@ -154,40 +143,22 @@ function DemoRow({ t, demo }: { t: Dictionary; demo: DemoMeta }) {
           </li>
         ))}
       </ul>
-      <span className="flex shrink-0 gap-4">
-        <a
-          href={demoUrl(demo.id)}
-          target="_blank"
-          rel="noreferrer"
-          className="pf-link pf-link--external text-meta"
-          data-evt="demo_click"
-          data-evt-demo={demo.id}
-          data-evt-surface="site"
-          data-evt-placement="home"
-        >
-          {d.siteShort}
-          <span className="sr-only">
-            {" "}
-            — {demo.name} ({t.a11y.newTab})
-          </span>
-        </a>
-        <a
-          href={demoUrl(demo.id, demo.adminPath)}
-          target="_blank"
-          rel="noreferrer"
-          className="pf-link pf-link--external text-meta"
-          data-evt="demo_click"
-          data-evt-demo={demo.id}
-          data-evt-surface="admin"
-          data-evt-placement="home"
-        >
-          {d.adminShort}
-          <span className="sr-only">
-            {" "}
-            — {demo.name} ({t.a11y.newTab})
-          </span>
-        </a>
-      </span>
+      <a
+        href={demoUrl(demo.id)}
+        target="_blank"
+        rel="noreferrer"
+        className="pf-link pf-link--external shrink-0 text-meta"
+        data-evt="demo_click"
+        data-evt-demo={demo.id}
+        data-evt-surface="site"
+        data-evt-placement="home"
+      >
+        {d.siteShort}
+        <span className="sr-only">
+          {" "}
+          — {demo.name} ({t.a11y.newTab})
+        </span>
+      </a>
     </li>
   );
 }

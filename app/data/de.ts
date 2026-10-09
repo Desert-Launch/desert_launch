@@ -369,7 +369,7 @@ export const de: Dictionary = {
     intro:
       "Sechs funktionierende Demos. Buchen, bestellen oder eine Anfrage auf der öffentlichen Seite senden, dann das Dashboard öffnen und zusehen, wie sie ankommt. Nichts zu installieren, keine Registrierung.",
     disclaimer:
-      "Jedes Unternehmen, jeder Name, Preis und jede Telefonnummer in diesen Demos ist erfunden. Was Sie eingeben, bleibt für die Sitzung in Ihrem Browser und wird beim Neuladen zurückgesetzt.",
+      "Jedes Unternehmen, jeder Name, Preis und jede Telefonnummer in diesen Demos ist erfunden. Was Sie eingeben, wird nur in Ihrem Browser gespeichert, für den Tag, damit Sie es im Dashboard wiederfinden — nichts wird irgendwohin gesendet.",
     items: {
       dental: {
         tag: "Zahnarztpraxis · Dubai",
@@ -408,10 +408,8 @@ export const de: Dictionary = {
         flows: ["Angebote filtern und sortieren", "Objekte speichern", "Anfrage senden", "Lead-Board und Objektverwaltung"],
       },
     },
-    siteCta: "Website öffnen",
-    adminCta: "Dashboard öffnen",
-    siteShort: "Website",
-    adminShort: "Dashboard",
+    siteCta: "Demo ausprobieren",
+    siteShort: "Ausprobieren",
     flowsLabel: "Was Sie ausprobieren können",
     langs: { en: "auf Englisch", ar: "auf Arabisch" },
     pageLink: "Alles über die Demos",

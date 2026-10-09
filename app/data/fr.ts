@@ -369,7 +369,7 @@ export const fr: Dictionary = {
     intro:
       "Six démos fonctionnelles. Réservez, commandez ou envoyez une demande sur le site public, puis ouvrez le tableau de bord et regardez-la arriver. Rien à installer, aucune inscription.",
     disclaimer:
-      "Chaque entreprise, nom, prix et numéro de téléphone dans ces démos est inventé. Ce que vous saisissez reste dans votre navigateur le temps de la session et se réinitialise au rechargement.",
+      "Chaque entreprise, nom, prix et numéro de téléphone dans ces démos est inventé. Ce que vous saisissez est enregistré uniquement dans votre navigateur, pour la journée, afin que vous le retrouviez dans le tableau de bord — rien n'est envoyé nulle part.",
     items: {
       dental: {
         tag: "Cabinet dentaire · Dubaï",
@@ -408,10 +408,8 @@ export const fr: Dictionary = {
         flows: ["Filtrer et trier les annonces", "Enregistrer des biens", "Envoyer une demande", "Tableau des prospects et gestion des biens"],
       },
     },
-    siteCta: "Ouvrir le site",
-    adminCta: "Ouvrir le tableau de bord",
-    siteShort: "Site",
-    adminShort: "Tableau de bord",
+    siteCta: "Essayer la démo",
+    siteShort: "Essayer",
     flowsLabel: "Ce que vous pouvez essayer",
     langs: { en: "en anglais", ar: "en arabe" },
     pageLink: "Tout sur les démos",

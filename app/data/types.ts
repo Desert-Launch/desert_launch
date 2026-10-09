@@ -257,18 +257,17 @@ export interface DemosCopy {
   kicker: string;
   title: string;
   intro: string;
-  /** Plain statement that the businesses are invented and the data resets. */
+  /** Plain statement that the businesses are invented and where the data lives. */
   disclaimer: string;
   items: Record<DemoId, DemoCopy>;
-  /** Link labels on every card. */
+  /** The card's one link, to the demo's public site. The dashboard is reached
+   *  from inside the demo, through its bar. */
   siteCta: string;
-  adminCta: string;
   /** Accessible name for the flow-chip list, and the language line. */
   flowsLabel: string;
   langs: Record<"en" | "ar", string>;
-  /** Short link labels for the row layout on the home page. */
+  /** Short label for the same link in the row layout on the home page. */
   siteShort: string;
-  adminShort: string;
   /** Link to the long-form /demos/ page, shown where that page exists. */
   pageLink: string;
 }

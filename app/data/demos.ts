@@ -6,9 +6,10 @@ import type { DemoId, IconKey } from "./types";
  *
  *  Each demo is its own Next.js app, deployed as its own Vercel project from
  *  `github.com/Desert-Launch/demo-<name>` and served on a subdomain of
- *  `DEMOS_HOST`. They are fictional businesses running against an in-memory
- *  store: nothing is persisted, and every one carries `robots: noindex` plus a
- *  Desert Launch bar that links back here with `utm_campaign=<id>`. */
+ *  `DEMOS_HOST`. They are fictional businesses running against a
+ *  store kept in the visitor's own browser for the day, and every one carries
+ *  `robots: noindex` plus a Desert Launch bar that links back here with
+ *  `utm_campaign=<id>` and switches between the site and the dashboard. */
 export const DEMOS_HOST = "demos.desertlaunch.dev";
 
 export interface DemoMeta {
